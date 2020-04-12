@@ -147,12 +147,15 @@ return(
             <Route  exact path ='/verify'>
               <Email_verification />
             </Route>
+
             <Route exact path ='/projects/:project_id' component={DonateToProject} />
+
             <Route exact path ='/sub_hubs/:subhub_id' component={DonateToSubhub} />
-            {/*<Route exact path ='/:hubName/subhub/:subhub_id' component={DonateToSubhub} />*/}
-            <Route exact path = '/single-projects' component ={SingleProject} />
-            {/* <Route exact path = '/single-subhub' component ={SingleSubhub} /> */}
-            <Route exact path = '/single-subhub' component ={DemoProject} />
+
+            <Route exact path = '/single-projects/:project_id' component ={SingleProject} />
+
+            <Route exact path = '/single-subhub/:subhub_id' component ={SingleSubhub} />
+            
             <Route exact path ='/projects/demo' component={DemoProject} />
 
            </Switch>

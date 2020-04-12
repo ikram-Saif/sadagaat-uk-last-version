@@ -33,7 +33,6 @@ function App() {
 
    return (
 
-
      <div className="main-content">
 
      <Preload/>

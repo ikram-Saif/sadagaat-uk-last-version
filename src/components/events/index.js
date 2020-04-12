@@ -50,7 +50,7 @@ import { useTranslation } from 'react-i18next';
         
 {events.map(event => (
 
-<div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
+<div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15" key = {event.id}>
     <div className="row">
           <div className="col-xs-2 col-md-3 pr-0">
                 <div className="event-date text-center bg-theme-colored border-1px p-0 pt-10 pb-10 sm-custom-style">
@@ -62,9 +62,9 @@ import { useTranslation } from 'react-i18next';
               </div>            
               <div className="col-xs-9 pr-10 pl-10">
                 <div className="event-content mt-10 p-5 pb-0 pt-0">
-                  <h5 className="media-heading font-16 font-weight-600"><a href="#">{event.name}</a></h5>
+                  <h5 className="media-heading font-16 font-weight-600">{event.name}</h5>
                   <ul className="list-inline font-weight-600 text-gray-dimgray">
-                    <li><i className="fa fa-clock-o text-theme-colored" />{`${event.startDate}`}</li>
+                    <li><i className="fa fa-clock-o text-theme-colored" />{event.startDate}</li>
                     <li> <i className="fa fa-map-marker text-theme-colored" />{event.locationName}</li>
                   </ul>
                 </div>

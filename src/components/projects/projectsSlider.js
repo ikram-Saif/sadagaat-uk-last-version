@@ -17,6 +17,7 @@ import i18n from 'i18next'
 import {address} from '../utils/address'
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
+import { withTranslation } from 'react-i18next';
 
 
 class ProjectSlider extends Component{
@@ -38,6 +39,7 @@ async componentDidMount() {
    render(){
 
     const {projects } = this.state
+    const {t} = this.props
     return(
 
         <React.Fragment>
@@ -68,9 +70,9 @@ async componentDidMount() {
                   </div>
                   <div class="causes-details clearfix border-bottom p-15 pt-15 pb-15">
                     <ul class="list-inline font-20 font-weight-600 clearfix mb-5">
-                      <li class="pull-left font-weight-400 text-black-333 pr-0">Raised: <span
-                          class="text-theme-colored font-weight-700">7867675 SDG</span></li>
-                      <li class="pull-right font-weight-400 text-black-333 pr-0">Goal: <span
+                      <li class="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')}:<span
+                          class="text-theme-colored font-weight-700">SDG</span></li>
+                      <li class="pull-right font-weight-400 text-black-333 pr-0">{t("Goal")}: <span
                           class="text-theme-colored font-weight-700">876 SDG</span></li>
                     </ul>
                     <h4 class="text-uppercase"><a href="#">98</a></h4>
@@ -80,7 +82,7 @@ async componentDidMount() {
                       </div>
                     </div>
                     <p class="mt-20">kjkh</p>
-                    <a href="#" class="btn btn-default btn-theme-colored btn-xs font-16 mt-10">Donate</a>
+                    <a href="#" class="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</a>
                   </div>
                 </div>
         </div>
@@ -96,4 +98,4 @@ async componentDidMount() {
    }
 }
 
-export default ProjectSlider;
+export default withTranslation()(ProjectSlider);

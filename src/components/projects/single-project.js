@@ -1,15 +1,43 @@
 
-import React from 'react';
-import Header from '../sub_page_header'
-import Parteners from '../parteners'
-import About_ from '../about/'
+import React ,{Component }  from 'react';
+import address from '../utils/address';
+import axios from 'axios';
+import i18n from 'i18next'
+import  {withTranslation}  from 'react-i18next'
 
 
-/*** translation backage */
-import { useTranslation } from 'react-i18next';
 
-function SinglProject() {
-  const {t} = useTranslation()
+class SinglProject extends Component {
+
+  constructor() {
+    super();
+    this.state = 
+    {
+      project:[]
+      }
+}
+
+componentDidMount=()=>{
+
+    let id = this.props.match.params.project_id
+    console.log(this.props.match.params.project_id) 
+ 
+
+    axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+
+    .then(response => {
+
+         const project = response.data
+          this.setState({project})
+
+    }).catch(error => {
+        alert(error.message)
+    })
+  
+}
+render(){
+  const {t} = this.props
+   const project = this.state.project
 return (
 
       <div className="container">
@@ -17,7 +45,7 @@ return (
           <div className="col-sm-12 col-md-10 col-md-offset-1">
             <div className="causes bg-white maxwidth500 mb-30">
               <div className="thumb">
-                <img src="images/slide-1.jpg" alt="" className="img-fullwidth"/>
+                <img src={project.imageUrl} alt="" className="img-fullwidth"/>
                 <div className="donation-progress"></div>
               </div>
               <div className="progress-item mt-0">
@@ -26,12 +54,12 @@ return (
                 </div>
               </div>
               <div className="causes-details clearfix  border-bottom-theme-color-1px p-15 pt-10 pb-10">
-                <h5 className="font-weight-600 font-16">Education for Childreen</h5>
-                <p>Lorem ipsum dolor sit amet, consect adipisicing elit. Praesent quos sit.</p> 
+                <h5 className="font-weight-600 font-16">{project.name}</h5>
+                <p>{project.description}</p> 
                 <ul className="list-inline project-conditions mt-20 text-center bg-theme-colored-transparent-1 m-0 p-10">
-                  <li className="target-fund text-center text-theme-colored float-left"><strong>Target: $120,000</strong></li>
+                  <li className="target-fund text-center text-theme-colored float-left"><strong>{t('Goal')} {project.goal}</strong></li>
                  {/* <li className="day text-theme-colored"><i className="flaticon-charity-hand-holding-a-heart font-30 "></i></li>  */}
-                  <li className="raised text-center"><strong className="text-center">Raised: $65,000</strong></li>
+                  <li className="raised text-center"><strong className="text-center">{t('Raised')} {project.DonationProgress}</strong></li>
                 </ul>
               </div>
             </div>
@@ -67,5 +95,6 @@ return (
           </div> 
         </div>
       </div>)
+}
 
-    } export default SinglProject
+    } export default withTranslation()(SinglProject)

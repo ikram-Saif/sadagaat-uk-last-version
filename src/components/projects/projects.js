@@ -111,7 +111,7 @@ return(
 <div className="col-md-4" key ={project.id}>
 <div className="causes bg-white mb-30">
   <div className="thumb">
-    <Link to ='/single-projects'><img src={project.imageUrl}  className="img-fullwidth" /></Link>
+  <Link to={'/single-projects/'+project.id}><img src={project.imageUrl}  className="img-fullwidth" /></Link>
   </div>
   
   <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
@@ -135,8 +135,8 @@ return(
 </div>
 <div className="causes-details clearfix p-15 pt-15 pb-15">
     <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
-      <li className="pull-left font-weight-400 text-black-333 pr-0"><span className="text-theme-colored font-weight-700">{t(project.raised)} SDG</span></li>
-      <li className="pull-right font-weight-400 text-black-333 pr-0"> <span className="text-theme-colored font-weight-700">{t(project.goal)} SDG</span></li>
+      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')}:<span className="text-theme-colored font-weight-700">{project.raised} SDG</span></li>
+      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')}:<span className="text-theme-colored font-weight-700">{project.goal} SDG</span></li>
     </ul>
       <h4 className="text-uppercase">{project.title}</h4>
     <div className="progress-item mt-0">

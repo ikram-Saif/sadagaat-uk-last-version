@@ -51,7 +51,7 @@ function Projects(){
 {data.map(project  =>  (  <div className="col-md-4" key ={project.id}>
 <div className="causes bg-white mb-30">
   <div className="thumb">
-    <Link to="/single-projects">
+    <Link to={'/single-projects/'+project.id}>
     <img src={project.imageUrl}  className="img-fullwidth" />
     </Link>
   </div>

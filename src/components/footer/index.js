@@ -59,10 +59,10 @@ const {t} = useTranslation()
             <h5 className="widget-title line-bottom">{t('Hubs')}</h5>
             <ul className="list angle-double-right list-border">
 
-              <li><Link to="/water">{t('Water Hub')}</Link></li>
-              <li><Link to="/health">{t('Health Hub')}</Link></li>
-              <li><Link to="/feeding">{t('Feeding Hub')}</Link></li>
-              <li><Link to="/education">{t('Education Hub')}</Link></li>
+              <li><Link to='/water'>{t('Water Hub')}</Link></li>
+              <li><Link to='/health'>{t('Health Hub')}</Link></li>
+              <li><Link to='/feeding'>{t('Feeding Hub')}</Link></li>
+              <li><Link to='/education'>{t('Education Hub')}</Link></li>
            
             </ul>
           </div>

@@ -40,7 +40,7 @@ class Registration extends Component{
        .then(token => window.location = '/verify')
        
        .catch(err => {
-        console.log(err)
+        console.log(err.message)
 
             this.setState({
               errorMessage: err.message,
@@ -193,8 +193,9 @@ class Registration extends Component{
                                       data-minlength="8"
                                       data-error={t('Minimum of 8 characters')}
                                       required
-                                      onChange = {this.handleChange}/>
-                                      value ={this.state.password} 
+                                      onChange = {this.handleChange}
+                                      value ={this.state.password}
+                                      /> 
 
                                 <div className="help-block with-errors"></div>
                                 </div>
@@ -208,7 +209,8 @@ class Registration extends Component{
                                         type="password" 
                                         data-match="#inputPassword" 
                                         data-match-error={t('Not Matching')} 
-                                        placeholder="Confirm" required
+                                        placeholder="Confirm"
+                                         required
                                    />
 
                                   

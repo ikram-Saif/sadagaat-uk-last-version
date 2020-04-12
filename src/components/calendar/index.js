@@ -18,7 +18,7 @@ function Calendar(){
   useEffect(() => {
     
          async function fetchData() {
-           const fetcher = await window.fetch(`${address()}/events`,{headers: {'accept-language': `${i18n.language}`}})
+           const fetcher = await window.fetch(`${address()}events`,{headers: {'accept-language': `${i18n.language}`}})
            const response = await fetcher.json()
            setData(response)
          }
@@ -33,13 +33,13 @@ function Calendar(){
 
     return(
         <div>
-<Header name="Event Calendar"/>
+<Header name={t("Event Calendar")}/>
 <section>
   <div className="container pb-30">
     <div className="section-content">
       <div className="row">
         
-      {currentPosts.map(water => (  
+      {currentPosts.map(event => (  
         <div className="col-sm-6 col-md-4 col-lg-4">
           <div className="schedule-box maxwidth500 bg-lighter mb-30">
             <div className="schedule-details border-bottom-theme-color-2px clearfix p-15 pt-10">
@@ -49,14 +49,13 @@ function Calendar(){
                   <li className="font-12 text-white text-uppercase">Feb</li>
                 </ul>
               </div>
-      <h4 className="title mt-5 mb-5"><a href="#">{water.title}</a></h4>
+              <h4 className="title mt-5 mb-5"><a href="#">{event.name}</a></h4>
               <ul className="list-inline font-11 text-gray">
-                <li><i className="fa fa-calendar mr-5" /> Sun at 9:30PM</li>
-                <li><i className="fa fa-map-marker mr-5" /> Newyork</li>
+                <li><i className="fa fa-calendar mr-5" /> {event.startDate}</li>
+                <li><i className="fa fa-map-marker mr-5" /> {event.locationName}</li>
               </ul>
               <div className="clearfix" />
-              <p className="mt-10">Cum veritatis sequi nulla nihil, dolor voluptatum nemo adipisci eligendi! Sed nisi
-                perferendis</p>
+              <p className="mt-10">{event.description}</p>
             </div>
           </div>
         </div>

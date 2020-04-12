@@ -109,7 +109,7 @@ import { useTranslation } from 'react-i18next';
             <div className="col-md-4" key ={sub_hub.id}>
               <div className="causes bg-white mb-30">
                 <div className="thumb">
-                  <Link to="/single-subhub">
+                  <Link to={'/single-subhub/'+sub_hub.id}>
                   <img src={sub_hub.imageUrl}alt className="img-fullwidth" width="240px" height="320px" />
                </Link>
                 </div>
