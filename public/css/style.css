@@ -1,0 +1,217 @@
+/*
+@Author: ThemeMascot
+@URL: http://ThemeMascot.com
+
+This is the file where you can add your custom styles to change the look of the
+theme. But don't modify style-main.css file.
+
+*/
+
+/* Your custom css codes start here: */
+
+
+.progress-item .progress-bar {
+  background: rgb(6,105,147);
+  background: linear-gradient(90deg, rgba(6,105,147,1) 0%, rgba(0,159,78,1) 50%) !important;
+}
+
+.btn-theme-green {
+  border-radius: 0 !important;
+  background-color: rgba(0,159,78,1);
+  color: #FFF !important;
+}
+
+.btn-theme-green:hover {
+  background-color: rgb(0,120,78,1) !important;
+  color: #FFF !important;
+}
+
+.facts {
+  padding: 60px 0;
+}
+
+.form-check {
+  display: inline !important;
+  margin-right: 20px;
+}
+
+
+
+.bg-img{
+  background-image: url('../images/bg-inside_1.jpg');
+}
+
+
+.slide-container {
+  direction: ltr;
+  width: 100%;
+  margin-bottom:-140px;
+}
+
+.react-slideshow-container .nav {
+background-color: rgba(0, 0, 0, 0.35) !important;
+/* width: 50px !important; */
+}
+
+/* .react-slideshow-container .nav:last-of-type {
+margin-right: -50px !important;
+}
+
+.react-slideshow-container .nav:first-of-type {
+margin-left: -50px !important;
+} */
+
+.react-slideshow-container .nav span {
+border-color: #FFF !important;
+}
+
+/* h3 {
+  text-align: center; } */
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 600px;
+}
+
+.each-slide h3 {
+  padding: 10px 20px;
+  font-size: 20px;
+  letter-spacing: 0.8rem;
+  border-radius: 0;
+  background: rgba(239, 239, 239, 0.75);
+  text-align: center;
+  display: block !important;
+  margin-bottom: 30px;
+  /* margin: auto; */
+}
+
+.each-slide a.btn {
+  margin: auto !important;
+  /* display: block; */
+}
+
+.each-fade {
+  display: flex;
+}
+
+.each-fade .image-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.each-fade .image-container img {
+  width: 100%;
+}
+
+.each-fade h2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: #adceed;
+}
+
+.number-animates{
+  font-style: italic;
+font-weight: 900;
+font-size: 99px;
+}
+.form-check {
+display: inline !important;
+margin-right: 20px;
+}
+
+.dropdown-menu {
+left: 50%;
+border-radius: 0;
+}
+
+.dropdown-menu>li>a {
+text-transform: capitalize !important;
+font-weight: 500;
+}
+
+.dropdown-menu>li>a:hover {
+background-color: #FFF;
+color: #066993;
+}
+
+/*
+@Author: ThemeMascot
+@URL: http://ThemeMascot.com
+
+This is the file where you can add your custom styles to change the look of the
+theme. But don't modify style-main.css file.
+
+*/
+
+/* Your custom css codes start here: */
+
+
+.rev_slider_wrapper {
+direction: ltr !important;
+float: left;
+}
+
+.progress-item .progress-bar {
+background: rgb(6,105,147);
+background: linear-gradient(90deg, rgba(6,105,147,1) 0%, rgba(0,159,78,1) 50%) !important;
+}
+
+.btn-theme-green {
+border-radius: 0 !important;
+background-color: #066993 ;
+color: #FFF !important;
+}
+
+.btn-theme-green:hover {
+background-color: #066993  !important;
+color: #FFF !important;
+}
+
+
+.facts {
+padding: 60px 0;
+}
+
+.form-check {
+display: inline !important;
+margin-right: 20px;
+}
+
+.dropdown-menu {
+left: 50%;
+border-radius: 0;
+}
+
+.dropdown-menu>li>a {
+text-transform: capitalize !important;
+font-weight: 500;
+}
+
+.dropdown-menu>li>a:hover {
+background-color: #FFF;
+color: #00a74f;
+}
+
+.menuzord-menu > li > a {
+font-family: 'sadagaat';
+}
+.lang-switch{
+  border:none;
+  background-color: transparent;
+}
+.d-none{
+  display: none;
+}
+.error-message{
+  color:darkred
+
+}
+.success-message{
+  color:green
+}
