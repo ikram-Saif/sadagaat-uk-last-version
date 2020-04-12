@@ -1,0 +1,50 @@
+/*
+@Author: ThemeMascot
+@URL: http://ThemeMascot.com
+
+This is the file where you can add your custom styles to change the look of the
+theme. But don't modify style-main.css file.
+
+*/
+
+/* Your custom css codes start here: */
+
+.progress-item .progress-bar {
+    background: rgb(6,105,147);
+    background: linear-gradient(90deg, rgba(6,105,147,1) 0%, rgba(0,159,78,1) 50%) !important;
+}
+
+.btn-theme-green {
+    border-radius: 0 !important;
+    background-color: rgba(0,159,78,1);
+    color: #FFF !important;
+}
+
+.btn-theme-green:hover {
+    background-color: rgb(0,120,78,1) !important;
+    color: #FFF !important;
+}
+
+.facts {
+    padding: 60px 0;
+}
+
+.form-check {
+    display: inline !important;
+    margin-right: 20px;
+}
+
+.dropdown-menu {
+    left: 50%;
+    border-radius: 0;
+}
+
+.dropdown-menu>li>a {
+    text-transform: capitalize !important;
+    font-weight: 500;
+}
+
+.dropdown-menu>li>a:hover {
+    background-color: #FFF;
+    color: #066993;
+}
