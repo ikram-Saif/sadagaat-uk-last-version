@@ -143,6 +143,28 @@ body {
 }
 
 
+@font-face {
+  font-family: 'sadagaatAr';
+  src: url('../fonts/Sadagaat-Arabic-Light_0.otf.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sadagaatAr';
+  src: url('../fonts/Sadagaat-Arabic-Regular_0.otf') format("truetype");
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sadagaatAr';
+  src: url('../fonts/Sadagaat-Arabic-Bold_0.otf') format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+
 a {
   color: #808080;
   text-decoration: none;
@@ -153,6 +175,8 @@ a:focus {
   color: #595959;
   text-decoration: none;
 }
+
+
 a img {
   border: none;
 }

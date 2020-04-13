@@ -1,3 +1,9 @@
+main, a, h1, h2, h3, h4, h5, h6, p, span, label, button {
+    font-family: 'sadagaatAr' !important;
+}
+
+
+
 .breadcrumb{padding-right:0;}
 .drop-caps p:first-child:first-letter{float:right;}
 .drop-caps.text-colored p:first-child:first-letter{float:right;}
