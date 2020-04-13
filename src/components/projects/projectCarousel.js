@@ -128,7 +128,7 @@ class ProjectSlider extends Component {
                       />
                     </div>
 
-                    <div class="causes-details clearfix border-bottom p-15 pt-15 pb-15">
+                    <div class="causes-details clearfix p-15 pt-15 pb-15">
                       <ul class="list-inline font-20 font-weight-600 clearfix mb-5">
                         <li class="pull-left font-weight-400 text-black-333 pr-0">
                           {t("Raised")}{" "}
