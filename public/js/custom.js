@@ -1575,8 +1575,9 @@ var THEMEMASCOT = {};
                 var data_nav = ( $(this).data("nav") === undefined ) ? false: $(this).data("nav");
                 var data_duration = ( $(this).data("duration") === undefined ) ? 4000: $(this).data("duration");
                 $(this).owlCarousel({
-                    rtl: THEMEMASCOT.isRTL.check(),
+                    // rtl: THEMEMASCOT.isRTL.check(),
                     autoplay: true,
+                    rtl: true,
                     autoplayTimeout: data_duration,
                     loop: true,
                     items: 1,

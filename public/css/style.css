@@ -208,10 +208,19 @@ font-family: 'sadagaat';
 .d-none{
   display: none;
 }
-.error-message{
-  color:darkred
 
+.react-slideshow-container + div.indicators {
+  display: none !important;
 }
-.success-message{
-  color:green
+
+.jumbotron {
+  background-color: transparent;
+}
+
+#causes .item {
+  padding: 0 5px;
+}
+
+#causes .causes-details {
+  height: 280px;
 }

@@ -3,6 +3,7 @@ import axios from "axios";
 import i18n from "i18next";
 import { address } from "../utils/address";
 
+
 class EventSlider extends Component {
   state = { events: [] };
   async componentDidMount() {
@@ -21,10 +22,10 @@ class EventSlider extends Component {
       <div class="owl-carousel-1col owl-dots-bottom-right">
         <div class="causes">
           <div class="row-fluid">
-            <div class="col-md-5">
+            <div class="col-md-6">
               <img src="http://placehold.it/450x500" alt="Event Name" />
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
               <h2 class="line-bottom mt-0">Sadagaat event 2</h2>
               <h4 class="mt-0 mb-0 text-theme-colored">27 FEB 2020</h4>
               <p>

@@ -58,7 +58,7 @@ componentDidMount=()=>{
             let id = this.state.project_id
             const data = 
             {
-              donateFor:`p${id}`,
+              pid:id,
               amount:this.state.amount,
               currency:this.state.currency
             }

@@ -60,7 +60,7 @@ componentDidMount (){
             let id = this.state.subhub_id
             const data = 
             {
-              donateFor:`s${id}`,
+              sid:id,
               amount:this.state.amount,
               currency:this.state.currency
             }

@@ -29,7 +29,7 @@ function Health (props){
     }
   
          async function eduProjects() {
-           const fetcher = await window.fetch(`${address()}/projects`,{headers: {'accept-language': `${i18n.language}`}})
+           const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
            const response = await fetcher.json()
            setProject(response)
          }
@@ -104,17 +104,17 @@ return(
           {currentPosts.map(healthPro => (        
 
 
-<div className="col-md-4">
+<div className="col-md-4" key = {healthPro.id}>
 <div className="causes bg-white mb-30">
   <div className="thumb">
-    <img  src={(health.imageUrl)}  alt className="img-fullwidth" />
+    <img  src={(healthPro.imageUrl)}  alt className="img-fullwidth" />
   </div>
   
   <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
 <CircularProgressbar
 
-  value={healthPro.id}
+  value={healthPro.donationProgress}
   text={`${healthPro.id}%`}
   styles={buildStyles({
   rotation: 0.25,
@@ -131,8 +131,8 @@ return(
 />  
 </div><div className="causes-details clearfix border-bottom p-15 pt-15 pb-15">
     <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
-      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised:')} <span className="text-theme-colored font-weight-700">{health.rasing} SDG</span></li>
-      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal:')} <span className="text-theme-colored font-weight-700">{health.goals} SDG</span></li>
+      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')} <span className="text-theme-colored font-weight-700">{health.rasing} SDG</span></li>
+      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')} <span className="text-theme-colored font-weight-700">{health.goals} SDG</span></li>
     </ul>
       <h4 className="text-uppercase"><a href="#">{healthPro.title}</a></h4>
     <div className="progress-item mt-0">
@@ -141,7 +141,7 @@ return(
       </div>
     </div>
     <p className="mt-20">{healthPro.description}.</p>
-    <Link to={`/donate/${healthPro.id}`} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
+    <Link to={'/donate/'+healthPro.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
   </div>
 </div>
 </div>
