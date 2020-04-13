@@ -5,6 +5,7 @@ import { render } from '@testing-library/react';
 import  {withTranslation}  from 'react-i18next'
 import{Link} from 'react-router-dom'
 
+
 class FaildDonate extends Component {
 
 
@@ -21,15 +22,13 @@ class FaildDonate extends Component {
           <div className="section-content">
            
           <div className="jumbotron text-center ">
-          <div><h1><i class="fa fa-close-circle"></i></h1></div>
-              <h1 className="display-3">Ooops!</h1>
-              <div className=""><h3>Donation process failed </h3></div>
-              <hr />
-              <p>
-                Having trouble? <Link to="/contact">{t('Contact us')}</Link>
-              </p>
-              <p className="lead">
-                <Link className="btn btn-primary" to="/donate" role="button">{t('retry donation')}</Link>
+            <div><i className="fa fa-check-circle lg font-30 text-primary"></i></div>
+              <h1 className="display-3">{t('Sorry...')}</h1>
+              <div className=""><h3>{t('Donation was completed successfully')}</h3></div>
+              {/* <hr /> */}
+              <p className="lead mt-5">
+              <Link className="btn btn-primary" to="/donate" role="button">{t('retry donation')}</Link>
+
               </p>
             </div>
 
@@ -44,3 +43,4 @@ class FaildDonate extends Component {
 }
 
 export default withTranslation()(FaildDonate);
+

@@ -90,13 +90,15 @@ class ProjectSlider extends Component {
                   <div class="item ml-5" key={project.id}>
                     <div class="causes bg-white maxwidth500 mb-30">
                       <div class="thumb">
+                        <Link to = {'/single-projects/'+project.id}>
                         <img
                           src={project.imageUrl}
-                          alt="alt"
+                          alt=""
                           class="img-fullwidth"
                           width="240"
                           height="320"
                         />
+                        </Link>
                       </div>
                       {/* <div class="donation-progress mt-5 ml-5 text-center">
                         {project.donationProgress}
@@ -149,18 +151,18 @@ class ProjectSlider extends Component {
                       <div class="progress-item mt-0">
                         <div class="progress mb-0">
                           <div
-                            data-percent={project.projectProgress}
+                            data-percent={project.donationProgress}
                             class="progress-bar"
                           >
                             <span class="percent">
-                              {project.projectProgress}
+                              {project.donationProgress}
                             </span>
                           </div>
                         </div>
                       </div>
                       <p class="mt-20">{project.description}</p>
                       <Link
-                        to={"/project/" + project.id}
+                        to={"/project/"+project.id}
                         class="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
                       >
                         {t("Donate")}
