@@ -84,7 +84,7 @@ function Event() {
               ))}
             </div>
 
-            <div className="col-xs-12 col-sm-6 col-md-6">
+            <div className="col-xs-12 col-sm-6 col-md-8">
               <h2 class="line-bottom border-bottom mt-0">
                 {" "}
                 {t("Latest")}
@@ -93,7 +93,7 @@ function Event() {
 
               <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
                 <div className="row">
-                  <Carousel autoPlay={5000} stopAutoPlayOnHover infinite>
+                  <Carousel autoPlay={5000} stopAutoPlayOnHover infinite rtl>
                     {news.map((news_) => (
                       <div className="causes" key={news_.id}>
                         <div className="row-fluid">
@@ -102,7 +102,7 @@ function Event() {
                               src={news_.imageUrl}
                               alt="News"
                               height="250px"
-                              width="250px"
+                              // width="250px"
                             />
                           </div>
                           <div className="col-md-7">

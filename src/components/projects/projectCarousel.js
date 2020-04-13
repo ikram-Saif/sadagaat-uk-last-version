@@ -60,6 +60,8 @@ class ProjectSlider extends Component {
                 slidesPerPage={3}
                 slidesPerScroll={1}
                 autoPlay={3000}
+                margin={10}
+                rtl
                 // animationSpeed={1000}
                 infinite
                 clickToChange
@@ -91,7 +93,7 @@ class ProjectSlider extends Component {
                           src={project.imageUrl}
                           alt="alt"
                           class="img-fullwidth"
-                          width="240"
+                          // width="240"
                           height="240"
                         />
                       </div>
