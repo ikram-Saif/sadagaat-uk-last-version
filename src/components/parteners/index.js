@@ -45,6 +45,7 @@ function Parteners() {
               autoPlay={3000}
               animationSpeed={1000}
               infinite
+              rtl
               clickToChange
               centered
               breakpoints={{

@@ -113,7 +113,11 @@ ul.list li:before{margin-left:10px;}
 .dots-left .owl-dots{margin-right:10px;text-align:right;}
 .setion-bottom-absolute-div{right:0;left:0;}
 .bg-img-box .caption{padding-right:30px;padding-left:30px;}
-.causes .progress-item .progress-bar .percent{left:-10px;}
+.causes .progress-item .progress-bar .percent{left:-10px; text-align: right;}
+.progress-item .progress-bar .percent {
+    border-radius:  7px 0 0 7px;
+    left: -10px;
+  }
 .causes .thumb .overlay-donate-now{right:0;left:0;}
 .donate-piechart.piechart-absolute{left:15px;}
 .piechart canvas{right:0;left:0;}
