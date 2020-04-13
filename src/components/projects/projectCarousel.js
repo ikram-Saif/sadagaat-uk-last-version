@@ -93,7 +93,7 @@ class ProjectSlider extends Component {
                         <Link to = {'/single-projects/'+project.id}>
                         <img
                           src={project.imageUrl}
-                          alt=""
+                          alt="alt"
                           class="img-fullwidth"
                           width="240"
                           height="320"
@@ -130,7 +130,7 @@ class ProjectSlider extends Component {
                       />
                     </div>
 
-                    <div class="causes-details clearfix p-15 pt-15 pb-15">
+                    <div class="causes-details clearfix border-bottom p-15 pt-15 pb-15">
                       <ul class="list-inline font-20 font-weight-600 clearfix mb-5">
                         <li class="pull-left font-weight-400 text-black-333 pr-0">
                           {t("Raised")}{" "}
@@ -155,14 +155,14 @@ class ProjectSlider extends Component {
                             class="progress-bar"
                           >
                             <span class="percent">
-                              {project.donationProgress}
+                              {project.projectProgress}
                             </span>
                           </div>
                         </div>
                       </div>
                       <p class="mt-20">{project.description}</p>
                       <Link
-                        to={"/project/"+project.id}
+                        to={'/projects/'+project.id}
                         class="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
                       >
                         {t("Donate")}

@@ -100,16 +100,15 @@ componentDidMount=()=>{
             <div class="col-xs-12 col-sm-12 col-md-5">
             
               <h3 class="mt-0 line-bottom">{t('Make a Donation')}<span class="font-weight-300"> {t('Now!')}</span></h3>
-              <p className="error-message">{t(this.state.message)}</p>
+              <span className="error-message">{t(this.state.message)}</span>
               <form
                   data-toggle="validator"
                   role="form"
                   id="popup_paypal_donate_form_onetime_recurring"
                   onSubmit = {this.handleSubmite}>
 
-                      <h3>{this.state.project.name}</h3>
-                      <br/>
-
+                      <h4 className ='lead text-primary'>{this.state.project.name}</h4>
+                     
                     <div className="row">
                     <div className="col-sm-9">
                     <div className="form-group mb-20">

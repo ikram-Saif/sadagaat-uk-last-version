@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 
 function Water (props){
 
-  const [health, setHealth ] = useState([])
+  const [water, setwater ] = useState([])
   const [project, setProject ] = useState([])
   const [currentPage,setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
@@ -22,10 +22,10 @@ function Water (props){
 
   useEffect(() => {
 
-    async function healthHub() {
-      const fetcher = await window.fetch(`${address()}/hubs`,{headers: {'accept-language': `${i18n.language}`}})
+    async function eduHub() {
+      const fetcher = await window.fetch(`${address()}hubs/30`,{headers: {'accept-language': `${i18n.language}`}})
       const response = await fetcher.json()
-      setHealth(response)
+      setwater(response)
     }
   
          async function eduProjects() {
@@ -33,7 +33,7 @@ function Water (props){
            const response = await fetcher.json()
            setProject(response)
          }
-         healthHub()
+         eduHub()
          eduProjects()
     
         },[])
@@ -44,7 +44,7 @@ function Water (props){
   const currentPosts = project.slice(firstPost,  lastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
   
-  const getHealth = health.filter(hub => hub.id === 2)
+ //const getwater = water.filter(hub => hub.id === 2)
  
 
 return(
@@ -55,34 +55,35 @@ return(
     <div className="row mtli-row-clearfix">
       <div className="col-sm-12 col-md-10 col-md-offset-1">
         <div className="causes bg-white maxwidth500 mb-30">
-   {getHealth.map(health => (
+
           <div className="thumb">
-            <img src={('images/slide-1.jpg')} alt className="img-fullwidth" />
+            
+            <img src={water.imageUrl} alt className="img-fullwidth" />
   <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
-<CircularProgressbar
+{/* <CircularProgressbar
 
-  value={health.id}
-  text={`${health.id}%`}
+  value={water.projectProgress}
+  text={`${water.projectProgress}%`}
   styles={buildStyles({
   rotation: 0.25,
   strokeLinecap: 'butt',
   textSize: '26',
   pathTransitionDuration: 0.5,
-  pathColor: `${health.id / 1000})`,
+  pathColor: `${water.id / 1000})`,
   textColor: 'black',
   trailColor: '',
-  backgroundColor: '',
+  backgroundColor: '', 
 
 })}
 
-/>  
+/>  */}
 </div>
           </div>
-          ))}
+  
      </div>
         <div className="event-details">
-          <p className="mb-20 mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat qui ducimus illum modi? Libero saepe perspiciatis accusamus soluta perferendis, ad illum, nesciunt, reiciendis iusto et cupiditate. Repudiandae provident, consectetur, sapiente, libero iure necessitatibus corporis nulla voluptate, quisquam aut eum perspiciatis? Fugiat labore aspernatur eius, perspiciatis ut molestiae, delectus rem.</p>
+          <p className="mb-20 mt-20">{water.description}</p>
           <p />
           <p className="mb-20 mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat qui ducimus illum modi? Libero saepe perspiciatis accusamus soluta perferendis, ad illum, nesciunt, reiciendis iusto et cupiditate. Repudiandae provident, consectetur, sapiente, libero iure necessitatibus corporis nulla voluptate, quisquam aut eum perspiciatis? Fugiat labore aspernatur eius, perspiciatis ut molestiae, delectus rem.</p>
           <p />
@@ -101,27 +102,38 @@ return(
      
      
      
-          {currentPosts.map(healthPro => (        
+          {currentPosts.map(waterPro => (        
 
 
-<div className="col-md-4" key = {healthPro.id}>
-<div className="causes bg-white mb-30">
-  <div className="thumb">
-    <img  src={(healthPro.imageUrl)}  alt className="img-fullwidth" />
-  </div>
+  <div className="col-md-4" key = {waterPro.id}>
+  <div className="causes bg-white mb-30">
+    <div className="thumb">
+    <Link to = {'/single-projects/'+waterPro.id}>
+     <img  src={(waterPro.imageUrl)}  
+     alt className="img-fullwidth" 
+     />
+     </Link>
+     </div>
   
-  <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+  <div style=
+  {{
+    width: "15%",
+    left:"25px",
+    top:"8px", 
+    position: "absolute", 
+    rotation: 1 / 2 + 1 / 8
+    }}>
 
 <CircularProgressbar
 
-  value={healthPro.donationProgress}
-  text={`${healthPro.id}%`}
+  value={waterPro.donationProgress}
+  text={`${waterPro.id}%`}
   styles={buildStyles({
   rotation: 0.25,
   strokeLinecap: 'butt', 
   textSize: '26',
   pathTransitionDuration: 0.5,
-  pathColor: `${healthPro.id / 1000})`,
+  pathColor: `${waterPro.id / 1000})`,
   textColor: 'black',
   trailColor: '',
   backgroundColor: '',
@@ -131,17 +143,31 @@ return(
 />  
 </div><div className="causes-details clearfix border-bottom p-15 pt-15 pb-15">
     <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
-      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')} <span className="text-theme-colored font-weight-700">{health.rasing} SDG</span></li>
-      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')} <span className="text-theme-colored font-weight-700">{health.goals} SDG</span></li>
-    </ul>
-      <h4 className="text-uppercase"><a href="#">{healthPro.title}</a></h4>
-    <div className="progress-item mt-0">
-      <div className="progress mb-0">
-        <div data-percent={healthPro.id} className="progress-bar"><span className="percent">0</span></div>
-      </div>
+
+      <li className="pull-left font-weight-400 text-black-333 pr-0">
+        {t('Raised')} 
+        <span className="text-theme-colored font-weight-700">
+          {water.raised} SDG</span>
+        </li>
+      <li className="pull-right font-weight-400 text-black-333 pr-0">
+          {t('Goal')} <span className="text-theme-colored font-weight-700">
+          {water.goal} SDG</span>
+      </li>
+      </ul>
+        <h4 className="text-uppercase"><a href="#">{waterPro.name}</a></h4>
+        <div className="progress-item mt-0">
+
+        <div className="progress mb-0">
+          <div data-percent={waterPro.donationProgress} 
+            className="progress-bar">
+            <span className="percent">
+              {waterPro.donationProgress}</span>
+              </div>
+        </div>
     </div>
-    <p className="mt-20">{healthPro.description}.</p>
-    <Link to={'/donate/'+healthPro.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
+    <p className="mt-20">{waterPro.description}.</p>
+    <Link to={'/projects/'+waterPro.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">
+      {t('Donate')}</Link>
   </div>
 </div>
 </div>
