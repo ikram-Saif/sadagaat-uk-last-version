@@ -23,7 +23,7 @@ class DonateToSubhub extends Component {
       }
 }
 
-componentDidMount=()=>{
+componentDidMount (){
 
     let id = this.props.match.params.subhub_id
     console.log(this.props.match.params.subhub_id) 
@@ -109,13 +109,8 @@ componentDidMount=()=>{
                   id="popup_paypal_donate_form_onetime_recurring"
                   onSubmit = {this.handleSubmite}>
 
-                    <div className="row">
-                    <div className="col-sm-12">
-                      <div className="form-group mb-20">
-                      <h3>{this.state.subHubs.name}</h3>
-                      </div>
-                    </div>
-                    </div>
+                      <h3 className="text-center">{this.state.subHubs.name}</h3>
+                      <br />
 
                     <div className="row">
                     <div className="col-sm-9">

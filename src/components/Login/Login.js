@@ -32,6 +32,7 @@ class Login extends Component{
     //.then(token =>console.log(token))
     
     .catch(err =>{
+      console.log(err.message)
 
         this.setState({
           errorMessage: err.message,
@@ -117,7 +118,7 @@ class Login extends Component{
                                    className="form-control" 
                                    type="password"
                                    data-minlength="6"
-                                   value = {this.state.email}
+                                   value = {this.state.password}
 
                                     onChange = {this.handleChange}
                                      required/>

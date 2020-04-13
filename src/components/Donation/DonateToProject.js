@@ -100,7 +100,7 @@ componentDidMount=()=>{
             <div class="col-xs-12 col-sm-12 col-md-5">
             
               <h3 class="mt-0 line-bottom">{t('Make a Donation')}<span class="font-weight-300"> {t('Now!')}</span></h3>
-              <span className="error-message">{t(this.state.message)}</span>
+              <p className="error-message">{t(this.state.message)}</p>
               <form
                   data-toggle="validator"
                   role="form"
@@ -108,6 +108,7 @@ componentDidMount=()=>{
                   onSubmit = {this.handleSubmite}>
 
                       <h3>{this.state.project.name}</h3>
+                      <br/>
 
                     <div className="row">
                     <div className="col-sm-9">

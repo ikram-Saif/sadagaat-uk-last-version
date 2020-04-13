@@ -10,20 +10,20 @@ import {
   Switch,HashRouter,
   Route,
   Link,NavLink
-} from 'react-router-dom'
+} from "react-router-dom";
 
 function Footer(){
 const {t} = useTranslation()
 
   const handleClick =(e)=>{
-    isAuthenticated() ? window.location ='local/volunteerForm' : window.location = 'local/login'
+    isAuthenticated() ? window.location ='/volunteerForm' : window.location = '/login'
   }
   const [data, setData ] = useState([])
   
   useEffect(() => {
     
          async function fetchData() {
-           const fetcher = await window.fetch(`${address()}/footer`,{headers: {'accept-language': `${i18n.language}`}})
+           const fetcher = await window.fetch(`${address()}/footer`)
            const response = await fetcher.json()
            setData(response.slice(-1))
          }
@@ -32,9 +32,9 @@ const {t} = useTranslation()
 
 
     return(
+      <Router>
   
 <div>
-<Router basename={process.env.PUBLIC_URL}>
   <footer id="footer" className="footer" data-bg-img="images/Sadgaat-Pattern.png" data-bg-color="#25272e">
     <div className="container pt-70 pb-40">
       <div className="row border-bottom-black">
@@ -102,10 +102,9 @@ const {t} = useTranslation()
       </div>
     </div>
   </footer>
-<a className="scrollToTop" href="#"><i className="fa fa-angle-up" /></a>
-</Router>
+<a className="scrollToTop"><i className="fa fa-angle-up" /></a>
 </div>
-
+</Router>
 
 
     )

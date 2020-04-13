@@ -37,7 +37,7 @@ class Registration extends Component{
         e.preventDefault();
 
        register(this.state)
-       .then(token => window.location = '/verify')
+       .then(token => window.location = '/login')
        
        .catch(err => {
         console.log(err.message)

@@ -25,7 +25,7 @@ function Auth_user_menu()
   const handleProfile =(e)=>{
     e.preventDefault()
     get_volunteer_profile()
-    .then(token => window.location = 'local/volunteerForm')
+    .then(token => window.location = '/volunteerForm')
     //.then(token =>console.log(token))
     
     //.catch(err =>alert(err));

@@ -50,7 +50,7 @@ return (
               </div>
               <div className="progress-item mt-0">
                 <div className="progress mb-0">
-                  <div data-percent="84" className="progress-bar"><span className="percent">0</span></div>
+                  <div data-percent={project.donationProgress} className="progress-bar"><span className="percent">{project.donationProgress}</span></div>
                 </div>
               </div>
               <div className="causes-details clearfix  border-bottom-theme-color-1px p-15 pt-10 pb-10">
@@ -59,7 +59,7 @@ return (
                 <ul className="list-inline project-conditions mt-20 text-center bg-theme-colored-transparent-1 m-0 p-10">
                   <li className="target-fund text-center text-theme-colored float-left"><strong>{t('Goal')} {project.goal}</strong></li>
                  {/* <li className="day text-theme-colored"><i className="flaticon-charity-hand-holding-a-heart font-30 "></i></li>  */}
-                  <li className="raised text-center"><strong className="text-center">{t('Raised')} {project.DonationProgress}</strong></li>
+                  <li className="raised text-center"><strong className="text-center">{t('Raised')} {project.raised}</strong></li>
                 </ul>
               </div>
             </div>

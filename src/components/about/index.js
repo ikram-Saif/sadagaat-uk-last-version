@@ -16,15 +16,15 @@ function About(){
           <div className="row">
             <div className={`col-md-6 col-sm-6 ${classParameter}`}>
               <div className="img-hover-border mt-sm-40">
-                <img className="img-fullwidth" src="http://placehold.it/275x335" alt />
+                <img className="img-fullwidth" src='./images/about 350-300.jpg' alt=""  width="275" height ="335" />
               </div>
             </div>
             <div className="col-md-6 col-sm-6 pl-0 pr-0">
               <div className="img-hover-border mt-sm-30">
-                <img className="img-fullwidth" src="http://placehold.it/280x156" alt />
+                <img className="img-fullwidth" src="./images/about 325-177.jpg" alt = ""  width="250" height ="156"/>
               </div>
               <div className="img-hover-border mt-15 mt-sm-30">
-                <img className="img-fullwidth" src="http://placehold.it/325x176" alt />
+                <img className="img-fullwidth" src="./images/x.jpg" alt = "" width="250" height ="156" />
               </div>
             </div>
           </div>
@@ -34,8 +34,8 @@ function About(){
             <h2 className="font-28 text-uppercase mt-1">{t('About')} <span className="text-theme-colored">{t('Sadagaat')}</span></h2>
             <p>{t('about_message_1')}</p>
             <p>{t('about_message_2')}</p>
-            <p>{t('about_message_3')}</p>
-            <p>{t('about_message_3')}</p>
+            <p>{t('about_message_1')}</p>
+            <p>{t('about_message_2')}</p>
             <Link to="/about" className={`btn btn-flat btn-colored btn-theme-colored mt-15 ${buttonClass}`}>{t('Read More')}</Link>
             <Link to="/donate" className={`btn btn-flat btn-colored btn-default btn-theme-colored mt-15 ${buttonClass}`}>{t('Donate')}</Link>
           </div>

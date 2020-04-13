@@ -158,9 +158,9 @@
   "Raised:":":المتبقي",
   "Goal:":"الهدف",
   "Finished Projects":"المشاريع المكتملة",
-  "Let's have a":"لنقم",
-  "video":"فيديو",
-  "Tour":"جولة",
+  "Let's have a":"",
+  "video":"",
+  "Tour":"",
   "All Rights Reserved © Sadagaat Community of Charity - 2020":"جميع الحقوق محفوظة © جمعية صدقات الخيرية - 2020",
   "join us now as a volunteer":"يمكنك الانضمام إلينا الآن كمتطوع",
   "username or Password not correct":"اسم المستخدم او كلمة المرور غير صحيح",
@@ -169,12 +169,15 @@
   "Thank You!":"   شكرا لك  ! ",
   "Continue to homepage":"الرجوع الى الصفحة الرئيسية",
   "Proccess Failed":"فشلت العملية",
-  "Network Error":"خطأ الاتصال بالشبكة",
   "Not Finished Projects":"المشاريع غير مكتملة",
 "Dooners":"المتبرعين",
 "Volunteer":"المتطوعين",
 "We provides always our best industrial solution for our clientsand always try to":"نقدم دائمًا أفضل الحلول التي نقدمها لعملائنا ونحاول دائمًا",
-"achieve our client  trust and satisfaction":"تحقيق ثقة عملائنا ورضاهم."
+"achieve our client  trust and satisfaction":"تحقيق ثقة عملائنا ورضاهم.",
+"Network Error":"خطأ الاتصال بالشبكة",
+"Request failed with status code 500":"اسم المستخدم او كلمة المرور غير صحيح",
+"Request failed with status code 404":"تأكد من ادخال البيانات المطلوبة"
+  
 
 }
 

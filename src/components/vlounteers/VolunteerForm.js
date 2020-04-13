@@ -89,7 +89,7 @@ class VolunteerForm extends Component{
         .catch(err => {
             this.setState({
                 response:{
-             message:'Please fill your information',
+             message:err.message,
             styleClass:'error-message'
                 }
         })
@@ -142,7 +142,7 @@ return(
                                         <hr />
                                        
                                         <div className={`${this.state.response.styleClass} bold`} role="alert">
-                                                {t(this.state.response.message)}
+                                               <p> {t(this.state.response.message)} </p>
                                         </div>
                                         
                                         <p className="text-gray"><br/></p>

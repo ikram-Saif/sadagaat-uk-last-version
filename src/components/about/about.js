@@ -43,7 +43,7 @@ return (
                       </div>
                       <div className="col-md-3">
                         <div className="thumb">
-                          <img alt src="http://placehold.it/350x300" className="img-fullwidth" />
+                          <img  src='./images/about 350-300.jpg' className="img-fullwidth" />
                         </div>
                       </div>
                     </div>

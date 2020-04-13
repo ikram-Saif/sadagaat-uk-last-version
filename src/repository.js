@@ -19,9 +19,6 @@ export function login(data)
          userName: data.email,
          password: data.password 
 
-         ,headers: {
-            Authorization: null            
-         }
           })
     .then(response => {
             localStorage.setItem(tokenKey, data.email);
