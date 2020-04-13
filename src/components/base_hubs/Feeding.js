@@ -29,14 +29,14 @@ function Feeding (props){
           
    
     async function feedHub() {
-      const fetcher = await window.fetch(`${address()}`,{headers: {'accept-language': `${i18n.language}`}})
+      const fetcher = await window.fetch(`${address()}/hubs`,{headers: {'accept-language': `${i18n.language}`}})
       const response = await fetcher.json()
       setFeed(response)
     }
     
 
          async function eduProjects() {
-           const fetcher = await window.fetch(`${address()}`,{headers: {'accept-language': `${i18n.language}`}})
+           const fetcher = await window.fetch(`${address()}/projects`,{headers: {'accept-language': `${i18n.language}`}})
            const response = await fetcher.json()
            setProject(response)
          }
