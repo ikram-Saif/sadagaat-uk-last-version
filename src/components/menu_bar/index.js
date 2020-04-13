@@ -29,7 +29,7 @@ import DemoProject from "../projects/testProjects"
 
 
 import {
-  BrowserRouter as Router,
+  BrowserRouter ,
   Switch,HashRouter,
   Route,
   Link,NavLink
@@ -42,7 +42,7 @@ import SingleSubhub from '../sub_hubs/single-subhub';
 function MenuBar(){
   const {t} = useTranslation()
   return(
-        <Router basename={process.env.PUBLIC_URL}>
+   <BrowserRouter>
       <div className="header-nav">
       
         
@@ -50,7 +50,7 @@ function MenuBar(){
          <div className="header-nav-wrapper navbar-scrolltofixed bg-silver-light">
                 <div className="container">
                   <nav id="menuzord-right" className="menuzord default no-bg">
-                    <a className="menuzord-brand pull-left flip" to="#"><img src="./images/logo.png" alt="" /></a>
+                    <a className="menuzord-brand pull-left flip" to="#"><img src='/images/logo.png' alt="" /></a>
                     <ul className="menuzord-menu">
                     <li><NavLink className="nav-link" activeclassName="active" exact to="/">{t('Home')}</NavLink></li>
                                             
@@ -160,7 +160,7 @@ function MenuBar(){
       
                  </Switch>
       
-      </Router>
+      </BrowserRouter>
       
                  
              

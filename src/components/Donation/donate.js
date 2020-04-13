@@ -51,7 +51,7 @@ class Donate extends Component {
             console.log(id)
 
           const data = {
-              donateFor:`h${id}`,
+              hid: id ,
               amount:this.state.amount,
               currency:this.state.currency
             }

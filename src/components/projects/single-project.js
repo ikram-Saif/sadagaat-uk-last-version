@@ -37,7 +37,7 @@ componentDidMount=()=>{
 }
 render(){
   const {t} = this.props
-   const project = this.state.project
+   const {project} = this.state
 return (
 
       <div className="container">
@@ -50,7 +50,7 @@ return (
               </div>
               <div className="progress-item mt-0">
                 <div className="progress mb-0">
-                  <div data-percent={project.donationProgress} className="progress-bar"><span className="percent">{project.donationProgress}</span></div>
+                  <div data-percent={project.donationProgress} className="progress-bar"><span className="percent">0</span></div>
                 </div>
               </div>
               <div className="causes-details clearfix  border-bottom-theme-color-1px p-15 pt-10 pb-10">

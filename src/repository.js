@@ -126,7 +126,7 @@ export function login(data)
     }
     export function logout() {
         localStorage.removeItem(tokenKey);
-        window.location='local/login'
+        window.location='/login'
       }
 
       export function get_volunteer_profile()

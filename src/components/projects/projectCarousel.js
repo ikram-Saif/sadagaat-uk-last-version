@@ -5,6 +5,7 @@ import { address } from "../utils/address";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import image1 from "../../components/images/image1.jpg";
+import { CircularProgressbar , buildStyles } from 'react-circular-progressbar';
 import  {withTranslation}  from 'react-i18next'
 import {Link} from 'react-router-dom'
 
@@ -95,19 +96,35 @@ class ProjectSlider extends Component {
                           height="240"
                         />
                       </div>
-                      <div class="donation-progress mt-4 ml-4 text-center align-items">
-                        {project.donationProgress}
-                      </div>
+              
+                      <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+
+                    <CircularProgressbar
+
+                      value={project.projectProgress}
+                      text={`${project.projectProgress}%`} 
+                      styles={buildStyles({
+                      rotation: 0.25,
+                      strokeLinecap: 'butt',
+                      textSize: '26',
+                      pathTransitionDuration: 0.5,
+                      pathColor: `${project.id / 1000})`,
+                      textColor: 'black',
+                      trailColor: '',
+                      backgroundColor: '',
+                    })}  />  
+            </div>
+
                       <div class="causes-details clearfix border-bottom p-15 pt-15 pb-15">
                         <ul class="list-inline font-20 font-weight-600 clearfix mb-5">
                           <li class="pull-left font-weight-400 text-black-333 pr-0">
-                            Raised:{" "}
+                            {t('Raised')}{" "}
                             <span class="text-theme-colored font-weight-700">
-                              {project.raised} SDG
+                              {project.raised} 
                             </span>
                           </li>
                           <li class="pull-right font-weight-400 text-black-333 pr-0">
-                            Goal:{" "}
+                            {t('Goal')}{" "}
                             <span class="text-theme-colored font-weight-700">
                               {project.goal} SDG
                             </span>
@@ -130,8 +147,8 @@ class ProjectSlider extends Component {
                         </div>
                         <p class="mt-20">{project.description}</p>
                         <Link
-                          to={"/project/"+project.id}
-                          class="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
+                          to={'/projects/'+project.id}
+                          className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
                         >
                           {t('Donate')}
                         </Link>
