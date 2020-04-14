@@ -23,7 +23,7 @@ class DonateToProject extends Component {
       }
 }
 
-componentDidMount=()=>{
+componentDidMount =()=>{
 
     let id = this.props.match.params.project_id
     console.log(this.props.match.params.project_id) 
@@ -42,6 +42,23 @@ componentDidMount=()=>{
         alert(error.message)
     })
   
+}
+
+componentDidUpdate =()=>{
+
+  let id = this.state.project_id
+
+  axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+
+  .then(response => {
+
+       const project = response.data
+        this.setState({project})
+
+  }).catch(error => {
+      alert(error.message)
+  })
+
 }
 
 
@@ -105,9 +122,24 @@ componentDidMount=()=>{
                   data-toggle="validator"
                   role="form"
                   id="popup_paypal_donate_form_onetime_recurring"
-                  onSubmit = {this.handleSubmite}>
+                  onSubmit = {this.handleSubmite}
+                  >
 
-                      <h4 className ='lead text-primary'>{this.state.project.name}</h4>
+                  <div className="row">
+                    <div className="col-sm-12">
+                    <div className="form-group mb-20">
+
+                        <input
+                              name="name" 
+                              className="form-control"
+                              type="readOnly" 
+                              value = {this.state.project.name}
+                              style = {{fontSize:'16px'}}
+                              readonly
+                            />
+                      </div>
+                    </div>
+                   </div>
                      
                     <div className="row">
                     <div className="col-sm-9">

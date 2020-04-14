@@ -36,6 +36,23 @@ componentDidMount=()=>{
     })
   
 }
+
+componentDidUpdate=()=>{
+
+  let id = this.state.subhub.id
+
+  axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+
+  .then(response => {
+
+       const subhub = response.data
+        this.setState({subhub})
+
+  }).catch(error => {
+      alert(error.message)
+  })
+
+}
 render(){
   const {t} = this.props
   const {subhub} = this.state

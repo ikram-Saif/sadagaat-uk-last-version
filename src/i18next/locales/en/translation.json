@@ -10,7 +10,7 @@
     "language":"Language",
     "charitable Activities" :"Charitable Activities",
     "organization" :"Organization",
-    "about_us":"About Us",
+    "About Us":"About Us",
     "About Sadagaat":"About Sadagaat",
     "The video":"The Video",
     "about_message_1":"Sadagaat-USA is 501 (c) (3) non-profit charity organization that started as a result of the growing dire need for help and our responsibilities as Sudanese American, Sadagaat-USA was born.",
@@ -171,7 +171,8 @@
 "We provides always our best industrial solution for our clientsand always try to":"We provides always our best industrial solution for our clientsand always try to",
 "achieve our client  trust and satisfaction":"achieve our client  trust and satisfaction",
 "Request failed with status code 500":"Username or Password Not Correct",
-"Request failed with status code 404":"Please Fill Your Information"
+"Request failed with status code 404":"Please Fill Your Information",
+"Share":"Share"
 
   
   

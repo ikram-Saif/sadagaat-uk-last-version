@@ -14,7 +14,7 @@ function TopBar() {
 
   useEffect(() => {
     async function fetchData() {
-      const fetcher = await window.fetch(`${address()}/media`, {
+      const fetcher = await window.fetch(`${address()}media`, {
         headers: { "accept-language": `${i18n.language}` },
       });
       const response = await fetcher.json();

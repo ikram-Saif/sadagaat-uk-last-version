@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useRef } from 'react';
 
 import Header from '../sub_page_header';
 import address from './../utils/address';
@@ -18,26 +18,42 @@ function Health (props){
   const [postsPerPage, setPostsPerPage] = useState(6);
   const hub_name = props.match.path
   const {t} = useTranslation()
+  const didMountRef = useRef(true)
 
+
+
+
+  async function healthHub() {
+    const fetcher = await window.fetch(`${address()}hubs/33`,{headers: {'accept-language': `${i18n.language}`}})
+    const response = await fetcher.json()
+    console.log(response)
+    setHealth(response)
+  }
+
+  async function healthProjects() {
+    const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
+    const response = await fetcher.json()
+    setProject(response)
+  }
 
   useEffect(() => {
 
-    async function healthHub() {
-      const fetcher = await window.fetch(`${address()}hubs/33`,{headers: {'accept-language': `${i18n.language}`}})
-      const response = await fetcher.json()
-      console.log(response)
-      setHealth(response)
-    }
-  
-         async function eduProjects() {
-           const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
-           const response = await fetcher.json()
-           setProject(response)
-         }
-         healthHub()
-         eduProjects()
     
-        },[])
+    if (didMountRef){
+
+      healthHub()
+      healthProjects()
+      didMountRef.current = false
+
+
+ }else{
+
+  healthHub()
+  healthProjects()
+ }
+ 
+     })
+
 
 
   const lastPost = currentPage * postsPerPage;
@@ -57,8 +73,13 @@ return(
       <div className="col-sm-12 col-md-10 col-md-offset-1">
         <div className="causes bg-white maxwidth500 mb-30">
 
-          <div className="thumb">
-            <img src={health.imageUrl} alt className="img-fullwidth" />
+          <div 
+            className="thumb">
+            <img src={health.imageUrl}
+             alt className="img-fullwidth"
+             width = '945'
+             height = '630'
+              />
            <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
 {/* <CircularProgressbar
@@ -85,7 +106,6 @@ return(
         <div className="event-details">
           <p className="mb-20 mt-20">{health.description}</p>
           <p />
-          <p className="mb-20 mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat qui ducimus illum modi? Libero saepe perspiciatis accusamus soluta perferendis, ad illum, nesciunt, reiciendis iusto et cupiditate. Repudiandae provident, consectetur, sapiente, libero iure necessitatibus corporis nulla voluptate, quisquam aut eum perspiciatis? Fugiat labore aspernatur eius, perspiciatis ut molestiae, delectus rem.</p>
           <p />
         </div>
       </div>

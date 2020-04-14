@@ -35,6 +35,19 @@ class Donate extends Component {
           console.log(error);
         })
   }
+  componentDidUpdate =()=> {
+
+    axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
+        .then(response => {
+          const hubs = response.data
+          this.setState({hubs})
+          })
+
+      
+        .catch(error => {
+          console.log(error);
+        })
+  }
 
 
 

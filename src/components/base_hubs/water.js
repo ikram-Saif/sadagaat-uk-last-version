@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef} from 'react';
 
 import Header from '../sub_page_header';
 import address from './../utils/address';
@@ -18,26 +18,44 @@ function Water (props){
   const [postsPerPage, setPostsPerPage] = useState(6);
   const hub_name = props.match.path
   const {t} = useTranslation()
+  const didMountRef = useRef(true)
 
 
+
+  async function waterHub() {
+    const fetcher = await window.fetch(`${address()}hubs/30`,{headers: {'accept-language': `${i18n.language}`}})
+    const response = await fetcher.json()
+    setwater(response)
+  }
+
+  async function waterProjects() {
+    const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
+    const response = await fetcher.json()
+    setProject(response)
+  }
+
+  
   useEffect(() => {
 
-    async function eduHub() {
-      const fetcher = await window.fetch(`${address()}hubs/30`,{headers: {'accept-language': `${i18n.language}`}})
-      const response = await fetcher.json()
-      setwater(response)
-    }
-  
-         async function eduProjects() {
-           const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
-           const response = await fetcher.json()
-           setProject(response)
-         }
-         eduHub()
-         eduProjects()
     
-        },[])
+    if (didMountRef){
 
+      waterHub()
+      waterProjects()
+      didMountRef.current = false
+
+
+    }else{
+
+          waterHub()
+          waterProjects()
+    }
+    
+        })
+
+    
+       
+    
 
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;
@@ -58,7 +76,7 @@ return(
 
           <div className="thumb">
             
-            <img src={water.imageUrl} alt className="img-fullwidth" />
+            <img src={water.imageUrl} alt className="img-fullwidth" width ='945' height ='630' />
   <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
 {/* <CircularProgressbar
@@ -85,7 +103,6 @@ return(
         <div className="event-details">
           <p className="mb-20 mt-20">{water.description}</p>
           <p />
-          <p className="mb-20 mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat qui ducimus illum modi? Libero saepe perspiciatis accusamus soluta perferendis, ad illum, nesciunt, reiciendis iusto et cupiditate. Repudiandae provident, consectetur, sapiente, libero iure necessitatibus corporis nulla voluptate, quisquam aut eum perspiciatis? Fugiat labore aspernatur eius, perspiciatis ut molestiae, delectus rem.</p>
           <p />
         </div>
       </div>

@@ -28,10 +28,10 @@ class Slider2 extends React.Component{
         
                         <li data-index="rs-1" data-transition="slidingoverlayhorizontal" data-slotamount="default"
                           data-easein="default" data-easeout="default" data-masterspeed="default"
-                          data-thumb ={image1} data-rotate="0" data-saveperformance="off" data-title="Slide 2"
+                          data-thumb ='images/slide-1.jpg' data-rotate="0" data-saveperformance="off" data-title="Slide 2"
                           data-description="**************************************">
 
-                          <img src={image1} alt="" data-bgposition="center 70%" data-bgfit="cover"
+                          <img src='images/slide-1.jpg' alt="" data-bgposition="center 70%" data-bgfit="cover"
                             data-bgrepeat="no-repeat" className="rev-slidebg" data-bgparallax="10" data-no-retina />
                       
         

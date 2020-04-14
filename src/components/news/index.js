@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef } from 'react';
 
 import Header from '../sub_page_header';
 import address from './../utils/address';
@@ -8,22 +8,49 @@ import { useTranslation } from 'react-i18next';
 
 
 
+
 function News(){
 
   const [data, setData ] = useState([])
+  const [media , setMedia ] = useState([])
   const [currentPage,setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
   const {t} = useTranslation()
+  const didMountRef = useRef(true)
+  const style = i18n.dir() === 'rtl'?'pull-right ml-20':'pull-left mr-20'
   
   useEffect(() => {
-         async function fetchData() {
-           const fetcher = await window.fetch(`${address()}news`,{headers: {'accept-language': `${i18n.language}`}})
-           const response = await fetcher.json()
-           setData(response)
-           console.log(response)
-         }
-         fetchData()
-        }, [])
+
+    if (didMountRef.current) {
+     
+      fetchData()
+      fetchMedia()
+      didMountRef.current = false
+
+    }
+    else{
+      fetchData()
+      fetchMedia()
+
+    }
+
+         
+        })
+
+
+    async function fetchData() {
+      const fetcher = await window.fetch(`${address()}news`,{headers: {'accept-language': `${i18n.language}`}})
+      const response = await fetcher.json()
+      setData(response)
+      console.log(response)
+    }
+
+    async function fetchMedia() {
+      const fetcher = await window.fetch(`${address()}media`,{headers: {'accept-language': `${i18n.language}`}})
+      const response = await fetcher.json()
+      setMedia(response)
+      console.log(response)
+    }
 
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;
@@ -40,51 +67,63 @@ function News(){
 
 <section>
 
-   
   
-      
-         
-          <div className="container mt-30 mb-30 pt-30 pb-30">  
-          <div className="row">  
-           <div className="col-md-10 col-md-offset-1">
+      <div className="container mt-30 mb-30 pt-30 pb-30">  
+
               
-                  {currentPosts.map(news => (  
-                  <div className="blog-posts single-post">
-                  <article className="post clearfix mb-0">
-            <div className="entry-header">
-              <div className="post-thumb thumb"> <img src={news.imageUrl} alt className="img-responsive img-fullwidth" /> </div>
-            </div>
-            <div className="entry-content">
-              <div className="entry-meta media no-bg no-border mt-15 pb-20">
-                {/* <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
-                <ul>
-                  <li class="font-16 text-white font-weight-600">28</li>
-                  <li class="font-12 text-white text-uppercase">Feb</li>
-                </ul>
-              </div> */}
-                <div className="media-body pl-15">
-                  <div className="event-content pull-left flip">
-            <h2 className="line-bottom mt-0">{news.name}</h2>
-                    <h4 className="mt-0 mb-0 text-theme-colored">{news.startDate}</h4>
-                    <h4 className="mt-0 mb-0 text-theme-colored">{news.endDate}</h4>
+            {currentPosts.map(news => ( 
+
+              <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="blog-posts single-post">
+                  <article class="post clearfix mb-0">
+                    <div class="entry-header">
+                      <div class="post-thumb thumb"> 
+                        <img src={news.imageUrl}  
+                          className="img-responsive img-fullwidth" 
+                           width ="600" 
+                           height = "300"/> 
+                    </div>
                   </div>
+
+                  <div class="entry-content">
+                  <div class="entry-meta media no-bg no-border mt-15 pb-20">
+
+                    <div class="media-body pl-15">
+                      <div class="event-content pull-left flip">
+                        <h2 class="line-bottom mt-0">
+                          {news.name}
+                        </h2>
+
+                        <h4 className="mt-0 mb-0 text-theme-colored">{news.startDate}</h4>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="mb-15">{news.description}.</p>
+          
+                <div class="mt-30 mb-0">
+                    <h5 class={`${style} mt-10 text-theme-colored`}>{t('Share')}:</h5>
+                    <ul class="styled-icons icon-circled m-0">
+                      <li><a href="#" style ={{backgroundColor:"#3A5795"}}><i class="fa fa-facebook text-white"></i></a></li>
+                      <li><a href="#" style ={{backgroundColor:"#55ACEE"}}><i class="fa fa-twitter text-white"></i></a></li>
+                      <li><a href="#" style ={{backgroundColor:"#A11312"}}><i class="fa fa-google-plus text-white"></i></a></li>
+                    </ul>
+                      </div>
+                    </div>
+                  </article>
                 </div>
               </div>
-              <p className="mb-15">{news.description}.</p>
-       
             </div>
-          </article>
-          </div>
           ))}
-     </div>
-      </div>
+        
       <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/>
 
         </div>
        </section>    
     </div>
     
-    );
+    )
 
 
 }

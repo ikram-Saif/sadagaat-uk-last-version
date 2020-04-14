@@ -28,7 +28,25 @@ class SinglProject extends Component {
       .catch((error) => {
         console.log(error.message);
       });
-  };
+  }
+
+  componentDidMount = () => {
+    let id = this.state.project.id
+
+    axios
+      .get(`${address()}projects/${id}`, {
+        headers: { "accept-language": `${i18n.language}` },
+      })
+
+      .then((response) => {
+        const project = response.data;
+        this.setState({ project });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+
   render() {
     const { t } = this.props;
     const project = this.state.project;

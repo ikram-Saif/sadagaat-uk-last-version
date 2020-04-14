@@ -23,7 +23,7 @@ class DonateToSubhub extends Component {
       }
 }
 
-componentDidMount (){
+ componentDidMount =() =>{
 
     let id = this.props.match.params.subhub_id
     console.log(this.props.match.params.subhub_id) 
@@ -44,6 +44,24 @@ componentDidMount (){
         })
     })
   
+}
+componentDidUpdate =()=>{
+
+  let id = this.state.subhub_id
+
+  axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+
+  .then(response => {
+
+       const subHubs = response.data
+        this.setState({subHubs})
+
+  }).catch(error => {
+      this.setState({
+        message:error.message
+      })
+  })
+
 }
 
 
@@ -109,8 +127,22 @@ componentDidMount (){
                   id="popup_paypal_donate_form_onetime_recurring"
                   onSubmit = {this.handleSubmite}>
 
-                      <h3 className="text-center">{this.state.subHubs.name}</h3>
-                      <br />
+
+                    <div className="row">
+                    <div className="col-sm-12">
+                    <div className="form-group mb-20">
+
+                        <input
+                              name="name" 
+                              className="form-control"
+                              type="readOnly" 
+                              value = {this.state.subHubs.name}
+                              style = {{fontWight:'bold'}}
+                              readonly
+                            />
+                    </div>
+                   </div>
+                   </div>
 
                     <div className="row">
                     <div className="col-sm-9">

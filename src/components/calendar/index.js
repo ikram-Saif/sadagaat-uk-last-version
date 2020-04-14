@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useRef } from 'react';
 
 import Header from '../sub_page_header';
 import address from './../utils/address';
@@ -14,16 +14,26 @@ function Calendar(){
   const [currentPage,setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
   const {t} = useTranslation()
+  const didMountRef = useRef(true)
+
+
+  async function fetchData() {
+    const fetcher = await window.fetch(`${address()}events`,{headers: {'accept-language': `${i18n.language}`}})
+    const response = await fetcher.json()
+    setData(response)
+  }
   
   useEffect(() => {
-    
-         async function fetchData() {
-           const fetcher = await window.fetch(`${address()}events`,{headers: {'accept-language': `${i18n.language}`}})
-           const response = await fetcher.json()
-           setData(response)
+    if (didMountRef){
+      fetchData()
+      didMountRef.current = false
+
+    }
+         else{
+           fetchData()
          }
-         fetchData()
-        }, [])
+        
+        })
 
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;

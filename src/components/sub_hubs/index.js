@@ -1,4 +1,4 @@
-import React, {useCallback, useState, useEffect } from 'react';
+import React, {useCallback, useState, useEffect ,useRef } from 'react';
 
 import Header from '../sub_page_header';
 import address from './../utils/address';
@@ -24,19 +24,30 @@ import { useTranslation } from 'react-i18next';
     const [currentPage,setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(6);
     const [framework,setFramework] = useState([]);
+    const didMountRef = useRef(true)
 
 
-    
-    useEffect(() => {
-      //alert(selectA)
     async function fetchData() {
-             const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
-             const response = await fetcher.json()
-             setData(response)
-             console.log(response)
-           }
+      const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
+      const response = await fetcher.json()
+      setData(response)
+      console.log(response)
+      console.log(response)
+    }
+
+    useEffect(() => {
+    
+      if (didMountRef.current) {
            fetchData()
-          }, [])
+           didMountRef.current = false;
+      }
+      else{
+        fetchData()
+      }
+      
+          })
+          
+        
   
   
           function handleChange(e){

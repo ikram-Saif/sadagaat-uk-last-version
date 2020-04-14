@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import Header from '../sub_page_header';
 import address from './../utils/address';
@@ -18,25 +18,39 @@ function Education (props){
   const [postsPerPage, setPostsPerPage] = useState(6);
   const hub_name = props.match.path
   const {t} = useTranslation()
+  const didMountRef = useRef(true)
 
+
+
+  async function eduHub() {
+    const fetcher = await window.fetch(`${address()}hubs/36`,{headers: {'accept-language': `${i18n.language}`}})
+    const response = await fetcher.json()
+    seteducation(response)
+    console.log(response)
+  }
+
+       async function eduProjects() {
+         const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
+         const response = await fetcher.json()
+         const filteredSubhubs = response.filter((subhub) => subhub.hubId === 36)
+         setProject(filteredSubhubs)
+         console.log(filteredSubhubs)
+       }
 
   useEffect(() => {
 
-    async function eduHub() {
-      const fetcher = await window.fetch(`${address()}hubs/36`,{headers: {'accept-language': `${i18n.language}`}})
-      const response = await fetcher.json()
-      seteducation(response)
+    if (didMountRef){
+        eduHub()
+        eduProjects()
+      didMountRef.current = false
+
     }
-  
-         async function eduProjects() {
-           const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
-           const response = await fetcher.json()
-           setProject(response)
-         }
+         else{
          eduHub()
          eduProjects()
+         }
     
-        },[])
+        })
 
 
   const lastPost = currentPage * postsPerPage;
@@ -44,7 +58,7 @@ function Education (props){
   const currentPosts = project.slice(firstPost,  lastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
   
- //const geteducation = education.filter(hub => hub.id === 2)
+ //const getSubhub = project.filter(hub => hub.id === 2)
  
 
 return(
@@ -57,7 +71,11 @@ return(
         <div className="causes bg-white maxwidth500 mb-30">
 
           <div className="thumb">
-            <img src={education.imageUrl} alt className="img-fullwidth" />
+          <img src={education.imageUrl}
+             alt className="img-fullwidth"
+             width = '945'
+             height = '630'
+              />
   <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
 <CircularProgressbar
@@ -84,7 +102,6 @@ return(
         <div className="event-details">
           <p className="mb-20 mt-20">{education.description}</p>
           <p />
-          <p className="mb-20 mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat qui ducimus illum modi? Libero saepe perspiciatis accusamus soluta perferendis, ad illum, nesciunt, reiciendis iusto et cupiditate. Repudiandae provident, consectetur, sapiente, libero iure necessitatibus corporis nulla voluptate, quisquam aut eum perspiciatis? Fugiat labore aspernatur eius, perspiciatis ut molestiae, delectus rem.</p>
           <p />
         </div>
       </div>
@@ -101,7 +118,7 @@ return(
      
      
      
-          {currentPosts.map(educationPro => (        
+ {currentPosts.map(educationPro => (        
 
 
 <div className="col-md-4" key = {educationPro.id}>
