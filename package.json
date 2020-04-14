@@ -1,6 +1,6 @@
 {
   "name": "sadagaat_local",
-  "homepage": "https://local.sadagaat-uk.org",
+  "homepage": "https://test.sadagaat-uk.org",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +16,7 @@
     "i18next": "^19.0.1",
     "i18next-browser-languagedetector": "^4.0.1",
     "i18next-xhr-backend": "^3.2.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jwt-decode": "^2.2.0",
     "react": "^16.13.0",
     "react-animated-slider": "^2.0.0",

@@ -1,11 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import  i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 
 
 
 function Become(){
-  const {t} = useTranslation()
+  const {t , i18n} = useTranslation()
+  const styleClass = i18n.dir() === 'rtl' ? '':''
 
 
   const handleClick = (e)=> {
