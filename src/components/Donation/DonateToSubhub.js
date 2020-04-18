@@ -45,24 +45,24 @@ class DonateToSubhub extends Component {
     })
   
 }
-componentDidUpdate =()=>{
+// componentDidUpdate =()=>{
 
-  let id = this.state.subhub_id
+//   let id = this.state.subhub_id
 
-  axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+//   axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
-  .then(response => {
+//   .then(response => {
 
-       const subHubs = response.data
-        this.setState({subHubs})
+//        const subHubs = response.data
+//         this.setState({subHubs})
 
-  }).catch(error => {
-      this.setState({
-        message:error.message
-      })
-  })
+//   }).catch(error => {
+//       this.setState({
+//         message:error.message
+//       })
+//   })
 
-}
+// }
 
 
   handleChange=(e)=>{
@@ -78,7 +78,7 @@ componentDidUpdate =()=>{
             let id = this.state.subhub_id
             const data = 
             {
-              sid:id,
+              SID :id,
               amount:this.state.amount,
               currency:this.state.currency
             }

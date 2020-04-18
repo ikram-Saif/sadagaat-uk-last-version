@@ -32,20 +32,20 @@ class ProjectSlider extends Component {
     }
   }
 
-  async componentDidUpdate() {
-    try {
-      axios
-        .get(`${address()}projects`, {
-          headers: { "accept-language": `${i18n.language}` },
-        })
-        .then((response) => this.setState({ projects: response.data }))
-        .catch((res) =>
-          console.warn("execution failed with status " + res.status)
-        );
-    } catch (error) {
-      console.log("Something went wrong");
-    }
-  }
+  // async componentDidUpdate() {
+  //   try {
+  //     axios
+  //       .get(`${address()}projects`, {
+  //         headers: { "accept-language": `${i18n.language}` },
+  //       })
+  //       .then((response) => this.setState({ projects: response.data }))
+  //       .catch((res) =>
+  //         console.warn("execution failed with status " + res.status)
+  //       );
+  //   } catch (error) {
+  //     console.log("Something went wrong");
+  //   }
+  // }
 
   render() {
     const { t } = this.props;
@@ -58,9 +58,9 @@ class ProjectSlider extends Component {
               <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                   <h2 class="text-uppercase line-bottom-center mt-0">
-                    {t("Our")}{" "}
+                    {t('Our')}{" "}
                     <span class="text-theme-colored font-weight-600">
-                      {t("Projects")}
+                      {t('Projects')}
                     </span>
                   </h2>
                   <p>
@@ -79,18 +79,22 @@ class ProjectSlider extends Component {
                 autoPlay={3000}
                 margin={10}
                 rtl
-                arrows
+                arrows = {<i style = {{backgroundColor :'red'}} /> }
+                // arrowLeft={<i className="fa fa-angle-left" />}
+                // arrowRight={<i className="fa fa-angle-right" />}
+                // addArrowClickHandler
                 // animationSpeed={1000}
                 infinite
-                stopAutoPlayOnHover
+                clickToChange
+                centered
                 breakpoints={{
                   1000: {
                     // these props will be applied when screen width is less than 1000px
-                    slidesPerPage: 1,
+                    slidesPerPage: 2,
                     clickToChange: false,
                     centered: false,
-                    arrows: true,
-                    infinite: true,
+                    
+                    infinite: false,
                   },
                   500: {
                     slidesPerPage: 1,
@@ -98,7 +102,7 @@ class ProjectSlider extends Component {
                     clickToChange: false,
                     centered: false,
                     animationSpeed: 2000,
-                    infinite: true,
+                    infinite: false,
                   },
                 }}
               >
@@ -119,7 +123,6 @@ class ProjectSlider extends Component {
                       {/* <div class="donation-progress mt-5 ml-5 text-center">
                         {project.donationProgress}
                       </div> */}
-                    </div>
 
                     <div
                       style={{
@@ -147,14 +150,14 @@ class ProjectSlider extends Component {
                     </div>
 
                     <div class="causes-details clearfix border-bottom p-15 pt-15 pb-15">
-                      <ul class="list-inline font-20 font-weight-600 clearfix mb-5">
-                        <li class="pull-left font-weight-400 text-black-333 pr-0">
-                          {t("Raised")}{" "}
-                          <span class="text-theme-colored font-weight-700">
-                            {project.raised}
-                          </span>
-                        </li>
-                        <li class="pull-right font-weight-400 text-black-333 pr-0">
+                        <ul class="list-inline font-20 font-weight-600 clearfix mb-5">
+                          <li class="pull-left font-weight-400 text-black-333 pr-0">
+                            {t('Raised')}{" "}
+                            <span class="text-theme-colored font-weight-700">
+                              {project.raised} 
+                            </span>
+                          </li>
+                          <li class="pull-right font-weight-400 text-black-333 pr-0">
                           {t("Goal")}{" "}
                           <span class="text-theme-colored font-weight-700">
                             {project.goal} SDG
@@ -165,30 +168,31 @@ class ProjectSlider extends Component {
                         <a href="">{project.name}</a>
                       </h4>
                       <div class="progress-item mt-0">
-                        <div class="progress mb-0">
+                          <div class="progress mb-0">
                           <div
-                            data-percent={project.donationProgress}
-                            class="progress-bar"
-                          >
+                              data-percent={project.donationProgress}
+                              class="progress-bar"
+                            >
                             <span class="percent">
-                              {project.projectProgress}
-                            </span>
+                                {project.donationProgress}
+                              </span>
                           </div>
                         </div>
                       </div>
                       <p class="mt-20">{project.description}</p>
-                      <Link
-                        to={'/projects/'+project.id}
-                        class="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
-                      >
-                        {t("Donate")}
-                      </Link>
+                        <Link
+                          to={'/projects/'+project.id}
+                          className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
+                        >
+                          {t('Donate')}
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 ))}
               </Carousel>
               {/* </div> */}
-            </div>
+              </div>
           </div>
         </section>
       </React.Fragment>

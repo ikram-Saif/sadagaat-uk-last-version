@@ -37,21 +37,12 @@ function Water (props){
   
   useEffect(() => {
 
-    
-    if (didMountRef){
-
+  
       waterHub()
       waterProjects()
-      didMountRef.current = false
 
-
-    }else{
-
-          waterHub()
-          waterProjects()
-    }
     
-        })
+        } , [])
 
     
        

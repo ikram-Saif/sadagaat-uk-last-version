@@ -18,7 +18,7 @@ function Education (props){
   const [postsPerPage, setPostsPerPage] = useState(6);
   const hub_name = props.match.path
   const {t} = useTranslation()
-  const didMountRef = useRef(true)
+  //const didMountRef = useRef(true)
 
 
 
@@ -39,18 +39,13 @@ function Education (props){
 
   useEffect(() => {
 
-    if (didMountRef){
+   // if (didMountRef){
         eduHub()
         eduProjects()
-      didMountRef.current = false
+    //  didMountRef.current = false
 
-    }
-         else{
-         eduHub()
-         eduProjects()
-         }
-    
-        })
+    //}
+        } , [])
 
 
   const lastPost = currentPage * postsPerPage;

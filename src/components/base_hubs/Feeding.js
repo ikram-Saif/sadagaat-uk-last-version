@@ -38,20 +38,12 @@ function Feeding (props){
 
   useEffect(() => {
 
-    if (didMountRef){
 
          feedingHub()
          feedingProjects()
-         didMountRef.current = false
 
-
-    }else{
-
-      feedingHub()
-         feedingProjects()
-    }
     
-        })
+        } , [])
 
 
   const lastPost = currentPage * postsPerPage;

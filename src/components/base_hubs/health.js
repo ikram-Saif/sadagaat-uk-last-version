@@ -39,20 +39,10 @@ function Health (props){
   useEffect(() => {
 
     
-    if (didMountRef){
-
       healthHub()
       healthProjects()
-      didMountRef.current = false
-
-
- }else{
-
-  healthHub()
-  healthProjects()
- }
  
-     })
+     },[])
 
 
 

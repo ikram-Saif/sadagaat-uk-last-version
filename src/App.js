@@ -34,7 +34,7 @@ import DemoProject from "./components/projects/testProjects";
 import PrivateRoute from "./components/menu_bar/privateRoute";
 import PubliceRoute from "./components/menu_bar/PublicRoute";
 import SingleSubhub from "./components/sub_hubs/single-subhub";
-
+import SingleEvent from './components/events/single-event'
 import { useTranslation } from "react-i18next";
 
 function App() {
@@ -73,6 +73,9 @@ function App() {
         <Route exact path="/calendar">
           <Calendar />
         </Route>
+
+        <Route exact path="/event/:event_id" component={SingleEvent} />
+
 
         <Route exact path="/water" component={Water} />
 

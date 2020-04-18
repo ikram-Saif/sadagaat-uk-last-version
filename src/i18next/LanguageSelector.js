@@ -11,7 +11,9 @@ function LanguageSelector () {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-
+    //window.location.reload()
+    //window.render() 
+    
   }
 
  
@@ -21,7 +23,15 @@ function LanguageSelector () {
            className={`lang-switch bg-transparent btn btn-light ${i18n.language === "ar" ? "d-none" : ""}`} 
            
            onClick={(event) => changeLanguage("ar")}>العربية</button>
-          <button className={`lang-switch bg-transparent btn btn-light ${i18n.language === "en" ? "d-none" : ""}`} onClick={(event) => changeLanguage("en")}>English</button>
+          <button className={`lang-switch bg-transparent btn btn-light ${i18n.language === "en" ? "d-none" : ""}`} 
+          
+          onClick={(event) => (
+            
+            changeLanguage("en")
+           // window.location.reload()
+   
+            
+            )}>English</button>
           {/* <div class="btn-group">
             <li  class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {t('language')}

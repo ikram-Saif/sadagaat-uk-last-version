@@ -26,10 +26,10 @@ function Event() {
           // console.log(didMountRef.current)
           // console.log('your are updated')
         
-        fetchNews()
-        fetcEvents()
+        // fetchNews()
+        // fetcEvents()
     }
-});
+},[]);
 
  
     async function fetchNews() {
@@ -64,7 +64,8 @@ function Event() {
               </h3>
 
               {events.map((event) => (
-                <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
+                <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15" key ={event.id}>
+                  
                   <div className="row">
                     <div className="col-xs-2 col-md-3 pr-0">
                       <div className="event-date text-center bg-theme-colored border-1px p-0 pt-10 pb-10 sm-custom-style">
@@ -78,6 +79,7 @@ function Event() {
                         </ul>
                       </div>
                     </div>
+                    <Link to = {'/event/'+ event.id}>
                     <div className="col-xs-9 pr-10 pl-10">
                       <div className="event-content mt-10 p-5 pb-0 pt-0">
                         <h5 className="media-heading font-16 font-weight-600">
@@ -96,6 +98,7 @@ function Event() {
                         </ul>
                       </div>
                     </div>
+                    </Link>
                   </div>
                 </div>
               ))}

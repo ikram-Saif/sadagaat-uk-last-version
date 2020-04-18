@@ -5,6 +5,7 @@ import address from './../utils/address';
 import Pagination from './../pagination';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
+import {Link} from 'react-router-dom'
 
 
 
@@ -24,16 +25,9 @@ function Calendar(){
   }
   
   useEffect(() => {
-    if (didMountRef){
       fetchData()
-      didMountRef.current = false
-
-    }
-         else{
-           fetchData()
-         }
-        
-        })
+     
+        },[])
 
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;
@@ -50,7 +44,7 @@ function Calendar(){
       <div className="row">
         
       {currentPosts.map(event => (  
-        <div className="col-sm-6 col-md-4 col-lg-4">
+        <div className="col-sm-6 col-md-4 col-lg-4" key = {event.id}>
           <div className="schedule-box maxwidth500 bg-lighter mb-30">
             <div className="schedule-details border-bottom-theme-color-2px clearfix p-15 pt-10">
               <div className="text-center pull-left flip bg-theme-colored p-10 pt-5 pb-5 mr-10">
@@ -59,7 +53,11 @@ function Calendar(){
                   <li className="font-12 text-white text-uppercase">Feb</li>
                 </ul>
               </div>
-              <h4 className="title mt-5 mb-5"><a href="#">{event.name}</a></h4>
+              <h4 className="title mt-5 mb-5">
+                
+                <Link to = {'/event/'+ event.id} > {event.name} </Link>
+                
+                </h4>
               <ul className="list-inline font-11 text-gray">
                 <li><i className="fa fa-calendar mr-5" /> {event.startDate}</li>
                 <li><i className="fa fa-map-marker mr-5" /> {event.locationName}</li>

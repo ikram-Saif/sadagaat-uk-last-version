@@ -34,7 +34,7 @@ class VolunteerForm extends Component{
             countryProjects:'',
             volunteeredPeriod:'',
             volunteeredProjects:'',
-            receiveEmails:'',
+            receiveEmails:''
             },
             response:{
                 message:'',
@@ -60,42 +60,59 @@ class VolunteerForm extends Component{
             .catch(err =>alert(err));
         
     }*/
+    // clearForm =()=>{
+    //     document.getElementById('reg-form').reset()
+ 
+    // }
 
        handleChange = (e)=> {
         this.setState({
-            form:{
-            [e.target.name]: e.target.value}
+            form: {
+            ...this.state.form ,
+            [e.target.name]:e.target.value,
+          }
+           
             })
         }
         
        
         handleSubmit = (e) => {
         e.preventDefault();
+        console.log(this.state.form)
 
         submit_volunteer_data(this.state.form)
+
         .then(response => {
 
             this.setState({
                 response:{
+                    ...this.state.response ,
                 message:'Your Form Submitted  Successfully Thanks for volunteering',
                 styleClass:'alert-success'
             }
             })
+           
+         
             //alert(this.state.message)
-                scroll.scrollTo(30);
+           
                 
            
         })
+      
         .catch(err => {
             this.setState({
                 response:{
-             message:err.message,
-            styleClass:'error-message'
+                    ...this.state.response ,
+                        message:err.message,
+                        styleClass:'error-message'
                 }
         })
+    })
+                    
+      
+           document.getElementById('reg-form').reset()
+           scroll.scrollTo(70);
     }
-       
-        )}
        
        
 
@@ -128,7 +145,7 @@ return(
                                 <div className="tab-pane active p-15" id="register-tab">
 
                                     <form 
-                                            name="reg-form" 
+                                            id="reg-form" 
                                             className="register-form" 
                                             role="form"
                                             data-toggle="validator"
@@ -156,7 +173,6 @@ return(
                                                     className="form-control" 
                                                     type="text"
                                                     onChange ={this.handleChange}
-                                                    value = {this.state.name}
                                                     required
                                                 />
                                             </div>
@@ -171,7 +187,7 @@ return(
                                                     name="gender"
                                                     className ="form-control float-right" 
                                                     onChange ={this.handleChange}
-                                                    value= {this.state.gender}
+                                                    value= {this.state.form.gender}
                                                 
                                                 >
                                                     <option name ='gender'>{t("FEMALE")}</option>
@@ -184,16 +200,16 @@ return(
                                                 <label>{t('Age Range')}</label>
 
                                                 <div className="form-check- form-inline">
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline ">
 
                                                         <input 
-                                                            className="form-check-input"
+                                                            className="form-check-input form"
+                                                            id = "1"
                                                             type="radio"
                                                             name="ageGroup" 
-                                                            id="1" 
                                                             value ='15-25'
+                                                            checked={this.state.form.ageGroup === '15-25'}
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.ageGroup === '15-25'}
                                                             
                                                         />
 
@@ -201,23 +217,23 @@ return(
                                                             15-25
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
                                                         <input
-                                                            id='21'
+                                                            id='2'
                                                             className="form-check-input" 
                                                             type="radio"
                                                             name="ageGroup" 
                                                             value ='25-35'
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.ageGroup === '25-35'}
+                                                            checked={this.state.form.ageGroup === '25-35'}
                                                             
                                                             
                                                         />
-                                                        <label className="form-check-label" for="">
+                                                        <label className="form-check-label" for="2">
                                                             25-35
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                             className="form-check-input"
@@ -226,7 +242,7 @@ return(
                                                             id="3" 
                                                             value='35-45'
                                                             onChange = {this.handleChange}
-                                                            checked={this.state.ageGroup === '35-45'}
+                                                            checked={this.state.form.ageGroup === '35-45'}
                                                             
                                                             
                                                         />
@@ -234,7 +250,7 @@ return(
                                                             35-45
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input
                                                             className="form-check-input" 
@@ -242,7 +258,7 @@ return(
                                                             name="ageGroup"
                                                             id="4" 
                                                             value ='45-'
-                                                            checked={this.state.ageGroup === '45-'}
+                                                            checked={this.state.form.ageGroup === '45-'}
                                                             onChange ={this.handleChange}
                                                             
                                                         />
@@ -263,7 +279,7 @@ return(
                                                     id="" 
                                                     name="phoneNumber"
                                                     className="form-control"
-                                                    type="tel"
+                                                    type="number"
                                                     onChange ={this.handleChange}
                                                     value = {this.state.phoneNumber}
                                                     required
@@ -277,10 +293,10 @@ return(
                                                     id="form_re_enter_password" 
                                                     name="secondPhoneNumber"
                                                     className="form-control"
-                                                     type="tel"
-                                                     value = {this.state.secondPhoneNumber}
+                                                     type="number"
+                                                     value = {this.state.form.secondPhoneNumber}
                                                      onChange ={this.handleChange}
-                                                     required
+                                                    
                                                 />
                                                 <div className="help-block with-errors"></div>
                                             </div>
@@ -294,7 +310,6 @@ return(
                                                     name="email"
                                                     className="form-control"
                                                     type="email"
-                                                    value = {this.state.email}
                                                     onChange ={this.handleChange}
                                                     required
                                                     
@@ -307,7 +322,7 @@ return(
                                                 <select 
                                                     name="bloodGroup"
                                                     className="form-control float-right" 
-                                                    value ={this.state.bloodGroup}
+                                                    value ={this.state.form.bloodGroup}
                                                     onChange={this.handleChange}>
                                                     <option >AB</option>
                                                     <option >A</option>
@@ -323,7 +338,7 @@ return(
                                                 <select
                                                     name ='educationLevel'
                                                     className="form-control float-right"  
-                                                    value ={this.state.educationLevel}
+                                                    value ={this.state.form.educationLevel}
                                                     onChange ={this.handleChange}
 
                                                  >
@@ -338,7 +353,7 @@ return(
                                                     name="languages"
                                                     className="form-control" 
                                                     type="text"
-                                                    value = {this.state.languages}
+                                                    value = {this.state.form.languages}
                                                     onChange ={this.handleChange}
                                                     
                                                 />
@@ -350,7 +365,7 @@ return(
                                                     {t('Do you currently work')}
                                                 </label>
                                                 <div className="form-check- form-inline">
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
                                                         <input 
                                                             className="form-check-input"
                                                             type="radio"
@@ -366,7 +381,7 @@ return(
                                                             {t('Yes')}
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                                     className="form-check-input" 
@@ -392,7 +407,7 @@ return(
                                                     name="studyField"
                                                     className="form-control" 
                                                     type="text"
-                                                    value = {this.state.studyField}
+                                                    value = {this.state.form.studyField}
                                                     onChange ={this.handleChange}
                                                 />
                                             </div>
@@ -404,7 +419,7 @@ return(
                                                     name="job" 
                                                     className="form-control"
                                                     type="text"
-                                                    value = {this.state.job}
+                                                    value = {this.state.form.job}
                                                     onChange ={this.handleChange}
                                                     
                                                 />
@@ -414,7 +429,7 @@ return(
                                                     {t('Do you live in Sudan?')}
                                                 </label>
                                                 <div className="form-check- form-inline">
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                             className="form-check-input"
@@ -422,13 +437,13 @@ return(
                                                             name="q2"
                                                             id="1"
                                                             value='yes'
-                                                            checked={this.state.q2 === 'yes'}
+                                                            checked={this.state.form.q2 === 'yes'}
                                                         />
                                                         <label className="form-check-label" for="1">
                                                         {t('Yes')}
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                             className="form-check-input" 
@@ -436,7 +451,7 @@ return(
                                                             name="q2" 
                                                             id=""
                                                             value='no'
-                                                            checked={this.state.q2 === 'no'}
+                                                            checked={this.state.form.q2 === 'no'}
                                                             
                                                         />
                                                         <label className="form-check-label" for="">
@@ -457,7 +472,7 @@ return(
                                                     name="country"
                                                     className="form-control"
                                                     type="text"
-                                                    value = {this.state.country}
+                                                    value = {this.state.form.country}
                                                     onChange ={this.handleChange}
                                                     
                                                     
@@ -471,7 +486,7 @@ return(
                                                     name="city"
                                                     className="form-control"
                                                     type="text"
-                                                    value = {this.state.city}
+                                                    value = {this.state.form.city}
                                                     onChange ={this.handleChange}
                                                     
                                                     
@@ -494,22 +509,22 @@ return(
                                                     {t('Did Sadagaat executed any projects in your State?')}
                                                 </label>
                                                 <div className="form-check- form-inline">
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input
                                                             className="form-check-input"
                                                             type="radio"
-                                                            name="cityProjects" id="1" 
+                                                            name="cityProjects"  
                                                             value="yes"
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.cityProjects === 'yes'}
+                                                            checked={this.state.form.cityProjects === 'yes'}
                                                             
                                                         />
-                                                        <label className="form-check-label" for="1">
+                                                        <label className="form-check-label" >
                                                              {t('Yes')}  
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
                                                         <input 
                                                             className="form-check-input" 
                                                             type="radio"
@@ -517,14 +532,14 @@ return(
                                                             id=""
                                                             value='no'
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.cityProjects === 'no'}
+                                                            checked={this.state.form.cityProjects === 'no'}
                                                             
                                                         />
                                                         <label className="form-check-label" for="">
                                                               {t('No')}
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                             className="form-check-input" 
@@ -532,7 +547,7 @@ return(
                                                             name="cityProjects"
                                                             value='dont'
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.cityProjects === 'dont'}
+                                                            checked={this.state.form.cityProjects === 'dont'}
                                                             
                                                         />
                                                         <label className="form-check-label" for="">
@@ -550,7 +565,7 @@ return(
                                                     {t('Did you volunteer in Sadagaat before?')}
                                                 </label>
                                                 <div className="form-check- form-inline">
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                             className="form-check-input"
@@ -559,22 +574,22 @@ return(
                                                             id="1" 
                                                             value='yes'
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.volunteeredBefore === 'yes'}
+                                                            checked={this.state.form.volunteeredBefore === 'yes'}
                                                             
                                                         />
                                                         <label className="form-check-label" for="1">
                                                             {t('Yes')}
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
                                                         <input
                                                             className="form-check-input"
                                                             type="radio"
                                                             name="volunteeredBefore" 
                                                             value='no'
-                                                            
-                                                            checked={this.state.volunteeredBefore === 'no'}
                                                             onChange = {this.handleChange}
+                                                            checked={this.state.form.volunteeredBefore === 'no'}
+
                                                             
                                                         />
                                                         <label className="form-check-label" for="">
@@ -589,7 +604,7 @@ return(
                                                     name="volunteerTime"
                                                     className="form-control"
                                                      type="date"
-                                                     value = {this.state.volunteerTime}
+                                                     value = {this.state.form.volunteerTime}
                                                      onChange ={this.handleChange}
                                                      
                                                 />
@@ -605,13 +620,13 @@ return(
                                                     className="form-control" 
                                                     type="text"
                                                     onChange ={this.handleChange}
-                                                    value = {this.state.volunteeredProjects}
+                                                    value = {this.state.form.volunteeredProjects}
                                                 />
                                             </div>
                                             <div className="form-group col-md-12">
                                                 <label>{t('How did you know about Sadagaat?')}</label>
                                                 <div className="form-check- form-inline">
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                             className="form-check-input"
@@ -620,14 +635,14 @@ return(
                                                             id="1"
                                                             value='Friends'
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.heardAboutSadagaat === 'Friends'}
+                                                            checked={this.state.form.heardAboutSadagaat === 'Friends'}
                                                             
                                                         />
                                                         <label className="form-check-label" for="1">
                                                             {t('Friends')}
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
                                                         <input 
                                                             className="form-check-input"
                                                             type="radio"
@@ -635,13 +650,13 @@ return(
                                                             id=""
                                                             value = 'NewsPaper'
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.heardAboutSadagaat === 'NewsPaper'}
+                                                            checked={this.state.form.heardAboutSadagaat === 'NewsPaper'}
                                                         />
                                                         <label className="form-check-label" for="">
                                                         {t('NewsPaper , magazzen')}
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                             className="form-check-input" 
@@ -649,7 +664,7 @@ return(
                                                             name="heardAboutSadagaat" 
                                                             value='Social Media'
                                                             onChange={this.handleChange}
-                                                            checked={this.state.heardAboutSadagaat === 'Social Media'}
+                                                            checked={this.state.form.heardAboutSadagaat === 'Social Media'}
                                                         />
                                                         <label className="form-check-label" for="">
                                                             {t('Social Media')}
@@ -664,7 +679,7 @@ return(
                                                 {t('what is the suitable time for you to volunteer in Sadagaat?')}
                                                 </label>
                                                 <div className="form-check- form-inline">
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                             className="form-check-input"
@@ -673,21 +688,21 @@ return(
                                                             id="1"
                                                             value='Morning time'
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.volunteeredPeriod === 'Morning time'}
+                                                            checked={this.state.form.volunteeredPeriod === 'Morning time'}
                                                         />
                                                         <label className="form-check-label" for="1">
                                                             {t('Morning time')}
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
                                                         <input 
                                                             className="form-check-input" 
                                                             type="radio"
                                                             name="volunteeredPeriod"
-                                                            id=""
                                                             value ='Evening time'
-                                                            checked={this.state.volunteeredPeriod === 'Evening time'}
                                                             onChange ={this.handleChange}
+                                                            checked={this.state.form.volunteeredPeriod === 'Evening time'}
+
 
                                                         />
                                                         <label className="form-check-label" for="">
@@ -700,22 +715,22 @@ return(
                                                     {t('Would you like us to send a newsletter about Sadagaat work in your email?')}
                                                 </label>
                                                 <div className="form-check- form-inline">
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input 
                                                             className="form-check-input"
                                                             type="radio"
                                                             name="receiveEmails" 
-                                                            id="1"
+                                                         
                                                             value = 'true'
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.receiveEmails === 'true'}
+                                                            checked={this.state.form.receiveEmails === 'true'}
                                                         />
-                                                        <label className="form-check-label" for="1">
+                                                        <label className="form-check-label" >
                                                             {t('Yes')}
                                                         </label>
                                                     </div>
-                                                    <div className="form-check form-inline">
+                                                    <div className="radio-inline">
 
                                                         <input
                                                             className="form-check-input" 
@@ -724,7 +739,7 @@ return(
                                                             id="" 
                                                             value = 'false'
                                                             onChange ={this.handleChange}
-                                                            checked={this.state.receiveEmails === 'false'}
+                                                            checked={this.state.form.receiveEmails === 'false'}
                                                         />
                                                         <label className="form-check-label" for="">
                                                              {t('No')}

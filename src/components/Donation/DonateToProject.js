@@ -44,22 +44,22 @@ componentDidMount =()=>{
   
 }
 
-componentDidUpdate =()=>{
+// componentDidUpdate =()=>{
 
-  let id = this.state.project_id
+//   let id = this.state.project_id
 
-  axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+//   axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
-  .then(response => {
+//   .then(response => {
 
-       const project = response.data
-        this.setState({project})
+//        const project = response.data
+//         this.setState({project})
 
-  }).catch(error => {
-      alert(error.message)
-  })
+//   }).catch(error => {
+//       alert(error.message)
+//   })
 
-}
+// }
 
 
   handleChange=(e)=>{
@@ -75,7 +75,7 @@ componentDidUpdate =()=>{
             let id = this.state.project_id
             const data = 
             {
-              pid:id,
+              PID :id,
               amount:this.state.amount,
               currency:this.state.currency
             }

@@ -20,22 +20,13 @@ function News(){
   const style = i18n.dir() === 'rtl'?'pull-right ml-20':'pull-left mr-20'
   
   useEffect(() => {
-
-    if (didMountRef.current) {
      
       fetchData()
       fetchMedia()
-      didMountRef.current = false
-
-    }
-    else{
-      fetchData()
-      fetchMedia()
-
-    }
+   
 
          
-        })
+        },[])
 
 
     async function fetchData() {

@@ -35,19 +35,19 @@ class Donate extends Component {
           console.log(error);
         })
   }
-  componentDidUpdate =()=> {
+  // componentDidUpdate =()=> {
 
-    axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
-        .then(response => {
-          const hubs = response.data
-          this.setState({hubs})
-          })
+  //   axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
+  //       .then(response => {
+  //         const hubs = response.data
+  //         this.setState({hubs})
+  //         })
 
       
-        .catch(error => {
-          console.log(error);
-        })
-  }
+  //       .catch(error => {
+  //         console.log(error);
+  //       })
+  // }
 
 
 
@@ -64,7 +64,7 @@ class Donate extends Component {
             console.log(id)
 
           const data = {
-              hid: id ,
+              HID : id ,
               amount:this.state.amount,
               currency:this.state.currency
             }

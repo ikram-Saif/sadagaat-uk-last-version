@@ -58,8 +58,8 @@ i18n
     //  order: ["cookies","path", "navigator"]
     //},
     backend: {
-      loadPath: '/translation/{{lng}}.json',
-      allowMultiLoading: true
+      //loadPath: '/translation/{{lng}}.json',
+    //  allowMultiLoading: false
     },
     react: {
       wait: true,
