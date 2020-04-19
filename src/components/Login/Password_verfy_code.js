@@ -1,5 +1,9 @@
 import React,{Component} from 'react';
 import { login , email_verify} from '../../repository';
+import i18n from 'i18next'
+import { withTranslation } from 'react-i18next'
+
+
 
 
 class Password_verfy_code extends Component{
@@ -39,7 +43,7 @@ class Password_verfy_code extends Component{
   
  
    render(){
-
+    const {t} = this.props
   
     return(
 
@@ -54,7 +58,7 @@ class Password_verfy_code extends Component{
                     <div className="section-content">
                       <div className="row">
                         <div className="col-md-12 text-center">
-                          <h3 className="font-28 text-white">Login/Register</h3>
+                          <h3 className="font-28 text-white">Register</h3>
                         </div>
                       </div>
                     </div>
@@ -68,7 +72,7 @@ class Password_verfy_code extends Component{
                        
                         <div className="tab-content">
                           <div className="tab-pane fade in active p-15" id="login-tab">
-                            <h4 className="text-gray mt-0 pt-5"> Enter Verification Code</h4>
+                            <h4 className="text-gray mt-0 pt-5">{t('Enter Verification Code')}</h4>
 
                             <form  
                                     data-toggle="validator" role="form"
@@ -120,4 +124,4 @@ class Password_verfy_code extends Component{
    }
 }
 
-export default Password_verfy_code;
+export default withTranslation()(Password_verfy_code);

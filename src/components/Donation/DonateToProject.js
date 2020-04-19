@@ -150,6 +150,7 @@ componentDidMount =()=>{
                               name="amount" 
                               className="form-control"
                               type="number" 
+                              min="1"
                               onChange ={this.handleChange}
                               required
                             />

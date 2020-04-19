@@ -20,7 +20,7 @@ class SuccessDonate extends Component {
           <div className="section-content">
            
           <div className="jumbotron text-center ">
-            <div><i className="fa fa-check-circle lg font-30 text-primary"></i></div>
+            <div><i className="fa fa-check-circle fa-4x  text-primary"></i></div>
               <h1 className="display-3">{t('Thank You!')}</h1>
               <div className=""><h3>{t('Donation was completed successfully')}</h3></div>
               {/* <hr /> */}

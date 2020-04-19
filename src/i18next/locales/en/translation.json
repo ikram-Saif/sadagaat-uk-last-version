@@ -175,7 +175,14 @@
 "achieve our client  trust and satisfaction":"achieve our client  trust and satisfaction",
 "Request failed with status code 500":"Username or Password Not Correct",
 "Request failed with status code 404":"Please Fill Your Information",
-"Share":"Share"
+"Request failed with status code 403":"This Email Already Exist",
+"Share":"Share",
+"Enter Email":"Enter Email",
+"Enter Phone": "Enter Phone",
+"Enter Subject":"Enter Subject",
+"Enter Verification Code":"Enter Verification Code",
+"Verify":"Verify",
+"Confirm":"Confirm"
 
   
   

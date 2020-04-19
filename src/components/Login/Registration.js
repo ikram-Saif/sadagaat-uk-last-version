@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { login , register} from '../../repository';
 import i18n from 'i18next'
 import { withTranslation } from 'react-i18next'
+import {Link} from 'react-router-dom'
 
 
 
@@ -12,6 +13,8 @@ class Registration extends Component{
   constructor() {
     super();
     this.state = { 
+      form:{
+   
               firstName:'',
               lastName:'',
               userName: '',
@@ -19,6 +22,15 @@ class Registration extends Component{
               phoneNumber:'',
               gender:'MALE',
               dateOfBirth:'',
+      },
+      response:{
+        errorMessage:null,
+        sccessfullRegistration:``,
+        styleClass:'',
+        iconClass:'',
+        loginLink:''
+        
+      }
 
     };
   }
@@ -26,7 +38,12 @@ class Registration extends Component{
    
    handleChange = (e)=> 
    {
-      this.setState({[e.target.name]: e.target.value})
+      this.setState({
+        form:{
+          ...this.state.form,
+        [e.target.name]: e.target.value
+        }
+      })
       console.log(e.target.value)
     }
 
@@ -36,14 +53,30 @@ class Registration extends Component{
 
         e.preventDefault();
 
-       register(this.state)
-       .then(token => window.location = '/login')
+       register(this.state.form)
+       
+       .then(token => 
+         this.setState({
+           response:{
+             ...this.state.response,
+           sccessfullRegistration:'Registerd Successfully. Please   ',
+           styleClass:'success-msg',
+           iconClass:'fa fa-check fa-2x',
+           loginLink:'Login ...!'
+           }
+         })
+        )
+
+        // .then(token => 
+        //  window.location = '/verify'
+        //  )
        
        .catch(err => {
         console.log(err.message)
 
             this.setState({
-              errorMessage: err.message,
+              form:{
+                ...this.state.form,
                 firstName:'',
                 lastName:'',
                 userName: '',
@@ -51,6 +84,13 @@ class Registration extends Component{
                 phoneNumber:'',
                 gender:'MALE',
                 dateOfBirth:'',
+              },
+              response:{
+                ...this.state.response,
+                errorMessage: err.message,
+                iconClass:'fa fa-times-circle',
+                styleClass:'error-msg'
+              }
            })
           }
         )
@@ -70,25 +110,40 @@ class Registration extends Component{
                             <form 
                                   name="reg-form" 
                                   className="register-form" 
-                                  role="form"
                                   data-toggle="validator"
+                                  role="form"
                                   onSubmit={this.handleSubmit}
                                   
                                 
                               >
                               <div className="icon-box mb-0 p-0">
-                                <a href="#" className={`icon icon-bordered icon-rounded icon-sm ${styleClass} mb-0`}>
+                                <span className={`icon icon-bordered icon-rounded icon-sm ${styleClass} mb-0`}>
                                   <i className="pe-7s-users"></i>
-                                </a> 
+                                </span> 
                                   <h4 className="text-gray pt-10 mt-0 mb-30">{t('Register Now')}</h4>
                               </div>
                              
+                                {this.state.response.errorMessage === null?
 
-                              <p className="error-message"> {t(this.state.errorMessage)} </p>                             
+                                  (<div className = {this.state.response.styleClass}>
+                                      <i className = {this.state.response.iconClass} style = {{margin:'5px'}} />
+                                      {this.state.response.sccessfullRegistration}
+                                      <a href = '/login'>{this.state.response.loginLink}</a>
+                                       
+                                      </div>) :
+
+                                    (<div className = {this.state.response.styleClass}>
+                                    <i className = {this.state.response.iconClass} style = {{margin:'5px'}}/>
+                                    {t(this.state.response.errorMessage)}
+                                    
+                                    </div>) 
+                                }
+
+                                                          
                              
                               <div className="row">
                                 <div className="form-group col-md-6">
-                                  <label for="firs-name">{t('First Name')}</label>
+                                  <label for="first-name">{t('First Name')}</label>
 
                                   <input
                                       id="firs-name" 
@@ -97,7 +152,7 @@ class Registration extends Component{
                                       type="text"
                                       required
                                       onChange = {this.handleChange}
-                                      value = {this.state.firstName}
+                                      value = {this.state.form.firstName}
                                       
                                   />
                                 </div>
@@ -110,7 +165,7 @@ class Registration extends Component{
                                         className="form-control"  
                                         type="text" 
                                         onChange = {this.handleChange}
-                                        value = {this.state.lastName}
+                                        value = {this.state.form.lastName}
                                         required
                                    />
                                        
@@ -128,7 +183,7 @@ class Registration extends Component{
                                       className="form-control" 
                                       type="email" id="inputEmail"
                                       onChange = {this.handleChange}
-                                      value = {this.state.userName}
+                                      value = {this.state.form.userName}
                                       
                                       required 
                                       
@@ -140,7 +195,7 @@ class Registration extends Component{
                                                 <select 
                                                 className="form-control float-right" 
                                                 name ="gender" 
-                                                value ={this.state.gender} 
+                                                value ={this.state.form.gender} 
                                                 onChange = {this.handleChange}
                                                 >
                                                     <option>{t('FEMALE')}</option>
@@ -157,8 +212,9 @@ class Registration extends Component{
                                       name="phoneNumber" 
                                       className="form-control" 
                                       type="tel" 
+                                      pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
                                       onChange = {this.handleChange}
-                                      value ={this.state.phoneNumber} 
+                                      value ={this.state.form.phoneNumber} 
                                       required 
                                       
                                     />
@@ -173,7 +229,7 @@ class Registration extends Component{
                                       type="date" 
                                       onChange ={this.handleChange}
                                       required 
-                                      value ={this.state.dateOfBirth} 
+                                      value ={this.state.form.dateOfBirth} 
                                     />
                                    <div className="help-block with-errors"></div>
                                 </div>
@@ -194,7 +250,7 @@ class Registration extends Component{
                                       data-error={t('Minimum of 8 characters')}
                                       required
                                       onChange = {this.handleChange}
-                                      value ={this.state.password}
+                                      value ={this.state.form.password}
                                       /> 
 
                                 <div className="help-block with-errors"></div>
@@ -209,7 +265,7 @@ class Registration extends Component{
                                         type="password" 
                                         data-match="#inputPassword" 
                                         data-match-error={t('Not Matching')} 
-                                        placeholder="Confirm"
+                                        placeholder={t("Confirm")}
                                          required
                                    />
 

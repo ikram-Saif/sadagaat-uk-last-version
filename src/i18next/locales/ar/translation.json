@@ -155,8 +155,8 @@
   "Latest":"اخر",
   "Photo":"الصور",
   "Gallery":"معرض",
-  "Raised:":":المتبقي",
-  "Goal:":"الهدف",
+  "Raised":"المتبقي:",
+  "Goal":"الهدف:",
   "Finished Projects":"المشاريع المكتملة",
   "Let's have a":"",
   "video":"",
@@ -177,7 +177,13 @@
 "Network Error":"خطأ الاتصال بالشبكة",
 "Request failed with status code 500":"اسم المستخدم او كلمة المرور غير صحيح",
 "Request failed with status code 404":"تأكد من ادخال البيانات المطلوبة",
-"Share":"مشاركة"
+"Request failed with status code 403":"هذا الإيميل مستخدم مسبقا",
+"Enter Email":"ادخل بريدك الالكتروني",
+"Enter Phone": "ادخل الهاتف",
+"Enter Subject":"ادخل مزضوع الرسالة",
+"Enter Verification Code":"ادخل رمز التحقق",
+"Verify":"تحقق",
+"Confirm":"تأكيد كلمةالمرور"
   
 
 }

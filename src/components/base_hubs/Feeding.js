@@ -134,7 +134,7 @@ return(
 <CircularProgressbar
 
   value={FeedingPro.donationProgress}
-  text={`${FeedingPro.id}%`}
+  text={`${FeedingPro.donationProgress}%`}
   styles={buildStyles({
   rotation: 0.25,
   strokeLinecap: 'butt', 
@@ -150,8 +150,8 @@ return(
 />  
 </div><div className="causes-details clearfix border-bottom p-15 pt-15 pb-15">
     <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
-      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')} <span className="text-theme-colored font-weight-700">{Feeding.raised} SDG</span></li>
-      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')} <span className="text-theme-colored font-weight-700">{Feeding.goals} SDG</span></li>
+      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')} <span className="text-theme-colored font-weight-700">{FeedingPro.raised} SDG</span></li>
+      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')} <span className="text-theme-colored font-weight-700">{FeedingPro.goals} SDG</span></li>
     </ul>
       <h4 className="text-uppercase"><a href="#">{FeedingPro.name}</a></h4>
     <div className="progress-item mt-0">

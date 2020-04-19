@@ -135,7 +135,7 @@ return(
 <CircularProgressbar
 
   value={waterPro.donationProgress}
-  text={`${waterPro.id}%`}
+  text={`${waterPro.donationProgress}%`}
   styles={buildStyles({
   rotation: 0.25,
   strokeLinecap: 'butt', 

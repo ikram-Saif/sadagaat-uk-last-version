@@ -147,8 +147,8 @@ return(
                                     <form 
                                             id="reg-form" 
                                             className="register-form" 
+                                            //data-toggle="validator"
                                             role="form"
-                                            data-toggle="validator"
                                             onSubmit ={this.handleSubmit}
                                          >           
                                         <div className="icon-box mb-0 p-0">
@@ -279,8 +279,9 @@ return(
                                                     id="" 
                                                     name="phoneNumber"
                                                     className="form-control"
-                                                    type="number"
+                                                    type="tel"
                                                     onChange ={this.handleChange}
+                                                    pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
                                                     value = {this.state.phoneNumber}
                                                     required
                                                  />
@@ -293,8 +294,9 @@ return(
                                                     id="form_re_enter_password" 
                                                     name="secondPhoneNumber"
                                                     className="form-control"
-                                                     type="number"
+                                                     type="tel"
                                                      value = {this.state.form.secondPhoneNumber}
+                                                     pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
                                                      onChange ={this.handleChange}
                                                     
                                                 />
