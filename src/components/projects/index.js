@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import axios from 'axios'
 import address from "./../utils/address";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -36,7 +35,6 @@ function Projects() {
                     {t("Projects")}
                   </span>
                 </h2>
-
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
                   autem voluptatem obcaecati! <br />
@@ -53,7 +51,11 @@ function Projects() {
                   <div className="causes bg-white mb-30">
                     <div className="thumb">
                       <Link to={"/single-projects/" + project.id}>
-                        <img src={project.imageUrl} className="img-fullwidth" />
+                        <img
+                          src={project.imageUrl}
+                          className="img-fullwidth"
+                          alt=""
+                        />
                       </Link>
                     </div>
 

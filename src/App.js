@@ -34,6 +34,7 @@ import DemoProject from "./components/projects/testProjects";
 import PrivateRoute from "./components/menu_bar/privateRoute";
 import PubliceRoute from "./components/menu_bar/PublicRoute";
 import SingleSubhub from "./components/sub_hubs/single-subhub";
+import "@brainhubeu/react-carousel/lib/style.css";
 
 import { useTranslation } from "react-i18next";
 
@@ -62,79 +63,44 @@ function App() {
         <Preload />
         <TopBar />
         <MenuBar />
-        <Route exact path="/film">
-          <Film />
-        </Route>
-
-        <Route exact path="/pictures">
-          <Pictures />
-        </Route>
-
-        <Route exact path="/calendar">
-          <Calendar />
-        </Route>
-
+        <Route exact path="/film" component={Film} />
+        <Route exact path="/pictures" component={Pictures} />
+        <Route exact path="/calendar" component={Calendar} />
         <Route exact path="/water" component={Water} />
-
         <Route exact path="/feeding" component={Feeding} />
-
         <Route exact path="/health" component={Health} />
-
         <Route exact path="/education" component={Education} />
-
         <Route exact path="/news" component={News} />
-
         <Route exact path="/sub_hubs" component={Sub_hubs} />
-
         <Route path="/contact" component={Contact} />
-
         <Route exact path="/projects" component={Projects_} />
-
         <Route exact path="/donate" component={Donate} />
-
         <Route exact path="/success-donate" component={SuccessDonate} />
         <Route exact path="/failed-donate" component={FaildDonate} />
-
         <Route path="/about" component={About} />
-
         <Route exact path="/" component={Home} />
-
         <PubliceRoute exact path="/login" component={Login} />
-
-        <Route exact path="/forgot_password">
-          <ForgotPassword />
-        </Route>
-
-        <Route exact path="/verify_password_code">
-          <Password_verfy_code />
-        </Route>
-
-        <Route exact path="/reset_password">
-          <RestPassword />
-        </Route>
-
+        <Route exact path="/forgot_password" component={ForgotPassword} />
+        <Route
+          exact
+          path="/verify_password_code"
+          component={Password_verfy_code}
+        />
+        <Route exact path="/reset_password" component={RestPassword} />
         <PrivateRoute exact path="/volunteerForm" component={VolunteerForm} />
-
-        <Route exact path="/verify">
-          <Email_verification />
-        </Route>
-
+        <Route exact path="/verify" component={Email_verification} />
         <Route exact path="/projects/:project_id" component={DonateToProject} />
-
         <Route exact path="/sub_hubs/:subhub_id" component={DonateToSubhub} />
-
         <Route
           exact
           path="/single-projects/:project_id"
           component={SingleProject}
         />
-
         <Route
           exact
           path="/single-subhub/:subhub_id"
           component={SingleSubhub}
         />
-
         <Route exact path="/projects/demo" component={DemoProject} />
         <Become />
         <Footer />

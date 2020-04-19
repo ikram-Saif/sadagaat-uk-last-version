@@ -3,8 +3,6 @@ import axios from "axios";
 import i18n from "i18next";
 import { address } from "../utils/address";
 import Carousel from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
-import image1 from "../../components/images/image1.jpg";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
