@@ -54,9 +54,9 @@ class Contact extends Component{
    handleChange = (e)=> 
    {
       this.setState({
-        form:{
-        [e.target.name]: e.target.value
-      }
+        
+      [e.target.name]: e.target.value
+      
       
     }
         )
@@ -67,6 +67,7 @@ class Contact extends Component{
    handleSubmit = (e) => 
    {
         e.preventDefault();
+        console.log(this.state.form)
     
        const {t} = this.props
       

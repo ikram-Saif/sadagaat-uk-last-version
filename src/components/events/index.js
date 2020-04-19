@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useRef, useState, useEffect } from "react";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { Link } from "react-router-dom";
@@ -9,14 +9,33 @@ import { useTranslation } from "react-i18next";
 function Event() {
   const [news, setNews] = useState([]);
   const [events, setEvent] = useState([]);
+  const didMountRef = useRef(true)
 
   const { t } = useTranslation();
 
   useEffect(() => {
+    if (didMountRef.current) {
+       console.log('your are mounted')
+        fetchNews();
+        fetcEvents()
+        // console.log(didMountRef.current)
+        didMountRef.current = false;
+
+      }
+      else{
+          // console.log(didMountRef.current)
+          // console.log('your are updated')
+        
+        // fetchNews()
+        // fetcEvents()
+    }
+},[]);
+
+ 
     async function fetchNews() {
       const fetcher = await window.fetch(`${address()}news`, {
         headers: { "accept-language": `${i18n.language}` },
-      });
+      })
       const response = await fetcher.json();
       setNews(response.slice(-3));
       console.log(response);
@@ -30,10 +49,8 @@ function Event() {
       setEvent(response.slice(-3));
       console.log(response);
     }
-
-    fetchNews();
-    fetcEvents();
-  }, []);
+    
+   
 
   return (
     <section>
@@ -47,7 +64,8 @@ function Event() {
               </h3>
 
               {events.map((event) => (
-                <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
+                <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15" key ={event.id}>
+                  
                   <div className="row">
                     <div className="col-xs-2 col-md-3 pr-0">
                       <div className="event-date text-center bg-theme-colored border-1px p-0 pt-10 pb-10 sm-custom-style">
@@ -61,6 +79,7 @@ function Event() {
                         </ul>
                       </div>
                     </div>
+                    <Link to = {'/event/'+ event.id}>
                     <div className="col-xs-9 pr-10 pl-10">
                       <div className="event-content mt-10 p-5 pb-0 pt-0">
                         <h5 className="media-heading font-16 font-weight-600">
@@ -79,6 +98,7 @@ function Event() {
                         </ul>
                       </div>
                     </div>
+                    </Link>
                   </div>
                 </div>
               ))}

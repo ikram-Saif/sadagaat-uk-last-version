@@ -34,8 +34,7 @@ import DemoProject from "./components/projects/testProjects";
 import PrivateRoute from "./components/menu_bar/privateRoute";
 import PubliceRoute from "./components/menu_bar/PublicRoute";
 import SingleSubhub from "./components/sub_hubs/single-subhub";
-import "@brainhubeu/react-carousel/lib/style.css";
-
+import SingleEvent from "./components/events/single-event";
 import { useTranslation } from "react-i18next";
 
 function App() {
@@ -63,9 +62,20 @@ function App() {
         <Preload />
         <TopBar />
         <MenuBar />
-        <Route exact path="/film" component={Film} />
-        <Route exact path="/pictures" component={Pictures} />
-        <Route exact path="/calendar" component={Calendar} />
+        <Route exact path="/film">
+          <Film />
+        </Route>
+
+        <Route exact path="/pictures">
+          <Pictures />
+        </Route>
+
+        <Route exact path="/calendar">
+          <Calendar />
+        </Route>
+
+        <Route exact path="/event/:event_id" component={SingleEvent} />
+
         <Route exact path="/water" component={Water} />
         <Route exact path="/feeding" component={Feeding} />
         <Route exact path="/health" component={Health} />

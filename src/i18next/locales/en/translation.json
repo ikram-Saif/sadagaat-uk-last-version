@@ -10,7 +10,7 @@
     "language":"Language",
     "charitable Activities" :"Charitable Activities",
     "organization" :"Organization",
-    "about_us":"About Us",
+    "About Us":"About Us",
     "About Sadagaat":"About Sadagaat",
     "The video":"The Video",
     "about_message_1":"Sadagaat-USA is 501 (c) (3) non-profit charity organization that started as a result of the growing dire need for help and our responsibilities as Sudanese American, Sadagaat-USA was born.",
@@ -24,7 +24,7 @@
     "contact_message":"Write your Message",
     "Send your message":"Send your message",
     "contact_info":"Contact Information",
-    "address":"Address",
+    "Address":"Address",
     "Phone":"Phone",
     "our_members":"Our Members",
     "name":"Name",
@@ -73,6 +73,7 @@
   "Volunteer Form":"Volunteer Form",
   "Logout":"Logout",
   "Volunteer Registeration":"Volunteer Registeration",
+  "Fill Your Volunteering Form":"Fill Your Volunteering Form",
   "Age Range":"Age Range",
   "Additional Phone":"Additional Phone.",
   "E-Mail":"E-Mail",
@@ -85,6 +86,7 @@
   "If you currently work , what is your job?":"If you currently work , what is your job?",
   "Do you live in Sudan?":"Do you live in Sudan?",
   "In which State do you live ?":"'In which State do you live ?",
+  "In which city?":"In which city?",
   "I Dont Know":"I Don't Know",
   "If yes , Since when?":"If yes , Since when?",
   "What projects did you participated in with Sadagaat?":"What projects did you participated in with Sadagaat?",
@@ -99,6 +101,7 @@
   "Submit":"Submit",
   "Yes":"Yes",
   "No":"No",
+  "Did Sadagaat executed any projects in your State?":"Did Sadagaat executed any projects in your State?",
   "What did you Study(or are studding)?":"What did you Study(or are studding)?",
   "Did you volunteer in Sadagaat before?":"Did you volunteer in Sadagaat before?",
   "Make a Donation":"Make a Donation",
@@ -171,7 +174,8 @@
 "We provides always our best industrial solution for our clientsand always try to":"We provides always our best industrial solution for our clientsand always try to",
 "achieve our client  trust and satisfaction":"achieve our client  trust and satisfaction",
 "Request failed with status code 500":"Username or Password Not Correct",
-"Request failed with status code 404":"Please Fill Your Information"
+"Request failed with status code 404":"Please Fill Your Information",
+"Share":"Share"
 
   
   

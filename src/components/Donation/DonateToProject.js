@@ -23,7 +23,7 @@ class DonateToProject extends Component {
       }
 }
 
-componentDidMount=()=>{
+componentDidMount =()=>{
 
     let id = this.props.match.params.project_id
     console.log(this.props.match.params.project_id) 
@@ -44,6 +44,23 @@ componentDidMount=()=>{
   
 }
 
+// componentDidUpdate =()=>{
+
+//   let id = this.state.project_id
+
+//   axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+
+//   .then(response => {
+
+//        const project = response.data
+//         this.setState({project})
+
+//   }).catch(error => {
+//       alert(error.message)
+//   })
+
+// }
+
 
   handleChange=(e)=>{
           this.setState({
@@ -58,7 +75,7 @@ componentDidMount=()=>{
             let id = this.state.project_id
             const data = 
             {
-              pid:id,
+              PID :id,
               amount:this.state.amount,
               currency:this.state.currency
             }
@@ -100,16 +117,30 @@ componentDidMount=()=>{
             <div class="col-xs-12 col-sm-12 col-md-5">
             
               <h3 class="mt-0 line-bottom">{t('Make a Donation')}<span class="font-weight-300"> {t('Now!')}</span></h3>
-              <p className="error-message">{t(this.state.message)}</p>
+              <span className="error-message">{t(this.state.message)}</span>
               <form
                   data-toggle="validator"
                   role="form"
                   id="popup_paypal_donate_form_onetime_recurring"
-                  onSubmit = {this.handleSubmite}>
+                  onSubmit = {this.handleSubmite}
+                  >
 
-                      <h3>{this.state.project.name}</h3>
-                      <br/>
+                  <div className="row">
+                    <div className="col-sm-12">
+                    <div className="form-group mb-20">
 
+                        <input
+                              name="name" 
+                              className="form-control"
+                              type="readOnly" 
+                              value = {this.state.project.name}
+                              style = {{fontSize:'16px'}}
+                              readonly
+                            />
+                      </div>
+                    </div>
+                   </div>
+                     
                     <div className="row">
                     <div className="col-sm-9">
                     <div className="form-group mb-20">

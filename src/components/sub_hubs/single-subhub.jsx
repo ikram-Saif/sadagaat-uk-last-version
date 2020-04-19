@@ -36,6 +36,23 @@ componentDidMount=()=>{
     })
   
 }
+
+// componentDidUpdate=()=>{
+
+//   let id = this.state.subhub.id
+
+//   axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+
+//   .then(response => {
+
+//        const subhub = response.data
+//         this.setState({subhub})
+
+//   }).catch(error => {
+//       alert(error.message)
+//   })
+
+// }
 render(){
   const {t} = this.props
   const {subhub} = this.state
@@ -45,7 +62,7 @@ render(){
             <div className="row mtli-row-clearfix">
               <div className="col-sm-12 col-md-10 col-md-offset-1">
                 <div className="causes bg-white maxwidth500 mb-30">
-                  <div className="thumb">
+                  <div className="thumb" style={{width :'945px' , height :'600px' , border:'1px solid gray'}}>
                     <img src={subhub.imageUrl} alt="" className="img-fullwidth"/>
                   </div>
                   {/* <div className="progress-item mt-0">

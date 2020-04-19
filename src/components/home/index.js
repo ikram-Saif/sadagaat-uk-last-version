@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "../../components/slider";
+import Slider2 from "../../components/slider/Slider2";
 import Hubs from "../../components/base_hubs";
 import About from "../../components/about";
 import ProjectSlider from "../../components/projects/projectsSlider";
@@ -14,7 +14,7 @@ import Projects from "../projects";
 function Home() {
   return (
     <div className="main-content">
-      <Slider />
+      <Slider2 />
       <Hubs />
       <About />
       <ProjectCarousel />

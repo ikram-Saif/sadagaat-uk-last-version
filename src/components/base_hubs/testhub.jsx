@@ -8,23 +8,18 @@ import  {withTranslation}  from 'react-i18next'
 import { donateTo } from '../../repository';
 
 
-class Donate extends Component {
+class Health extends Component {
 
   constructor() {
     super();
-    this.state = {
-      id:null,        
-      donateTo: "Sadagaat",
-      amount: "",
-      currency:"SDG",
-      message:'',
+    state = {
       hubs:[]
                 }
 }
 
   componentDidMount =()=> {
 
-    axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
+    axios.get(`${address()}hubs/33`, {headers: {'accept-language': `${i18n.language}`}})
         .then(response => {
           const hubs = response.data
           this.setState({hubs})
@@ -35,60 +30,8 @@ class Donate extends Component {
           console.log(error);
         })
   }
-  // componentDidUpdate =()=> {
 
-  //   axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
-  //       .then(response => {
-  //         const hubs = response.data
-  //         this.setState({hubs})
-  //         })
-
-      
-  //       .catch(error => {
-  //         console.log(error);
-  //       })
-  // }
-
-
-
-       handleChange=(e)=>{
-       
-          this.setState({
-            [e.target.name]:e.target.value,
-          })
-      }
-      
-       handleSubmite =(e)=>{
-            e.preventDefault()
-            const id = this.state.id
-            console.log(id)
-
-          const data = {
-              HID : id ,
-              amount:this.state.amount,
-              currency:this.state.currency
-            }
-            console.log(data)
-          axios.post(`${address()}donate`,data)
-
-          .then(response =>{
-                  response.data.responseCode !== 1 ?
-                      this.setState(
-                        {
-                          message :"Proccess Failed",
-                          donateTo:'Sadagaat', 
-                          amount:''
-                        }) :
-                 window.location = response.data.paymentUrl
-         
-                /** syber bay payment feedback */
-
-              }) .catch(error => {
-                this.setState({message:error.message})
-                })
    
-  }
-
    render(){
      const{t}= this.props
 
