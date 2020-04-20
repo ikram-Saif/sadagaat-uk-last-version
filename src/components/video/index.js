@@ -17,7 +17,8 @@ function Video() {
               <div className="col-md-12 text-center">
                 <a
                   href="https://www.youtube.com/watch?v=JI-1UEwo-tg"
-                  data-lightbox-gallery="youtube-video"
+                  // data-lightbox-gallery="youtube-video"
+                  target="blank"
                 >
                   <i className="fa fa-play-circle text-theme-colored font-72" />
                 </a>
