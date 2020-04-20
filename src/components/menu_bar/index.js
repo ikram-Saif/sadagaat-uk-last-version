@@ -1,7 +1,7 @@
 import React from "react";
 import LanguageSelector from "../../i18next/LanguageSelector";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logo from '../images/Logo.png'
 
@@ -18,80 +18,80 @@ function MenuBar() {
               </a>
               <ul className="menuzord-menu">
                 <li>
-                  <Link
+                  <NavLink
                     className="nav-link"
                     activeclassName="active"
                     exact
                     to="/"
                   >
                     {t("Home")}
-                  </Link>
+                  </NavLink>
                 </li>
 
                 <li>
                   <a>{t("Hubs")}</a>
                   <ul className="dropdown">
                     <li>
-                      <Link to="/water">{t("Water Hub")}</Link>
+                      <NavLink to="/water">{t("Water Hub")}</NavLink>
                     </li>
                     <li>
-                      <Link to="/education">{t("Education Hub")}</Link>
+                      <NavLink to="/education">{t("Education Hub")}</NavLink>
                     </li>
                     <li>
-                      <Link to="/health">{t("Health Hub")}</Link>
+                      <NavLink to="/health">{t("Health Hub")}</NavLink>
                     </li>
                     <li>
-                      <Link to="/feeding">{t("Feeding Hub")}</Link>
+                      <NavLink to="/feeding">{t("Feeding Hub")}</NavLink>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Link to="/sub_hubs">{t("Sub Hubs")}</Link>
+                  <NavLink to="/sub_hubs">{t("Sub Hubs")}</NavLink>
                 </li>
                 <li>
                   {" "}
-                  <Link to="/projects">{t("Projects")}</Link>
+                  <NavLink to="/projects">{t("Projects")}</NavLink>
                 </li>
                 <li>
                   <a href="#">{t("Media Center")}</a>
                   <ul className="dropdown">
                     <li>
-                      <Link to="/film">{t("Film Library")}</Link>
+                      <NavLink to="/film">{t("Film Library")}</NavLink>
                     </li>
                     <li>
-                      <Link to="pictures">{t("Pictures Library")}</Link>
+                      <NavLink to="pictures">{t("Pictures Library")}</NavLink>
                     </li>
                     <li>
-                      <Link to="/news">{t("News")}</Link>
+                      <NavLink to="/news">{t("News")}</NavLink>
                     </li>
                     <li>
-                      <Link to="/calendar">{t("Event Calendar")}</Link>
+                      <NavLink to="/calendar">{t("Event Calendar")}</NavLink>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <Link to="/about">{t("About Us")}</Link>
+                  <NavLink to="/about">{t("About Us")}</NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     className="nav-link"
                     activeclassName="active"
                     to="/contact"
                   >
                     {t("Contact")}
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
                   {" "}
                   <LanguageSelector />{" "}
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     className="btn btn-colored btn-flat btn-theme-green"
                     to="/donate"
                   >
                     {t("Donate")}
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </nav>

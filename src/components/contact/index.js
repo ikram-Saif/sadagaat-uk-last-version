@@ -8,6 +8,8 @@ import i18n from 'i18next'
 import  {withTranslation}  from 'react-i18next'
 
 
+
+
 class Contact extends Component{
 
   constructor(props) {

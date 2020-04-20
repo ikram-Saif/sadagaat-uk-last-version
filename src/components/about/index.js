@@ -1,6 +1,9 @@
-import React from 'react';
-import { useTranslation} from 'react-i18next';
-import {Link} from 'react-router-dom'
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import about1 from "../images/work.jpg";
+import about2 from "../images/dates.jpg";
+import about3 from "../images/tree.jpg";
 
 function About(){
   const {t ,i18n} = useTranslation()
@@ -18,45 +21,69 @@ return(
               <div className="row">
                 <div className={`col-md-6 col-sm-6 ${classParameter}`}>
                   <div className="img-hover-border mt-sm-40">
-                    <img className="img-fullwidth" src='./images/about 350-300.jpg' alt=""  width="275" height ="335" />
+                    <img
+                      className="img-fullwidth"
+                      src="./images/about 350-300.jpg"
+                      alt=""
+                      width="275"
+                      height="335"
+                    />
                   </div>
                 </div>
-            <div className="col-md-6 col-sm-6 pl-0 pr-0">
-              <div className="img-hover-border mt-sm-30">
-                <img className="img-fullwidth" src="./images/about 325-177.jpg" alt = ""  width="250" height ="156"/>
+                <div className="col-md-6 col-sm-6 pl-0 pr-0">
+                  <div className="img-hover-border mt-sm-30">
+                    <img
+                      className="img-fullwidth"
+                      src="./images/about 325-177.jpg"
+                      alt=""
+                      width="250"
+                      height="156"
+                    />
+                  </div>
+                  <div className="img-hover-border mt-15 mt-sm-30">
+                    <img
+                      className="img-fullwidth"
+                      src="./images/x.jpg"
+                      alt=""
+                      width="250"
+                      height="156"
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="img-hover-border mt-15 mt-sm-30">
-                <img className="img-fullwidth" src="./images/x.jpg" alt = "" width="250" height ="156" />
+            </div>
+            <div className="col-md-6 d-flex align-items-center">
+              <div className="about-details">
+                <h2 className="font-28 text-uppercase mt-1">
+                  {t("About")}{" "}
+                  <span className="text-theme-colored">{t("Sadagaat")}</span>
+                </h2>
+                <p>{t("about_message_1")}</p>
+                {/* <p>{t("about_message_2")}</p>
+                <p>{t("about_message_1")}</p>
+                <p>{t("about_message_2")}</p> */}
+
+                <Link
+                  to="/about"
+                  className={`btn btn-flat btn-colored btn-theme-colored mt-15 ${buttonClass}`}
+                  style={{ display: show }}
+                >
+                  {t("Read More")}
+                </Link>
+
+                <Link
+                  to="/donate"
+                  className={`btn btn-flat btn-colored btn-default btn-theme-colored mt-15 ${buttonClass}`}
+                >
+                  {t("Donate")}
+                </Link>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-md-6 d-flex align-items-center">
-          <div className="about-details">
-            <h2 className="font-28 text-uppercase mt-1">{t('About')} <span className="text-theme-colored">{t('Sadagaat')}</span></h2>
-            <p>{t('about_message_1')}</p>
-            <p>{t('about_message_2')}</p>
-            <p>{t('about_message_1')}</p>
-            <p>{t('about_message_2')}</p>
-        
-             
-            <Link 
-              to="/about" 
-              className={`btn btn-flat btn-colored btn-theme-colored mt-15 ${buttonClass}`}
-               style = {{display :show}}
-              >
-              {t('Read More')}
-            </Link>
-         
-            <Link to="/donate" className={`btn btn-flat btn-colored btn-default btn-theme-colored mt-15 ${buttonClass}`}>{t('Donate')}</Link>
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-    );
+    </section>
+  );
 }
 
 export default About;

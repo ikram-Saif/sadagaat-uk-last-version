@@ -13,16 +13,17 @@ class SinglEvent extends Component {
   }
 
   componentDidMount = () => {
-    let id = this.props.match.params.project_id;
-    console.log(this.props.match.params.project_id);
+    let id = this.props.match.params.event_id;
+    console.log(this.props.match.params.event_id);
 
     axios
       .get(`${address()}events/${id}`, {
-        headers: { "accept-language": `${i18n.language}` },
+        headers: { "accept-language": `${i18n.language}` }
       })
 
       .then((response) => {
-        const {event} = response.data;
+        const event = response.data;
+        console.log(event)
         this.setState({ event });
       })
       .catch((error) => {
@@ -49,7 +50,8 @@ class SinglEvent extends Component {
 
   render() {
     const { t } = this.props;
-    const {event} = this.state.event;
+    const event = this.state.event;
+    console.log(event)
     return (
 
         <div class="main-content">
@@ -85,21 +87,18 @@ class SinglEvent extends Component {
                 <p>{event.name}</p>
               </li>
               <li>
-                <h4>{t('Event Date')}:</h4>
+                <h4>{t('Start Date')}:</h4>
                     <p>{event.startDate}</p>
               </li>
               <li>
-                <h4>{('Host')}:</h4>
+                <h4>{t('End Date')}:</h4>
                     <p>{event.endDate}</p>
               </li>
               <li>
-                <h4>{('Location')}:</h4>
-                <p>{event.location}</p>
+                <h4>{t('Location')}:</h4>
+                <p>{event.locationName}</p>
               </li>
-              <li>
-                <h4>{t('Event Time:')}</h4>
-                {/* <p>6 pm - 8 pm</p> */}
-              </li>
+             
               <li>
                 <h5></h5>
                 <div class="styled-icons icon-dark icon-theme-colored icon-sm icon-circled">

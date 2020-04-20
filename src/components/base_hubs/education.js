@@ -30,11 +30,12 @@ function Education (props){
   }
 
        async function eduProjects() {
-         const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
+         const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
          const response = await fetcher.json()
-         const filteredSubhubs = response.filter((subhub) => subhub.hubId === 36)
-         setProject(filteredSubhubs)
-         console.log(filteredSubhubs)
+         //const filteredSubhubs = response.filter((subhub) => subhub.hubId === 36)
+         //setProject(filteredSubhubs)
+         //console.log(filteredSubhubs)
+         setProject(response)
        }
 
   useEffect(() => {
@@ -73,23 +74,7 @@ return(
               />
   <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
-<CircularProgressbar
-
-  value={education.id}
-  text={`${education.id}%`}
-  styles={buildStyles({
-  rotation: 0.25,
-  strokeLinecap: 'butt',
-  textSize: '26',
-  pathTransitionDuration: 0.5,
-  pathColor: `${education.id / 1000})`,
-  textColor: 'black',
-  trailColor: '',
-  backgroundColor: '',
-
-})}
-
-/>  
+ 
 </div>
           </div>
   
@@ -122,7 +107,7 @@ return(
 
   <Link to = {'/single-projects/'+educationPro.id}>
 
-    <img  src={(educationPro.imageUrl)}  alt className="img-fullwidth" />
+    <img  src={(educationPro.imageUrl)}  alt className="img-fullwidth" height ="240" width = "360" />
     </Link>
   </div>
   
@@ -130,17 +115,23 @@ return(
 
 <CircularProgressbar
 
-  value={educationPro.donationProgress}
-  text={`${educationPro.donationProgress}%`}
+  value={educationPro.projectProgress}
+  text={`${educationPro.projectProgress}%`}
+  background
+  backgroundPadding={6}
   styles={buildStyles({
-  rotation: 0.25,
-  strokeLinecap: 'butt', 
-  textSize: '26',
-  pathTransitionDuration: 0.5,
-  pathColor: `${educationPro.id / 1000})`,
-  textColor: 'black',
-  trailColor: '',
-  backgroundColor: '',
+    rotation: 0.25,
+    strokeLinecap: "butt",
+    textSize: "26",
+    pathTransitionDuration: 0.5,
+    pathColor: `${project.id / 1000})`,
+    //textColor: "white",
+    backgroundColor: "#066993",
+    textColor: "#fff",
+    pathColor: "#fff",
+    trailColor: "transparent"
+    //trailColor: "",
+    //backgroundColor: '',
 
 })}
 

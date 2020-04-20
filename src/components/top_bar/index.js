@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import address from "./../utils/address";
 import i18n from "i18next";
 
-import { BrowserRouter as Router } from "react-router-dom";
 import Login from "../Login/Login";
 import Auth_user_menu from "../Login/Auth_User_menu";
 import UnAuth_user_menu from "../Login/UnAuth_user-menu";
@@ -10,19 +9,6 @@ import { isAuthenticated } from "../../repository";
 import { Link } from "react-router-dom";
 
 function TopBar() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const fetcher = await window.fetch(`${address()}media`, {
-        headers: { "accept-language": `${i18n.language}` },
-      });
-      const response = await fetcher.json();
-      setData(response);
-    }
-    fetchData();
-  }, []);
-
   return (
     <div className="header-top bg-theme-colored sm-text-center">
       <div className="container">
@@ -31,29 +17,38 @@ function TopBar() {
             <div className="widget no-border m-0">
               <ul className="styled-icons icon-dark icon-theme-colored icon-sm sm-text-center">
                 <li>
-                  <Link to="#">
+                  <a
+                    href="https://web.facebook.com/Sadagaat/?_rdc=1&_rdr"
+                    target="blank"
+                  >
                     <i className="fa fa-facebook"></i>
-                  </Link>
+                  </a>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="#">
                     <i className="fa fa-twitter"></i>
                   </Link>
-                </li>
+                </li> */}
                 <li>
-                  <Link to="#">
+                  <a
+                    href="https://www.youtube.com/user/Sadagaat"
+                    target="blank"
+                  >
                     <i className="fa fa-youtube"></i>
-                  </Link>
+                  </a>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="#">
                     <i className="fa fa-instagram"></i>
                   </Link>
-                </li>
+                </li> */}
                 <li>
-                  <Link to="#">
+                  <a
+                    href="https://www.linkedin.com/company/sadagaat"
+                    target="blank"
+                  >
                     <i className="fa fa-linkedin"></i>
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -79,7 +74,7 @@ function TopBar() {
             </div>
           </div>
 
-          {isAuthenticated()?<Auth_user_menu />:<UnAuth_user_menu />} 
+          {isAuthenticated() ? <Auth_user_menu /> : <UnAuth_user_menu />}
         </div>
       </div>
     </div>

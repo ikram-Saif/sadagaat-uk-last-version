@@ -119,7 +119,7 @@ return(
 <div className="causes bg-white mb-30">
   <div className="thumb">
   <Link to = {'/single-projects/'+healthPro.id}>
-    <img  src={(healthPro.imageUrl)}  alt className="img-fullwidth" />
+    <img  src={(healthPro.imageUrl)}  alt className="img-fullwidth"  height ="240" width = "360"/>
     </Link>
   </div>
   
@@ -127,17 +127,23 @@ return(
 
 <CircularProgressbar
 
-  value={healthPro.donationProgress}
-  text={`${healthPro.donationProgress}%`}
+  value={healthPro.projectProgress}
+  text={`${healthPro.projectProgress}%`}
+  background
+  backgroundPadding={6}
   styles={buildStyles({
-  rotation: 0.25,
-  strokeLinecap: 'butt', 
-  textSize: '26',
-  pathTransitionDuration: 0.5,
-  pathColor: `${healthPro.id / 1000})`,
-  textColor: 'black',
-  trailColor: '',
-  backgroundColor: '',
+    rotation: 0.25,
+    strokeLinecap: "butt",
+    textSize: "26",
+    pathTransitionDuration: 0.5,
+    pathColor: `${project.id / 1000})`,
+    //textColor: "white",
+    backgroundColor: "#066993",
+    textColor: "#fff",
+    pathColor: "#fff",
+    trailColor: "transparent"
+    //trailColor: "",
+    //backgroundColor: '',
 
 })}
 

@@ -123,7 +123,7 @@ return(
   <Link to = {'/single-projects/'+FeedingPro.id}>
 
       <img  src={(FeedingPro.imageUrl)}  
-       className="img-fullwidth" />
+       className="img-fullwidth"  height ="240" width = "360" />
        
       </Link>
   </div>
@@ -133,17 +133,23 @@ return(
 
 <CircularProgressbar
 
-  value={FeedingPro.donationProgress}
-  text={`${FeedingPro.donationProgress}%`}
+  value={FeedingPro.projectProgress}
+  text={`${FeedingPro.projectProgress}%`}
+  background
+  backgroundPadding={6}
   styles={buildStyles({
-  rotation: 0.25,
-  strokeLinecap: 'butt', 
-  textSize: '26',
-  pathTransitionDuration: 0.5,
-  pathColor: `${FeedingPro.id / 1000})`,
-  textColor: 'black',
-  trailColor: '',
-  backgroundColor: '',
+    rotation: 0.25,
+    strokeLinecap: "butt",
+    textSize: "26",
+    pathTransitionDuration: 0.5,
+    pathColor: `${project.id / 1000})`,
+    //textColor: "white",
+    backgroundColor: "#066993",
+    textColor: "#fff",
+    pathColor: "#fff",
+    trailColor: "transparent"
+    //trailColor: "",
+    //backgroundColor: '',
 
 })}
 
@@ -151,9 +157,9 @@ return(
 </div><div className="causes-details clearfix border-bottom p-15 pt-15 pb-15">
     <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
       <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')} <span className="text-theme-colored font-weight-700">{FeedingPro.raised} SDG</span></li>
-      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')} <span className="text-theme-colored font-weight-700">{FeedingPro.goals} SDG</span></li>
+      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')} <span className="text-theme-colored font-weight-700">{FeedingPro.goal} SDG</span></li>
     </ul>
-      <h4 className="text-uppercase"><a href="#">{FeedingPro.name}</a></h4>
+      <h4 className="text-uppercase">{FeedingPro.name}</h4>
     <div className="progress-item mt-0">
       <div className="progress mb-0">
         <div data-percent={FeedingPro.donationProgress} className="progress-bar"><span className="percent">{FeedingPro.donationProgress}</span></div>

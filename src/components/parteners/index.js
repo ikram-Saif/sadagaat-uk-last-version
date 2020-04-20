@@ -1,9 +1,10 @@
 import React from "react";
-//import Icon from 'react-fa'
-import Icon from "react-icons";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { useTranslation } from "react-i18next";
+import sama from "../images/sama.png";
+import soba from "../images/soba.png";
+import sadagaat from "../images/sadagaat.png";
 
 function Parteners() {
   const { t } = useTranslation();
@@ -20,27 +21,15 @@ function Parteners() {
                 </span>
               </h2>
               {/* <div class="title-icon">
-          <i class="flaticon-charity-hand-holding-a-heart"></i>
-        </div> */}
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
-                autem voluptatem obcaecati! <br />
-                ipsum dolor sit Rem autem voluptatem obcaecati
-              </p>
+                <i class="flaticon-charity-hand-holding-a-heart"></i>
+              </div> */}
             </div>
           </div>
         </div>
         <div className="row">
           <div className="col-md-12">
-            {/* <Carousel>
-        <img src={"http://placehold.it/200x120"} />
-        <img src={"http://placehold.it/200x120"} />
-        <img src={"http://placehold.it/200x120"} />
-      </Carousel> 
-    */}
-
             <Carousel
-              slidesPerPage={5}
+              slidesPerPage={3}
               slidesPerScroll={1}
               autoPlay={3000}
               animationSpeed={1000}
@@ -54,8 +43,8 @@ function Parteners() {
                   slidesPerPage: 2,
                   clickToChange: false,
                   centered: false,
-                  arrows: true,
-                  infinite: false,
+                  arrows: false,
+                  infinite: true,
                 },
                 500: {
                   slidesPerPage: 1,
@@ -63,49 +52,31 @@ function Parteners() {
                   clickToChange: false,
                   centered: false,
                   animationSpeed: 2000,
-                  infinite: false,
+                  infinite: true,
                 },
               }}
             >
               <div className="item">
-                {" "}
-                <a href="#">
-                  {" "}
-                  <img src='./images/partener/1.png' />
+                <a href="https://sama-sd.org/" target="blank">
+                  <img
+                    src={sama}
+                    height="100vh"
+                    alt="Sudanese American Medical Association"
+                  />
                 </a>
               </div>
               <div className="item">
-                {" "}
-                <a href="#">
-                  {" "}
-                  <img src='./images/partener/3.png'  />
-                </a>
+                <img
+                  src={soba}
+                  alt="Soba Uneviersity Hospital"
+                  height="100vh"
+                />
               </div>
               <div className="item">
-                {" "}
-                <a href="#">
-                  <img src='./images/partener/2.png'  alt />
+                <a href="https://www.sadagaat-usa.org/" target="blank">
+                  <img src={sadagaat} alt="Sadagaat USA" height="100vh" />
                 </a>
               </div>
-              <div className="item">
-                {" "}
-                <a href="#">
-                  <img src='./images/partener/4.png'  alt />
-                </a>
-              </div>
-              <div className="item">
-                {" "}
-                <a href="#">
-                  <img src= './images/partener/1.png'  alt />
-                </a>
-              </div>
-              <div className="item">
-                {" "}
-                <a href="#">
-                  <img src='./images/partener/2.png'  alt />
-                </a>
-              </div>
-  
             </Carousel>
           </div>
         </div>

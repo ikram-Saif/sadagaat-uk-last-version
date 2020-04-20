@@ -1,24 +1,21 @@
-import i18n from 'i18next';
-import Backend from 'i18next-xhr-backend';
-import detector from 'i18next-browser-languagedetector';
-import { initReactI18next } from 'react-i18next';
+import i18n from "i18next";
+import Backend from "i18next-xhr-backend";
+import detector from "i18next-browser-languagedetector";
+import { initReactI18next } from "react-i18next";
 
+import translationEN from "./locales/en/translation.json";
+import translationAR from "./locales/ar/translation.json";
 
-
-import translationEN from './locales/en/translation.json';
-import translationAR from './locales/ar/translation.json';
-
-const availableLanguages = ['en', 'ar'];
+const availableLanguages = ["en", "ar"];
 
 // the translations
 const resources = {
- en: {
-   translation: translationEN
-    
+  en: {
+    translation: translationEN,
   },
- ar: {
-   translation: translationAR
-  }
+  ar: {
+    translation: translationAR,
+  },
 };
 
 i18n
@@ -26,22 +23,20 @@ i18n
 
   .use(detector) // detect user language
 
-  .use(initReactI18next) // pass the i18n instance to react-i18next.
-  
-  i18n.use(initReactI18next).init({
-    //lng: 'ar',
-    resources,
-    //initImmediate: true,
-    fallbackLng :'ar', // if user computer language is not on the list of available languages, than we will be using the fallback language specified earlier
-    debug: true,
-    //whitelist: availableLanguages,
- 
+  .use(initReactI18next); // pass the i18n instance to react-i18next.
 
-    interpolation: {
-      escapeValue: false
-    
-    },
-   /* order: [ 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain','querystring',],
+i18n.use(initReactI18next).init({
+  //lng: 'ar',
+  resources,
+  //initImmediate: true,
+  fallbackLng: "ar", // if user computer language is not on the list of available languages, than we will be using the fallback language specified earlier
+  debug: true,
+  //whitelist: availableLanguages,
+
+  interpolation: {
+    escapeValue: false,
+  },
+  /* order: [ 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain','querystring',],
 
   // keys or params to lookup language from
   //lookupQuerystring: 'lng',
@@ -53,18 +48,18 @@ i18n
   // cache user language on
   caches: ['localStorage', 'cookie'],
   excludeCacheFor: ['cimode'], // languages to not persist (cookie, localStorage)*/
- 
-   // detection: {
-    //  order: ["cookies","path", "navigator"]
-    //},
-    backend: {
-      //loadPath: '/translation/{{lng}}.json',
+
+  // detection: {
+  //  order: ["cookies","path", "navigator"]
+  //},
+  backend: {
+    //loadPath: '/translation/{{lng}}.json',
     //  allowMultiLoading: false
-    },
-    react: {
-      wait: true,
-      useSuspense: false 
-    },
-  });
+  },
+  react: {
+    wait: true,
+    useSuspense: false,
+  },
+});
 
 export default i18n;

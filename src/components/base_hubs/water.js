@@ -119,6 +119,7 @@ return(
     <Link to = {'/single-projects/'+waterPro.id}>
      <img  src={(waterPro.imageUrl)}  
      alt className="img-fullwidth" 
+      height ="240" width = "360"
      />
      </Link>
      </div>
@@ -134,17 +135,23 @@ return(
 
 <CircularProgressbar
 
-  value={waterPro.donationProgress}
-  text={`${waterPro.donationProgress}%`}
+  value={waterPro.projectProgress}
+  text={`${waterPro.projectProgress}%`}
+  background
+  backgroundPadding={6}
   styles={buildStyles({
-  rotation: 0.25,
-  strokeLinecap: 'butt', 
-  textSize: '26',
-  pathTransitionDuration: 0.5,
-  pathColor: `${waterPro.id / 1000})`,
-  textColor: 'black',
-  trailColor: '',
-  backgroundColor: '',
+    rotation: 0.25,
+    strokeLinecap: "butt",
+    textSize: "26",
+    pathTransitionDuration: 0.5,
+    pathColor: `${project.id / 1000})`,
+    //textColor: "white",
+    backgroundColor: "#066993",
+    textColor: "#fff",
+    pathColor: "#fff",
+    trailColor: "transparent"
+    //trailColor: "",
+    //backgroundColor: '',
 
 })}
 
@@ -155,11 +162,11 @@ return(
       <li className="pull-left font-weight-400 text-black-333 pr-0">
         {t('Raised')} 
         <span className="text-theme-colored font-weight-700">
-          {water.raised} SDG</span>
+          {waterPro.raised} SDG</span>
         </li>
       <li className="pull-right font-weight-400 text-black-333 pr-0">
           {t('Goal')} <span className="text-theme-colored font-weight-700">
-          {water.goal} SDG</span>
+          {waterPro.goal} SDG</span>
       </li>
       </ul>
         <h4 className="text-uppercase"><a href="#">{waterPro.name}</a></h4>

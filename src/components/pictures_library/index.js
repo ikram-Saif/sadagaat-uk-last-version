@@ -10,27 +10,27 @@ import { useTranslation } from 'react-i18next';
 
 function Pictures_library(){
 
-  const [data, setData ] = useState([])
+   const [data, setData ] = useState([])
   const [currentPage,setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
+   const [postsPerPage, setPostsPerPage] = useState(6);
   const {t} = useTranslation()
 
   
-  useEffect(() => {
+  // useEffect(() => {
     
-          async function fetchData() {
-            const fetcher = await window.fetch(`${address()}`,{headers: {'accept-language': `${i18n.language}`}})
-            const response = await fetcher.json()
-           setData(response)
-          }
-          fetchData()
-         }, [])
+  //         async function fetchData() {
+  //           const fetcher = await window.fetch(`${address()}`,{headers: {'accept-language': `${i18n.language}`}})
+  //           const response = await fetcher.json()
+  //          setData(response)
+  //         }
+  //         fetchData()
+  //        }, [])
 
    const lastPost = currentPage * postsPerPage;
-   const firstPost = lastPost - postsPerPage;
-   const currentPosts = data.slice(firstPost,  lastPost);
+    const firstPost = lastPost - postsPerPage;
+    const currentPosts = data.slice(firstPost,  lastPost);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
 
 
