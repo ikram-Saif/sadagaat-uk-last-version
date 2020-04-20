@@ -46,14 +46,14 @@ class ProjectSlider extends Component {
     const { projects } = this.state;
     return (
       <React.Fragment>
-        <section id="causes" class="bg-silver-light">
-          <div class="container">
-            <div class="section-title text-center">
-              <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <h2 class="text-uppercase line-bottom-center mt-0">
+        <section id="causes" className="bg-silver-light">
+          <div className="container">
+            <div className="section-title text-center">
+              <div className="row">
+                <div className="col-md-10 col-md-offset-1">
+                  <h2 className="text-uppercase line-bottom-center mt-0">
                     {t("Our")}{" "}
-                    <span class="text-theme-colored font-weight-600">
+                    <span className="text-theme-colored font-weight-600">
                       {t("Projects")}
                     </span>
                   </h2>
@@ -65,8 +65,8 @@ class ProjectSlider extends Component {
                 </div>
               </div>
             </div>
-            <div class="row multi-row-clearfix">
-              {/* <div class="owl-carousel-3col"> */}
+            <div className="row multi-row-clearfix">
+              {/* <div className="owl-carousel-3col"> */}
               <Carousel
                 slidesPerPage={3}
                 slidesPerScroll={1}
@@ -111,20 +111,20 @@ class ProjectSlider extends Component {
                 }}
               >
                 {projects.map((project) => (
-                  <div class="item ml-5" key={project.id}>
-                    <div class="causes bg-white maxwidth500 mb-30">
-                      <div class="thumb">
+                  <div className="item ml-5" key={project.id}>
+                    <div className="causes bg-white maxwidth500 mb-30">
+                      <div className="thumb">
                         <Link to={"/single-projects/" + project.id}>
                           <img
                             src={project.imageUrl}
                             alt="alt"
-                            class="img-fullwidth"
+                            className="img-fullwidth"
                             width="240"
                             height="320"
                           />
                         </Link>
                       </div>
-                      {/* <div class="donation-progress mt-5 ml-5 text-center">
+                      {/* <div className="donation-progress mt-5 ml-5 text-center">
                         {project.donationProgress}
                       </div> */}
 
@@ -153,37 +153,37 @@ class ProjectSlider extends Component {
                         />
                       </div>
 
-                      <div class="causes-details clearfix border-bottom p-15 pt-15 pb-15">
-                        <ul class="list-inline font-20 font-weight-600 clearfix mb-5">
-                          <li class="pull-left font-weight-400 text-black-333 pr-0">
+                      <div className="causes-details clearfix border-bottom p-15 pt-15 pb-15">
+                        <ul className="list-inline font-20 font-weight-600 clearfix mb-5">
+                          <li className="pull-left font-weight-400 text-black-333 pr-0">
                             {t("Raised")}{" "}
-                            <span class="text-theme-colored font-weight-700">
+                            <span className="text-theme-colored font-weight-700">
                               {project.raised}
                             </span>
                           </li>
-                          <li class="pull-right font-weight-400 text-black-333 pr-0">
+                          <li className="pull-right font-weight-400 text-black-333 pr-0">
                             {t("Goal")}{" "}
-                            <span class="text-theme-colored font-weight-700">
+                            <span className="text-theme-colored font-weight-700">
                               {project.goal} SDG
                             </span>
                           </li>
                         </ul>
-                        <h4 class="text-uppercase">
+                        <h4 className="text-uppercase">
                           <a href="">{project.name}</a>
                         </h4>
-                        <div class="progress-item mt-0">
-                          <div class="progress mb-0">
+                        <div className="progress-item mt-0">
+                          <div className="progress mb-0">
                             <div
                               data-percent={project.donationProgress}
-                              class="progress-bar"
+                              className="progress-bar"
                             >
-                              <span class="percent">
+                              <span className="percent">
                                 {project.donationProgress}
                               </span>
                             </div>
                           </div>
                         </div>
-                        <p class="mt-20">{project.description}</p>
+                        <p className="mt-20">{project.description}</p>
                         <Link
                           to={"/projects/" + project.id}
                           className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"

@@ -79,7 +79,7 @@ function Event() {
                       <div className="col-xs-9 pr-10 pl-10">
                         <div className="event-content mt-10 p-5 pb-0 pt-0">
                           <h5 className="media-heading font-16 font-weight-600">
-                            <a href="#">{event.name}</a>
+                            <p>{event.name}</p>
                           </h5>
                           <ul className="list-inline font-weight-600 text-gray-dimgray">
                             <li>

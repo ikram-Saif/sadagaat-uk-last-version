@@ -9,19 +9,6 @@ import { isAuthenticated } from "../../repository";
 import { Link } from "react-router-dom";
 
 function TopBar() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const fetcher = await window.fetch(`${address()}media`, {
-        headers: { "accept-language": `${i18n.language}` },
-      });
-      const response = await fetcher.json();
-      setData(response);
-    }
-    fetchData();
-  }, []);
-
   return (
     <div className="header-top bg-theme-colored sm-text-center">
       <div className="container">
