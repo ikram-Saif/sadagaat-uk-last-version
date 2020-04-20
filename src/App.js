@@ -42,10 +42,13 @@ function App() {
   document.getElementById("direction").dir = i18n.dir();
 
   useEffect(() => {
-    if (i18n.dir() === "rtl") {
+    if (i18n.dir() === "rtl") 
+    {
       document.getElementById("bootstrp-file").href =
-        "./css/bootstrap-rtl.min.css";
+      "./css/bootstrap-rtl.min.css";
+
       document.getElementById("main-rtl").href = "./css/style-main-rtl.css";
+      
       document.getElementById("main-rtl-extra").href =
         "./css/style-main-rtl-extra.css";
     }
@@ -139,7 +142,9 @@ function App() {
         />
 
         <Route exact path="/projects/demo" component={DemoProject} />
-        <Become />
+
+    
+       <Become />
         <Footer />
       </div>
     </Switch>

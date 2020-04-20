@@ -1,17 +1,40 @@
+
 import React  from 'react'
 import image1 from "../../components/images/image1.jpg";
 import image2 from "../../components/images/image2.jpg";
 import image3 from "../../components/images/image3.jpg";
+import { Slide } from 'react-slideshow-image';
+
 class Slider2 extends React.Component{
     render(){
-     const style1 =  {ZIndex: 7, whiteSpace: 'nowrap', fontWeight:700}
-     const style2 = {ZIndex: 7, whiteSpace: 'nowrap', fontWeight:600}
-     const style3 = {ZIndex: 5 , whiteSpace: 'nowrap', letterSpacing:'0px' ,fontWeight:400}
-     const style4 = {ZIndex: 5 ,whiteSpace: 'nowrap' ,letterSpacing:'1px'}
-     const style5 = {ZIndex: 7, whiteSpace: 'nowrap' ,fontWeight:400, borderRadius: '30px'}
-     const style6  ={ZIndex: 7, whiteSpace: 'nowrap' ,fontWeight:700 ,borderRadius: '30px'}
-     const style7  ={ZIndex: 5, whiteSpace: 'nowrap' ,letterSpacing:'0px' ,fontWeight:'400'}
-     const style8  ={ZIndex: 5 ,whiteSpace: 'nowrap' ,letterSpacing:'1px'}
+
+
+
+const slideImages = [
+  'images/slider-1.jpg',
+  'images/slide-11.jpg',
+  'images/x.jpg',
+  'images/slide-3.jpg'
+];
+ 
+const properties = {
+  duration: 5000,
+  transitionDuration: 500,
+  infinite: true,
+  indicators: true,
+  pauseOnHover: true,
+  onChange: (oldIndex, newIndex) => {
+    console.log(`slide transition from ${oldIndex} to ${newIndex}`);
+  }
+}
+     const style1 =  {ZIndex: '7', whiteSpace: 'nowrap', fontWeight:'700 px'}
+     const style2 = {ZIndex: '7', whiteSpace: 'nowrap', fontWeight:'600 px'}
+     const style3 = {ZIndex: '5' , whiteSpace: 'nowrap', letterSpacing:'0px' ,fontWeight:400}
+     const style4 = {ZIndex: '5' ,whiteSpace: 'nowrap' ,letterSpacing:'1px'}
+     const style5 = {ZIndex: '7', whiteSpace: 'nowrap' ,fontWeight:400, borderRadius: '30px'}
+     const style6  ={ZIndex: '7', whiteSpace: 'nowrap' ,fontWeight:700 ,borderRadius: '30px'}
+     const style7  ={ZIndex: '5', whiteSpace: 'nowrap' ,letterSpacing:'0px' ,fontWeight:'400'}
+     const style8  ={ZIndex: '5' ,whiteSpace: 'nowrap' ,letterSpacing:'1px'}
 
         return(
 
@@ -19,19 +42,37 @@ class Slider2 extends React.Component{
     
     
             <div className="main-content">
-              <section id="home">
+              <section id="home" >
                 <div className="container-fluid p-0">
         
                   <div className="rev_slider_wrapper">
                     <div className="rev_slider rev_slider_default" data-version="5.0">
+                    <Slide {...properties}>
+        <div className="each-slide">
+          <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
+          </div>
+        </div>
+        <div className="each-slide">
+          <div style={{'backgroundImage': `url(${slideImages[1]})`}}>
+          </div>
+        </div>
+        <div className="each-slide">
+          <div style={{'backgroundImage': `url(${slideImages[2]})`}}>
+          </div>
+        </div>
+        <div className="each-slide">
+          <div style={{'backgroundImage': `url(${slideImages[3]})`}}>
+          </div>
+        </div>
+      </Slide>
                       <ul>
         
                         <li data-index="rs-1" data-transition="slidingoverlayhorizontal" data-slotamount="default"
                           data-easein="default" data-easeout="default" data-masterspeed="default"
-                          data-thumb ='images/slide-1.jpg' data-rotate="0" data-saveperformance="off" data-title="Slide 2"
+                          data-thumb ='./images/slide-1.jpg' data-rotate="0" data-saveperformance="off" data-title="Slide 2"
                           data-description="**************************************">
 
-                          <img src='images/slide-1.jpg' alt="" data-bgposition="center 70%" data-bgfit="cover"
+                          <img src='./images/slide-1.jpg' alt="" data-bgposition="center 70%" data-bgfit="cover"
                             data-bgrepeat="no-repeat" className="rev-slidebg" data-bgparallax="10" data-no-retina />
                       
         

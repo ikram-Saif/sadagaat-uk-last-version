@@ -8,6 +8,8 @@ import { useTranslation } from 'react-i18next';
 function Become(){
   const {t , i18n} = useTranslation()
   const styleClass = i18n.dir() === 'rtl' ? '':''
+  const show = window.location.pathname === '/volunteerForm' ? 'none' : 'show'
+  console.log(window.location.pathname)
 
 
   const handleClick = (e)=> {

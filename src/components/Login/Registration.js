@@ -3,6 +3,7 @@ import { login , register} from '../../repository';
 import i18n from 'i18next'
 import { withTranslation } from 'react-i18next'
 import {Link} from 'react-router-dom'
+import {animateScroll as scroll } from "react-scroll";
 
 
 
@@ -65,7 +66,10 @@ class Registration extends Component{
            loginLink:'Login ...!'
            }
          })
+         
         )
+        scroll.scrollTo(70)
+
 
         // .then(token => 
         //  window.location = '/verify'

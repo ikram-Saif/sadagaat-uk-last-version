@@ -13,8 +13,11 @@ function UnAuth_user_menu(){
   const {t} = useTranslation()
 
     const handleClick =(e)=>{
-      e.preventDefault()
+      e.preventDefault();
         window.location = '/login'
+      
+        //<Redirect to = '/login' />
+        
 
     
       }

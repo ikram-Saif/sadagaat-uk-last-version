@@ -16,9 +16,9 @@ function Photo(){
   useEffect(() => {
     
          async function fetchData() {
-           const fetcher = await window.fetch(`${address()}/photo`,{headers: {'accept-language': `${i18n.language}`}})
+           const fetcher = await window.fetch(`${address()}/photos`,{headers: {'accept-language': `${i18n.language}`}})
            const response = await fetcher.json()
-           setData(response.slice(-6))
+           setData(response)
          }
          fetchData()
         }, [])

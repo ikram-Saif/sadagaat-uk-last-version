@@ -22,7 +22,7 @@ class SinglEvent extends Component {
       })
 
       .then((response) => {
-        const event = response.data;
+        const {event} = response.data;
         this.setState({ event });
       })
       .catch((error) => {
@@ -49,7 +49,7 @@ class SinglEvent extends Component {
 
   render() {
     const { t } = this.props;
-    const event = this.state.event;
+    const {event} = this.state.event;
     return (
 
         <div class="main-content">
@@ -98,7 +98,7 @@ class SinglEvent extends Component {
               </li>
               <li>
                 <h4>{t('Event Time:')}</h4>
-                <p>6 pm - 8 pm</p>
+                {/* <p>6 pm - 8 pm</p> */}
               </li>
               <li>
                 <h5></h5>

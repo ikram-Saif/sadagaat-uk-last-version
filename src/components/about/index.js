@@ -7,7 +7,7 @@ function About(){
   const classParameter = i18n.dir() ==='rtl'?'pr-0':'pl-0'
   const buttonClass = i18n.dir() ==='rtl'?'mr-5':'ml-5'
   const show = window.location.pathname === '/about' ? 'none' : ''
-  console.log(window.location.pathname)
+  //console.log(window.location.pathname)
      
 return(
     <section id="about">
