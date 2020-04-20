@@ -144,8 +144,8 @@ return(
 />  
 </div><div className="causes-details clearfix border-bottom p-15 pt-15 pb-15">
     <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
-      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')} <span className="text-theme-colored font-weight-700">{health.raised} SDG</span></li>
-      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')} <span className="text-theme-colored font-weight-700">{health.goal} SDG</span></li>
+      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')} <span className="text-theme-colored font-weight-700">{healthPro.raised} SDG</span></li>
+      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')} <span className="text-theme-colored font-weight-700">{healthPro.goal} SDG</span></li>
     </ul>
       <h4 className="text-uppercase"><a href="#">{healthPro.name}</a></h4>
     <div className="progress-item mt-0">

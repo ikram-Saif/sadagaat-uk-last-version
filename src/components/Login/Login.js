@@ -36,6 +36,8 @@ class Login extends Component{
 
         this.setState({
           errorMessage: err.message,
+          iconClass:'fa fa-times-circle',
+          styleClass:'error-msg',
           email: "",
           password: "",
 
@@ -81,8 +83,10 @@ class Login extends Component{
                           <div className="tab-pane fade in active p-15" id="login-tab">
                             <h4 className="text-gray mt-0 pt-5"> {t('Login')}</h4>
                             <hr />
-                           
-                                <p className="error-message">{t(this.state.errorMessage)}</p>
+                               <div className={this.state.styleClass}>
+                                 <i className ={this.state.iconClass} style = {{margin:'5px'}}></i> 
+                                     {t(this.state.errorMessage)}
+                                </div>
                             <form  
                                     data-toggle="validator"
                                     role="form" name="login-form" 

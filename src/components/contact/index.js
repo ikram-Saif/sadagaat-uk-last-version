@@ -25,8 +25,10 @@ class Contact extends Component{
 
         },
         response:{
+          
           responseMessage:'',
-          alertClass:''
+          alertClass:'',
+          iconClass:''
         }
     }
 
@@ -54,20 +56,22 @@ class Contact extends Component{
    handleChange = (e)=> 
    {
       this.setState({
-        
-      [e.target.name]: e.target.value
+        form:{
+          ...this.state.form,
+        [e.target.name]: e.target.value
+        }
       
       
     }
         )
-      console.log(e.target.value)
+      //console.log(e.target.value)
     }
 
    
    handleSubmit = (e) => 
    {
         e.preventDefault();
-        console.log(this.state.form)
+        //console.log(this.state.form)
     
        const {t} = this.props
       
@@ -81,17 +85,22 @@ class Contact extends Component{
         .then(response => {
             this.setState({
               response:{
+                ...this.state.response,
                 responseMessage :'your request submitted successfully',
-                alertClass:"success-message",
+                alertClass:"success-msg",
+                iconClass:"fa fa-check",
               }
             });
             scroll.scrollTo();
+            document.getElementById('contact_form').reset()
 
         }).catch(error => {
                 this.setState({
                   response:{
+                    ...this.state.response,
                     responseMessage : error.message,
-                  alertClass:"error-message",
+                    alertClass:"error-msg",
+                    iconClass:"fa fa-times-circle",
                   }
             });
             scroll.scrollTo();
@@ -116,9 +125,9 @@ class Contact extends Component{
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="icon-box media bg-deep p-30 mb-20"> 
                   
-                  <Link  className="media-left pull-left flip" to="/"> 
+                  <span  className="media-left pull-left flip"> 
                     <i className="pe-7s-map-2 text-theme-colored"></i>
-                  </Link>
+                  </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Our Office Location')}</h5>
                       <p>#405, Lan Streen, USA</p>
@@ -127,9 +136,9 @@ class Contact extends Component{
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="icon-box media bg-deep p-30 mb-20">
-                     <Link className="media-left pull-left flip" to="/"> 
+                     <span className="media-left pull-left flip"> 
                       <i className="pe-7s-call text-theme-colored"></i>
-                     </Link>
+                     </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Contact Number')}</h5>
                       <p>+325 12345 65478</p>
@@ -138,9 +147,9 @@ class Contact extends Component{
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="icon-box media bg-deep p-30 mb-20">
-                     <Link className="media-left pull-left flip" to="/"> 
+                     <span className="media-left pull-left flip"> 
                       <i className="pe-7s-mail text-theme-colored"></i>
-                     </Link>
+                     </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Email Address')}</h5>
                       <p>info@sadagaat.ory</p>
@@ -150,9 +159,9 @@ class Contact extends Component{
 
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="icon-box media bg-deep p-30 mb-20"> 
-                  <Link className="media-left pull-left flip" to="/"> 
+                  <span className="media-left pull-left flip"> 
                     <i className="fa fa-skype text-theme-colored" ></i>
-                  </Link>
+                  </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Make a Video Call')}</h5>
                       <p>ThemeMascotSkype</p>
@@ -163,7 +172,6 @@ class Contact extends Component{
             </div>
             <div className="col-md-5">
               <h3 className="line-bottom mt-0 mb-30">{t('Get in Touch')}</h3>
-              <h5 className ={`${this.state.response.alertClass}`}> {t(this.state.response.responseMessage)}</h5>
               
               {/* Contact Form */}
               
@@ -171,9 +179,13 @@ class Contact extends Component{
                   id="contact_form"
                   name="contact_form"
                   role="form"
-                  data-toggle="validator"
                   onSubmit={this.handleSubmit}
                   >
+
+        <div className ={`${this.state.response.alertClass}`}> 
+        <i className = {this.state.response.iconClass}></i>
+          {t(this.state.response.responseMessage)}</div>
+
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="form-group">
@@ -184,10 +196,11 @@ class Contact extends Component{
                           name="name" 
                           className="form-control" 
                           type="text" 
-                          placeholder="Enter Name" 
+                          placeholder={t("full_name" )}
                           onChange = {this.handleChange}
                           required
                       />
+                      <div className="help-block with-errors"></div>
                     </div>
                   </div>
                   <div className="col-sm-6">
@@ -198,8 +211,9 @@ class Contact extends Component{
                           name="email"
                           className="form-control required email"
                           type="email" 
-                          placeholder="Enter Email" 
+                          placeholder={t("Enter Email" )}
                           onChange = {this.handleChange}
+                          data-error={t("that email address is invalid")}
                           required
                           
                         />
@@ -216,22 +230,23 @@ class Contact extends Component{
                           name="subject" 
                           className="form-control required" 
                           type="text"
-                          placeholder="Enter Subject"
+                          placeholder={t("Enter Subject")}
                           onChange = {this.handleChange}
+                          required
 
                       />
                     </div>
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label>{t('phone')}</label>
+                      <label>{t('Phone')}</label>
 
                       <input 
                         name="phone" 
                         className="form-control" 
                         type="tel" 
-                        placeholder="Enter Phone" 
-                       // pattern="[0-9]{14}"
+                        placeholder={t("Enter Phone" )}
+                        pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
                         onChange = {this.handleChange}
                         required
                       />
@@ -245,7 +260,7 @@ class Contact extends Component{
                     name="message"
                     className="form-control required" 
                     rows={5} 
-                    placeholder="Enter Message" 
+                    placeholder={t("contact_message" )}
                     defaultValue={""} 
                     onChange = {this.handleChange}
                     required

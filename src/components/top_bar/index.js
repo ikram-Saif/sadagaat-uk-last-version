@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import address from "./../utils/address";
 import i18n from "i18next";
 
-import { BrowserRouter as Router } from "react-router-dom";
 import Login from "../Login/Login";
 import Auth_user_menu from "../Login/Auth_User_menu";
 import UnAuth_user_menu from "../Login/UnAuth_user-menu";

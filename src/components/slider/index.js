@@ -6,14 +6,14 @@ import accounts from "../images/accounts.jpg";
 import work from "../images/work.jpg";
 
 const slideImages = [
-  // "images/slider-1.jpg",
+  "images/slider-1.jpg",
   // "images/slide-11.jpg",
   // "images/x.jpg",
   // "images/slide-3.jpg",
   education,
   group,
   accounts,
-  work,
+  // work,
 ];
 
 const properties = {

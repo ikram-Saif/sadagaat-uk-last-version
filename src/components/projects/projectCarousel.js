@@ -72,10 +72,21 @@ class ProjectSlider extends Component {
                 slidesPerScroll={1}
                 autoPlay={6000}
                 margin={10}
-                arrows={<i style={{ backgroundColor: "red" }} />}
-                // arrowLeft={<i className="fa fa-angle-left" />}
-                // arrowRight={<i className="fa fa-angle-right" />}
-                // addArrowClickHandler
+                rtl
+                // arrows = {<i style = {{backgroundColor :'red'}} /> }
+                arrowLeft={
+                  <i
+                    className="fa fa-chevron-right fa-2x"
+                    style={{ margin: "10px" }}
+                  />
+                }
+                arrowRight={
+                  <i
+                    className="fa fa-chevron-left fa-2x"
+                    style={{ margin: "10px" }}
+                  />
+                }
+                addArrowClickHandler
                 // animationSpeed={1000}
                 infinite
                 clickToChange

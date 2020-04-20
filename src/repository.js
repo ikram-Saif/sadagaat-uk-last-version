@@ -67,7 +67,7 @@ export function login(data)
 
         {
           const email = localStorage.getItem(new_user_email)
-            alert(data.code + email)
+           // alert(data.code + email)
 
              return axios.post(`${address()}user/verifyUser`, {
                  //userName: email,

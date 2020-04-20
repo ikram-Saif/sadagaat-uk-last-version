@@ -154,6 +154,7 @@ class DonateToSubhub extends Component {
                               className="form-control"
                               type="number" 
                               onChange ={this.handleChange}
+                              min="1"
                               required
                             />
                             

@@ -1,5 +1,8 @@
 import React,{Component} from 'react';
 import { login , email_verify} from '../../repository';
+import i18n from 'i18next'
+import { withTranslation } from 'react-i18next'
+
 
 
 class Email_verification extends Component{
@@ -33,7 +36,8 @@ class Email_verification extends Component{
   
  
    render(){
-
+    
+    const {t} = this.props
   
     return(
 
@@ -48,7 +52,7 @@ class Email_verification extends Component{
                     <div className="section-content">
                       <div className="row">
                         <div className="col-md-12 text-center">
-                          <h3 className="font-28 text-white">Login/Register</h3>
+                          <h3 className="font-28 text-white">{t('Login/Register')}</h3>
                         </div>
                       </div>
                     </div>
@@ -62,7 +66,7 @@ class Email_verification extends Component{
                        
                         <div className="tab-content">
                           <div className="tab-pane fade in active p-15" id="login-tab">
-                            <h4 className="text-gray mt-0 pt-5"> Enter Verification Code</h4>
+                            <h4 className="text-gray mt-0 pt-5"> {t('Enter Verification Code')}</h4>
 
                             <form  
                                     data-toggle="validator"
@@ -85,7 +89,7 @@ class Email_verification extends Component{
                                 
    
                               <div className="form-group mt-10">
-                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">Verify</button>
+                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">{t('Verify')}</button>
                               </div>
                             
                             </form>
@@ -110,4 +114,4 @@ class Email_verification extends Component{
    }
 }
 
-export default Email_verification;
+export default withTranslation()(Email_verification);
