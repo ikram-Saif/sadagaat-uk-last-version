@@ -109,7 +109,7 @@ function Event() {
 
               <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
                 <div className="row">
-                  <Carousel autoPlay={5000} stopAutoPlayOnHover dots>
+                  <Carousel autoPlay={5000} stopAutoPlayOnHover rtl dots>
                     {news.map((news_) => (
                       <div className="causes" key={news_.id}>
                         <div className="row-fluid">

@@ -17,12 +17,12 @@ class ProjectSlider extends Component {
 
   async componentDidMount() {
     try {
-      const { data: projects } = await axios.get(`${address()}projects/home`, {
+      const { data: projects } = await axios.get(`${address()}projects`, {
         headers: { "accept-language": `${i18n.language}` },
       });
       this.setState({ projects });
     } catch (error) {
-      console.log("Something went wrong");
+      console.log("can not load project for the home page slider");
     }
   }
 
