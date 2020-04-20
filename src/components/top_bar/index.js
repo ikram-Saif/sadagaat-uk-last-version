@@ -31,29 +31,38 @@ function TopBar() {
             <div className="widget no-border m-0">
               <ul className="styled-icons icon-dark icon-theme-colored icon-sm sm-text-center">
                 <li>
-                  <Link to="#">
+                  <a
+                    href="https://web.facebook.com/Sadagaat/?_rdc=1&_rdr"
+                    target="blank"
+                  >
                     <i className="fa fa-facebook"></i>
-                  </Link>
+                  </a>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="#">
                     <i className="fa fa-twitter"></i>
                   </Link>
-                </li>
+                </li> */}
                 <li>
-                  <Link to="#">
+                  <a
+                    href="https://www.youtube.com/user/Sadagaat"
+                    target="blank"
+                  >
                     <i className="fa fa-youtube"></i>
-                  </Link>
+                  </a>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="#">
                     <i className="fa fa-instagram"></i>
                   </Link>
-                </li>
+                </li> */}
                 <li>
-                  <Link to="#">
+                  <a
+                    href="https://www.linkedin.com/company/sadagaat"
+                    target="blank"
+                  >
                     <i className="fa fa-linkedin"></i>
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -79,7 +88,7 @@ function TopBar() {
             </div>
           </div>
 
-          {isAuthenticated()?<Auth_user_menu />:<UnAuth_user_menu />} 
+          {isAuthenticated() ? <Auth_user_menu /> : <UnAuth_user_menu />}
         </div>
       </div>
     </div>

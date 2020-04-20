@@ -10,11 +10,13 @@ import Video from "../../components/video";
 import Events from "../../components/events";
 import Parteners from "../parteners";
 import Projects from "../projects";
+import Slider from "../slider";
 
 function Home() {
   return (
     <div className="main-content">
-      <Slider2 />
+      <Slider />
+      {/* <Slider2 /> */}
       <Hubs />
       <About />
       <ProjectCarousel />
