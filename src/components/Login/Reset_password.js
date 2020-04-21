@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
 import {resetPassword} from '../../repository'
+import  {withTranslation}  from 'react-i18next'
+
 
 
 class ResetPassword extends Component{
@@ -37,7 +39,7 @@ class ResetPassword extends Component{
   
  
    render(){
-
+    const {t} = this.props 
   
     return(
 
@@ -52,7 +54,7 @@ class ResetPassword extends Component{
                     <div className="section-content">
                       <div className="row">
                         <div className="col-md-12 text-center">
-                          <h3 className="font-28 text-white">Login/Register</h3>
+                          <h3 className="font-28 text-white">{t('Login/Register')}</h3>
                         </div>
                       </div>
                     </div>
@@ -66,7 +68,7 @@ class ResetPassword extends Component{
                       
                         <div className="tab-content">
                           <div className="tab-pane fade in active p-15" id="login-tab">
-                            <h4 className="text-gray mt-0 pt-5"> Reset Password </h4>
+                            <h4 className="text-gray mt-0 pt-5"> {t('Reset Password')} </h4>
                             <hr />
 
                             <form  
@@ -77,7 +79,7 @@ class ResetPassword extends Component{
 
                               <div className="row">
                                 <div className="form-group col-md-12">
-                                  <label for="inputEmail">Email</label>
+                                  <label for="inputEmail">{t('Email')}</label>
 
                                   <input 
                                     id="inputEmail" 
@@ -93,7 +95,7 @@ class ResetPassword extends Component{
 
                                <div className="row">
                                 <div className="form-group col-md-6">
-                                <label for="form_choose_password"> Password</label>
+                                <label for="form_choose_password"> {t('Password')}</label>
                                 
                                
                                     <input
@@ -107,11 +109,11 @@ class ResetPassword extends Component{
                                             onChange = {this.handleChange}/>
                                             
 
-                                        <div class="help-block with-errors">Minimum of 6 characters</div>
+                                        <div class="help-block with-errors">{t('Minimum of 6 characters')}</div>
                                          </div>
 
                                         <div className="form-group col-md-6">
-                                        <label>Re-enter Password</label>
+                                        <label>{t('Re-enter Password')}</label>
 
                                         <input 
                                                 id="confirmPassword" 
@@ -131,7 +133,7 @@ class ResetPassword extends Component{
                               <div className="clear pull-right text-center pt-10">
                               </div>
                               <div className="form-group mt-10">
-                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">reset</button>
+                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">{t('reset')}</button>
                               </div>
                             
                             </form>
@@ -157,4 +159,4 @@ class ResetPassword extends Component{
    }
 }
 
-export default ResetPassword;
+export default withTranslation()(ResetPassword);

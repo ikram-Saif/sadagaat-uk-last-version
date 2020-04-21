@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
 import { forgotPassword , resetPassword} from '../../repository'
+import  {withTranslation}  from 'react-i18next'
+
 
 
 class ForgotPassword extends Component{
@@ -37,7 +39,8 @@ class ForgotPassword extends Component{
  
    render(){
 
-  
+    const {t} = this.props 
+
     return(
 
         <div id="wrapper" className="clearfix">
@@ -51,7 +54,7 @@ class ForgotPassword extends Component{
                     <div className="section-content">
                       <div className="row">
                         <div className="col-md-12 text-center">
-                          <h3 className="font-28 text-white">Login/Register</h3>
+                          <h3 className="font-28 text-white">{t('Login/Register')}</h3>
                         </div>
                       </div>
                     </div>
@@ -65,7 +68,7 @@ class ForgotPassword extends Component{
                       
                         <div className="tab-content">
                           <div className="tab-pane fade in active p-15" id="login-tab">
-                            <h4 className="text-gray mt-0 pt-5"> Reset Password </h4>
+                            <h4 className="text-gray mt-0 pt-5"> {t('Reset Password ')}</h4>
                             <hr />
 
                             <form  
@@ -76,7 +79,7 @@ class ForgotPassword extends Component{
 
                               <div className="row">
                                 <div className="form-group col-md-12">
-                                  <label for="inputEmail">Email</label>
+                                  <label for="inputEmail">{t('Email')}</label>
 
                                   <input 
                                     id="inputEmail" 
@@ -90,7 +93,7 @@ class ForgotPassword extends Component{
                                 </div>
                                </div>
                               <div className="form-group mt-10">
-                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">reset</button>
+                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">{t('reset')}</button>
                               </div>
                             
                             </form>
@@ -115,4 +118,4 @@ class ForgotPassword extends Component{
    }
 }
 
-export default ForgotPassword;
+export default withTranslation()(ForgotPassword);

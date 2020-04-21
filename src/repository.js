@@ -140,7 +140,7 @@ export function login(data)
 
         }
         export function submit_volunteer_data(data) {
-    console.log(data)
+            console.log(data)
     
             return axios.post(`${address()}members`, data)
                  
@@ -150,6 +150,10 @@ export function login(data)
             })
                 .catch(err =>Promise.reject(err));
         }
+
+
+
+        
       
     
     

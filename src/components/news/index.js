@@ -4,6 +4,7 @@ import address from "./../utils/address";
 import Pagination from "./../pagination";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
+import SocialMedia from './social-media'
 
 function News() {
   const [data, setData] = useState([]);
@@ -81,6 +82,7 @@ function News() {
 
                       <p className="mb-15">{news.description}.</p>
 
+                      < SocialMedia />
                       {/* <div class="mt-30 mb-0">
                         <h5 class={`${style} mt-10 text-theme-colored`}>
                           {t("Share")}:

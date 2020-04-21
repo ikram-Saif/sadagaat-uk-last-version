@@ -116,22 +116,27 @@ return(
   
   <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
-<CircularProgressbar
-
-  value={project.projectProgress}
-  text={`${project.projectProgress}%`} 
-  styles={buildStyles({
+  <CircularProgressbar
+value={project.projectProgress}
+text={`${project.projectProgress}%`}
+background
+backgroundPadding={6}
+styles={buildStyles({
   rotation: 0.25,
-  strokeLinecap: 'butt',
-  textSize: '26',
+  strokeLinecap: "butt",
+  textSize: "26",
   pathTransitionDuration: 0.5,
   pathColor: `${project.id / 1000})`,
-  textColor: 'black',
-  trailColor: '',
-  backgroundColor: '',
+  //textColor: "white",
+  backgroundColor: "#066993",
+  textColor: "#fff",
+  pathColor: "#fff",
+  trailColor: "transparent"
+  //trailColor: "",
+  //backgroundColor: '',
 })}
-
-/>  
+  />  
+  
 </div>
 <div className="causes-details clearfix p-15 pt-15 pb-15">
     <ul className="list-inline font-18 font-weight-600 clearfix mb-5">

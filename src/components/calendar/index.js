@@ -6,6 +6,7 @@ import Pagination from './../pagination';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import {Link} from 'react-router-dom'
+import {getMonthName} from '../events/getMonthName'
 
 
 
@@ -17,6 +18,8 @@ function Calendar(){
   const [postsPerPage, setPostsPerPage] = useState(6);
   const {t} = useTranslation()
   const didMountRef = useRef(true)
+  const styleMr = i18n.dir() === "rtl" ? " ml-5" : " mr-5"
+
 
 
   async function fetchData() {
@@ -52,8 +55,12 @@ function Calendar(){
             <div className="schedule-details border-bottom-theme-color-2px clearfix p-15 pt-10">
               <div className="text-center pull-left flip bg-theme-colored p-10 pt-5 pb-5 mr-10" key = {event.id}>
                 <ul>
-                  <li className="font-19 text-white font-weight-600 border-bottom ">28</li>
-                  <li className="font-12 text-white text-uppercase">Feb</li>
+                  <li className="font-19 text-white font-weight-600 border-bottom ">
+                      {event.startDate.slice(8,10)}
+                  </li>
+                  <li className="font-12 text-white text-uppercase">
+                     {getMonthName(event.startDate)}
+                  </li>
                 </ul>
               </div>
               <Link to = {'/event/'+event.id} >
@@ -64,8 +71,8 @@ function Calendar(){
                 </h4>
                 </Link>
               <ul className="list-inline font-11 text-gray">
-                <li><i className="fa fa-calendar mr-5" /> {event.startDate}</li>
-                <li><i className="fa fa-map-marker mr-5" /> {event.locationName}</li>
+                <li><i className={`fa fa-calendar ${styleMr}`} /> {event.startDate}</li>
+                <li><i className={`fa fa-map-marker ${styleMr}`} /> {event.locationName}</li>
               </ul>
               <div className="clearfix" >
               <p className="mt-10">{event.description}</p>

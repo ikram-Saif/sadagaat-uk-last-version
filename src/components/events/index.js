@@ -5,12 +5,17 @@ import { Link } from "react-router-dom";
 import address from "./../utils/address";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
+import {getMonthName} from './getMonthName'
 
 function Event() {
   const [news, setNews] = useState([]);
   const [events, setEvent] = useState([]);
   const didMountRef = useRef(true);
+  const style = i18n.dir() === "rtl" ? "pl-0" : "pr-0"
+  const styleMr = i18n.dir() === "rtl" ? " ml-5" : " mr-5"
 
+  
+ 
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -63,14 +68,16 @@ function Event() {
                   key={event.id}
                 >
                   <div className="row">
-                    <div className="col-xs-2 col-md-3 pr-0">
+                    <div className = {`col-xs-2 col-md-3 ${style}`}>
                       <div className="event-date text-center bg-theme-colored border-1px p-0 pt-10 pb-10 sm-custom-style">
                         <ul>
                           <li className="font-28 text-white font-weight-700">
-                            28
+                            
+                            {event.startDate.slice(8,10)}
                           </li>
-                          <li className="font-18 text-white text-center text-uppercase">
-                            Feb
+                          <li className="font-18 text-white  font-weight-700 text-center text-uppercase">
+                          {/* {event.startDate.slice(0,4)} */}
+                            {getMonthName(event.startDate)}
                           </li>
                         </ul>
                       </div>
@@ -83,12 +90,12 @@ function Event() {
                           </h5>
                           <ul className="list-inline font-weight-600 text-gray-dimgray">
                             <li>
-                              <i className="fa fa-clock-o text-theme-colored" />
+                              <i className={`fa fa-calendar ${styleMr} text-theme-colored`} />
                               {`${event.startDate}`}
                             </li>
                             <li>
-                              {" "}
-                              <i className="fa fa-map-marker text-theme-colored" />
+                              {"  "}
+                              <i className={`fa fa-map-marker text-theme-colored ${styleMr}`} />
                               {event.locationName}
                             </li>
                           </ul>
