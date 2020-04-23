@@ -12,12 +12,12 @@ function Become(){
   console.log(window.location.pathname)
 
 
-  const handleClick = (e)=> {
-    e.preventDefault()
-      window.location ='/volunteerForm'
+  // const handleClick = (e)=> {
+  //   e.preventDefault()
+  //     window.location ='/volunteerForm'
     
 
-  }
+  // }
 
     return(
   <section className="bg-theme-colored">
@@ -29,7 +29,14 @@ function Become(){
             <h3 className="text-white">{t('join us now as a volunteer')}</h3>
           </div>
           <div className="col-md-3 text-right sm-text-center"> 
-            <button className="btn btn-transparent btn-border btn-circled btn-lg mt-15" onClick={handleClick}>{t('Become a Volunteer')}</button> 
+
+            <Link to = '/volunteerForm'>
+                <button className="btn btn-transparent btn-border btn-circled btn-lg mt-15"
+                //  onClick={handleClick}
+                >
+                  {t('Become a Volunteer')}
+                </button> 
+              </Link>
           </div>
         </div>
       </div>

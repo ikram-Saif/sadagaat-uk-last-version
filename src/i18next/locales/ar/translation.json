@@ -193,6 +193,15 @@
   "Start Date":"زمن البداية",
   "End Date":"زمن النهاية",
   "Location":"الموقع",
-  "Share": "مشاركة"
+  "Share": "مشاركة",
+  "Registerd Successfully Please":"تم التسجيل بنجاح الرجاء ",
+  "Login ...!":"تسجيل الدخول",
+  "Reset Password":"اعادة تعين كلمة المرور",
+  "send":"ارسال",
+  "that email address is invalid":"البريد الإلكتروني غير صحيح",
+  "Please Check your Email to Complete Process":"يرجى التحقق من بريدك الإلكتروني لإكمال العملية",
+  "Pasword Not Matching":"تأكد من تطابق كلمة المرور",
+  "Languages you Know?":"اللغات التي تعرفها",
+  "Volunteer Registration":"تسجيل المتطوعين"
 
 }

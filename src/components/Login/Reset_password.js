@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Header from '../sub_page_header';
 import { Link } from 'react-router-dom';
 import {resetPassword} from '../../repository'
 import  {withTranslation}  from 'react-i18next'
@@ -11,7 +12,8 @@ class ResetPassword extends Component{
     super();
     this.state = {
                   email: "",
-                  password: ""
+                  password: "",
+                  message:''
                 }
     
 }
@@ -27,10 +29,11 @@ class ResetPassword extends Component{
    handleSubmit = (e) => {
     e.preventDefault();
 
-    resetPassword(this.state)
-    .then(token => window.location = '/login')
-    .catch(err => alert(err));
-
+    // resetPassword(this.state)
+    // .then(token => window.location = '/login')
+    // .catch(err => alert(err));
+   // window.location = '/verify_password_code'
+  
     
      
 
@@ -47,19 +50,7 @@ class ResetPassword extends Component{
 
               <div className="main-content">
               
-                
-                <section className="inner-header divider parallax layer-overlay overlay-dark-6" data-bg-img="./images/slide-1.jpg">
-                  <div className="container pt-60 pb-60">
-                
-                    <div className="section-content">
-                      <div className="row">
-                        <div className="col-md-12 text-center">
-                          <h3 className="font-28 text-white">{t('Login/Register')}</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>      
-                </section>
+              <Header name={t('Login/Register')}/>
 
                 <section>
                   <div className="container">
@@ -86,7 +77,7 @@ class ResetPassword extends Component{
                                     name="email" 
                                     className="form-control"
                                      type="email"
-                                     data-error="that email address is invalid"
+                                     data-error={t("that email address is invalid")}
                                       onChange = {this.handleChange} required />
 
                                     <div class="help-block with-errors"></div>
@@ -95,7 +86,7 @@ class ResetPassword extends Component{
 
                                <div className="row">
                                 <div className="form-group col-md-6">
-                                <label for="form_choose_password"> {t('Password')}</label>
+                                <label for="form_choose_password"> {t('password')}</label>
                                 
                                
                                     <input
@@ -103,13 +94,13 @@ class ResetPassword extends Component{
                                             name="password" 
                                             className="form-control" 
                                             type="password"
-                                            data-minlength="6"
+                                            data-minlength="8"
                                         
                                             required
                                             onChange = {this.handleChange}/>
                                             
 
-                                        <div class="help-block with-errors">{t('Minimum of 6 characters')}</div>
+                                        <div class="help-block with-errors">{t('Minimum of 8 characters')}</div>
                                          </div>
 
                                         <div className="form-group col-md-6">
@@ -122,7 +113,8 @@ class ResetPassword extends Component{
                                                 type="password" 
                                                 data-match="#inputPassword" 
                                                 data-match-error="Not Matching " 
-                                                placeholder="Confirm" required
+                                                placeholder={t("Confirm")} 
+                                                required
                                         />
                                         
 
@@ -133,7 +125,8 @@ class ResetPassword extends Component{
                               <div className="clear pull-right text-center pt-10">
                               </div>
                               <div className="form-group mt-10">
-                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">{t('reset')}</button>
+                                <button type="submit" 
+                                className="btn btn-block text-white btn-theme-green btn-lg">{t('Reset Password')}</button>
                               </div>
                             
                             </form>

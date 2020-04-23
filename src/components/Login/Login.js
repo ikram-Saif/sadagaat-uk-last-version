@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Header from '../sub_page_header';
 import { login } from '../../repository';
 import Registration from './Registration'
 import { Link } from 'react-router-dom';
@@ -55,22 +56,10 @@ class Login extends Component{
 
         <div id="wrapper" className="clearfix">
 
-              <div className="main-content">
-              
-                
-                <section className="inner-header divider parallax layer-overlay overlay-dark-6" data-bg-img="./images/slide-1.jpg">
-                  <div className="container pt-60 pb-60">
-                
-                    <div className="section-content">
-                      <div className="row">
-                        <div className="col-md-12 text-center">
-                          <h3 className="font-28 text-white">{t('Login/Register')}</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>      
-                </section>
+          <Header name={t('Login/Register')}/>
 
+
+              <div className="main-content">
                 <section>
                   <div className="container">
                     <div className="row">
@@ -104,7 +93,8 @@ class Login extends Component{
                                     name="email" 
                                     className="form-control"
                                      type="email"
-                                     data-error="that email address is invalid"
+                                     data-error={t("that email address is invalid")}
+                                     pattern = '^[^\s].+[^\s]$'
                                       onChange = {this.handleChange} required 
                                       value = {this.state.email}
                                       />
@@ -121,7 +111,7 @@ class Login extends Component{
                                    name="password" 
                                    className="form-control" 
                                    type="password"
-                                   data-minlength="6"
+                                   data-minlength="8"
                                    value = {this.state.password}
 
                                     onChange = {this.handleChange}

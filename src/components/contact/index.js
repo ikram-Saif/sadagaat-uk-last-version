@@ -200,6 +200,7 @@ class Contact extends Component{
                           type="text" 
                           placeholder={t("full_name" )}
                           onChange = {this.handleChange}
+                          pattern = '^[^\s].+[^\s]$'
                           required
                       />
                       <div className="help-block with-errors"></div>
@@ -216,6 +217,7 @@ class Contact extends Component{
                           placeholder={t("Enter Email" )}
                           onChange = {this.handleChange}
                           data-error={t("that email address is invalid")}
+                          pattern = '^[^\s].+[^\s]$'
                           required
                           
                         />
@@ -234,6 +236,7 @@ class Contact extends Component{
                           type="text"
                           placeholder={t("Enter Subject")}
                           onChange = {this.handleChange}
+                          pattern = '^[^\s].+[^\s]$'
                           required
 
                       />
@@ -265,6 +268,7 @@ class Contact extends Component{
                     placeholder={t("contact_message" )}
                     defaultValue={""} 
                     onChange = {this.handleChange}
+                    pattern = '^[^\s].+[^\s]$'
                     required
                   />
                 </div>

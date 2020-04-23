@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Header from '../sub_page_header';
 import { login , email_verify} from '../../repository';
 import i18n from 'i18next'
 import { withTranslation } from 'react-i18next'
@@ -30,11 +31,11 @@ class Password_verfy_code extends Component{
 
     email_verify(this.state)
    // .then( token => window.location = '/login')
-   .then(response => response.message == true? 
+   .then(response => response.message === true? 
             this.setState({verify_code: true})
             :this.setState({verify_code: false})
             )
-            this.state.verify_code?(window.location = '/reset_password'):(window.location = '/verify_password_code')
+            this.state.verify_code?(window.location = '/login'):(window.location = '/verify_password_code')
     
  
     .catch(err =>alert(err));
@@ -50,21 +51,8 @@ class Password_verfy_code extends Component{
         <div id="wrapper" className="clearfix">
 
               <div className="main-content">
-              
                 
-                <section className="inner-header divider parallax layer-overlay overlay-dark-6" data-bg-img="./images/slide-1.jpg">
-                  <div className="container pt-60 pb-60">
-                
-                    <div className="section-content">
-                      <div className="row">
-                        <div className="col-md-12 text-center">
-                          <h3 className="font-28 text-white">Register</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>      
-                </section>
-
+              <Header name={t('Register')}/>
                 <section>
                   <div className="container">
                     <div className="row">
@@ -88,8 +76,9 @@ class Password_verfy_code extends Component{
                                     name="code" 
                                     className= {this.state.verify_code?'form-control ':'form-control has-feedback '}
                                      type="text"
-                                     data-error="code not match"
-                                      onChange = {this.handleChange} required
+                                     data-error={t("code not match")}
+                                      onChange = {this.handleChange} 
+                                      required
                                       
                                       />
 
@@ -99,7 +88,7 @@ class Password_verfy_code extends Component{
                                 
    
                               <div className="form-group mt-10">
-                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">Verify</button>
+                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">{t('Verify')}</button>
                               </div>
                             
                             </form>

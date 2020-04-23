@@ -79,7 +79,7 @@ class DonateToSubhub extends Component {
             let id = this.state.subhub_id
             const data = 
             {
-              SID :id,
+              sid :id,
               amount:this.state.amount,
               currency:this.state.currency
             }

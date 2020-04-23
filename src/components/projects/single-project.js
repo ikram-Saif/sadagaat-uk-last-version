@@ -9,7 +9,7 @@ class SinglProject extends Component {
     super();
     this.state = {
       project: [],
-    };
+    }
   }
 
   componentDidMount = () => {
@@ -18,7 +18,7 @@ class SinglProject extends Component {
 
     axios
       .get(`${address()}projects/${id}`, {
-        headers: { "accept-language": `${i18n.language}` },
+        headers: { "accept-language": `${i18n.language}` }
       })
 
       .then((response) => {
@@ -30,26 +30,11 @@ class SinglProject extends Component {
       });
   }
 
-  // componentDidMount = () => {
-  //   let id = this.state.project.id
-
-  //   axios
-  //     .get(`${address()}projects/${id}`, {
-  //       headers: { "accept-language": `${i18n.language}` },
-  //     })
-
-  //     .then((response) => {
-  //       const project = response.data;
-  //       this.setState({ project });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.message);
-  //     });
-  // }
 
   render() {
     const { t } = this.props;
-    const project = this.state.project;
+    const {project} = this.state;
+    const progress = project.donationProgress
     return (
       <div className="container">
         <div className="row mtli-row-clearfix">
@@ -57,14 +42,14 @@ class SinglProject extends Component {
             <div className="causes bg-white maxwidth500 mb-30">
               <div className="thumb">
                 <img src={project.imageUrl} alt="" className="img-fullwidth" />
-                <div className="donation-progress"></div>
               </div>
               <div className="progress-item mt-0">
                 <div className="progress mb-0">
                   <div
-                    data-percent={project.donationProgress}
                     className="progress-bar"
-                  >
+                    data-percent = {project.donationProgress}
+                    >
+
                     <span className="percent">{project.donationProgress}</span>
                   </div>
                 </div>
@@ -88,15 +73,7 @@ class SinglProject extends Component {
               </div>
             </div>
             <div className="event-details">
-              <p className="mb-20 mt-20">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Placeat qui ducimus illum modi? Libero saepe perspiciatis
-                accusamus soluta perferendis, ad illum, nesciunt, reiciendis
-                iusto et cupiditate. Repudiandae provident, consectetur,
-                sapiente, libero iure necessitatibus corporis nulla voluptate,
-                quisquam aut eum perspiciatis? Fugiat labore aspernatur eius,
-                perspiciatis ut molestiae, delectus rem.
-              </p>
+            
               <div className="pull-left flip mr-15">
                 <img alt="" src="http://placehold.it/370x235" />
               </div>

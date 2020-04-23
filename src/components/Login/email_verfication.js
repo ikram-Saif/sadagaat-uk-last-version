@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Header from '../sub_page_header';
 import { login , email_verify} from '../../repository';
 import i18n from 'i18next'
 import { withTranslation } from 'react-i18next'
@@ -45,20 +46,7 @@ class Email_verification extends Component{
 
               <div className="main-content">
               
-                
-                <section className="inner-header divider parallax layer-overlay overlay-dark-6" data-bg-img="./images/slide-1.jpg">
-                  <div className="container pt-60 pb-60">
-                
-                    <div className="section-content">
-                      <div className="row">
-                        <div className="col-md-12 text-center">
-                          <h3 className="font-28 text-white">{t('Login/Register')}</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>      
-                </section>
-
+              <Header name={t('Login/Register')}/>
                 <section>
                   <div className="container">
                     <div className="row">

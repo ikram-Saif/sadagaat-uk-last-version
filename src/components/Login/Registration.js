@@ -4,6 +4,7 @@ import i18n from 'i18next'
 import { withTranslation } from 'react-i18next'
 import {Link} from 'react-router-dom'
 import {animateScroll as scroll } from "react-scroll";
+import $ from 'jquery'
 
 
 
@@ -25,11 +26,15 @@ class Registration extends Component{
               dateOfBirth:'',
       },
       response:{
-        errorMessage:null,
-        sccessfullRegistration:``,
+
+        message:'',
+        //sccessfullRegistration:``,
+        success: null,
         styleClass:'',
         iconClass:'',
-        loginLink:''
+        loginLink:'',
+        confirmPassword:'',
+        errorPassword:false
         
       }
 
@@ -48,11 +53,39 @@ class Registration extends Component{
       console.log(e.target.value)
     }
 
+    handleConfirmPassword = (e)=>{
+       const  confirm = e.target.value
+       const password = this.state.form.password
+       if( confirm === password){
+        this.setState({
+          response:{
+             ...this.state.response,
+             confirmPassword:'fa fa-check alert-success',
+             errorPassword:false
+
+          }
+        })
+       }
+     else{
+      this.setState({
+        response:{
+           ...this.state.response,
+           confirmPassword:'fa fa-times-circle alert-danger',
+           errorPassword:true
+        }
+      })
+     }
+      
+       
+    }
+
    
    handleSubmit=(e) => 
    {
 
         e.preventDefault();
+       let errorconfirm = this.state.response.errorPassword
+       if (!errorconfirm){
 
        register(this.state.form)
        
@@ -60,15 +93,16 @@ class Registration extends Component{
          this.setState({
            response:{
              ...this.state.response,
-           sccessfullRegistration:'Registerd Successfully. Please   ',
+             success : 1,
+           //sccessfullRegistration:'Registerd Successfully. Please   ',
+           message:'Registerd Successfully Please',
            styleClass:'success-msg',
            iconClass:'fa fa-check fa-2x',
-           loginLink:'Login ...!'
+           loginLink:'Login'
            }
          })
          
-        )
-        scroll.scrollTo(70)
+         )
 
 
         // .then(token => 
@@ -91,15 +125,29 @@ class Registration extends Component{
               },
               response:{
                 ...this.state.response,
-                errorMessage: err.message,
+                success:0,
+                message: err.message,
                 iconClass:'fa fa-times-circle',
                 styleClass:'error-msg'
               }
            })
           }
         )
-   
-          
+        document.getElementById('reg-form1').reset() 
+
+                     
+        }else{
+          this.setState({
+            response:{
+             ...this.state.response,
+             message:'Pasword Not Matching',
+             styleClass:'error-msg',
+             iconClass:'fa fa-times-circle'
+            }
+          })
+        }
+        scroll.scrollTo(70);
+
     }
    
    render(){
@@ -112,9 +160,11 @@ class Registration extends Component{
             <div>
 
                             <form 
+                            
                                   name="reg-form" 
+                                  id = 'reg-form1'
                                   className="register-form" 
-                                  data-toggle="validator"
+                                  //data-toggle="validator"
                                   role="form"
                                   onSubmit={this.handleSubmit}
                                   
@@ -127,18 +177,21 @@ class Registration extends Component{
                                   <h4 className="text-gray pt-10 mt-0 mb-30">{t('Register Now')}</h4>
                               </div>
                              
-                                {this.state.response.errorMessage === null?
+                                {this.state.response.success === 1 ?
 
                                   (<div className = {this.state.response.styleClass}>
-                                      <i className = {this.state.response.iconClass} style = {{margin:'5px'}} />
-                                      {this.state.response.sccessfullRegistration}
-                                      <a href = '/login'>{this.state.response.loginLink}</a>
+                                      <i className = {this.state.response.iconClass} 
+                                      style = {{margin:'5px'}} />
+
+                                      {t(this.state.response.message)}
+                                      
+                                      <a href = '/login'>{t(this.state.response.loginLink)}</a>
                                        
                                       </div>) :
 
                                     (<div className = {this.state.response.styleClass}>
                                     <i className = {this.state.response.iconClass} style = {{margin:'5px'}}/>
-                                    {t(this.state.response.errorMessage)}
+                                    {t(this.state.response.message)}
                                     
                                     </div>) 
                                 }
@@ -154,9 +207,11 @@ class Registration extends Component{
                                       name="firstName" 
                                       className="form-control" 
                                       type="text"
+                                      pattern = '^[^\s].+[^\s]$'
                                       required
                                       onChange = {this.handleChange}
                                       value = {this.state.form.firstName}
+
                                       
                                   />
                                 </div>
@@ -168,6 +223,7 @@ class Registration extends Component{
                                         name="lastName"  
                                         className="form-control"  
                                         type="text" 
+                                        pattern = '^[^\s].+[^\s]$'
                                         onChange = {this.handleChange}
                                         value = {this.state.form.lastName}
                                         required
@@ -188,6 +244,7 @@ class Registration extends Component{
                                       type="email" id="inputEmail"
                                       onChange = {this.handleChange}
                                       value = {this.state.form.userName}
+                                      pattern = '^[^\s].+[^\s]$'
                                       
                                       required 
                                       
@@ -251,6 +308,7 @@ class Registration extends Component{
                                       className="form-control" 
                                       type="password"
                                       data-minlength="8"
+                                      minlength="8"
                                       data-error={t('Minimum of 8 characters')}
                                       required
                                       onChange = {this.handleChange}
@@ -261,23 +319,22 @@ class Registration extends Component{
                                 </div>
                                 <div className="form-group col-md-6  has-feedback" >
                                   <label>{t('Re-enter Password')}</label>
+                                  <i className = {this.state.response.confirmPassword}></i>
+
 
                                   <input 
                                         id="confirmPassword" 
                                         name="re_enter_password"  
                                         className="form-control"  
                                         type="password" 
+                                        minlength="8"                                     
                                         data-match="#inputPassword" 
                                         data-match-error={t('Not Matching')} 
                                         placeholder={t("Confirm")}
                                          required
+                                         onChange = {this.handleConfirmPassword}
                                    />
-
-                                  
-                                  <div className="help-block with-errors">
-
-                                    </div>   
-                                    <span className="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    
 
                                 </div>
 

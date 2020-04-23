@@ -1,4 +1,5 @@
 import React ,{Component}from 'react';
+import Header from '../sub_page_header';
 import Axios from 'axios';
 import { get_volunteer_profile , submit_volunteer_data} from '../../repository'
 import {animateScroll as scroll } from "react-scroll";
@@ -20,7 +21,7 @@ class VolunteerForm extends Component{
             secondPhoneNumber:'',
             email:'',
             bloodGroup:'AB',
-            educationLevel:'',
+            educationLevel:'Secondary School',
             languages:'',
             studyField:'',
             job:'',
@@ -46,7 +47,37 @@ class VolunteerForm extends Component{
          
          }
         }
-         
+        clearState =()=>{
+            this.setState({
+                form:{
+                    ...this.state.form,
+                    name:'',
+                    gender:'FEMALE', 
+                    ageGroup:'15-25',
+                    phoneNumber:'',
+                    secondPhoneNumber:'',
+                    email:'',
+                    bloodGroup:'AB',
+                    educationLevel:'Secondary School',
+                    languages:'',
+                    studyField:'',
+                    job:'',
+                    country:'',
+                    city:'',
+                    cityProjects:'',
+                    volunteeredBefore:'',
+                    heardAboutSadagaat:'',
+                    volunteerTime:'',
+                    vacationTime:'',
+                    countryProjects:'',
+                    volunteeredPeriod:'',
+                    volunteeredProjects:'',
+                    receiveEmails:''
+
+                }
+            })
+
+        } 
        
  /**componentDidMount (){
 
@@ -88,7 +119,7 @@ class VolunteerForm extends Component{
                 response:{
                     ...this.state.response ,
                 message:'Your Form Submitted  Successfully Thanks for volunteering',
-                styleClass:'alert-success'
+                styleClass:'success-msg'
             }
             })
            
@@ -104,14 +135,16 @@ class VolunteerForm extends Component{
                 response:{
                     ...this.state.response ,
                         message:err.message,
-                        styleClass:'error-message'
+                        styleClass:'error-msg'
                 }
         })
     })
                     
       
-           document.getElementById('reg-form').reset()
-           scroll.scrollTo(70);
+           //document.getElementById('reg-form').reset()
+           //document.getElementsByTagName("input").value = '';
+                  this.clearState()
+                     scroll.scrollTo(70);
     }
        
        
@@ -123,19 +156,8 @@ return(
     <div>
         <div className="main-content">
 
-            <section className="inner-header divider parallax layer-overlay overlay-dark-6"
-                data-bg-img = "/images/slide-1.jpg">
-                <div className="container pt-60 pb-60">
-                  
-                    <div className="section-content">
-                        <div className="row">
-                            <div className="col-md-12 text-center">
-                                <h3 className="font-28 text-white">{t('Volunteer Registeration')}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <Header name={t('Volunteer Registration')}/>
+
 
             <section>
                 <div className="container">
@@ -146,6 +168,7 @@ return(
 
                                     <form 
                                             id="reg-form" 
+                                            name = 'volunteer-form'
                                             className="register-form" 
                                             //data-toggle="validator"
                                             role="form"
@@ -173,6 +196,8 @@ return(
                                                     className="form-control" 
                                                     type="text"
                                                     onChange ={this.handleChange}
+                                                    pattern = '^[^\s].+[^\s]$'
+                                                    value  = {this.state.form.name}
                                                     required
                                                 />
                                             </div>
@@ -276,13 +301,13 @@ return(
                                                 <label for="">{t('Phone')}.</label>
 
                                                 <input 
-                                                    id="" 
+                                                   
                                                     name="phoneNumber"
                                                     className="form-control"
-                                                    type="tel"
+                                                    type="tele"
                                                     onChange ={this.handleChange}
                                                     pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
-                                                    value = {this.state.phoneNumber}
+                                                    value = {this.state.form.phoneNumber}
                                                     required
                                                  />
                                                  <div className="help-block with-errors"></div>
@@ -291,13 +316,13 @@ return(
                                                 <label>{t('Additional Phone')}</label>
 
                                                 <input
-                                                    id="form_re_enter_password" 
                                                     name="secondPhoneNumber"
                                                     className="form-control"
-                                                     type="tel"
+                                                     type="tele"
+                                                     onChange ={this.handleChange}
                                                      value = {this.state.form.secondPhoneNumber}
                                                      pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
-                                                     onChange ={this.handleChange}
+                                                     
                                                     
                                                 />
                                                 <div className="help-block with-errors"></div>
@@ -313,6 +338,8 @@ return(
                                                     className="form-control"
                                                     type="email"
                                                     onChange ={this.handleChange}
+                                                    pattern = '^[^\s].+[^\s]$'
+                                                    value ={this.state.form.email}
                                                     required
                                                     
                                                 />
@@ -355,8 +382,8 @@ return(
                                                     name="languages"
                                                     className="form-control" 
                                                     type="text"
+                                                    onChange ={this.handleChange}                                                    
                                                     value = {this.state.form.languages}
-                                                    onChange ={this.handleChange}
                                                     
                                                 />
                                             </div>
@@ -489,6 +516,7 @@ return(
                                                     className="form-control"
                                                     type="text"
                                                     value = {this.state.form.city}
+                                                    pattern = '^[^\s].+[^\s]$'
                                                     onChange ={this.handleChange}
                                                     
                                                     
@@ -502,6 +530,7 @@ return(
                                                     name="address"
                                                     className="form-control"
                                                     type="text"
+                                                    pattern = '^[^\s].+[^\s]$'
                                                    // onChange ={this.handleChange}
                                                     
                                                  />
@@ -534,6 +563,7 @@ return(
                                                             id=""
                                                             value='no'
                                                             onChange ={this.handleChange}
+                                                            pattern = '^[^\s].+[^\s]$'
                                                             checked={this.state.form.cityProjects === 'no'}
                                                             
                                                         />
@@ -621,6 +651,7 @@ return(
                                                     name="volunteeredProjects"
                                                     className="form-control" 
                                                     type="text"
+                                                    pattern = '^[^\s].+[^\s]$'
                                                     onChange ={this.handleChange}
                                                     value = {this.state.form.volunteeredProjects}
                                                 />

@@ -87,15 +87,15 @@ export function login(data)
         {
           const email = localStorage.setItem(new_user_email , data.email)
 
-             return axios.post(`${address()}`, {
-                 email: email,
+            //  return axios.post(`${address()}`, {
+            //      email: email,
         
-                  })
-            .then( response =>{
-                 return response.data
-                        })
+            //       })
+            // .then( response =>{
+            //      return response.data
+            //             })
             
-            .catch(err => Promise.reject(err));
+            // .catch(err => Promise.reject(err));
         }
         /** verify code step (2) from forgot password  */
         /**step (3) entering new password and confirm it */

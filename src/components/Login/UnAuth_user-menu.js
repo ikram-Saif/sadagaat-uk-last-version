@@ -12,15 +12,11 @@ import { useTranslation } from 'react-i18next'
 function UnAuth_user_menu(){
   const {t} = useTranslation()
 
-    const handleClick =(e)=>{
-      e.preventDefault();
-        window.location = '/login'
-      
-        //<Redirect to = '/login' />
-        
+    // const handleClick =(e)=>{
+    //   e.preventDefault();
+    //     window.location = '/login'
 
-    
-      }
+    //   }
   
     return(
 
@@ -29,8 +25,14 @@ function UnAuth_user_menu(){
             <ul className="list-inline pull-right flip sm-pull-none sm-text-center mt-5">
 
                 <li className="mt-sm-10 mb-sm-10">
-                <button className="btn btn-default btn-flat btn-xs bg-light p-5 font-11 pl-10 pr-10 no-border" 
-                onClick ={handleClick}>{t('Login/Register')}</button>
+                  <Link to ='/login'>
+                <button 
+                  className="btn btn-default btn-flat btn-xs bg-light p-5 font-11 pl-10 pr-10 no-border" 
+                  // onClick ={handleClick}
+                >
+                  
+                  {t('Login/Register')}</button>
+                </Link>
                 </li>
             </ul>
             </div>

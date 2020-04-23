@@ -64,7 +64,7 @@ class Donate extends Component {
             console.log(id)
 
           const data = {
-              HID : id ,
+              hid : id ,
               amount:this.state.amount,
               currency:this.state.currency
             }
@@ -106,7 +106,7 @@ class Donate extends Component {
                 <h3 class="mt-0 line-bottom">{t('Make a Donation')}<span class="font-weight-300"> {t('Now!')}</span></h3>
                    <p className="error-message">{t(this.state.message)}</p>
                   <form
-                       data-toggle="validator"
+                       //data-toggle="validator"
                         role="form"
                        id="popup_paypal_donate_form_onetime_recurring"
                        onSubmit = {this.handleSubmite}

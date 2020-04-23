@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Header from '../sub_page_header';
 import { Link } from 'react-router-dom';
 import { forgotPassword , resetPassword} from '../../repository'
 import  {withTranslation}  from 'react-i18next'
@@ -25,10 +26,17 @@ class ForgotPassword extends Component{
    
    handleSubmit = (e) => {
     e.preventDefault();
+ 
+    // forgotPassword(this.state)
+    // .then(response => window.location = '/verify_password_code')
+    // .catch(err => alert(err));
+   // window.location = '/reset_password'
+   this.setState({
+    message:'Please Check your Email to Complete Process',
+    styleClass:'success-msg',
+    iconClass:'fa fa-check fa-2x',
+})
 
-    forgotPassword(this.state)
-    .then(response => window.location = '/verify_password_code')
-    .catch(err => alert(err));
 
     
      
@@ -46,20 +54,8 @@ class ForgotPassword extends Component{
         <div id="wrapper" className="clearfix">
 
               <div className="main-content">
-              
-                
-                <section className="inner-header divider parallax layer-overlay overlay-dark-6" data-bg-img="./images/slide-1.jpg">
-                  <div className="container pt-60 pb-60">
-                
-                    <div className="section-content">
-                      <div className="row">
-                        <div className="col-md-12 text-center">
-                          <h3 className="font-28 text-white">{t('Login/Register')}</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>      
-                </section>
+
+              <Header name={t('Login/Register')}/>
 
                 <section>
                   <div className="container">
@@ -68,32 +64,44 @@ class ForgotPassword extends Component{
                       
                         <div className="tab-content">
                           <div className="tab-pane fade in active p-15" id="login-tab">
-                            <h4 className="text-gray mt-0 pt-5"> {t('Reset Password ')}</h4>
+                          <p className = {this.state.styleClass}>{t(this.state.message)}</p>
+
+                            <h4 className="text-gray mt-0 pt-5"> {t('Reset Password')}</h4>
                             <hr />
 
-                            <form  
-                                    data-toggle="validator"
+                            <form  id = 'form'
+                                    //data-toggle="validator"
                                     role="form" name="login-form" 
                                     className="clearfix" 
-                                    onSubmit ={this.handleSubmit}>
+                                    onSubmit ={this.handleSubmit}
+                                    >
 
                               <div className="row">
                                 <div className="form-group col-md-12">
-                                  <label for="inputEmail">{t('Email')}</label>
+                                  <label for="inputEmail">{t('Email Address')}</label>
 
                                   <input 
                                     id="inputEmail" 
                                     name="email" 
                                     className="form-control"
                                      type="email"
-                                     data-error="that email address is invalid"
-                                      onChange = {this.handleChange} required />
+                                     data-error={t("that email address is invalid")}
+                                      onChange = {this.handleChange} 
+                                      required = 'true'
+                                      onvalid="this.setCustomValidity('')"
+                                      oninvalid="this.setCustomValidity('Enter User Name Here')"
+                                      
+                                      data-errormessage-value-missing="Please input something"
+                                      />
 
                                     <div class="help-block with-errors"></div>
                                 </div>
                                </div>
                               <div className="form-group mt-10">
-                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">{t('reset')}</button>
+                                
+                                <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">{t('send')}
+                                </button>
+                                
                               </div>
                             
                             </form>

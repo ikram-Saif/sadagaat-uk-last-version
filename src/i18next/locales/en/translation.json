@@ -9,7 +9,7 @@
   "language": "Language",
   "charitable Activities": "Charitable Activities",
   "organization": "Organization",
-  "About Us": "About Us",
+  "About Us": "About us",
   "About Sadagaat": "About Sadagaat",
   "The video": "The Video",
   "about_message_1": "Sadagaat Charity organization is a registered charity of the Voluntary and Humanitarian Action Commission, which has been active in assisting vulnerable groups for more than 15 years, during which many successful projects, whether seasonal or ongoing, have been implemented through the support of philanthropists from within and outside Sudan. Under 4 Divisions : feeding, health, Watering, and education.  ",
@@ -191,5 +191,14 @@
   "Topic":"Topic",
   "Start Date":"Event Date",
   "End Date":"Event Date",
-  "Location":"Location"
+  "Location":"Location",
+  "Registerd Successfully Please":"Registerd Successfully. Please",
+  "Reset Password":"Reset Password",
+  "send":"send",
+  "that email address is invalid":"that email address is invalid",
+  "Please Check your Email to Complete Process":"Please Check your Email to Complete Process",
+  "Pasword Not Matching":"Pasword Not Matching",
+  "Languages you Know?":"Languages you Know?",
+  "Volunteer Registration":"Volunteer Registration"
+
 }
