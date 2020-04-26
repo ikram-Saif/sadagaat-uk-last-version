@@ -37,6 +37,7 @@ import SingleSubhub from "./components/sub_hubs/single-subhub";
 import SingleEvent from "./components/events/single-event";
 import { useTranslation } from "react-i18next";
 
+
 function App() {
   const { i18n } = useTranslation();
   document.getElementById("direction").dir = i18n.dir();

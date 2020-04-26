@@ -26,13 +26,13 @@ i18n
   .use(initReactI18next); // pass the i18n instance to react-i18next.
 
 i18n.use(initReactI18next).init({
-    lng: 'en',
-    language:'en',
+    //lng: 'en',
+  language:'en',
   resources,
-  //initImmediate: true,
+  initImmediate: true,
   fallbackLng: "en", // if user computer language is not on the list of available languages, than we will be using the fallback language specified earlier
   debug: true,
-  //whitelist: availableLanguages,
+  whitelist: availableLanguages,
 
   interpolation: {
     escapeValue: false,

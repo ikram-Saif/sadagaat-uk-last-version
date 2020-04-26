@@ -65,11 +65,11 @@ return(
 
           <div className="thumb">
 
-          <img src={Feeding.imageUrl}
+          {/* <img src={Feeding.imageUrl}
              alt className="img-fullwidth"
              width = '945'
              height = '630'
-              />
+              /> */}
             
 
   <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
@@ -118,14 +118,14 @@ return(
 
 
 <div className="col-md-4" key = {FeedingPro.id}>
+<Link to = {'/single-projects/'+FeedingPro.id}>
 <div className="causes bg-white mb-30">
-  <div className="thumb">
-  <Link to = {'/single-projects/'+FeedingPro.id}>
 
+  <div className="thumb">
+  
       <img  src={(FeedingPro.imageUrl)}  
        className="img-fullwidth"  height ="240" width = "360" />
        
-      </Link>
   </div>
   
   
@@ -168,7 +168,9 @@ return(
     <p className="mt-20">{FeedingPro.description}.</p>
     <Link to={'/projects/'+FeedingPro.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
   </div>
+
 </div>
+</Link>
 </div>
 ))}
   

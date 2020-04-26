@@ -29,25 +29,25 @@ function MenuBar() {
                 </li>
 
                 <li>
-                  <a>{t("Hubs")}</a>
+                  <a>{t("Sectors")}</a>
                   <ul className="dropdown">
                     <li>
-                      <NavLink to="/water">{t("Water Hub")}</NavLink>
+                      <NavLink to="/water">{t("Water Sector")}</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/education">{t("Education Hub")}</NavLink>
+                      <NavLink to="/education">{t("Education Sector")}</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/health">{t("Health Hub")}</NavLink>
+                      <NavLink to="/health">{t("Health Sector")}</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/feeding">{t("Feeding Hub")}</NavLink>
+                      <NavLink to="/feeding">{t("Feeding Sector")}</NavLink>
                     </li>
                   </ul>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/sub_hubs">{t("Sub Hubs")}</NavLink>
-                </li>
+                </li> */}
                 <li>
                   {" "}
                   <NavLink to="/projects">{t("Projects")}</NavLink>

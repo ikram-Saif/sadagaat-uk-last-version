@@ -67,7 +67,10 @@ return(
 
           <div className="thumb">
             
-            <img src={water.imageUrl} alt className="img-fullwidth" width ='945' height ='630' />
+            {/* <img src={water.imageUrl}
+                  alt className="img-fullwidth" 
+                  width ='945' height ='630' 
+                  /> */}
   <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
 {/* <CircularProgressbar
@@ -114,14 +117,14 @@ return(
 
 
   <div className="col-md-4" key = {waterPro.id}>
-  <div className="causes bg-white mb-30">
-    <div className="thumb">
-    <Link to = {'/single-projects/'+waterPro.id}>
-     <img  src={(waterPro.imageUrl)}  
-     alt className="img-fullwidth" 
-      height ="240" width = "360"
-     />
-     </Link>
+     <Link to = {'/single-projects/'+waterPro.id}>
+        <div className="causes bg-white mb-30">
+          <div className="thumb">
+        
+         <img  src={(waterPro.imageUrl)}  
+          alt className="img-fullwidth" 
+            height ="240" width = "360"
+          /> 
      </div>
   
   <div style=
@@ -185,6 +188,7 @@ return(
       {t('Donate')}</Link>
   </div>
 </div>
+</Link>
 </div>
 ))}
   

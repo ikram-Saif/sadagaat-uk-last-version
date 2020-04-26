@@ -5,36 +5,38 @@ import i18n from "i18next";
 import { withTranslation } from "react-i18next";
 
 class SinglProject extends Component {
+ 
   constructor() {
     super();
     this.state = {
       project: [],
+      id:''
+    };
+  }
+
+  async componentDidMount (){
+    let id = this.props.match.params.project_id;
+   // alert(id)
+    this.setState({
+      id:id
+    })
+
+    try {
+      const { data: project } = await axios.get(`${address()}projects/${id}`, {
+        headers: { "accept-language": `${i18n.language}` },
+      });
+      this.setState({ project });
+    } catch (error) {
+      console.log("can not load project for the home page slider");
     }
   }
 
-  componentDidMount = () => {
-    let id = this.props.match.params.project_id;
-    console.log(this.props.match.params.project_id);
-
-    axios
-      .get(`${address()}projects/${id}`, {
-        headers: { "accept-language": `${i18n.language}` }
-      })
-
-      .then((response) => {
-        const project = response.data;
-        this.setState({ project });
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  }
-
-
   render() {
     const { t } = this.props;
-    const {project} = this.state;
-    const progress = project.donationProgress
+    const { project } = this.state;
+    console.log(project)
+    const dProgress = project.donationProgress
+    
     return (
       <div className="container">
         <div className="row mtli-row-clearfix">
@@ -45,13 +47,11 @@ class SinglProject extends Component {
               </div>
               <div className="progress-item mt-0">
                 <div className="progress mb-0">
-                  <div
-                    className="progress-bar"
-                    data-percent = {project.donationProgress}
-                    >
-
-                    <span className="percent">{project.donationProgress}</span>
-                  </div>
+                  <div data-percent = {project.goal} 
+                        className="progress-bar">
+                          
+                    <span className="percent">{dProgress}</span>
+                    </div>
                 </div>
               </div>
               <div className="causes-details clearfix  border-bottom-theme-color-1px p-15 pt-10 pb-10">

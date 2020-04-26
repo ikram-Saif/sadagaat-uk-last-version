@@ -82,7 +82,7 @@ import { useTranslation } from 'react-i18next';
   
 
 <div>
-<Header name={t("Sub Hubs")}/>
+<Header name={t("Sub Sectors")}/>
 
 <section>
       <div class="container">
@@ -115,16 +115,17 @@ import { useTranslation } from 'react-i18next';
 
               <div className="col-md-4" key ={sub_hub.id}>
                 <div class="causes bg-white mb-30">
+                <Link to={'/single-subhub/'+sub_hub.id}>
                   <div class="thumb">
 
-                      <Link to={'/single-subhub/'+sub_hub.id}>
+                     
                         <img src={sub_hub.imageUrl}
                         alt 
                         className="img-fullwidth"
                         width="240px" 
                         height="320px"
                           />
-                    </Link>               
+                              
                   </div>
                   <div class="causes-details clearfix border-bottom p-15 pt-15 pb-15">
 
@@ -132,12 +133,15 @@ import { useTranslation } from 'react-i18next';
                       {sub_hub.name}
                       </a>
                     </h4>
+                    
                   <Link to={'/sub_hubs/'+sub_hub.id}
                    className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">
                      {t('Donate')}
                   </Link>
                 </div>
+                </Link>
               </div>
+             
             </div>
                ))}
 

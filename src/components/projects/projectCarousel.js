@@ -112,17 +112,18 @@ class ProjectSlider extends Component {
               >
                 {projects.map((project) => (
                   <div className="item ml-5" key={project.id}>
-                    <div className="causes bg-white maxwidth500 mb-30">
-                      <div className="thumb">
-                        <Link to={"/single-projects/" + project.id}>
-                          <img
-                            src={project.imageUrl}
-                            alt="alt"
-                            className="img-fullwidth"
-                            width="240"
-                            height="320"
-                          />
-                        </Link>
+
+                      <div className="causes bg-white maxwidth500 mb-30">
+                      <Link to={'/single-projects/'+project.id}>
+                        <div className="thumb">
+                            <img
+                              src={project.imageUrl}
+                              alt="alt"
+                              className="img-fullwidth"
+                              width="240"
+                              height="320"
+                            />
+                        
                       </div>
                       {/* <div className="donation-progress mt-5 ml-5 text-center">
                         {project.donationProgress}
@@ -190,6 +191,8 @@ class ProjectSlider extends Component {
                           </div>
                         </div>
                         <p className="mt-20">{project.description}</p>
+
+                        
                         <Link
                           to={"/projects/" + project.id}
                           className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
@@ -197,7 +200,9 @@ class ProjectSlider extends Component {
                           {t("Donate")}
                         </Link>
                       </div>
+                      </Link>
                     </div>
+                    
                   </div>
                 ))}
               </Carousel>

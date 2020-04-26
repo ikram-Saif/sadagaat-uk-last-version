@@ -65,11 +65,11 @@ return(
 
           <div 
             className="thumb">
-            <img src={health.imageUrl}
+            {/* <img src={health.imageUrl}
              alt className="img-fullwidth"
              width = '945'
              height = '630'
-              />
+              /> */}
            <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
 {/* <CircularProgressbar
@@ -116,11 +116,12 @@ return(
 
 
 <div className="col-md-4" key = {healthPro.id}>
+<Link to = {'/single-projects/'+healthPro.id}>
 <div className="causes bg-white mb-30">
   <div className="thumb">
-  <Link to = {'/single-projects/'+healthPro.id}>
+  
     <img  src={(healthPro.imageUrl)}  alt className="img-fullwidth"  height ="240" width = "360"/>
-    </Link>
+    
   </div>
   
   <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
@@ -167,6 +168,7 @@ return(
     <Link to={'/projects/'+healthPro.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
   </div>
 </div>
+</Link>
 </div>
 ))}
   

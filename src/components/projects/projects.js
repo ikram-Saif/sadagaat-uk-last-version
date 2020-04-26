@@ -109,18 +109,19 @@ return(
 
 
 <div className="col-md-4" key ={project.id}>
-<div className="causes bg-white mb-30">
-  <div className="thumb">
-  <Link to={'/single-projects/'+project.id}><img src={project.imageUrl}  className="img-fullwidth" /></Link>
-  </div>
+<Link to={'/single-projects/'+project.id}>
+    <div className="causes bg-white mb-30">
+      <div className="thumb">
+      <img src={project.imageUrl}  className="img-fullwidth" />
+      </div>
   
   <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
   <CircularProgressbar
-value={project.projectProgress}
-text={`${project.projectProgress}%`}
-background
-backgroundPadding={6}
+    value={project.projectProgress}
+    text={`${project.projectProgress}%`}
+    background
+    backgroundPadding={6}
 styles={buildStyles({
   rotation: 0.25,
   strokeLinecap: "butt",
@@ -153,7 +154,9 @@ styles={buildStyles({
 
     <Link to={'/projects/'+project.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
   </div>
+  
 </div>
+</Link>
 </div>
 ))}
   

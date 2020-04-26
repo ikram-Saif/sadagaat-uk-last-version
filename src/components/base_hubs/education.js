@@ -67,11 +67,11 @@ return(
         <div className="causes bg-white maxwidth500 mb-30">
 
           <div className="thumb">
-          <img src={education.imageUrl}
+          {/* <img src={education.imageUrl}
              alt className="img-fullwidth"
              width = '945'
              height = '630'
-              />
+              /> */}
   <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
  
@@ -102,14 +102,12 @@ return(
 
 
 <div className="col-md-4" key = {educationPro.id}>
-<div className="causes bg-white mb-30">
-  <div className="thumb">
+<Link to = {'/single-projects/'+educationPro.id}>
+  <div className="causes bg-white mb-30">
 
-  <Link to = {'/single-projects/'+educationPro.id}>
-
-    <img  src={(educationPro.imageUrl)}  alt className="img-fullwidth" height ="240" width = "360" />
-    </Link>
-  </div>
+    <div className="thumb">
+      <img  src={(educationPro.imageUrl)}  alt className="img-fullwidth" height ="240" width = "360" />
+    </div>
   
   <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
@@ -150,7 +148,9 @@ return(
     <p className="mt-20">{educationPro.description}.</p>
     <Link to={'/projects/'+educationPro.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
   </div>
+ 
 </div>
+</Link>
 </div>
 ))}
   

@@ -62,19 +62,19 @@ function Footer() {
             </div>
             <div className="col-sm-6 col-md-3">
               <div className="widget dark">
-                <h5 className="widget-title line-bottom">{t("Hubs")}</h5>
+                <h5 className="widget-title line-bottom">{t("Sectors")}</h5>
                 <ul className="list angle-double-right list-border">
                   <li>
-                    <Link to="/water">{t("Water Hub")}</Link>
+                    <Link to="/water">{t("Water Sector")}</Link>
                   </li>
                   <li>
-                    <Link to="/health">{t("Health Hub")}</Link>
+                    <Link to="/health">{t("Health Sector")}</Link>
                   </li>
                   <li>
-                    <Link to="/feeding">{t("Feeding Hub")}</Link>
+                    <Link to="/feeding">{t("Feeding Sector")}</Link>
                   </li>
                   <li>
-                    <Link to="/education">{t("Education Hub")}</Link>
+                    <Link to="/education">{t("Education Sector")}</Link>
                   </li>
                 </ul>
               </div>

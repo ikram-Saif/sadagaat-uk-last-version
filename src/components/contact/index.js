@@ -37,22 +37,22 @@ class Contact extends Component{
     const {t} = this.props
   }
 
-  componentDidMount() {
-    axios.get(`${address()}/contactUsInfos`, {headers: {'accept-language': `${i18n.language}`}})
-        .then(response => {
-          console.log(response.data);
-          this.setState({
-           contactInfo:{
-            links: response.data,
-           }
+  // componentDidMount() {
+  //   axios.get(`${address()}/contactUsInfos`, {headers: {'accept-language': `${i18n.language}`}})
+  //       .then(response => {
+  //         console.log(response.data);
+  //         this.setState({
+  //          contactInfo:{
+  //           links: response.data,
+  //          }
 
-          });
+  //         });
 
-        })
-        .catch(error => {
-          console.log(error);
-        });
-  }
+  //       })
+  //       .catch(error => {
+  //         console.log(error);
+  //       });
+  // }
    
    
    handleChange = (e)=> 
