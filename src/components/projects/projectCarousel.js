@@ -26,20 +26,20 @@ class ProjectSlider extends Component {
     }
   }
 
-  // async componentDidUpdate() {
-  //   try {
-  //     axios
-  //       .get(`${address()}projects`, {
-  //         headers: { "accept-language": `${i18n.language}` },
-  //       })
-  //       .then((response) => this.setState({ projects: response.data }))
-  //       .catch((res) =>
-  //         console.warn("execution failed with status " + res.status)
-  //       );
-  //   } catch (error) {
-  //     console.log("Something went wrong");
-  //   }
-  // }
+  async componentWillReceiveProps(propos) {
+    try {
+      axios
+        .get(`${address()}projects`, {
+          headers: { "accept-language": `${i18n.language}` },
+        })
+        .then((response) => this.setState({ projects: response.data }))
+        .catch((res) =>
+          console.warn("execution failed with status " + res.status)
+        );
+    } catch (error) {
+      console.log("Something went wrong");
+    }
+  }
 
   render() {
     const { t } = this.props;

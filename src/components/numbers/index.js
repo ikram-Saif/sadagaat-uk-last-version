@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import address from './../utils/address'
 import CountUp from 'react-countup';
+import i18n from "i18next";
 import { useTranslation } from 'react-i18next';
 
 function Numbers(){
@@ -42,7 +43,7 @@ function Numbers(){
       setDoneProjects(response)
     }
     fetchDoneProjects()
-   }, [])
+   }, [i18n.language])
 
 
 

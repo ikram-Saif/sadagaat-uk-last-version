@@ -32,7 +32,7 @@ function Calendar(){
   useEffect(() => {
       fetchData()
      
-        },[])
+        },[i18n.language])
 
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;

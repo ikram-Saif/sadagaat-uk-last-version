@@ -46,24 +46,24 @@ class DonateToSubhub extends Component {
     })
   
 }
-// componentDidUpdate =()=>{
+async componentWillReceiveProps(){
 
-//   let id = this.state.subhub_id
+  let id = this.state.subhub_id
 
-//   axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+  axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
-//   .then(response => {
+  .then(response => {
 
-//        const subHubs = response.data
-//         this.setState({subHubs})
+       const subHubs = response.data
+        this.setState({subHubs})
 
-//   }).catch(error => {
-//       this.setState({
-//         message:error.message
-//       })
-//   })
+  }).catch(error => {
+      this.setState({
+        message:error.message
+      })
+  })
 
-// }
+}
 
 
   handleChange=(e)=>{

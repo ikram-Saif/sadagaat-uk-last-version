@@ -46,7 +46,7 @@ function Education (props){
     //  didMountRef.current = false
 
     //}
-        } , [])
+        } , [i18n.language])
 
 
   const lastPost = currentPage * postsPerPage;

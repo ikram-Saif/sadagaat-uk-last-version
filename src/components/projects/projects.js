@@ -32,7 +32,7 @@ function Projects_(){
            
          }
          fetchData()
-        }, [])
+        }, [i18n.language])
 
       
         function handleChange(e){

@@ -6,7 +6,20 @@ import { address } from "../utils/address";
 
 class EventSlider extends Component {
   state = { events: [] };
+
   async componentDidMount() {
+    try {
+      await axios
+        .get(`${address()}events`, {
+          headers: { "accept-language": `${i18n.language}` },
+        })
+        .then((response) => this.setState({ events: response.data }));
+    } catch (error) {
+      console.log("Something went wrong");
+    }
+  }
+  
+  async componentWillReceiveProps(){
     try {
       await axios
         .get(`${address()}events`, {

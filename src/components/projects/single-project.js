@@ -16,10 +16,19 @@ class SinglProject extends Component {
 
   async componentDidMount (){
     let id = this.props.match.params.project_id;
-   // alert(id)
-    this.setState({
-      id:id
-    })
+
+    try {
+      const { data: project } = await axios.get(`${address()}projects/${id}`, {
+        headers: { "accept-language": `${i18n.language}` },
+      });
+      this.setState({ project });
+    } catch (error) {
+      console.log("can not load project for the home page slider");
+    }
+  }
+  async componentWillReceiveProps(){
+    let id = this.props.match.params.project_id;
+
 
     try {
       const { data: project } = await axios.get(`${address()}projects/${id}`, {

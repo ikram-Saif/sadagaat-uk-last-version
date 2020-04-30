@@ -42,7 +42,7 @@ function Water (props){
       waterProjects()
 
     
-        } , [])
+        } , [i18n.language])
 
     
        

@@ -17,14 +17,11 @@ class SingleSubhub extends Component {
       }
 }
 
-componentDidMount=()=>{
+async componentDidMount(){
 
     let id = this.props.match.params.subhub_id
-    console.log(this.props.match.params.subhub_id) 
 
- 
-
-    axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+    await axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
     .then(response => {
 
@@ -36,23 +33,23 @@ componentDidMount=()=>{
     })
   
 }
+async componentWillReceiveProps(){
 
-// componentDidUpdate=()=>{
+  let id = this.props.match.params.subhub_id
 
-//   let id = this.state.subhub.id
+  await axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
-//   axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+  .then(response => {
 
-//   .then(response => {
+       const subhub = response.data
+        this.setState({subhub})
 
-//        const subhub = response.data
-//         this.setState({subhub})
+  }).catch(error => {
+      alert(error.message)
+  })
 
-//   }).catch(error => {
-//       alert(error.message)
-//   })
+}
 
-// }
 render(){
   const {t} = this.props
   const {subhub} = this.state

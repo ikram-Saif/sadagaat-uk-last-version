@@ -43,7 +43,7 @@ function Feeding (props){
          feedingProjects()
 
     
-        } , [])
+        } , [i18n.language])
 
 
   const lastPost = currentPage * postsPerPage;

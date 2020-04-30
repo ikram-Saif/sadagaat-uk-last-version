@@ -11,9 +11,8 @@ function LanguageSelector () {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-     window.location.reload()
+    // window.location.reload()
     //window.render() 
-    
   }
 
  

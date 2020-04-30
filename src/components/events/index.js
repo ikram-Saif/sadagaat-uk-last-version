@@ -22,7 +22,7 @@ function Event() {
       fetchNews();
       fetcEvents();
   }
- , []);
+ , [i18n.language]);
 
   async function fetchNews() {
     const fetcher = await window.fetch(`${address()}news`, {

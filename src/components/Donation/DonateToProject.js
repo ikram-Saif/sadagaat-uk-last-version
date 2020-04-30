@@ -30,7 +30,7 @@ class DonateToProject extends Component {
 
     this.setState({project_id:id})
  
-
+  // console.log('*********',i18n)
     await axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
     .then(response => {
@@ -44,22 +44,22 @@ class DonateToProject extends Component {
   
 }
 
-// componentDidUpdate =()=>{
+async componentWillReceiveProps(){
 
-//   let id = this.state.project_id
+  let id = this.state.project_id
 
-//   axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+  axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
-//   .then(response => {
+  .then(response => {
 
-//        const project = response.data
-//         this.setState({project})
+       const project = response.data
+        this.setState({project})
 
-//   }).catch(error => {
-//       alert(error.message)
-//   })
+  }).catch(error => {
+      alert(error.message)
+  })
 
-// }
+}
 
 
   handleChange=(e)=>{

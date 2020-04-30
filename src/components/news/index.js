@@ -15,7 +15,7 @@ function News() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [i18n.language]);
 
   async function fetchData() {
     const fetcher = await window.fetch(`${address()}news`, {

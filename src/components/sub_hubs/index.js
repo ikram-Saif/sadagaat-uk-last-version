@@ -33,15 +33,11 @@ import { useTranslation } from 'react-i18next';
       const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
       const response = await fetcher.json()
       setData(response)
-      console.log(response)
-      console.log(response)
     }
     async function fetchHubsMenu() {
       const fetcher = await window.fetch(`${address()}hubs`,{headers: {'accept-language': `${i18n.language}`}})
       const response = await fetcher.json()
       setHubs(response)
-      console.log(response)
-      console.log(response)
     }
 
     useEffect(() => {
@@ -49,7 +45,7 @@ import { useTranslation } from 'react-i18next';
            fetchData()
            fetchHubsMenu()
     
-          },[])
+          },[i18n.language])
           
         
    

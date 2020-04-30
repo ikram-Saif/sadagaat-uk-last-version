@@ -34,22 +34,22 @@ class SinglEvent extends Component {
       });
   }
 
-//   componentDidMount = () => {
-//     let id = this.state.event.id
+  async componentWillReceiveProps(){
+    let id = this.state.event.id
 
-//     axios
-//       .get(`${address()}events/${id}`, {
-//         headers: { "accept-language": `${i18n.language}` },
-//       })
+    axios
+      .get(`${address()}events/${id}`, {
+        headers: { "accept-language": `${i18n.language}` },
+      })
 
-//       .then((response) => {
-//         const event = response.data;
-//         this.setState({ event });
-//       })
-//       .catch((error) => {
-//         console.log(error.message);
-//       });
-//   }
+      .then((response) => {
+        const event = response.data;
+        this.setState({ event });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
 
   render() {
     const { t } = this.props;

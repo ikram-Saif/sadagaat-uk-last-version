@@ -35,19 +35,19 @@ class Donate extends Component {
           console.log(error);
         })
   }
-  // componentDidUpdate =()=> {
+  async componentWillReceiveProps(){
 
-  //   axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
-  //       .then(response => {
-  //         const hubs = response.data
-  //         this.setState({hubs})
-  //         })
+    axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
+        .then(response => {
+          const hubs = response.data
+          this.setState({hubs})
+          })
 
       
-  //       .catch(error => {
-  //         console.log(error);
-  //       })
-  // }
+        .catch(error => {
+          console.log(error);
+        })
+  }
 
 
 

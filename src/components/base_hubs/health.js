@@ -42,7 +42,7 @@ function Health (props){
       healthHub()
       healthProjects()
  
-     },[])
+     },[i18n.language])
 
 
 
