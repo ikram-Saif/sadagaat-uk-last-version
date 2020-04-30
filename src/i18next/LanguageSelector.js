@@ -20,10 +20,11 @@ function LanguageSelector () {
   return (
         <div>
           <button
-           className={`lang-switch bg-transparent btn btn-light ${i18n.language === "ar" ? "d-none" : ""}`} 
+           className={`nav-link lang-switch bg-transparent btn btn-light ${i18n.language === "ar" ? "d-none" : ""}`} 
            
            onClick={(event) => changeLanguage("ar")}>العربية</button>
-          <button className={`lang-switch bg-transparent btn btn-light ${i18n.language === "en" ? "d-none" : ""}`} 
+
+          <button className={`nav-link lang-switch bg-transparent btn btn-light ${i18n.language === "en" ? "d-none" : ""}`} 
           
           onClick={(event) => (
             

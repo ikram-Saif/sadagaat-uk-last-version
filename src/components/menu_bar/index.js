@@ -13,7 +13,7 @@ function MenuBar() {
         <div className="header-nav-wrapper navbar-scrolltofixed bg-silver-light">
           <div className="container">
             <nav id="menuzord-right" className="menuzord default no-bg">
-              <a className="menuzord-brand pull-left flip" to="/">
+              <a className="menuzord-brand pull-left flip">
                 <img src={logo} alt="" />
               </a>
               <ul className="menuzord-menu">
@@ -23,6 +23,7 @@ function MenuBar() {
                     activeclassName="active"
                     exact
                     to="/"
+
                   >
                     {t("Home")}
                   </NavLink>
@@ -32,48 +33,48 @@ function MenuBar() {
                   <a>{t("Sectors")}</a>
                   <ul className="dropdown">
                     <li>
-                      <NavLink to="/water">{t("Water Sector")}</NavLink>
+                      <NavLink className="nav-link" to="/water">{t("Water Sector")}</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/education">{t("Education Sector")}</NavLink>
+                       <NavLink className="nav-link" to="/education">{t("Education Sector")}</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/health">{t("Health Sector")}</NavLink>
+                       <NavLink className="nav-link" to="/health">{t("Health Sector")}</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/feeding">{t("Feeding Sector")}</NavLink>
+                       <NavLink className="nav-link" to="/feeding">{t("Feeding Sector")}</NavLink>
                     </li>
                   </ul>
                 </li>
                 {/* <li>
-                  <NavLink to="/sub_hubs">{t("Sub Hubs")}</NavLink>
+                   <NavLink className="nav-link" to="/sub_hubs">{t("Sub Hubs")}</NavLink>
                 </li> */}
                 <li>
                   {" "}
-                  <NavLink to="/projects">{t("Ongoing Projects")}</NavLink>
+                   <NavLink className="nav-link" to="/projects">{t("Ongoing Projects")}</NavLink>
                 </li>
                 <li>
-                  <a href="#">{t("Media Center")}</a>
+                  <a>{t("Media Center")}</a>
                   <ul className="dropdown">
                     <li>
-                      <NavLink to="/film">{t("Film Library")}</NavLink>
+                       <NavLink className="nav-link" to="/film">{t("Film Library")}</NavLink>
                     </li>
                     <li>
-                      <NavLink to="pictures">{t("Pictures Library")}</NavLink>
+                       <NavLink className="nav-link" to="pictures">{t("Pictures Library")}</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/news">{t("News")}</NavLink>
+                       <NavLink className="nav-link" to="/news">{t("News")}</NavLink>
                     </li>
                     <li>
-                      <NavLink to="/calendar">{t("Event Calendar")}</NavLink>
+                       <NavLink className="nav-link" to="/calendar">{t("Event Calendar")}</NavLink>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <NavLink to="/about">{t("About Us")}</NavLink>
+                   <NavLink className="nav-link" to="/about">{t("About Us")}</NavLink>
                 </li>
                 <li>
-                  <NavLink
+                   <NavLink 
                     className="nav-link"
                     activeclassName="active"
                     to="/contact"
@@ -87,7 +88,7 @@ function MenuBar() {
                 </li>
                 <li>
                   <NavLink
-                    className="btn btn-colored btn-flat btn-theme-green"
+                    className="nav-link btn btn-colored btn-flat btn-theme-green"
                     to="/donate"
                   >
                     {t("Donate")}

@@ -859,7 +859,21 @@ var THEMEMASCOT = {};
                 return false;
             });
         },
+        TM_menuCollapseOnClick: function() {
+            $document.on('click', '.menuzord-responsive .nav-link', function(e) {
+                $('.showhide').trigger('click');
+                return true;
+            });
+        },
+        // TM_menuCollapseOnClick: function() {
+        //     $document.on('click', '.menuzord-responsive li', function(e) {
+        //         $('.showhide').trigger('click');
+        //         return false;
+        //     });
+        // },
 
+        
+         
         /* ---------------------------------------------------------------------- */
         /* ----------- Active Menu Item on Reaching Different Sections ---------- */
         /* ---------------------------------------------------------------------- */
