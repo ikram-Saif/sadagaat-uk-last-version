@@ -45,12 +45,12 @@ function App() {
     if (i18n.dir() === "rtl") 
     {
       document.getElementById("bootstrp-file").href =
-      "%PUBLIC_URL%/css/bootstrap-rtl.min.css";
+      "/css/bootstrap-rtl.min.css";
 
-      document.getElementById("main-rtl").href = "%PUBLIC_URL%/css/style-main-rtl.css";
+      document.getElementById("main-rtl").href = "/css/style-main-rtl.css";
       
       document.getElementById("main-rtl-extra").href =
-        "%PUBLIC_URL%/css/style-main-rtl-extra.css";
+        "/css/style-main-rtl-extra.css";
     }
     if (i18n.dir() === "ltr") {
       document.getElementById("bootstrp-file").href = "";
