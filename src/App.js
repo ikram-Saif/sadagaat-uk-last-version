@@ -30,7 +30,6 @@ import DonateToSubhub from "./components/Donation/DonateToSubhub";
 import SuccessDonate from "./components/Donation/successfullDonation";
 import FaildDonate from "./components/Donation/faildDonation";
 import SingleProject from "./components/projects/single-project";
-import DemoProject from "./components/projects/testProjects";
 import PrivateRoute from "./components/menu_bar/privateRoute";
 import PubliceRoute from "./components/menu_bar/PublicRoute";
 import SingleSubhub from "./components/sub_hubs/single-subhub";
@@ -46,12 +45,12 @@ function App() {
     if (i18n.dir() === "rtl") 
     {
       document.getElementById("bootstrp-file").href =
-      "./css/bootstrap-rtl.min.css";
+      "%PUBLIC_URL%/css/bootstrap-rtl.min.css";
 
-      document.getElementById("main-rtl").href = "./css/style-main-rtl.css";
+      document.getElementById("main-rtl").href = "%PUBLIC_URL%/css/style-main-rtl.css";
       
       document.getElementById("main-rtl-extra").href =
-        "./css/style-main-rtl-extra.css";
+        "%PUBLIC_URL%/css/style-main-rtl-extra.css";
     }
     if (i18n.dir() === "ltr") {
       document.getElementById("bootstrp-file").href = "";
@@ -63,9 +62,10 @@ function App() {
   return (
     <Switch>
       <div className="main-content">
-        <Preload />
+        {/* <Preload /> */}
         <TopBar />
         <MenuBar />
+
         <Route exact path="/film">
           <Film />
         </Route>
@@ -119,8 +119,6 @@ function App() {
           path="/single-subhub/:subhub_id"
           component={SingleSubhub}
         />
-        <Route exact path="/projects/demo" component={DemoProject} />
-
     
        <Become />
         <Footer />

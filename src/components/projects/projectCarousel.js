@@ -148,7 +148,6 @@ class ProjectSlider extends Component {
                             strokeLinecap: "butt",
                             textSize: "26",
                             pathTransitionDuration: 0.5,
-                            pathColor: `${project.id / 1000})`,
                             //textColor: "white",
                             backgroundColor: "#066993",
                             textColor: "#fff",

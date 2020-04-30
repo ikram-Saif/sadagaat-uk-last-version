@@ -18,7 +18,7 @@
     <title>Sadagaat - Community of Charity</title>
 
     <!-- Favicon and Touch Icons -->
-    <link href=".images/favicon.png" rel="shortcut icon" type="image/png" />
+    <link href="%PUBLIC_URL%/images/favicon.png" rel="shortcut icon" type="image/png" />
     <!-- <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
     <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
@@ -26,38 +26,40 @@
 
     <!-- Stylesheet -->
 
-    <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <base href="/" /> <!-- for local host -->
+    
+    <link href="%PUBLIC_URL%/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
     <link id="bootstrp-file" href="" rel="stylesheet" type="text/css" />
     <link id="main-rtl" href="" rel="stylesheet" type="text/css" />
     <link id="main-rtl-extra" href="" rel="stylesheet" type="text/css" />
 
-    <link href="./css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-    <link href="./css/animate.css" rel="stylesheet" type="text/css" />
-    <link href="./css/css-plugin-collections.css" rel="stylesheet" />
+    <link href="%PUBLIC_URL%/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="%PUBLIC_URL%/css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="%PUBLIC_URL%/css/css-plugin-collections.css" rel="stylesheet" />
     <!-- CSS | menuzord megamenu skins -->
 
     <link
       id="menuzord-menu-skins"
-      href="./css/menuzord-skins/menuzord-rounded-boxed.css"
+      href="%PUBLIC_URL%/css/menuzord-skins/menuzord-rounded-boxed.css"
       rel="stylesheet"
     />
     <!-- CSS | Main style file -->
-    <link href="./css/style-main.css" rel="stylesheet" type="text/css" />
+    <link href="%PUBLIC_URL%/css/style-main.css" rel="stylesheet" type="text/css" />
     <!-- CSS | Preloader Styles -->
-    <link href="./css/preloader.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="./css/preloader.css" rel="stylesheet" type="text/css" /> -->
     <!-- CSS | Custom Margin Padding Collection -->
     <link
-      href="./css/custom-bootstrap-margin-padding.css"
+      href="%PUBLIC_URL%/css/custom-bootstrap-margin-padding.css"
       rel="stylesheet"
       type="text/css"
     />
     <!-- CSS | Responsive media queries -->
-    <link href="./css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="%PUBLIC_URL%/css/responsive.css" rel="stylesheet" type="text/css" />
     <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
-    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+    <link href="%PUBLIC_URL%/css/style.css" rel="stylesheet" type="text/css" />
 
-    <!-- Revolution Slider 5.x CSS settings -->
+    <!-- Revolution Slider 5.x CSS settings
     <link
       href="./js/revolution-slider/css/settings.css"
       rel="stylesheet"
@@ -72,11 +74,11 @@
       href="./js/revolution-slider/css/navigation.css"
       rel="stylesheet"
       type="text/css"
-    />
+    /> -->
 
     <!-- CSS | Theme Color -->
     <link
-      href="./css/colors/theme-skin-blue.css"
+      href="%PUBLIC_URL%/css/colors/theme-skin-blue.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -88,26 +90,27 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>  -->
 
-    <script src="./js/jquery-2.2.4.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/validator.js"></script>
-    <script src="./js/jquery-ui.min.js"></script>
+    <script src="%PUBLIC_URL%/js/jquery-2.2.4.min.js"></script>
+    <script src="%PUBLIC_URL%/js/bootstrap.min.js"></script>
+    <script src="%PUBLIC_URL%/js/validator.js"></script>
+    <script src="%PUBLIC_URL%/js/jquery-ui.min.js"></script>
 
     <!-- JS | jquery plugin collection for this theme -->
-    <script src="./js/jquery-plugin-collection.js"></script>
+    <script src="%PUBLIC_URL%/js/jquery-plugin-collection.js"></script>
 
     <!-- Revolution Slider 5.x SCRIPTS -->
-    <script src="./js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
-    <script src="./js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- <script src="./js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="./js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script> -->
   </head>
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <script src="./js/custom.js"></script>
+    <script src="%PUBLIC_URL%/js/custom.js"></script>
+    
 
-    <script
+    <!-- <script
       type="text/javascript"
       src="./js/revolution-slider/js/extensions/revolution.extension.actions.min.js"
     ></script>
@@ -142,6 +145,6 @@
     <script
       type="text/javascript"
       src="./js/revolution-slider/js/extensions/revolution.extension.video.min.js"
-    ></script>
+    ></script> -->
   </body>
 </html>

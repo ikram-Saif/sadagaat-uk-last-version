@@ -60,6 +60,8 @@
     ]
   },
   "devDependencies": {
-    "css-loader": "^3.5.1"
+    "@babel/preset-react": "^7.9.4",
+    "css-loader": "^3.5.1",
+    "html-webpack-plugin": "^4.2.1"
   }
 }

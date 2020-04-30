@@ -50,7 +50,7 @@ function MenuBar() {
                 </li> */}
                 <li>
                   {" "}
-                  <NavLink to="/projects">{t("Projects")}</NavLink>
+                  <NavLink to="/projects">{t("Ongoing Projects")}</NavLink>
                 </li>
                 <li>
                   <a href="#">{t("Media Center")}</a>

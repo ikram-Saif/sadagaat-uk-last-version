@@ -4,20 +4,17 @@ import address from "./../utils/address";
 import Pagination from "./../pagination";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import SocialMedia from './social-media'
+import SocialMedia from '../social media/social-media'
 
 function News() {
   const [data, setData] = useState([]);
-  const [media, setMedia] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
   const { t } = useTranslation();
-  const didMountRef = useRef(true);
   const style = i18n.dir() === "rtl" ? "pull-right ml-20" : "pull-left mr-20";
 
   useEffect(() => {
     fetchData();
-    fetchMedia();
   }, []);
 
   async function fetchData() {
@@ -29,14 +26,6 @@ function News() {
     console.log(response);
   }
 
-  async function fetchMedia() {
-    const fetcher = await window.fetch(`${address()}media`, {
-      headers: { "accept-language": `${i18n.language}` },
-    });
-    const response = await fetcher.json();
-    setMedia(response);
-    console.log(response);
-  }
 
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;

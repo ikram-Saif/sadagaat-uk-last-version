@@ -19,19 +19,10 @@ function Event() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (didMountRef.current) {
-      console.log("your are mounted");
       fetchNews();
       fetcEvents();
-      // console.log(didMountRef.current)
-      didMountRef.current = false;
-    } else {
-      // console.log(didMountRef.current)
-      // console.log('your are updated')
-      // fetchNews()
-      // fetcEvents()
-    }
-  }, []);
+  }
+ , []);
 
   async function fetchNews() {
     const fetcher = await window.fetch(`${address()}news`, {

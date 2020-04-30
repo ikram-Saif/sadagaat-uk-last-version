@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import createHistory from 'react-router';
-import {createBrowserHistory} from 'history';
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";

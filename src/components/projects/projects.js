@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
 import Header from '../sub_page_header';
 import address from './../utils/address';
-import Pagination from './../pagination';
 import { CircularProgressbar , buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {Link } from 'react-router-dom'
@@ -67,10 +65,9 @@ else
 
 
 return(
-<div>
-
-<Header name={t('Projects')}/>
 <section>
+<Header name={t('Ongoing Projects')}/>
+
   <div className="container">
     {/* <div className="row">
       <div className="col-md-12 ">
@@ -112,7 +109,7 @@ return(
 <Link to={'/single-projects/'+project.id}>
     <div className="causes bg-white mb-30">
       <div className="thumb">
-      <img src={project.imageUrl}  className="img-fullwidth" />
+      <img src={project.imageUrl}  className="img-fullwidth"  width = '390' height = '260'/>
       </div>
   
   <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
@@ -122,20 +119,17 @@ return(
     text={`${project.projectProgress}%`}
     background
     backgroundPadding={6}
-styles={buildStyles({
-  rotation: 0.25,
-  strokeLinecap: "butt",
-  textSize: "26",
-  pathTransitionDuration: 0.5,
-  pathColor: `${project.id / 1000})`,
-  //textColor: "white",
-  backgroundColor: "#066993",
-  textColor: "#fff",
-  pathColor: "#fff",
-  trailColor: "transparent"
-  //trailColor: "",
-  //backgroundColor: '',
-})}
+        styles={buildStyles({
+          rotation: 0.25,
+          strokeLinecap: "butt",
+          textSize: "26",
+          pathTransitionDuration: 0.5,
+          backgroundColor: "#066993",
+          textColor: "#fff",
+          pathColor: "#fff",
+          trailColor: "transparent"
+
+        })}
   />  
   
 </div>
@@ -168,8 +162,7 @@ styles={buildStyles({
             
 </section>
 
-  </div>
-);
+)
 
 }
 

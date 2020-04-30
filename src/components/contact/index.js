@@ -78,7 +78,7 @@ class Contact extends Component{
        const {t} = this.props
       
 
-        axios.post(`${address()}feedBacks`,
+         axios.post(`${address()}feedBacks`,
 
         { fullName:this.state.form.name,
           email:this.state.form.email,

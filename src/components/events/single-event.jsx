@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import Header from '../sub_page_header';
 import address from "../utils/address";
 import axios from "axios";
 import i18n from "i18next";
 import { withTranslation } from "react-i18next";
+import SocialMedia from '../social media/social-media'
+
 
 class SinglEvent extends Component {
   constructor() {
@@ -12,11 +15,11 @@ class SinglEvent extends Component {
     };
   }
 
-  componentDidMount = () => {
+  async componentDidMount () {
     let id = this.props.match.params.event_id;
     console.log(this.props.match.params.event_id);
 
-    axios
+    await axios
       .get(`${address()}events/${id}`, {
         headers: { "accept-language": `${i18n.language}` }
       })
@@ -51,23 +54,11 @@ class SinglEvent extends Component {
   render() {
     const { t } = this.props;
     const event = this.state.event;
-    console.log(event)
     return (
 
-        <div class="main-content">
+ <div class="main-content">
 
-    <section class="inner-header divider parallax layer-overlay overlay-dark-6" data-bg-img="images/slide-1.jpg">
-      <div class="container pt-60 pb-60">
-      
-        <div class="section-content">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <h3 class="font-28 text-white">{event.name}</h3>
-            </div>
-          </div>
-        </div>
-      </div>      
-    </section>
+    <Header name={t("Events")}/>
 
     <section>
       <div class="container">
@@ -101,10 +92,7 @@ class SinglEvent extends Component {
              
               <li>
                 <h5></h5>
-                <div class="styled-icons icon-dark icon-theme-colored icon-sm icon-circled">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                </div>
+                < SocialMedia />
               </li>
             </ul>
           </div>

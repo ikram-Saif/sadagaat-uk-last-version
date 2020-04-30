@@ -3,12 +3,12 @@ import Backend from "i18next-xhr-backend";
 import detector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
-import translationEN from "./locales/en/translation.json";
-import translationAR from "./locales/ar/translation.json";
+import translationEN from './locales/en/translation.json'
+import translationAR from './locales/ar/translation.json'
 
 const availableLanguages = ["en", "ar"];
 
-// the translations
+//the translations
 const resources = {
   en: {
     translation: translationEN,

@@ -22,9 +22,9 @@ class Donate extends Component {
                 }
 }
 
-  componentDidMount =()=> {
+   async componentDidMount () {
 
-    axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
+     await axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
         .then(response => {
           const hubs = response.data
           this.setState({hubs})

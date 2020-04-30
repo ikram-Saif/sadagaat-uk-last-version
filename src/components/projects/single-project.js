@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import address from "../utils/address";
 import axios from "axios";
 import i18n from "i18next";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { withTranslation } from "react-i18next";
 
 class SinglProject extends Component {
@@ -10,7 +11,6 @@ class SinglProject extends Component {
     super();
     this.state = {
       project: [],
-      id:''
     };
   }
 
@@ -43,14 +43,44 @@ class SinglProject extends Component {
           <div className="col-sm-12 col-md-10 col-md-offset-1">
             <div className="causes bg-white maxwidth500 mb-30">
               <div className="thumb">
-                <img src={project.imageUrl} alt="" className="img-fullwidth" />
+                <img src={project.imageUrl} alt="" className="img-fullwidth" width= '600' height = '650' />
               </div>
+
+              <div
+                        style={{
+                          width: "7%",
+                          left: "25px",
+                          top: "8px",
+                          position: "absolute",
+                          rotation: 1 / 2 + 1 / 8,
+                        }}
+                      >
+                        <CircularProgressbar
+                          value={project.projectProgress}
+                          text={`${project.projectProgress}%`}
+                          background
+                          backgroundPadding={6}
+                          styles={buildStyles({
+                            rotation: 0.25,
+                            strokeLinecap: "butt",
+                            textSize: "26",
+                            pathTransitionDuration: 0.5,
+                            //textColor: "white",
+                            backgroundColor: "#066993",
+                            textColor: "#fff",
+                            pathColor: "#fff",
+                            trailColor: "transparent"
+                            //trailColor: "",
+                            //backgroundColor: '',
+                          })}
+                        />
+                      </div>
               <div className="progress-item mt-0">
                 <div className="progress mb-0">
-                  <div data-percent = {project.goal} 
+                  <div data-percent = {project.donationProgress} 
                         className="progress-bar">
                           
-                    <span className="percent">{dProgress}</span>
+                    <span className="percent">{project.donationProgress}</span>
                     </div>
                 </div>
               </div>

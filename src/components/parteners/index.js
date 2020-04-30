@@ -6,7 +6,7 @@ import sama from "../images/sama.png";
 import soba from "../images/soba.png";
 import sadagaat from "../images/sadagaat.png";
 
-function Parteners() {
+ function Parteners() {
   const { t } = useTranslation();
   return (
     <section className="clients bg-light">

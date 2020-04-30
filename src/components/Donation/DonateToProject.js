@@ -23,7 +23,7 @@ class DonateToProject extends Component {
       }
 }
 
-componentDidMount =()=>{
+ async componentDidMount (){
 
     let id = this.props.match.params.project_id
     console.log(this.props.match.params.project_id) 
@@ -31,7 +31,7 @@ componentDidMount =()=>{
     this.setState({project_id:id})
  
 
-    axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+    await axios.get(`${address()}projects/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
     .then(response => {
 

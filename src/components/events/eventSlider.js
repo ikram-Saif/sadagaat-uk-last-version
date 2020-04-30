@@ -8,7 +8,7 @@ class EventSlider extends Component {
   state = { events: [] };
   async componentDidMount() {
     try {
-      axios
+      await axios
         .get(`${address()}events`, {
           headers: { "accept-language": `${i18n.language}` },
         })

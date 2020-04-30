@@ -48,15 +48,16 @@ function Projects() {
             <div className="row">
               {data.map((project) => (
                 <div className="col-md-4" key={project.id}>
-                  <div className="causes bg-white mb-30">
-                    <div className="thumb">
-                      <Link to={"/single-projects/" + project.id}>
+                   <Link to={"/single-projects/" + project.id}>
+                      <div className="causes bg-white mb-30">
+                        <div className="thumb" >
+                        
                         <img
                           src={project.imageUrl}
-                          className="img-fullwidth"
-                          alt=""
+                          className="img-fullwidth" 
+                          height ="240" 
+                          width = "360"
                         />
-                      </Link>
                     </div>
 
                     <div
@@ -118,6 +119,7 @@ function Projects() {
                       </Link>
                     </div>
                   </div>
+                  </Link>
                 </div>
               ))}
             </div>
