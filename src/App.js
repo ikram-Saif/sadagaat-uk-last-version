@@ -35,6 +35,10 @@ import PubliceRoute from "./components/menu_bar/PublicRoute";
 import SingleSubhub from "./components/sub_hubs/single-subhub";
 import SingleEvent from "./components/events/single-event";
 import { useTranslation } from "react-i18next";
+import PlannedProjects from "./components/projects/plannedProjects";
+import FinishedProjects from "./components/projects/finished-project";
+
+
 
 
 function App() {
@@ -118,6 +122,17 @@ function App() {
           exact
           path="/single-subhub/:subhub_id"
           component={SingleSubhub}
+        />
+         <Route
+          exact
+          path="/planned-projects"
+          component={PlannedProjects}
+        />
+
+        <Route
+          exact
+          path="/finished-project"
+          component={FinishedProjects}
         />
     
        <Become />

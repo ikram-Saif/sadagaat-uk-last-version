@@ -13,7 +13,7 @@ function MenuBar() {
         <div className="header-nav-wrapper navbar-scrolltofixed bg-silver-light">
           <div className="container">
             <nav id="menuzord-right" className="menuzord default no-bg">
-              <a className="menuzord-brand pull-left flip">
+              <a className="menuzord-brand pull-left flip" to>
                 <img src={logo} alt="" />
               </a>
               <ul className="menuzord-menu">

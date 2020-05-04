@@ -44,6 +44,7 @@ class ProjectSlider extends Component {
   render() {
     const { t } = this.props;
     const { projects } = this.state;
+    console.log(projects)
     return (
       <React.Fragment>
         <section id="causes" className="bg-silver-light">

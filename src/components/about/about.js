@@ -90,7 +90,7 @@ function About() {
             <div className="row mt-40">
               <div className="col-md-3">
                 <div className="icon-box p-0">
-                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg">
+                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg" style = {{width:0 , hieght: 0}}>
                     <i className="flaticon-charity-responsible-use-of-water  text-theme-colored font-54" />
                   </span>
                   <div className="ml-120">
@@ -103,7 +103,7 @@ function About() {
               </div>
               <div className="col-md-3">
                 <div className="icon-box p-0">
-                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg">
+                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg" style = {{width:0 , hieght: 0}}>
                     <i className="flaticon-charity-food-donation text-theme-colored font-54" />
                   </span>
                   <div className="ml-120">
@@ -116,7 +116,7 @@ function About() {
               </div>
               <div className="col-md-3">
                 <div className="icon-box p-0">
-                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg">
+                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg" style = {{width:0 , hieght: 0}}>
                     <i className="flaticon-charity-person-inside-a-heart text-theme-colored font-54" />
                   </span>
                   <div className="ml-120">
@@ -129,7 +129,7 @@ function About() {
               </div>
               <div className="col-md-3">
                 <div className="icon-box p-0">
-                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg">
+                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg" style = {{width:0 , hieght: 0}}> 
                     <i className="flaticon-charity-shelter text-theme-colored font-54" />
                   </span>
                   <div className="ml-120">

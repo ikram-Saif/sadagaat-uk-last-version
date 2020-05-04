@@ -6,18 +6,15 @@ import 'react-circular-progressbar/dist/styles.css';
 import {Link } from 'react-router-dom'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
+import Pagination from '../pagination'
 
 
 
 
-function Projects_(){
-  const [hub,setHub] = useState([]);
-  const [year,setYear] = useState([]);
+function FinishedProjects(){
   const [data, setData ] = useState([])
-  const [edit, setEdit ] = useState([])
   const [currentPage,setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
-  const hub_name = sessionStorage.getItem("hub")
 
   const {t} = useTranslation()
 
@@ -27,20 +24,19 @@ function Projects_(){
          async function fetchData() {
            const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
            const response = await fetcher.json()
-           console.log(response)
-           const Projects = response.filter(project => project.status === 'ongoing' )
+          const Projects = response.filter(project => project.projectProgress === 100)
            setData(Projects)
            
          }
          fetchData()
         }, [i18n.language])
-     
 
-      
+
+
 const lastPost = currentPage * postsPerPage;
 const firstPost = lastPost - postsPerPage;
-var currentPosts = data.slice(firstPost,  lastPost);
 
+const currentPosts = data.slice(firstPost,  lastPost)
 
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -50,42 +46,42 @@ var currentPosts = data.slice(firstPost,  lastPost);
 
 return(
 <section>
-<Header name={t('Ongoing Projects')}/>
+<Header name={t('Finished Projects')}/>
 
   <div className="container">
 
     <div className="row">
      
        
-    {currentPosts.length > 0 ? data.map(project => (        
+    {currentPosts.length > 0 ?data.map(project => (        
 
 
-<div className="col-md-4" key ={project.id}>
-<Link to={'/single-projects/'+project.id}>
-    <div className="causes bg-white mb-30">
-      <div className="thumb">
-      <img src={project.imageUrl}  className="img-fullwidth"  width = '390' height = '260'/>
-      </div>
-  
-  <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+      <div className="col-md-4" key ={project.id}>
+      <Link to={'/single-projects/'+project.id}>
+          <div className="causes bg-white mb-30">
+            <div className="thumb">
+            <img src={project.imageUrl}  className="img-fullwidth"  width = '390' height = '260'/>
+            </div>
+        
+        <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
-  <CircularProgressbar
-    value={project.projectProgress}
-    text={`${project.projectProgress}%`}
-    background
-    backgroundPadding={6}
-        styles={buildStyles({
-          rotation: 0.25,
-          strokeLinecap: "butt",
-          textSize: "26",
-          pathTransitionDuration: 0.5,
-          backgroundColor: "#066993",
-          textColor: "#fff",
-          pathColor: "#fff",
-          trailColor: "transparent"
+      <CircularProgressbar
+        value={project.projectProgress}
+        text={`${project.projectProgress}%`}
+        background
+        backgroundPadding={6}
+            styles={buildStyles({
+              rotation: 0.25,
+              strokeLinecap: "butt",
+              textSize: "26",
+              pathTransitionDuration: 0.5,
+              backgroundColor: "#066993",
+              textColor: "#fff",
+              pathColor: "#fff",
+              trailColor: "transparent"
 
-        })}
-  />  
+            })}
+      />  
   
 </div>
 <div className="causes-details clearfix p-15 pt-15 pb-15">
@@ -108,10 +104,11 @@ return(
 </Link>
 </div>
 ))
-:
-""}
+: <h3 className = 'text-center'>{t('There Is No Finished Project Yet')}</h3>
+
+}
   
-{/* <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/> */}
+<Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/> 
 
 </div>
 </div>    
@@ -123,4 +120,4 @@ return(
 
 }
 
-export default Projects_;
+export default FinishedProjects;

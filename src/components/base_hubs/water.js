@@ -29,7 +29,7 @@ function Water (props){
   }
 
   async function waterProjects() {
-    const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
+    const fetcher = await window.fetch(`${address()}hubs/30/projects`,{headers: {'accept-language': `${i18n.language}`}})
     const response = await fetcher.json()
     setProject(response)
   }

@@ -30,12 +30,13 @@ function Education (props){
   }
 
        async function eduProjects() {
-         const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
+         const fetcher = await window.fetch(`${address()}hubs/36/projects`,{headers: {'accept-language': `${i18n.language}`}})
          const response = await fetcher.json()
          //const filteredSubhubs = response.filter((subhub) => subhub.hubId === 36)
          //setProject(filteredSubhubs)
          //console.log(filteredSubhubs)
          setProject(response)
+         console.log(response)
        }
 
   useEffect(() => {

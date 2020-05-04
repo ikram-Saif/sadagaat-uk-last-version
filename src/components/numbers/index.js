@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import address from './../utils/address'
 import CountUp from 'react-countup';
+import {Link} from 'react-router-dom'
 import i18n from "i18next";
 import { useTranslation } from 'react-i18next';
 
@@ -52,34 +53,58 @@ function Numbers(){
    <section className="divider parallax layer-overlay overlay-dark-9" data-bg-img="images/x.jpg" data-parallax-ratio="0.7">
   <div className="container pt-80 pb-80">
     <div className="row">
-    <div className="col-xs-12 col-sm-6 col-md-3 mb-md-50">
-        <div className="funfact text-center">
-          <i className="pe-7s-rocket mt-5 text-white" />
-          <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={notDoneProjects} duration={5}/></h2>
-          <h5 className="text-white text-uppercase font-weight-600">{t('Not Finished Projects')}</h5>
-        </div>
-      </div>
-      <div className="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+
+    <Link to = '/finished-project'>
+      <div className="col-xs-12 col-sm-6 col-md-2 mb-md-50">
         <div className="funfact text-center">
           <i className="pe-7s-rocket mt-5 text-white" />
           <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={doneProjects} duration={5}/></h2>
           <h5 className="text-white text-uppercase font-weight-600">{t('Finished Projects')}</h5>
         </div>
       </div>
-      <div className="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+      </Link>
+
+    <Link to = '/projects'>
+      <div className="col-xs-12 col-sm-6 col-md-4 mb-md-50">
+          <div className="funfact text-center">
+            <i className="pe-7s-rocket mt-5 text-white" />
+            <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={notDoneProjects} duration={5}/></h2>
+            <h5 className="text-white text-uppercase font-weight-600">{t('Not Finished Projects')}</h5>
+          </div>
+        </div>
+      </Link>
+
+      <Link to = '/planned-projects'>
+      <div className="col-xs-12 col-sm-6 col-md-2 mb-md-50">
+        <div className="funfact text-center">
+          <i className="pe-7s-rocket mt-5 text-white" />
+          <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={doneProjects} duration={5}/></h2>
+          <h5 className="text-white text-uppercase font-weight-600">{t('Planned Projects')}</h5>
+        </div>
+      </div>
+      </Link>
+
+      
+
+      <Link to = '/donate'>
+      <div className="col-xs-12 col-sm-6 col-md-2 mb-md-50">
         <div className="funfact text-center">
           <i className="pe-7s-rocket mt-5 text-white" />
           <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={dooners} duration={5}/></h2>
           <h5 className="text-white text-uppercase font-weight-600">{t('Dooners')}</h5>
         </div>
       </div>
-      <div className="col-xs-12 col-sm-6 col-md-3 mb-md-50">
+      </Link>
+
+      <Link to = '/volunteerForm'>
+      <div className="col-xs-12 col-sm-6 col-md-2 mb-md-50">
         <div className="funfact text-center">
           <i className="pe-7s-rocket mt-5 text-white" />
           <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={volunteer} duration={5}/></h2>
           <h5 className="text-white text-uppercase font-weight-600">{t('Volunteer')}</h5>
         </div>
       </div>
+      </Link>
     </div>
   </div>
 </section>

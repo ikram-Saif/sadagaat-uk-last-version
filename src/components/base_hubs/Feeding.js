@@ -29,7 +29,7 @@ function Feeding (props){
   }
 
        async function feedingProjects() {
-         const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
+         const fetcher = await window.fetch(`${address()}hubs/674/projects`,{headers: {'accept-language': `${i18n.language}`}})
          const response = await fetcher.json()
          setProject(response)
        }
