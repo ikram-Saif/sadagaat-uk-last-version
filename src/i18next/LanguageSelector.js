@@ -11,8 +11,23 @@ function LanguageSelector () {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-     window.location.reload()
+    // window.location.reload()
     //window.render() 
+    //  if (i18n.dir() === "rtl") 
+    // {
+    //   document.getElementById("bootstrp-file").href =
+    //   "/css/bootstrap-rtl.min.css";
+
+    //   document.getElementById("main-rtl").href = "/css/style-main-rtl.css";
+      
+    //   document.getElementById("main-rtl-extra").href =
+    //     "/css/style-main-rtl-extra.css";
+    // }
+    // else if (i18n.dir() === "ltr") {
+    //   document.getElementById("bootstrp-file").href = "";
+    //   document.getElementById("main-rtl").href = "";
+    //   document.getElementById("main-rtl-extra").href = "";
+    // }
   }
 
  

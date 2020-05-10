@@ -13,7 +13,7 @@ function MenuBar() {
         <div className="header-nav-wrapper navbar-scrolltofixed bg-silver-light">
           <div className="container">
             <nav id="menuzord-right" className="menuzord default no-bg">
-              <a className="menuzord-brand pull-left flip" to>
+              <a className="menuzord-brand pull-left flip" href = '/'>
                 <img src={logo} alt="" />
               </a>
               <ul className="menuzord-menu">
@@ -30,7 +30,11 @@ function MenuBar() {
                 </li>
 
                 <li>
-                  <a>{t("Sectors")}</a>
+                   <NavLink className="nav-link" to="/about">{t("About Us")}</NavLink>
+                </li>
+
+                <li>
+                  <a>{t("Sectors")}<span class="indicator"></span> </a>
                   <ul className="dropdown">
                     <li>
                       <NavLink className="nav-link" to="/water">{t("Water Sector")}</NavLink>
@@ -54,7 +58,7 @@ function MenuBar() {
                    <NavLink className="nav-link" to="/projects">{t("Ongoing Projects")}</NavLink>
                 </li>
                 <li>
-                  <a>{t("Media Center")}</a>
+                  <a>{t("Media Center")} <span class="indicator"></span></a>
                   <ul className="dropdown">
                     <li>
                        <NavLink className="nav-link" to="/film">{t("Film Library")}</NavLink>
@@ -70,9 +74,7 @@ function MenuBar() {
                     </li>
                   </ul>
                 </li>
-                <li>
-                   <NavLink className="nav-link" to="/about">{t("About Us")}</NavLink>
-                </li>
+               
                 <li>
                    <NavLink 
                     className="nav-link"
@@ -82,7 +84,7 @@ function MenuBar() {
                     {t("Contact")}
                   </NavLink>
                 </li>
-                <li>
+                <li className="nav-link">
                   {" "}
                   <LanguageSelector />{" "}
                 </li>

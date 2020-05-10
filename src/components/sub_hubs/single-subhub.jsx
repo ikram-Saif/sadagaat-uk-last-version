@@ -33,7 +33,7 @@ async componentDidMount(){
           this.setState({subhub})
 
     }).catch(error => {
-        alert(error.message)
+        // alert(error.message)
     })
 
     await axios.get(`${address()}subHubs/${id}/projects`,{headers: {'accept-language': `${i18n.language}`}})
@@ -44,26 +44,38 @@ async componentDidMount(){
           this.setState({projects})
 
     }).catch(error => {
-        alert(error.message)
+        // alert(error.message)
     })
   
 }
-// async componentWillReceiveProps(){
 
-//   let id = this.props.match.params.subhub_id
+  async componentWillReceiveProps(){
 
-//   await axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+  let id = this.props.match.params.subhub_id
 
-//   .then(response => {
+    await axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
-//        const projects = response.data
-//         this.setState({projects})
+    .then(response => {
 
-//   }).catch(error => {
-//       alert(error.message)
-//   })
+         const subhub = response.data
+          this.setState({subhub})
 
-// }
+    }).catch(error => {
+        // alert(error.message)
+    })
+
+    await axios.get(`${address()}subHubs/${id}/projects`,{headers: {'accept-language': `${i18n.language}`}})
+
+    .then(response => {
+
+         const projects = response.data
+          this.setState({projects})
+
+    }).catch(error => {
+        // alert(error.message)
+    })
+
+}
 
 render(){
   const {t} = this.props
@@ -75,8 +87,8 @@ render(){
             <div className="row mtli-row-clearfix">
               <div className="col-sm-12 col-md-10 col-md-offset-1">
                 <div className="causes bg-white maxwidth500 mb-30">
-                  <div className="thumb" style={{width :'945px' , height :'600px' , border:'1px solid gray'}}>
-                    <img src={subhub.imageUrl} alt="" className="img-fullwidth"/>
+                  <div className="thumb" style={{maxWidth :'945px' , maxHeight :'500px' , border:'1px solid lightgray'}}>
+                    <img src={subhub.imageUrl} alt="" className="img-responsive"/>
                   </div>
                
                   <div className="causes-details clearfix p-15 pt-10 pb-10">
@@ -84,20 +96,24 @@ render(){
                       <p>{subhub.description}</p> 
                   </div>
                 </div>
-       
-              </div> 
-            </div>
+                <h3 class="mt-0 line-bottom">{t('Projects')}</h3>
+                   <br/>
+              
+              
+                
+              
+        <div className="row">
             {projects.map(project => (        
 
 
             <div className="col-md-4" key ={project.id}>
             <Link to={'/single-projects/'+project.id}>
                 <div className="causes bg-white mb-30">
-                  <div className="thumb">
-                  <img src={project.imageUrl}  className="img-fullwidth"  width = '390' height = '260'/>
+                  <div className="thumb" style = {{width: '390px', height: '260px'}}>
+                  <img src={project.imageUrl}  className="img-fullwidth img-responsive"  />
                   </div>
               
-              <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+              <div style={{maxWidth: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
               <CircularProgressbar
                 value={project.projectProgress}
@@ -139,8 +155,12 @@ render(){
             </div>
             ))
            }
+             </div>
+             </div> 
+            </div>
+           </div>
 
-          </div>)
+         )
 }
 
     } export default withTranslation()(SingleSubhub)

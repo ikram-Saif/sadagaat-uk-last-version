@@ -11,7 +11,7 @@ class ForgotPassword extends Component{
   constructor() {
     super();
     this.state = {
-                  email: "",
+                  email:"",
                 }
     
 }
@@ -27,15 +27,15 @@ class ForgotPassword extends Component{
    handleSubmit = (e) => {
     e.preventDefault();
  
-    // forgotPassword(this.state)
-    // .then(response => window.location = '/verify_password_code')
-    // .catch(err => alert(err));
+     forgotPassword(this.state)
+     .then(response => this.setState({
+                      message:'Please Check your Email to Complete Process',
+                      styleClass:'success-msg',
+                      iconClass:'fa fa-check fa-2x',
+                       }))
+     .catch(err => alert(err));
    // window.location = '/reset_password'
-   this.setState({
-    message:'Please Check your Email to Complete Process',
-    styleClass:'success-msg',
-    iconClass:'fa fa-check fa-2x',
-})
+   
 
 
     

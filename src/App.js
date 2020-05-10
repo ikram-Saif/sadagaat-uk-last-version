@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import Preload from "./components/preload";
+// import Preload from "./components/preload";
 import TopBar from "./components/top_bar";
 import MenuBar from "./components/menu_bar";
 import Footer from "./components/footer";
@@ -37,6 +37,8 @@ import SingleEvent from "./components/events/single-event";
 import { useTranslation } from "react-i18next";
 import PlannedProjects from "./components/projects/plannedProjects";
 import FinishedProjects from "./components/projects/finished-project";
+import SinglNews from './components/news/single-news'
+import singleNews from "./components/news/single-news";
 
 
 
@@ -49,19 +51,20 @@ function App() {
     if (i18n.dir() === "rtl") 
     {
       document.getElementById("bootstrp-file").href =
-      "/css/bootstrap-rtl.min.css";
+      "css/bootstrap-rtl.min.css";
 
-      document.getElementById("main-rtl").href = "/css/style-main-rtl.css";
+      document.getElementById("main-rtl").href = "css/style-main-rtl.css";
       
       document.getElementById("main-rtl-extra").href =
-        "/css/style-main-rtl-extra.css";
+        "css/style-main-rtl-extra.css";
+        
     }
-    if (i18n.dir() === "ltr") {
+    else if (i18n.dir() === "ltr") {
       document.getElementById("bootstrp-file").href = "";
       document.getElementById("main-rtl").href = "";
       document.getElementById("main-rtl-extra").href = "";
     }
-  });
+  },i18n.language);
 
   return (
     <Switch>
@@ -86,6 +89,11 @@ function App() {
           exact
           path="/event/:event_id"
           component={SingleEvent}
+        />
+        <Route
+          exact
+          path="/news/:news_id"
+          component={singleNews}
         />
 
         <Route exact path="/water" component={Water} />

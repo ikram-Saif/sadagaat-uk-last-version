@@ -29,9 +29,9 @@ class ResetPassword extends Component{
    handleSubmit = (e) => {
     e.preventDefault();
 
-    // resetPassword(this.state)
-    // .then(token => window.location = '/login')
-    // .catch(err => alert(err));
+    resetPassword(this.state)
+    .then(token => window.location = '/login')
+    .catch(err => alert(err));
    // window.location = '/verify_password_code'
   
     
@@ -68,7 +68,7 @@ class ResetPassword extends Component{
                                     className="clearfix" 
                                     onSubmit ={this.handleSubmit}>
 
-                              <div className="row">
+                              {/* <div className="row">
                                 <div className="form-group col-md-12">
                                   <label for="inputEmail">{t('Email')}</label>
 
@@ -82,7 +82,7 @@ class ResetPassword extends Component{
 
                                     <div class="help-block with-errors"></div>
                                 </div>
-                               </div>
+                               </div> */}
 
                                <div className="row">
                                 <div className="form-group col-md-6">

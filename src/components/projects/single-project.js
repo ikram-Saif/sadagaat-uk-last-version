@@ -52,7 +52,7 @@ class SinglProject extends Component {
           <div className="col-sm-12 col-md-10 col-md-offset-1">
             <div className="causes bg-white maxwidth500 mb-30">
               <div className="thumb">
-                <img src={project.imageUrl} alt="" className="img-fullwidth" width= '600' height = '650' />
+                <img src={project.imageUrl} alt="" className="img-fullwidth" width= '600' height = '600' />
               </div>
 
               <div

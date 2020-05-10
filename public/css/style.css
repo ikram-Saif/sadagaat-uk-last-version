@@ -249,3 +249,17 @@ font-family: 'sadagaat';
   color: darkred;
   /* background-color: #FFBABA; */
 }
+.news{
+  position: relative;
+  overflow: hidden;
+}
+.news-img{
+  position: absolute;
+  width:50px;
+  height:50px;
+  
+}
+.slider-img{
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -854,13 +854,13 @@ var THEMEMASCOT = {};
         /* ---------------------------------------------------------------------------- */
         /* --------------------------- One Page Nav close on click -------------------- */
         /* ---------------------------------------------------------------------------- */
+        // TM_menuCollapseOnClick: function() {
+        //     $document.on('click', '.onepage-nav a', function(e) {
+        //         $('.showhide').trigger('click');
+        //         return false;
+        //     });
+        // },
         TM_menuCollapseOnClick: function() {
-            $document.on('click', '.onepage-nav a', function(e) {
-                $('.showhide').trigger('click');
-                return false;
-            });
-        },
-        TM_menuItemCollapseOnClick: function() {
             $document.on('click', '.menuzord-responsive .nav-link', function(e) {
                 $('.showhide').trigger('click');
                 return true;
@@ -990,7 +990,7 @@ var THEMEMASCOT = {};
                 align: "right",
                 effect: "slide",
                 animation: "none",
-                indicatorFirstLevel: "",
+                indicatorFirstLevel: "<i class='fa fa-angle-down'></i>",
                 indicatorSecondLevel: "<i class='fa fa-angle-right'></i>"
             });
             

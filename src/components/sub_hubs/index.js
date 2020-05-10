@@ -117,7 +117,7 @@ import { useTranslation } from 'react-i18next';
                      
                         <img src={sub_hub.imageUrl}
                         alt 
-                        className="img-fullwidth"
+                        className="img-fullwidth img-responsive"
                         width="240px" 
                         height="320px"
                           />

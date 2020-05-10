@@ -13,12 +13,11 @@ import { useTranslation } from 'react-i18next';
 function Feeding (props){
 
   const [Feeding, setFeeding ] = useState([])
-  const [project, setProject ] = useState([])
+  const [subhub, setSubhubs ] = useState([])
   const [currentPage,setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
   const hub_name = props.match.path
   const {t} = useTranslation()
-  const didMountRef = useRef(true)
 
 
 
@@ -28,11 +27,13 @@ function Feeding (props){
     setFeeding(response)
   }
 
-       async function feedingProjects() {
-         const fetcher = await window.fetch(`${address()}hubs/674/projects`,{headers: {'accept-language': `${i18n.language}`}})
-         const response = await fetcher.json()
-         setProject(response)
-       }
+  async function feedingSubHubs() {
+    const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
+    const response = await fetcher.json()
+    const filteredSubhubs = response.filter((subhub) => subhub.hubId === 674)
+    setSubhubs(filteredSubhubs)
+    console.log(response)
+  }
 
 
 
@@ -40,7 +41,7 @@ function Feeding (props){
 
 
          feedingHub()
-         feedingProjects()
+         feedingSubHubs()
 
     
         } , [i18n.language])
@@ -48,7 +49,7 @@ function Feeding (props){
 
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;
-  const currentPosts = project.slice(firstPost,  lastPost);
+  const currentPosts = subhub.slice(firstPost,  lastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
   
  //const getFeeding = Feeding.filter(hub => hub.id === 2)
@@ -57,7 +58,7 @@ function Feeding (props){
 return(
 <div>
 <Header name={t('Feeding')}/>
-<section>
+{/* <section>
   <div className="container">
     <div className="row mtli-row-clearfix">
       <div className="col-sm-12 col-md-10 col-md-offset-1">
@@ -72,7 +73,7 @@ return(
               /> */}
             
 
-  <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+  {/* <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}> */}
 
 {/* <CircularProgressbar
 
@@ -91,7 +92,7 @@ return(
 })}
 
 />  */}
-</div>
+{/* </div>
           </div>
   
      </div>
@@ -103,7 +104,7 @@ return(
       </div>
     </div>
   </div>
-</section>
+</section> */} 
 
     <section>
       <div className="container">
@@ -111,74 +112,48 @@ return(
         <div className="row multi-row-clearfix">
           <div className="blog-posts">
            
-     
-     
-     
-          {currentPosts.map(FeedingPro => (        
+          <h3 class="mt-0 line-bottom">{t('Feeding Sub Sectors')}</h3>
+          <br/>
 
 
-<div className="col-md-4" key = {FeedingPro.id}>
-<Link to = {'/single-projects/'+FeedingPro.id}>
-<div className="causes bg-white mb-30">
+  {currentPosts.map(sub_hub => ( 
 
-  <div className="thumb">
-  
-      <img  src={(FeedingPro.imageUrl)}  
-       className="img-fullwidth"  height ="240" width = "360" />
-       
-  </div>
-  
-  
-  <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+            <div className="col-md-4" key ={sub_hub.id}>
+              <div class="causes bg-white mb-30">
+              <Link to={'/single-subhub/'+sub_hub.id}>
+                <div class="thumb">
 
-<CircularProgressbar
+                  
+                      <img src={sub_hub.imageUrl}
+                      alt 
+                      className="img-fullwidth"
+                      height="250px"
+                        />
+                            
+                </div>
+                <div class="causes-details clearfix border-bottom p-15 pt-15 pb-15">
 
-  value={FeedingPro.projectProgress}
-  text={`${FeedingPro.projectProgress}%`}
-  background
-  backgroundPadding={6}
-  styles={buildStyles({
-    rotation: 0.25,
-    strokeLinecap: "butt",
-    textSize: "26",
-    pathTransitionDuration: 0.5,
-    pathColor: `${project.id / 1000})`,
-    //textColor: "white",
-    backgroundColor: "#066993",
-    textColor: "#fff",
-    pathColor: "#fff",
-    trailColor: "transparent"
-    //trailColor: "",
-    //backgroundColor: '',
+                  <h4 class="text-uppercase"><a href="#">
+                    {sub_hub.name}
+                    </a>
+                  </h4>
+                  
+                <Link to={'/sub_hubs/'+sub_hub.id}
+                className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">
+                  {t('Donate')}
+                </Link>
+              </div>
+              </Link>
+            </div>
 
-})}
-
-/>  
-</div><div className="causes-details clearfix border-bottom p-15 pt-15 pb-15">
-    <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
-      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')} <span className="text-theme-colored font-weight-700">{FeedingPro.raised} SDG</span></li>
-      <li className="pull-right font-weight-400 text-black-333 pr-0">{t('Goal')} <span className="text-theme-colored font-weight-700">{FeedingPro.goal} SDG</span></li>
-    </ul>
-      <h4 className="text-uppercase">{FeedingPro.name}</h4>
-    <div className="progress-item mt-0">
-      <div className="progress mb-0">
-        <div data-percent={FeedingPro.donationProgress} className="progress-bar"><span className="percent">{FeedingPro.donationProgress}</span></div>
-      </div>
-    </div>
-    <p className="mt-20">{FeedingPro.description}.</p>
-    <Link to={'/projects/'+FeedingPro.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
-  </div>
-
-</div>
-</Link>
-</div>
-))}
+            </div>
+            ))}
   
 
 
 </div>
 
-<Pagination postsPerPage={postsPerPage} totalPosts={project.length} paginate={paginate}/>
+<Pagination postsPerPage={postsPerPage} totalPosts={subhub.length} paginate={paginate}/>
           </div>
      
       </div></section></div>

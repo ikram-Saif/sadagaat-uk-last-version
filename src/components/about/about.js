@@ -3,20 +3,24 @@ import Header from "../sub_page_header";
 import Parteners from "../parteners";
 import About_ from "../about/";
 import donate from "../images/donate.jpg";
+import i18n from 'i18next'
+
 
 /*** translation backage */
 import { useTranslation } from "react-i18next";
 
 function About() {
   const { t } = useTranslation();
+  const pullStyle = i18n.dir() === 'rtl'? 'pull-right':'pull-left'
+  const marginStyle = i18n.dir() === 'rtl'? 'mr-120':'ml-120'
   return (
     <div>
       <Header name={t("About Sadagaat")} />
       <About_ />
       <div>
         <section
-          className="divider parallax layer-overlay overlay-theme-colored-8"
-          data-bg-img="images/slide-2.jpg"
+          className="bg-img divider parallax layer-overlay overlay-theme-colored-8"
+          // data-bg-img="images/slide-2.jpg"
         >
           <div className="container">
             <div className="row text-justify">
@@ -55,7 +59,7 @@ function About() {
                   <div className="thumb">
                     <img
                       src={donate}
-                      className="img-fullwidth"
+                      className="img-fullwidth img-responsive"
                       alt="objectives"
                     />
                   </div>
@@ -90,10 +94,10 @@ function About() {
             <div className="row mt-40">
               <div className="col-md-3">
                 <div className="icon-box p-0">
-                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg" style = {{width:0 , hieght: 0}}>
+                  <span className= {`icon icon-circled mb-0 mr-0 ${pullStyle} icon-lg`} style = {{width:0 , hieght: 0}}>
                     <i className="flaticon-charity-responsible-use-of-water  text-theme-colored font-54" />
                   </span>
-                  <div className="ml-120">
+                  <div className={marginStyle}>
                     <h5 className="icon-box-title mt-15 mb-10 text-uppercase">
                       {t("Water")}
                     </h5>
@@ -103,10 +107,10 @@ function About() {
               </div>
               <div className="col-md-3">
                 <div className="icon-box p-0">
-                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg" style = {{width:0 , hieght: 0}}>
+                  <span className={`icon icon-circled mb-0 mr-0 ${pullStyle} icon-lg`}  style = {{width:0 , hieght: 0}}>
                     <i className="flaticon-charity-food-donation text-theme-colored font-54" />
                   </span>
-                  <div className="ml-120">
+                  <div className={marginStyle}>
                     <h5 className="icon-box-title mt-15 mb-10 text-uppercase">
                       {t("Feeding")}
                     </h5>
@@ -116,10 +120,10 @@ function About() {
               </div>
               <div className="col-md-3">
                 <div className="icon-box p-0">
-                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg" style = {{width:0 , hieght: 0}}>
+                  <span className={`icon icon-circled mb-0 mr-0 ${pullStyle} icon-lg`}  style = {{width:0 , hieght: 0}}>
                     <i className="flaticon-charity-person-inside-a-heart text-theme-colored font-54" />
                   </span>
-                  <div className="ml-120">
+                  <div className={marginStyle}>
                     <h5 className="icon-box-title mt-15 mb-10 text-uppercase">
                       {t("Health")}
                     </h5>
@@ -129,10 +133,10 @@ function About() {
               </div>
               <div className="col-md-3">
                 <div className="icon-box p-0">
-                  <span className="icon-border-effect effect-circled  icon icon-circled mb-0 mr-0 pull-left icon-lg" style = {{width:0 , hieght: 0}}> 
+                  <span className={`icon icon-circled mb-0 mr-0 ${pullStyle} icon-lg`}  style = {{width:0 , hieght: 0}}> 
                     <i className="flaticon-charity-shelter text-theme-colored font-54" />
                   </span>
-                  <div className="ml-120">
+                  <div className={marginStyle}>
                     <h5 className="icon-box-title mt-15 mb-10 text-uppercase">
                       {t("Education")}
                     </h5>

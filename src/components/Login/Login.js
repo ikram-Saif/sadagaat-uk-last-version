@@ -4,6 +4,7 @@ import { login } from '../../repository';
 import Registration from './Registration'
 import { Link } from 'react-router-dom';
 import  {withTranslation}  from 'react-i18next'
+import i18n from 'i18next'
 
 
 class Login extends Component{
@@ -52,6 +53,7 @@ class Login extends Component{
    render(){
    
     const {t} = this.props 
+    const folat = i18n.dir()==='rtl'?'right':'left'
     return(
 
         <div id="wrapper" className="clearfix">
@@ -65,8 +67,15 @@ class Login extends Component{
                     <div className="row">
                       <div className="col-md-8 col-md-offset-2">
                         <ul className="nav nav-tabs">
-                          <li className="active"><a href="#login-tab" data-toggle="tab">{t('Login')}</a></li>
-                          <li><a href="#register-tab" data-toggle="tab">{t('Register')}</a></li>
+                          <li className="active" style = {{ float:`${folat}`}}>
+                            <a href="#login-tab" data-toggle="tab">{t('Login')}
+                            </a>
+                            </li>
+                          <li style = {{ float:`${folat}`}}>
+                            <a href="#register-tab" data-toggle="tab">
+                              {t('Register')}
+                              </a>
+                              </li>
                         </ul>
                         <div className="tab-content">
                           <div className="tab-pane fade in active p-15" id="login-tab">

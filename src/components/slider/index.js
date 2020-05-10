@@ -32,20 +32,32 @@ const properties = {
     <div className="slide-container">
       <Slide {...properties}>
         <div className="each-slide">
-          <div style={{ backgroundImage: `url(${slideImages[0]})` }}>
-        
+          {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[0]})`}}> */}
+          <div>
+          <img   className = 'img-responsive' src = {slideImages[0]} style ={{ height:'100%' , width:'100%'}} />
           </div>
+          {/* </div> */}
 
      
         </div>
         <div className="each-slide">
-          <div style={{ backgroundImage: `url(${slideImages[1]})` }}></div>
-        </div>
+          {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[1]})`, backgroundSize: 'auto'}}></div>
+        </div> */}
+        <div>
+          <img  className = 'img-responsive' src = {slideImages[1]} style ={{ height:'100%' , width:'100%'}} />
+          </div>
+          </div>
         <div className="each-slide">
-          <div style={{ backgroundImage: `url(${slideImages[2]})` }}></div>
-        </div>
+           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[2]})` }}></div> */}
+        <div>
+          <img   className = 'img-responsive' src = {slideImages[2]} style ={{ height:'100%' , width:'100%'}} />
+          </div>
+          </div>
         <div className="each-slide">
-          <div style={{ backgroundImage: `url(${slideImages[3]})` }}></div>
+          {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
+          <div>
+          <img   className = 'img-responsive' src = {slideImages[3]} style ={{ height:'100%' , width:'100%'}} />
+          </div>
         </div>
       </Slide>
     </div>

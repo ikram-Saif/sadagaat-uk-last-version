@@ -5,7 +5,6 @@ import Pagination from "./../pagination";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 import SocialMedia from '../social media/social-media'
-import {Link} from 'react-router-dom'
 
 function News() {
   const [data, setData] = useState([]);
@@ -24,7 +23,7 @@ function News() {
     });
     const response = await fetcher.json();
     setData(response);
-    // console.log(response);
+    console.log(response);
   }
 
 
@@ -40,19 +39,18 @@ function News() {
 
       <section>
         <div className="container mt-30 mb-30 pt-30 pb-30">
-        <div class="row">
           {currentPosts.map((news) => (
-            
-              <div class="col-md-4" key = {news.id}>
-                <Link to = {'/news/'+news.id}>
+            <div class="row mb-15">
+              <div class="col-md-10 col-md-offset-1">
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
-                    <div class="entry-header">
-                      <div class="post-thumb thumb" style = {{height:'200px'}}>
+                    <div class="entry-header" style = {{position:"absolute",left: '39px',top: '69px'}}>
+                      <div class="post-thumb thumb">
                         <img
                           src={news.imageUrl}
-                          className="img-fullwidth img-responsive"
-                          // height="200"
+                          className="img-responsive"
+                          width="250"
+                          height="250"
                           alt=""
                         />
                       </div>
@@ -62,7 +60,7 @@ function News() {
                       <div class="entry-meta media no-bg no-border mt-15 pb-20">
                         <div class="media-body pl-15">
                           <div class="event-content pull-left flip">
-                            <h2 class="line-bottom mt-0" style = {{height:'100px'}}>{news.name}</h2>
+                            <h2 class="line-bottom mt-0">{news.name}</h2>
 
                             <h4 className="mt-0 mb-0 text-theme-colored">
                               {news.startDate}
@@ -71,16 +69,15 @@ function News() {
                         </div>
                       </div>
 
-                      <p className="mb-15" style = {{height:'100px'}}>{news.description}.</p>
+                      <p className="mb-15">{news.description}.</p>
 
                       < SocialMedia />
-                      </div>
-
-                       
+                 
+                    </div>
                   </article>
                 </div>
-                </Link>
               </div>
+            </div>
           ))}
 
           <Pagination
@@ -88,8 +85,6 @@ function News() {
             totalPosts={data.length}
             paginate={paginate}
           />
-         </div>
-
         </div>
       </section>
     </div>
