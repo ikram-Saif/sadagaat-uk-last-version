@@ -1,0 +1,176 @@
+import React, { Component } from "react";
+import address from "../utils/address";
+import axios from "axios";
+import i18n from "i18next";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { withTranslation } from "react-i18next";
+import Carousel from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
+import {Link} from 'react-router-dom'
+import work from "../images/work.jpg";
+
+
+class SinglProject2 extends Component {
+ 
+  constructor() {
+    super();
+    this.state = {
+      project: [],
+    };
+  }
+
+  async componentDidMount (){
+    let id = this.props.match.params.project_id;
+
+    try {
+      const { data: project } = await axios.get(`${address()}projects/${id}`, {
+        headers: { "accept-language": `${i18n.language}` },
+      });
+      this.setState({ project });
+    } catch (error) {
+      console.log("can not load project for the home page slider");
+    }
+  }
+  async componentWillReceiveProps(){
+    let id = this.props.match.params.project_id;
+
+
+    try {
+      const { data: project } = await axios.get(`${address()}projects/${id}`, {
+        headers: { "accept-language": `${i18n.language}` },
+      });
+      this.setState({ project });
+    } catch (error) {
+      console.log("can not load project for the home page slider");
+    }
+  }
+
+  render() {
+    const { t } = this.props;
+    const { project } = this.state;
+    // console.log(project)
+    const dProgress = project.donationProgress
+    
+    return (
+      <div className="container">
+        <div className="row">
+          <div className = 'section-content'>
+          <div className="col-xs-12 col-sm-6 col-md-12">
+              <h2 >
+
+              </h2>
+
+              <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
+                <div className="row">
+                   
+                      <div className="causes">
+                        <div className="row-fluid">
+                          <div className="col-md-6">
+                          {/* <div class="owl-carousel-1col owl-dots-bottom-right">
+                              <div class="causes">
+                                <img
+                              src={work}
+                              alt="News"
+                              // height="250px"
+                              // width="250px"
+                            />
+                            </div>
+                            </div> */}
+                          <Carousel autoPlay={3000}  rtl dots>
+                            <div className ="thumbs">
+                            <img
+                              src={work}
+                              alt="News"
+                              // height="250px"
+                              // width="250px"
+                              className= 'img-responsive'
+                            />
+                            </div>
+                            <div className ="thumbs">
+
+                            <img
+                              src={work}
+                              alt="News"
+                              // height="250px"
+                              // width="250px"
+                              className= 'img-responsive'
+                            />
+                            </div>
+                            
+                             </Carousel>
+                             
+
+              {/* <div
+                        style={{
+                          width: "10%",
+                          left: "5%",
+                          top: "2%",
+                          position: "absolute",
+                          rotation: 1 / 2 + 1 / 8,
+                          overflow:'hidden'
+                        }}
+                      >
+                        <CircularProgressbar
+                          value='60'
+                          text={`60%`}
+                          background
+                          backgroundPadding={6}
+                          styles={buildStyles({
+                            rotation: 0.25,
+                            strokeLinecap: "butt",
+                            textSize: "26",
+                            pathTransitionDuration: 0.5,
+                            backgroundColor: "#066993",
+                            textColor: "#fff",
+                            pathColor: "#fff",
+                            trailColor: "transparent"
+                           
+                          })}
+                        />
+                      </div> */}
+                            
+
+                          </div>
+                          <div class="col-md-6">
+                                
+                                <h2 class="line-bottom mt-0">Education for Childreen</h2>
+                                <h5 class="font-weight-600 text-gray-dimgray">
+                                
+                                  <i className= "fa fa-map-marker  m-5"></i>
+
+                                  <span classNam = "">Khartoum</span></h5>
+
+                                  {/* <span classNam = "font-weight-600 text-gray-dimgray">Khartoum</span> */}
+                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam maxime nesciunt ex modi minus illum nemo provident ducimus, velit magnam consectetur adipisicing nemo provident ducimus, velit magnam.</p>
+                                <div class="progress-item mt-0">
+                                  <div class="progress mb-0">
+                                    <div data-percent="84" class="progress-bar"><span class="percent">60</span></div>
+                                  </div>
+                                </div>
+                                <div class="mt-10 mb-20">
+                                  <ul class="list-inline clearfix mt-10">
+                                    <li class="pull-left flip pr-0"> {t("Raised")} <span class="font-weight-700 font-">$1890</span></li>
+                                    <li class="text-theme-colored pull-right flip pr-0">{t("Goal")} <span class="font-weight-700">$2500</span></li>
+                                  </ul>
+                                </div>
+                                <Link to= {'/projects/'+project.id} class="btn btn-theme-colored btn-sm">Donate Now</Link>
+                              </div>
+           
+                        </div>
+                      </div>
+              
+                </div>
+              </div>
+            </div>
+
+                 
+        
+            
+          </div>
+        
+        </div>
+      </div>
+    );
+  }
+}
+export default withTranslation()(SinglProject2);

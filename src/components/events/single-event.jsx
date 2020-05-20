@@ -66,10 +66,13 @@ class SinglEvent extends Component {
           <div class="col-md-8">
               <h2 class="text-theme-colored">{event.name}</h2>
 
+            <div className="" style = {{border:'1px solid gray' }} >
               <img 
               src={event.imageUrl}
               alt="" 
+              className= 'img-fullwidth img-responsive'
                />
+               </div>
           </div>
           <div class="col-md-4 mt-60">
             <ul>

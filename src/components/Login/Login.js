@@ -14,6 +14,7 @@ class Login extends Component{
     this.state = {
                   email: "",
                   password: "",
+                  loading:false
                   
                 }                 
 
@@ -30,20 +31,34 @@ class Login extends Component{
     e.preventDefault();
     
      login(this.state)
-      .then(data => window.location = '/')
-    //.then(token =>console.log(token))
+      .then(data =>{ 
+        
+        this.setState({loading:true})
+        setTimeout(() => {
+          this.setState({ loading: false });
+        }, 2000)
+        window.location = '/'
+    
+    })
+    
     
     .catch(err =>{
       console.log(err.message)
 
         this.setState({
-          errorMessage: err.message,
-          iconClass:'fa fa-times-circle',
-          styleClass:'error-msg',
-          email: "",
-          password: "",
+          
+          loading:true
 
         })
+        setTimeout(() => {
+          this.setState({ loading: false,
+            errorMessage: err.message,
+            iconClass:'fa fa-times-circle',
+            styleClass:'error-msg',
+            // email: "",
+             password: ""
+           });
+        }, 2000)
       }
       );
     }
@@ -54,6 +69,8 @@ class Login extends Component{
    
     const {t} = this.props 
     const folat = i18n.dir()==='rtl'?'right':'left'
+    const loading  = this.state.loading
+
     return(
 
         <div id="wrapper" className="clearfix">
@@ -86,7 +103,7 @@ class Login extends Component{
                                      {t(this.state.errorMessage)}
                                 </div>
                             <form  
-                                    data-toggle="validator"
+                                    // data-toggle="validator"
                                     role="form" name="login-form" 
                                     className="clearfix" 
                                     onSubmit ={this.handleSubmit}
@@ -121,6 +138,7 @@ class Login extends Component{
                                    className="form-control" 
                                    type="password"
                                    data-minlength="8"
+                                   minlength="8" 
                                    value = {this.state.password}
 
                                     onChange = {this.handleChange}
@@ -138,6 +156,12 @@ class Login extends Component{
                               <div className="form-group mt-10">
                                 <button type="submit" 
                                 className="btn btn-block text-white btn-theme-green btn-lg">
+                                     {loading && (
+                                          <i
+                                            className="fa fa-spinner fa-spin"
+                                            style={{ margin: "5px" }}
+                                          />
+                                        )}
                                   {t('Login')}
                                   </button>
                               </div>

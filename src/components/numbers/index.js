@@ -52,7 +52,9 @@ function Numbers(){
     return(
    <section className="divider parallax layer-overlay overlay-dark-9" data-bg-img="images/x.jpg" data-parallax-ratio="0.7">
   <div className="container pt-80 pb-80">
-    <div className="row">
+    <div className="row" 
+    // style = {{display:'flex'}}
+    >
 
     <Link to = '/finished-project'>
       <div className="col-xs-12 col-sm-6 col-md-2 mb-md-50">
@@ -108,6 +110,6 @@ function Numbers(){
     </div>
   </div>
 </section>
-    );
+    )
 }
 export default Numbers;

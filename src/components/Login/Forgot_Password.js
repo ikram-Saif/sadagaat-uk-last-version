@@ -12,6 +12,10 @@ class ForgotPassword extends Component{
     super();
     this.state = {
                   email:"",
+                  message:'',
+                  styleClass:'',
+                  iconClass:'',
+                  loading:false
                 }
     
 }
@@ -28,15 +32,31 @@ class ForgotPassword extends Component{
     e.preventDefault();
  
      forgotPassword(this.state)
-     .then(response => this.setState({
+     .then(response => {this.setState({
                       message:'Please Check your Email to Complete Process',
                       styleClass:'success-msg',
                       iconClass:'fa fa-check fa-2x',
-                       }))
-     .catch(err => alert(err));
+                      loading:true
+                       })
+                       setTimeout(() => {
+                        this.setState({ loading: false });
+                      }, 2000)
+                       
+                      })
+     .catch(err => {
+              this.setState({loading:true})
+              setTimeout(() => {
+                this.setState({ loading: false,
+                                message: 'email not found',
+                                iconClass:'fa fa-times-circle',
+                                styleClass:'error-msg' 
+                              })
+              }, 2000)
+                 
+                }
+              );
    // window.location = '/reset_password'
-   
-
+          
 
     
      
@@ -47,7 +67,8 @@ class ForgotPassword extends Component{
  
    render(){
 
-    const {t} = this.props 
+    const {t} = this.props
+    const loading  = this.state.loading 
 
     return(
 
@@ -64,10 +85,15 @@ class ForgotPassword extends Component{
                       
                         <div className="tab-content">
                           <div className="tab-pane fade in active p-15" id="login-tab">
-                          <p className = {this.state.styleClass}>{t(this.state.message)}</p>
+                            
+
+                          
 
                             <h4 className="text-gray mt-0 pt-5"> {t('Reset Password')}</h4>
-                            <hr />
+                            <p className = {this.state.styleClass}>
+                                <i className = {this.state.iconClass}></i>
+                                    {t(this.state.message)}
+                              </p>
 
                             <form  id = 'form'
                                     //data-toggle="validator"
@@ -85,7 +111,7 @@ class ForgotPassword extends Component{
                                     name="email" 
                                     className="form-control"
                                      type="email"
-                                     data-error={t("that email address is invalid")}
+                                     data-error={t("this email address is invalid")}
                                       onChange = {this.handleChange} 
                                       required = 'true'
                                       onvalid="this.setCustomValidity('')"
@@ -100,6 +126,12 @@ class ForgotPassword extends Component{
                               <div className="form-group mt-10">
                                 
                                 <button type="submit" className="btn btn-block text-white btn-theme-green btn-lg">{t('send')}
+                                    {loading && (
+                                              <i
+                                                className="fa fa-spinner fa-spin"
+                                                style={{ margin: "5px" }}
+                                              />
+                                          )}
                                 </button>
                                 
                               </div>

@@ -31,10 +31,10 @@ function TopBar() {
                 </li> */}
                 <li>
                   <a
-                    href="https://www.youtube.com/user/Sadagaat"
+                    href="http://twitter.com/sadagaat "
                     target="blank"
                   >
-                    <i className="fa fa-youtube"></i>
+                    <i className="fa fa-twitter"></i>
                   </a>
                 </li>
                 {/* <li>
@@ -44,7 +44,7 @@ function TopBar() {
                 </li> */}
                 <li>
                   <a
-                    href="https://www.linkedin.com/company/sadagaat"
+                    href="http://www.linkedin.com/pub/sadagaat-sudan/54/431/5b7"
                     target="blank"
                   >
                     <i className="fa fa-linkedin"></i>
@@ -60,14 +60,14 @@ function TopBar() {
                   {" "}
                   <i className="fa fa-phone text-white"></i>{" "}
                   <Link className="text-white" to="#">
-                    123-456-789
+                    091 001 0077
                   </Link>{" "}
                 </li>
                 <li className="m-0 pl-10 pr-10">
                   {" "}
                   <i className="fa fa-envelope-o text-white"></i>{" "}
                   <Link className="text-white" to="#">
-                    contact@yourdomain.com
+                     info@sadagaat.com
                   </Link>{" "}
                 </li>
               </ul>

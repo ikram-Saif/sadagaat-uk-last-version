@@ -30,6 +30,7 @@ import DonateToSubhub from "./components/Donation/DonateToSubhub";
 import SuccessDonate from "./components/Donation/successfullDonation";
 import FaildDonate from "./components/Donation/faildDonation";
 import SingleProject from "./components/projects/single-project";
+import SingleProject2 from "./components/projects/single-withSlider";
 import PrivateRoute from "./components/menu_bar/privateRoute";
 import PubliceRoute from "./components/menu_bar/PublicRoute";
 import SingleSubhub from "./components/sub_hubs/single-subhub";
@@ -116,7 +117,7 @@ function App() {
           path="/verify_password_code"
           component={Password_verfy_code}
         />
-        <Route exact path="/reset_password" component={RestPassword} />
+        <Route exact path="/reset-password/:token" component={RestPassword} />
         <PrivateRoute exact path="/volunteerForm" component={VolunteerForm} />
         <Route exact path="/verify" component={Email_verification} />
         <Route exact path="/projects/:project_id" component={DonateToProject} />
@@ -124,7 +125,7 @@ function App() {
         <Route
           exact
           path="/single-projects/:project_id"
-          component={SingleProject}
+          component={SingleProject2}
         />
         <Route
           exact

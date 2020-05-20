@@ -11,30 +11,99 @@ class ResetPassword extends Component{
   constructor() {
     super();
     this.state = {
-                  email: "",
+              
+                  loading: false,
                   password: "",
-                  message:''
+                  token:'',
+                  message:'',
+                  confirmPassword:"",
+                  styleClass:'',
+                  iconClass:'',
+                  loginLink:'',
+                  errorPassword:false
                 }
     
 }
    
+async componentDidMount (){
+   let token = this.props.match.params.token
+
+  // let token = this.props.location.search
+  this.setState({token})
+  console.log(token)
+
+}
+
  
    
    handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
     }
 
+    handleConfirmPassword = (e)=>{
+      const  confirm = e.target.value
+      const password = this.state.password
+      if( confirm === password){
+       this.setState({
+        
+            confirmPassword:'fa fa-check alert-success',
+            errorPassword:false
+
+       })
+      }
+    else{
+      this.setState({
+                 confirmPassword:'fa fa-times-circle alert-danger',
+                  errorPassword:true
+        
+      })
+     }
+      
+       
+    }
 
    
    handleSubmit = (e) => {
     e.preventDefault();
-
-    resetPassword(this.state)
-    .then(token => window.location = '/login')
-    .catch(err => alert(err));
-   // window.location = '/verify_password_code'
-  
+     let errorconfirm = this.state.errorPassword
+    if (!errorconfirm){
     
+    resetPassword(this.state)
+    .then(token =>{
+        this.setState({
+          message:'password reset successfully',
+          styleClass:'success-msg',
+          iconClass:'fa fa-check fa-2x',
+          loginLink:'Login',
+          loading: true
+          })
+          setTimeout(() => {
+            this.setState({ loading: false });
+          }, 2000)
+        }
+    )
+    .catch(err => 
+          {
+            this.setState({loading:true})
+            setTimeout(() => {
+              this.setState({ loading: false });
+            }, 2000)
+            alert(err.message)
+          }
+            )
+    }
+    else{
+      this.setState({
+        
+           message:'Pasword Not Matching',
+           styleClass:'error-msg',
+           iconClass:'fa fa-times-circle'
+          
+        })
+  
+    }
+  
+
      
 
    }
@@ -43,6 +112,8 @@ class ResetPassword extends Component{
  
    render(){
     const {t} = this.props 
+    const loading  = this.state.loading;
+
   
     return(
 
@@ -60,62 +131,59 @@ class ResetPassword extends Component{
                         <div className="tab-content">
                           <div className="tab-pane fade in active p-15" id="login-tab">
                             <h4 className="text-gray mt-0 pt-5"> {t('Reset Password')} </h4>
-                            <hr />
+
+                            <div className = {this.state.styleClass}>
+                              
+                                    <i className = {this.state.iconClass} style = {{margin:'5px'}}/>
+                                    {t(this.state.message)}
+                                    
+                                    </div>
 
                             <form  
-                                    data-toggle="validator"
+                                    id = 'reset-form'
+                                    // data-toggle="validator"
                                     role="form" name="login-form" 
                                     className="clearfix" 
                                     onSubmit ={this.handleSubmit}>
-
-                              {/* <div className="row">
-                                <div className="form-group col-md-12">
-                                  <label for="inputEmail">{t('Email')}</label>
-
-                                  <input 
-                                    id="inputEmail" 
-                                    name="email" 
-                                    className="form-control"
-                                     type="email"
-                                     data-error={t("that email address is invalid")}
-                                      onChange = {this.handleChange} required />
-
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                               </div> */}
 
                                <div className="row">
                                 <div className="form-group col-md-6">
                                 <label for="form_choose_password"> {t('password')}</label>
                                 
                                
-                                    <input
-                                            id="inputPassword" 
-                                            name="password" 
-                                            className="form-control" 
-                                            type="password"
-                                            data-minlength="8"
-                                        
-                                            required
-                                            onChange = {this.handleChange}/>
-                                            
+                                <input
+                                      id="inputPassword" 
+                                      name="password" 
+                                      className="form-control" 
+                                      type="password"
+                                      data-minlength="8"
+                                      minlength="8"
+                                      data-error={t('Minimum of 8 characters')}
+                                      required
+                                      onChange = {this.handleChange}
+                                      
+                                      /> 
 
-                                        <div class="help-block with-errors">{t('Minimum of 8 characters')}</div>
-                                         </div>
+                                <div className="help-block with-errors"></div>
+                                </div>
+                                <div className="form-group col-md-6  has-feedback" >
+                                  <label>{t('Re-enter Password')}</label>
+                                  <i className = {this.state.confirmPassword}></i>
 
-                                        <div className="form-group col-md-6">
-                                        <label>{t('Re-enter Password')}</label>
 
-                                        <input 
-                                                id="confirmPassword" 
-                                                name="re_enter_password"  
-                                                className="form-control"  
-                                                type="password" 
-                                                data-match="#inputPassword" 
-                                                data-match-error="Not Matching " 
-                                                placeholder={t("Confirm")} 
-                                                required
-                                        />
+                                  <input 
+                                        id="confirmPassword" 
+                                        name="re_enter_password"  
+                                        className="form-control"  
+                                        type="password" 
+                                        minlength="8"                                     
+                                        data-match="#inputPassword" 
+                                        data-match-error={t('Not Matching')} 
+                                        placeholder={t("Confirm")}
+                                         required
+                                         onChange = {this.handleConfirmPassword}
+                                   />
+                                
                                         
 
                                         <div class="help-block with-errors"></div>       
@@ -126,7 +194,17 @@ class ResetPassword extends Component{
                               </div>
                               <div className="form-group mt-10">
                                 <button type="submit" 
-                                className="btn btn-block text-white btn-theme-green btn-lg">{t('Reset Password')}</button>
+                                
+                                className="btn btn-block text-white btn-theme-green btn-lg">
+                                      {loading && (
+                                          <i
+                                            className="fa fa-spinner fa-spin"
+                                            style={{ margin: "5px" }}
+                                          />
+                                        )}
+                              
+                                  {t('Reset Password')}
+                                  </button>
                               </div>
                             
                             </form>

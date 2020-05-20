@@ -4,6 +4,9 @@ import axios from "axios";
 import i18n from "i18next";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { withTranslation } from "react-i18next";
+import Carousel from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
+import {Link} from 'react-router-dom'
 
 class SinglProject extends Component {
  
@@ -43,24 +46,58 @@ class SinglProject extends Component {
   render() {
     const { t } = this.props;
     const { project } = this.state;
-    console.log(project)
+    // console.log(project)
     const dProgress = project.donationProgress
     
     return (
       <div className="container">
         <div className="row mtli-row-clearfix">
+
+                 
           <div className="col-sm-12 col-md-10 col-md-offset-1">
             <div className="causes bg-white maxwidth500 mb-30">
-              <div className="thumb">
-                <img src={project.imageUrl} alt="" className="img-fullwidth" width= '600' height = '600' />
+            {/* <Carousel 
+                  autoPlay={5000}
+                  stopAutoPlayOnHover
+                    rtl 
+                    dots
+                    arrowLeft={
+                      <i
+                        className="fa fa-chevron-right fa-2x"
+                        style={{ margin: "5px" }}
+                      />
+                    }
+                    arrowRight={
+                      <i
+                        className="fa fa-chevron-left fa-2x"
+                        style={{ margin: "5px" }}
+                      />
+                    }
+                    addArrowClickHandler
+            > */}
+
+              <div className="thumb" style = {{width:'945px', height:'32px'}}>
+                <img src={project.imageUrl} alt="" className="img-fullwidth" width='945px'height='532px' />
+
               </div>
+              {/* <div className="thumb" style = {{width:'900px', height:'500px'}}>
+                <img src={project.secondImageUrl} alt="" className="img-fullwidth"  width='900px'height='500px'/>
+
+              </div>
+              <div className="thumb" style = {{width:'900px', height:'500px'}}>
+                <img src={project.thirdImageUrl} alt="" className="img-fullwidth" />
+
+              </div>
+              </Carousel> */}
+
 
               <div
                         style={{
                           width: "7%",
-                          left: "25px",
+                          left: "8%",
                           top: "8px",
                           position: "absolute",
+                          overflow:'hidden',
                           rotation: 1 / 2 + 1 / 8,
                         }}
                       >
@@ -96,11 +133,22 @@ class SinglProject extends Component {
               <div className="causes-details clearfix  border-bottom-theme-color-1px p-15 pt-10 pb-10">
                 <h5 className="font-weight-600 font-16">{project.name}</h5>
                 <p>{project.description}</p>
+                {/* <div>
+                <strong classNam = "font-weight-600"><i className= "fa fa-map-marker  m-5"></i> </strong>
+                <span classNam = "font-weight-600 text-gray-dimgray">{project.status}</span>
+               
+                </div> */}
+                <div>
+                <strong classNam = "font-weight-600"><i className= "fa fa-map-marker  m-5"></i> </strong>
+                <span classNam = "font-weight-600 text-gray-dimgray">{project.locationName}</span>
+               
+                </div>
                 <ul className="list-inline project-conditions mt-20 text-center bg-theme-colored-transparent-1 m-0 p-10">
                   <li className="target-fund text-center text-theme-colored float-left">
                     <strong>
                       {t("Goal")} {project.goal}
                     </strong>
+                    
                   </li>
                   {/* <li className="day text-theme-colored"><i className="flaticon-charity-hand-holding-a-heart font-30 "></i></li>  */}
                   <li className="raised text-center">
@@ -108,95 +156,34 @@ class SinglProject extends Component {
                       {t("Raised")} {project.raised}
                     </strong>
                   </li>
+                  
+                  <Link
+                      className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
+                      style  = {{alignItems:'center'}}
+                      to= {'/projects/'+project.id}
+                      >
+                        {t('donate')}
+               
+                </Link> 
                 </ul>
-              </div>
-            </div>
-            <div className="event-details">
+                
             
-              <div className="pull-left flip mr-15">
-                <img alt="" src="http://placehold.it/370x235" />
+                {/* <div className = 'text-center'>
+              <Link
+               className="btn btn-default btn-theme-colored btn-s  font-16 mt-10"
+               style  = {{alignItems:'center'}}
+               to= {'/projects/'+project.id}
+               >
+                {t('donate')}
+               
+                </Link>
+                </div> */}
               </div>
-              <div className="">
-                <p className="font-14 text-black-light">
-                  <em>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Totam nequep aliquid suscipit voluptas ab temporibus, animi
-                    impedit ipsum, sunt rem sed ut quod quas earum inventore
-                    expedita consectetur.
-                  </em>
-                </p>
-                <p className="mt-10">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Placeat qui ducimus illum modi? Libero saepe perspic
-                  reiciendis iusto et cupiditate. Repudiandae provident,
-                  consectetur, sapiente, libero iure necessitatibus corporis
-                  nulla sit voluptate, quisquam aut eum perspiciatis? Fugiat
-                  labore aspernatur{" "}
-                </p>
-              </div>
-              <p className="mt-20">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Placeat qui ducimus illum modi? Libero saepe perspiciatis
-                accusamus soluta perferendis, ad illum, nesciunt, reiciendis
-                iusto et cupiditate. Repudiandae provident, consectetur,
-                sapiente, libero iure necessitatibus corporis nulla voluptate,
-                quisquam aut eum perspiciatis? Fugiat labore aspernatur eius,
-                perspiciatis ut molestiae, delectus rem tempora omnis optio odio
-                autem asperiores quae maiores ea eveniet cupiditate aut
-                repellendus? Quo iure explicabo quam reprehenderit ipsam sequi.
-                Perferendis esse iure ullam, illum, quibusdam corporis nobis
-                dolores unde dolorem ipsa quaerat suscipit.
-              </p>
             </div>
-            <div className="event-details">
-              <p className="mb-20 mt-20">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Placeat qui ducimus illum modi? Libero saepe perspiciatis
-                accusamus soluta perferendis, ad illum, nesciunt, reiciendis
-                iusto et cupiditate. Repudiandae provident, consectetur,
-                sapiente, libero iure necessitatibus corporis nulla voluptate,
-                quisquam aut eum perspiciatis? Fugiat labore aspernatur eius,
-                perspiciatis ut molestiae, delectus rem.
-              </p>
-              <div className="pull-left flip mr-15">
-                <img alt="Some alt" src="http://placehold.it/370x235" />
-              </div>
-              <div className="">
-                <p className="font-14 text-black-light">
-                  <em>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Totam nequep aliquid suscipit voluptas ab temporibus, animi
-                    impedit ipsum, sunt rem sed ut quod quas earum inventore
-                    expedita consectetur.
-                  </em>
-                </p>
-                <p className="mt-10">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Placeat qui ducimus illum modi? Libero saepe perspic
-                  reiciendis iusto et cupiditate. Repudiandae provident,
-                  consectetur, sapiente, libero iure necessitatibus corporis
-                  nulla sit voluptate, quisquam aut eum perspiciatis? Fugiat
-                  labore aspernatur{" "}
-                </p>
-              </div>
-              <p className="mt-20">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Placeat qui ducimus illum modi? Libero saepe perspiciatis
-                accusamus soluta perferendis, ad illum, nesciunt, reiciendis
-                iusto et cupiditate. Repudiandae provident, consectetur,
-                sapiente, libero iure necessitatibus corporis nulla voluptate,
-                quisquam aut eum perspiciatis? Fugiat labore aspernatur eius,
-                perspiciatis ut molestiae, delectus rem tempora omnis optio odio
-                autem asperiores quae maiores ea eveniet cupiditate aut
-                repellendus? Quo iure explicabo quam reprehenderit ipsam sequi.
-                Perferendis esse iure ullam, illum, quibusdam corporis nobis
-                dolores unde dolorem ipsa quaerat suscipit.
-              </p>
-            </div>
+    
+            
           </div>
-          <div className="col-sm-6 col-md-4 col-lg-4">
-            <div className="sidebar sidebar-right mt-sm-30"></div>
-          </div>
+        
         </div>
       </div>
     );

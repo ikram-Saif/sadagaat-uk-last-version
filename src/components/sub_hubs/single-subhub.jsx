@@ -87,7 +87,7 @@ render(){
             <div className="row mtli-row-clearfix">
               <div className="col-sm-12 col-md-10 col-md-offset-1">
                 <div className="causes bg-white maxwidth500 mb-30">
-                  <div className="thumb" style={{maxWidth :'945px' , maxHeight :'500px' , border:'1px solid lightgray'}}>
+                  <div className="thumb" style={{maxWidth :'945px' , maxHeight :'500px'}}>
                     <img src={subhub.imageUrl} alt="" className="img-responsive"/>
                   </div>
                
@@ -109,7 +109,7 @@ render(){
             <div className="col-md-4" key ={project.id}>
             <Link to={'/single-projects/'+project.id}>
                 <div className="causes bg-white mb-30">
-                  <div className="thumb" style = {{width: '390px', height: '260px'}}>
+                  <div className="thumb" style = {{ maxHeight: '260px'}}>
                   <img src={project.imageUrl}  className="img-fullwidth img-responsive"  />
                   </div>
               

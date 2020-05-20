@@ -213,6 +213,11 @@
   "Education Sub Sectors":"قطاعات التعليم الفرعية",
   "Feeding Sub Sectors":"قطاعات التغذية الفرعية",
   "Health Sub Sectors":"قطاعات الصحة الفرعية",
-  "Water Sub Sectors":"قطاعات المياه الفرعية"
+  "Water Sub Sectors":"قطاعات المياه الفرعية",
+  "network erorr please try again later":"خطأ في الشبكة الرجاء المحاولة لاحقا",
+  "email not found":"الإيميل غير موجود",
+  "password reset successfully":"تم اعادة تعين كلمة المرور بنجاح",
+  "Ammarat 27 st , Khartoum Sudan":"العمارات - شارع (27) , الخرطوم - السودان",
+  "Website":"الموقع الإلكتروني"
 
 }

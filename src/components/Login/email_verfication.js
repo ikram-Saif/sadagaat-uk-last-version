@@ -12,6 +12,10 @@ class Email_verification extends Component{
     super();
     this.state = {
                   code: "",
+                  message:'',
+                  styleClass:'',
+                  iconClass:'',
+                  loading:false
                 }
     
 }
@@ -28,11 +32,29 @@ class Email_verification extends Component{
     e.preventDefault();
 
     email_verify(this.state)
-   // .then( token => window.location = '/login')
-   .then(token => window.location = '/login')
- 
-    .catch(err =>alert(err));
-    }
+      .then(response => {this.setState({
+        message:'Please Check your Email to Complete Process',
+        styleClass:'success-msg',
+        iconClass:'fa fa-check fa-2x',
+        loading:true
+        })
+
+      setTimeout(() => {
+      this.setState({ loading: false });
+        }, 2000)
+       })
+        .catch(err => {
+                this.setState({loading:true})
+                setTimeout(() => {
+                this.setState({
+                                loading: false,
+                                message: 'verfication code not correct',
+                                iconClass:'fa fa-times-circle',
+                                styleClass:'error-msg' 
+                              })
+                }, 2000) }
+              )
+        }
    
   
  

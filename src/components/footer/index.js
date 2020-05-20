@@ -25,7 +25,7 @@ function Footer() {
                 <ul className="styled-icons icon-dark icon-theme-colored icon-circled icon-sm">
                   <li>
                     <a
-                      href="https://web.facebook.com/Sadagaat/?_rdc=1&_rdr"
+                      href="http://www.facebook.com/groups/sadagaat"
                       target="blank"
                     >
                       <i className="fa fa-facebook" />
@@ -38,10 +38,10 @@ function Footer() {
                   </li> */}
                   <li>
                     <a
-                      href="https://www.youtube.com/user/Sadagaat"
+                      href="http://twitter.com/sadagaat "
                       target="blank"
                     >
-                      <i className="fa fa-youtube" />
+                      <i className="fa fa-twitter" />
                     </a>
                   </li>
                   {/* <li>
@@ -51,7 +51,7 @@ function Footer() {
                   </li> */}
                   <li>
                     <a
-                      href="https://www.linkedin.com/company/sadagaat"
+                      href="http://www.linkedin.com/pub/sadagaat-sudan/54/431/5b7"
                       target="blank"
                     >
                       <i className="fa fa-linkedin" />
@@ -102,24 +102,24 @@ function Footer() {
               <div className="widget dark">
                 <h5 className="widget-title line-bottom">{t("Contact Us")}</h5>
                 <ul className="list angle-double-right list-border">
-                  <li>
+                  {/* <li>
                     {" "}
                     <i className="fa fa-phone text-theme-colored" />
                     123-456-789
-                  </li>
+                  </li> */}
                   <li>
                     {" "}
-                    <i className="fa fa-phone text-theme-colored" /> 123-456-789
+                    <i className="fa fa-phone text-theme-colored" /> 091 001 0077
                   </li>
                   <li>
                     {" "}
                     <i className="fa fa-envelope-o text-theme-colored" />{" "}
-                    contact@yourdomain.com
+                    info@sadagaat.com
                   </li>
                   <li>
                     {" "}
                     <i className="fa fa-globe text-theme-colored" />{" "}
-                    www.yourdomain.com
+                    www.sadagaat.com 
                   </li>
                 </ul>
               </div>

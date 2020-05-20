@@ -273,7 +273,7 @@ class Registration extends Component{
                                       name="phoneNumber" 
                                       className="form-control" 
                                       type="tel" 
-                                      pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
+                                      pattern="[0-9]+"
                                       onChange = {this.handleChange}
                                       value ={this.state.form.phoneNumber} 
                                       required 

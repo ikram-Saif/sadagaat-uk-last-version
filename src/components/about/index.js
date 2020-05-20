@@ -19,34 +19,39 @@ return(
           <div className="row">
             <div className="col-md-6 mt-20">
               <div className="row">
-                <div className={`col-md-6 col-sm-6 ${classParameter}`}>
+                <div className={`col-md-6 col-sm-12 ${classParameter}`}>
                   <div className="img-hover-border mt-sm-40">
                     <img
-                      className="img-fullwidth"
-                      src="./images/about 350-300.jpg"
+                      className="img-responsive"
+                      src="./images/about 275 330.jpg"
                       alt=""
-                      width="275"
-                      height="335"
+                      //  width="275"
+                      // height="330"
+                      style= {{width:'275px', height:'330px'}}
                     />
                   </div>
                 </div>
-                <div className="col-md-6 col-sm-6 pl-0 pr-0">
+                <div className="col-md-6 col-sm-12 pl-0 pr-0">
                   <div className="img-hover-border mt-sm-30">
                     <img
-                      className="img-fullwidth"
+                      className="img-responsive"
                       src="./images/about 325-177.jpg"
                       alt=""
-                      width="250"
-                      height="156"
+                      //  width="250"
+                      // height="156"
+                      style= {{width:'250px', height:'156px'}}
+
                     />
                   </div>
                   <div className="img-hover-border mt-15 mt-sm-30">
                     <img
-                      className="img-fullwidth"
+                      className="img-responsive"
                       src="./images/x.jpg"
                       alt=""
-                      width="250"
-                      height="156"
+                      //  width="250"
+                      // height="156"
+                      style= {{width:'250px', height:'156px'}}
+
                     />
                   </div>
                 </div>

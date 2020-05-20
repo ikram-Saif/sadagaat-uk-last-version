@@ -19,7 +19,10 @@ class DonateToSubhub extends Component {
       subhub_id: null,
       amount: 0,
       message:'',
+      iconClass:'',
+      styleClass:'',
       currency:"SDG",
+      loading: false,
       subHubs:[]
       }
 }
@@ -91,15 +94,32 @@ async componentWillReceiveProps(){
                   response.data.responseCode !== 1 ?
                       this.setState(
                         {
-                          message :"Proccess Failed",
-                          amount:''
+                          message :"network erorr please try again later",
+                          iconClass:'fa fa-times-circle',
+                          styleClass:'error-msg',
+                           amount:''
                         }) :
-                 window.location = response.data.paymentUrl
+                        
+                        window.location = response.data.paymentUrl
+                        this.setState({loading:true})
+                        setTimeout(() => {
+                         this.setState({ loading: false });
+                       }, 2000)
          
                 /** syber bay payment feedback */
 
               }) .catch(error => {
-                this.setState({message:error.message})
+                this.setState({
+                      
+                        loading:true
+                  })
+                  setTimeout(() => {
+                    this.setState({ loading: false,
+                      message:error.message,
+                        iconClass:'fa fa-times-circle',
+                        styleClass:'error-msg' });
+                  }, 2000)
+                  
                 })
    
   }
@@ -107,6 +127,8 @@ async componentWillReceiveProps(){
 
    render(){
     const{t}= this.props
+    const loading  = this.state.loading;
+
 
 
     return (
@@ -121,7 +143,11 @@ async componentWillReceiveProps(){
             <div class="col-xs-12 col-sm-12 col-md-5">
             
               <h3 class="mt-0 line-bottom">{t('Donate Through Syber Pay')}<span class="font-weight-300"></span></h3>
-              <p className="error-message">{t(this.state.message)}</p>
+                  <p className={this.state.styleClass}>
+                        <i className ={this.state.iconClass} style = {{margin:'5px'}}>
+                        </i>
+                        {t(this.state.message)}
+                      </p>
               <form
                   data-toggle="validator"
                   role="form"
@@ -184,7 +210,15 @@ async componentWillReceiveProps(){
 
                         <button type="submit" 
                           className="btn btn-flat btn-dark btn-theme-colored mt-10 pl-30 pr-30"
-                          data-loading-text="Please wait...">{t('Donate')} {t('Now!')}
+                          data-loading-text="Please wait...">
+                            {loading && (
+                                          <i
+                                            className="fa fa-spinner fa-spin"
+                                            style={{ margin: "5px" }}
+                                          />
+                                        )}
+                            
+                            {t('Donate')} {t('Now!')}
                         </button>
                       </div>
                     </div>

@@ -86,8 +86,10 @@ export function login(data)
         export function forgotPassword(data) 
         {
 
-             return axios.post(`${address()}password-forgot`, {email:data})
-            .then( response =>{
+             return axios.post(`${address()}password-forgot`,null,{ params: {
+                email:data.email
+              }})
+            .then(response =>{
                  return response.data
                         })
             
@@ -99,8 +101,13 @@ export function login(data)
         export function resetPassword(data) 
 
         {
-             return axios.post(`${address()}password-reset`, {
-                 password: data.password 
+             return axios.post(`${address()}password-reset`,null, 
+                {params:
+                    {
+                    token:data.token,
+                    password:data.password
+                    }
+                    
                  })
             .then(response => {
                     

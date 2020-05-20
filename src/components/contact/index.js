@@ -132,7 +132,7 @@ class Contact extends Component{
                   </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Our Office Location')}</h5>
-                      <p>#405, Lan Streen, USA</p>
+                      <p>{t('Ammarat 27 st , Khartoum Sudan')}</p>
                     </div>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ class Contact extends Component{
                      </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Contact Number')}</h5>
-                      <p>+325 12345 65478</p>
+                      <p>091 001 0077</p>
                     </div>
                   </div>
                 </div>
@@ -154,7 +154,7 @@ class Contact extends Component{
                      </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Email Address')}</h5>
-                      <p>info@sadagaat.ory</p>
+                      <p>info@sadagaat.com</p>
                     </div>
                   </div>
                 </div>
@@ -162,11 +162,11 @@ class Contact extends Component{
                 <div className="col-xs-12 col-sm-6 col-md-6">
                   <div className="icon-box media bg-deep p-30 mb-20"> 
                   <span className="media-left pull-left flip"> 
-                    <i className="fa fa-skype text-theme-colored" ></i>
+                    <i className="fa fa-globe text-theme-colored" ></i>
                   </span>
                     <div className="media-body">
-                      <h5 className="mt-0">{t('Make a Video Call')}</h5>
-                      <p>ThemeMascotSkype</p>
+                      <h5 className="mt-0">{t('Website')}</h5>
+                      <p>www.sadagaat.com </p>
                     </div>
                   </div>
                 </div>
@@ -251,8 +251,9 @@ class Contact extends Component{
                         className="form-control" 
                         type="tel" 
                         placeholder={t("Enter Phone" )}
-                        pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
+                        pattern="[0-9]+"
                         onChange = {this.handleChange}
+                        // title = ''
                         required
                       />
                     </div>
@@ -289,7 +290,16 @@ class Contact extends Component{
       </section><section>
         <div className="container-fluid pt-0 pb-0">
           <div className="row">
-            <div className="mapouter"><div className="gmap_canvas"><iframe width={600} height={500} id="gmap_canvas" src="https://maps.google.com/maps?q=khartoum&t=&z=13&ie=UTF8&iwloc=&output=embed" frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} /><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style dangerouslySetInnerHTML={{__html: ".mapouter{position:relative;text-align:right;height:400px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:100%;}" }} /></div>
+            <div className="mapouter"><div className="gmap_canvas">
+              <iframe width={600} height={500} id="gmap_canvas"
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1921.6539280914353!2d32.54498805807791!3d15.575192081993727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x168e91da784579c7%3A0x5c0c21eeb61695d5!2z2YXZhti42YXYqSDYtdiv2YLYp9iqINin2YTYrtmK2LHZitip!5e0!3m2!1sar!2s!4v1589980879108!5m2!1sar!2s"
+               frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} ></iframe>
+               {/* <a href="https://www.embedgooglemap.net">embedgooglemap.net</a> */}
+               </div>
+               {/* <style dangerouslySetInnerHTML={{__html: ".mapouter{position:relative;text-align:right;height:400px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:100%;}" }} /> */}
+               </div>
+
+            
             {/* <div 
             id="map-canvas-multipointer"
             data-mapstyle="default"
@@ -297,8 +307,8 @@ class Contact extends Component{
             data-zoom="15"
             data-marker="images/map-marker.png">
           </div>
-          
-          */}
+           */}
+         
           </div>
         </div>
       </section>
