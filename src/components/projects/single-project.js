@@ -45,8 +45,8 @@ class SinglProject extends Component {
 
   render() {
     const { t } = this.props;
-    const { project } = this.state;
-    // console.log(project)
+    const {project} = this.state;
+    console.log(project)
     const dProgress = project.donationProgress
     
     return (
@@ -76,8 +76,8 @@ class SinglProject extends Component {
                     addArrowClickHandler
             > */}
 
-              <div className="thumb" style = {{width:'945px', height:'32px'}}>
-                <img src={project.imageUrl} alt="" className="img-fullwidth" width='945px'height='532px' />
+              <div className="thumb">
+                <img src={project.imageUrl} alt="" className="img-fullwidth" width='945'height='532' />
 
               </div>
               {/* <div className="thumb" style = {{width:'900px', height:'500px'}}>

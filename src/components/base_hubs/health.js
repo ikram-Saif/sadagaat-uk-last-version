@@ -24,7 +24,7 @@ function Health (props){
 
 
   async function healthHub() {
-    const fetcher = await window.fetch(`${address()}hubs/33`,{headers: {'accept-language': `${i18n.language}`}})
+    const fetcher = await window.fetch(`${address()}hubs/1695`,{headers: {'accept-language': `${i18n.language}`}})
     const response = await fetcher.json()
     console.log(response)
     setHealth(response)
@@ -33,7 +33,7 @@ function Health (props){
   async function healthSubHubs() {
     const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
     const response = await fetcher.json()
-    const filteredSubhubs = response.filter((subhub) => subhub.hubId === 33)
+    const filteredSubhubs = response.filter((subhub) => subhub.hubId === 1695)
     setSubhubs(filteredSubhubs)
     console.log(subhub)
   

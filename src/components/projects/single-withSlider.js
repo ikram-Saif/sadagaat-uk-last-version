@@ -50,7 +50,7 @@ class SinglProject2 extends Component {
     const { project } = this.state;
     // console.log(project)
     const dProgress = project.donationProgress
-    
+    console.log(dProgress)
     return (
       <div className="container">
         <div className="row">
@@ -60,7 +60,7 @@ class SinglProject2 extends Component {
 
               </h2>
 
-              <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
+              <div className="border-bottom mt-5 mb-0 pt-10 pb-15">
                 <div className="row">
                    
                       <div className="causes">
@@ -76,17 +76,16 @@ class SinglProject2 extends Component {
                             />
                             </div>
                             </div> */}
-                          <Carousel autoPlay={3000}  rtl dots>
-                            <div className ="thumbs">
+                          <Carousel autoPlay={2000}  rtl>
+                            <div className ="post-thumb thumb" style = {{mxaHeight:"600px"}}>
                             <img
-                              src={work}
-                              alt="News"
-                              // height="250px"
-                              // width="250px"
+                              src={project.imageUrl}
+                              alt="project image"
+                               width="500"
                               className= 'img-responsive'
                             />
                             </div>
-                            <div className ="thumbs">
+                            {/* <div className ="post-thumb thumb" style = {{mxaHeight:"600px"}}>
 
                             <img
                               src={work}
@@ -95,31 +94,34 @@ class SinglProject2 extends Component {
                               // width="250px"
                               className= 'img-responsive'
                             />
-                            </div>
+                            </div> */}
                             
                              </Carousel>
                              
 
-              {/* <div
+               <div
                         style={{
-                          width: "10%",
-                          left: "5%",
-                          top: "2%",
+                          width: "12%",
+                          left: "10%",
+                          right:'10%',
+                          top: "3%",
                           position: "absolute",
                           rotation: 1 / 2 + 1 / 8,
-                          overflow:'hidden'
+                          overflow:'hidden',
+                          marginButtom:'100px'
                         }}
                       >
                         <CircularProgressbar
-                          value='60'
-                          text={`60%`}
+                          value={project.projectProgress}
+                          text={`${project.projectProgress}%`}
                           background
-                          backgroundPadding={6}
+                          backgroundPadding={4}
                           styles={buildStyles({
-                            rotation: 0.25,
-                            strokeLinecap: "butt",
-                            textSize: "26",
-                            pathTransitionDuration: 0.5,
+                            // strokeLinecap: "butt",
+
+                            rotation: 1,
+                            textSize: "20",
+                            pathTransitionDuration: 0.3,
                             backgroundColor: "#066993",
                             textColor: "#fff",
                             pathColor: "#fff",
@@ -127,39 +129,49 @@ class SinglProject2 extends Component {
                            
                           })}
                         />
-                      </div> */}
+                      </div> 
                             
 
                           </div>
                           <div class="col-md-6">
                                 
-                                <h2 class="line-bottom mt-0">Education for Childreen</h2>
+                                <h2 class="line-bottom mt-0">{project.name}</h2>
                                 <h5 class="font-weight-600 text-gray-dimgray">
-                                
-                                  <i className= "fa fa-map-marker  m-5"></i>
+                                 
+                                  <i className= "fa fa-map-marker m-5"></i>
 
-                                  <span classNam = "">Khartoum</span></h5>
+                                  <span className = "">{project.locationName}</span></h5>
 
                                   {/* <span classNam = "font-weight-600 text-gray-dimgray">Khartoum</span> */}
-                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam maxime nesciunt ex modi minus illum nemo provident ducimus, velit magnam consectetur adipisicing nemo provident ducimus, velit magnam.</p>
-                                <div class="progress-item mt-0">
-                                  <div class="progress mb-0">
-                                    <div data-percent="84" class="progress-bar"><span class="percent">60</span></div>
-                                  </div>
-                                </div>
+                                  <p>{project.description}</p>
+                                  <div className="progress-item mt-0">
+                                      <div className="progress mb-0">
+                                        <div
+                                        className="progress-bar"
+                                          data-percent={project.donationProgress}
+                                          
+                                          
+                                        >
+                                          <span className="percent">
+                                          {project.donationProgress}
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
                                 <div class="mt-10 mb-20">
                                   <ul class="list-inline clearfix mt-10">
-                                    <li class="pull-left flip pr-0"> {t("Raised")} <span class="font-weight-700 font-">$1890</span></li>
-                                    <li class="text-theme-colored pull-right flip pr-0">{t("Goal")} <span class="font-weight-700">$2500</span></li>
+                                    <li class="pull-left flip pr-0"> {t("Raised")} <span class="font-weight-700 font-">{project.raised} SDG</span></li>
+                                    <li class="text-theme-colored pull-right flip pr-0">{t("Goal")} <span class="font-weight-700">{project.goal} SDG</span></li>
                                   </ul>
                                 </div>
-                                <Link to= {'/projects/'+project.id} class="btn btn-theme-colored btn-sm">Donate Now</Link>
+                                <Link to= {'/projects/'+project.id} class="btn btn-theme-colored btn-sm">{t('Donate Now')}</Link>
                               </div>
            
                         </div>
                       </div>
               
                 </div>
+           
               </div>
             </div>
 

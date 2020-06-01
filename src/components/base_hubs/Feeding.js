@@ -22,7 +22,7 @@ function Feeding (props){
 
 
   async function feedingHub() {
-    const fetcher = await window.fetch(`${address()}hubs/674`,{headers: {'accept-language': `${i18n.language}`}})
+    const fetcher = await window.fetch(`${address()}hubs/1744`,{headers: {'accept-language': `${i18n.language}`}})
     const response = await fetcher.json()
     setFeeding(response)
   }
@@ -30,7 +30,7 @@ function Feeding (props){
   async function feedingSubHubs() {
     const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
     const response = await fetcher.json()
-    const filteredSubhubs = response.filter((subhub) => subhub.hubId === 674)
+    const filteredSubhubs = response.filter((subhub) => subhub.hubId === 1744)
     setSubhubs(filteredSubhubs)
     console.log(response)
   }

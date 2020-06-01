@@ -790,7 +790,7 @@ var THEMEMASCOT = {};
                 THEMEMASCOT.header.TM_menuzord();
                 THEMEMASCOT.header.TM_navLocalScorll();
                 THEMEMASCOT.header.TM_menuCollapseOnClick();
-                THEMEMASCOT.header.TM_menuItemCollapseOnClick();
+                // THEMEMASCOT.header.TM_menuItemCollapseOnClick();
                 THEMEMASCOT.header.TM_homeParallaxFadeEffect();
                 THEMEMASCOT.header.TM_topsearch_toggle();
             }, 0);

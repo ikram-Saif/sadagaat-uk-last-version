@@ -109,7 +109,7 @@ function Footer() {
                   </li> */}
                   <li>
                     {" "}
-                    <i className="fa fa-phone text-theme-colored" /> 091 001 0077
+                    <i className="fa fa-phone text-theme-colored" />0910010077
                   </li>
                   <li>
                     {" "}

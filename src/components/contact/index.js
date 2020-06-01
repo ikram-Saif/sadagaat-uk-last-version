@@ -113,6 +113,10 @@ class Contact extends Component{
    
    render(){
       const {t} = this.props
+      const mapUrl = i18n.dir() ==='rtl'?
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1921.6539280914353!2d32.54498805807791!3d15.575192081993727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x168e91da784579c7%3A0x5c0c21eeb61695d5!2z2YXZhti42YXYqSDYtdiv2YLYp9iqINin2YTYrtmK2LHZitip!5e0!3m2!1sar!2s!4v1589980879108!5m2!1sar!2s"
+      :
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.308792782386!2d32.542087414371004!3d15.57514198918783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x168e91da784579c7%3A0x5c0c21eeb61695d5!2z2YXZhti42YXYqSDYtdiv2YLYp9iqINin2YTYrtmK2LHZitip!5e0!3m2!1sen!2s!4v1590012628658!5m2!1sen!2s"
     return (
       <div>
       <Header name={t("Contact Us")}/>
@@ -143,7 +147,7 @@ class Contact extends Component{
                      </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Contact Number')}</h5>
-                      <p>091 001 0077</p>
+                      <p>0910010077</p>
                     </div>
                   </div>
                 </div>
@@ -292,8 +296,8 @@ class Contact extends Component{
           <div className="row">
             <div className="mapouter"><div className="gmap_canvas">
               <iframe width={600} height={500} id="gmap_canvas"
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1921.6539280914353!2d32.54498805807791!3d15.575192081993727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x168e91da784579c7%3A0x5c0c21eeb61695d5!2z2YXZhti42YXYqSDYtdiv2YLYp9iqINin2YTYrtmK2LHZitip!5e0!3m2!1sar!2s!4v1589980879108!5m2!1sar!2s"
-               frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} ></iframe>
+                src={mapUrl}
+                frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} ></iframe>
                {/* <a href="https://www.embedgooglemap.net">embedgooglemap.net</a> */}
                </div>
                {/* <style dangerouslySetInnerHTML={{__html: ".mapouter{position:relative;text-align:right;height:400px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:100%;}" }} /> */}

@@ -22,7 +22,7 @@ function Water (props){
 
 
   async function waterHub() {
-    const fetcher = await window.fetch(`${address()}hubs/30`,{headers: {'accept-language': `${i18n.language}`}})
+    const fetcher = await window.fetch(`${address()}hubs/1102`,{headers: {'accept-language': `${i18n.language}`}})
     const response = await fetcher.json()
     setwater(response)
   }
@@ -30,7 +30,7 @@ function Water (props){
   async function waterSubHubs() {
     const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
     const response = await fetcher.json()
-    const filteredSubhubs = response.filter((subhub) => subhub.hubId === 30)
+    const filteredSubhubs = response.filter((subhub) => subhub.hubId === 1102)
     setSubhubs(filteredSubhubs)
     console.log(subhub)
   

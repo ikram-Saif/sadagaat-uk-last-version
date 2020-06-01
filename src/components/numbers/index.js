@@ -39,7 +39,7 @@ function Numbers(){
       fetchVolunteers()
     
      async function fetchDoneProjects() {
-      const fetcher = await window.fetch(`${address()}projects/finished`)
+      const fetcher = await window.fetch(`${address()}projects/notFinished`)
       const response = await fetcher.json()
       setDoneProjects(response)
     }

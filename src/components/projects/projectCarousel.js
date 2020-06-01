@@ -11,7 +11,7 @@ class ProjectSlider extends Component {
   constructor() {
     super();
     this.state = {
-      projects: [],
+      projects:[],
     };
   }
 
@@ -134,6 +134,7 @@ class ProjectSlider extends Component {
                         style={{
                           width: "15%",
                           left: "25px",
+                          right: "25px",
                           top: "8px",
                           position: "absolute",
                           rotation: 1 / 2 + 1 / 8,

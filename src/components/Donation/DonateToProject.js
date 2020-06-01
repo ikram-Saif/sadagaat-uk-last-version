@@ -29,7 +29,7 @@ class DonateToProject extends Component {
  async componentDidMount (){
 
     let id = this.props.match.params.project_id
-    console.log(this.props.match.params.project_id) 
+    // console.log(this.props.match.params.project_id) 
 
     this.setState({project_id:id})
  
