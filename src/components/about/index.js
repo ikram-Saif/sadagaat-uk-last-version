@@ -25,8 +25,6 @@ return(
                       className="img-responsive"
                       src="./images/about 275 330.jpg"
                       alt=""
-                      //  width="275"
-                      // height="330"
                       style= {{width:'275px', height:'330px'}}
                     />
                   </div>
@@ -37,8 +35,6 @@ return(
                       className="img-responsive"
                       src="./images/about 325-177.jpg"
                       alt=""
-                      //  width="250"
-                      // height="156"
                       style= {{width:'250px', height:'156px'}}
 
                     />
@@ -48,8 +44,6 @@ return(
                       className="img-responsive"
                       src="./images/x.jpg"
                       alt=""
-                      //  width="250"
-                      // height="156"
                       style= {{width:'250px', height:'156px'}}
 
                     />
@@ -64,9 +58,6 @@ return(
                   <span className="text-theme-colored">{t("Sadagaat")}</span>
                 </h2>
                 <p>{t("about_message_1")}</p>
-                {/* <p>{t("about_message_2")}</p>
-                <p>{t("about_message_1")}</p>
-                <p>{t("about_message_2")}</p> */}
 
                 <Link
                   to="/about"

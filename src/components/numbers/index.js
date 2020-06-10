@@ -11,6 +11,7 @@ function Numbers(){
   const [dooners, setDooners] = useState([])
   const [volunteer, setVolunteer] = useState([])
   const [doneProjects, setDoneProjects] = useState([])
+  const [planedProjects, setPlanedProjects] = useState([])
   const {t} = useTranslation()
 
   useEffect(() => {
@@ -39,11 +40,18 @@ function Numbers(){
       fetchVolunteers()
     
      async function fetchDoneProjects() {
-      const fetcher = await window.fetch(`${address()}projects/notFinished`)
+      const fetcher = await window.fetch(`${address()}projects/finished`)
       const response = await fetcher.json()
       setDoneProjects(response)
     }
     fetchDoneProjects()
+
+    async function fetchPlanedProjects() {
+      const fetcher = await window.fetch(`${address()}projects/plan`)
+      const response = await fetcher.json()
+      setPlanedProjects(response)
+    }
+    fetchPlanedProjects()
    }, [i18n.language])
 
 
@@ -56,12 +64,12 @@ function Numbers(){
     // style = {{display:'flex'}}
     >
 
-    <Link to = '/finished-project'>
+    <Link to = '/complete-projects'>
       <div className="col-xs-12 col-sm-6 col-md-2 mb-md-50">
         <div className="funfact text-center">
           <i className="pe-7s-rocket mt-5 text-white" />
           <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={doneProjects} duration={5}/></h2>
-          <h5 className="text-white text-uppercase font-weight-600">{t('Finished Projects')}</h5>
+          <h5 className="text-white text-uppercase font-weight-600">{t('Completed Projects')}</h5>
         </div>
       </div>
       </Link>
@@ -71,7 +79,7 @@ function Numbers(){
           <div className="funfact text-center">
             <i className="pe-7s-rocket mt-5 text-white" />
             <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={notDoneProjects} duration={5}/></h2>
-            <h5 className="text-white text-uppercase font-weight-600">{t('Not Finished Projects')}</h5>
+            <h5 className="text-white text-uppercase font-weight-600">{t('Ongoing Projects')}</h5>
           </div>
         </div>
       </Link>
@@ -80,7 +88,7 @@ function Numbers(){
       <div className="col-xs-12 col-sm-6 col-md-2 mb-md-50">
         <div className="funfact text-center">
           <i className="pe-7s-rocket mt-5 text-white" />
-          <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={doneProjects} duration={5}/></h2>
+          <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={planedProjects} duration={5}/></h2>
           <h5 className="text-white text-uppercase font-weight-600">{t('Planned Projects')}</h5>
         </div>
       </div>
@@ -93,7 +101,7 @@ function Numbers(){
         <div className="funfact text-center">
           <i className="pe-7s-rocket mt-5 text-white" />
           <h2 className="text-white font-42 font-weight-500 mt-0 mb-0"><CountUp end={dooners} duration={5}/></h2>
-          <h5 className="text-white text-uppercase font-weight-600">{t('Dooners')}</h5>
+          <h5 className="text-white text-uppercase font-weight-600">{t('Donors')}</h5>
         </div>
       </div>
       </Link>

@@ -88,13 +88,13 @@ function Projects() {
                       <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
                         <li className="pull-left font-weight-400 text-black-333 pr-0">
                           <span className="text-theme-colored font-weight-700">
-                            {t(project.raised)} SDG
+                            {t(project.raised)}
                           </span>
                         </li>
                         <li className="pull-right font-weight-400 text-black-333 pr-0">
                           {" "}
                           <span className="text-theme-colored font-weight-700">
-                            {t(project.goal)} SDG
+                            {t(project.goal)}
                           </span>
                         </li>
                       </ul>

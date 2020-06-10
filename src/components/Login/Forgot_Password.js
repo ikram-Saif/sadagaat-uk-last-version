@@ -49,7 +49,8 @@ class ForgotPassword extends Component{
                 this.setState({ loading: false,
                                 message: 'email not found',
                                 iconClass:'fa fa-times-circle',
-                                styleClass:'error-msg' 
+                                styleClass:'error-msg',
+                                loginLink:'Login' 
                               })
               }, 2000)
                  

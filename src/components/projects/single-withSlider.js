@@ -8,19 +8,23 @@ import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import {Link} from 'react-router-dom'
 import work from "../images/work.jpg";
+import {getNumberWithComma} from '../events/getMonthName'
+
 
 
 class SinglProject2 extends Component {
- 
+
   constructor() {
     super();
     this.state = {
       project: [],
+      render: false 
     };
   }
 
   async componentDidMount (){
-    let id = this.props.match.params.project_id;
+    
+               let id = this.props.match.params.project_id;
 
     try {
       const { data: project } = await axios.get(`${address()}projects/${id}`, {
@@ -30,6 +34,8 @@ class SinglProject2 extends Component {
     } catch (error) {
       console.log("can not load project for the home page slider");
     }
+               setTimeout(function() { 
+    this.setState({render: true}) }.bind(this), 10)
   }
   async componentWillReceiveProps(){
     let id = this.props.match.params.project_id;
@@ -46,12 +52,13 @@ class SinglProject2 extends Component {
   }
 
   render() {
-    const { t } = this.props;
-    const { project } = this.state;
+        let renderContainer = false
+        if(this.state.render) {
+                const { t } = this.props;
+                const { project } = this.state;
     // console.log(project)
-    const dProgress = project.donationProgress
-    console.log(dProgress)
-    return (
+
+      renderContainer = 
       <div className="container">
         <div className="row">
           <div className = 'section-content'>
@@ -60,7 +67,7 @@ class SinglProject2 extends Component {
 
               </h2>
 
-              <div className="border-bottom mt-5 mb-0 pt-10 pb-15">
+              <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
                 <div className="row">
                    
                       <div className="causes">
@@ -133,7 +140,7 @@ class SinglProject2 extends Component {
                             
 
                           </div>
-                          <div class="col-md-6">
+                          <div class="causes-details col-md-6">
                                 
                                 <h2 class="line-bottom mt-0">{project.name}</h2>
                                 <h5 class="font-weight-600 text-gray-dimgray">
@@ -148,10 +155,7 @@ class SinglProject2 extends Component {
                                       <div className="progress mb-0">
                                         <div
                                         className="progress-bar"
-                                          data-percent={project.donationProgress}
-                                          
-                                          
-                                        >
+                                          data-percent={project.donationProgress}>
                                           <span className="percent">
                                           {project.donationProgress}
                                           </span>
@@ -160,11 +164,22 @@ class SinglProject2 extends Component {
                                     </div>
                                 <div class="mt-10 mb-20">
                                   <ul class="list-inline clearfix mt-10">
-                                    <li class="pull-left flip pr-0"> {t("Raised")} <span class="font-weight-700 font-">{project.raised} SDG</span></li>
-                                    <li class="text-theme-colored pull-right flip pr-0">{t("Goal")} <span class="font-weight-700">{project.goal} SDG</span></li>
+                                    <li class="pull-left flip pr-0"> {t("Chartiy Campaign")} <span class="font-weight-700 font-">
+                                      { getNumberWithComma(project.raised)}</span></li>
+                                    <li class="text-theme-colored pull-right flip pr-0">{t("Goal")}
+                                     <span class="font-weight-700">
+                                       { getNumberWithComma(project.goal)}
+                                       </span>
+                                    </li>
                                   </ul>
                                 </div>
-                                <Link to= {'/projects/'+project.id} class="btn btn-theme-colored btn-sm">{t('Donate Now')}</Link>
+                                <Link to= {'/projects/'+project.id} 
+                                class="btn btn-theme-colored btn-sm"
+                                style = {{display:`
+                                ${project.status ==='completed'|| project.donationProgress === '100'?'none':''}`
+                              }}>
+                                  {t('Donate Now')}
+                                </Link>
                               </div>
            
                         </div>
@@ -182,7 +197,11 @@ class SinglProject2 extends Component {
         
         </div>
       </div>
-    );
+                 
+                  }
+                   return (
+      renderContainer 
+    )
   }
 }
 export default withTranslation()(SinglProject2);

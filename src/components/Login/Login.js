@@ -14,10 +14,10 @@ class Login extends Component{
     this.state = {
                   email: "",
                   password: "",
-                  loading:false
+                  loading:false,
+                  success_reset:''
                   
                 }                 
-
             }
    
    
@@ -66,11 +66,12 @@ class Login extends Component{
   
  
    render(){
-   
     const {t} = this.props 
     const folat = i18n.dir()==='rtl'?'right':'left'
     const loading  = this.state.loading
-
+    const message = this.props.location.state
+    console.log(message)
+  
     return(
 
         <div id="wrapper" className="clearfix">
@@ -146,13 +147,7 @@ class Login extends Component{
                                 </div>
 
                               </div>
-                              <div className="clear pull-right text-center pt-10">
-                                <Link 
-                                  className="text-theme-colored font-weight-600 font-12" 
-                                  to="/forgot_password">
-                                    {t('Forgot Your Password')}
-                                  </Link>
-                              </div>
+                              
                               <div className="form-group mt-10">
                                 <button type="submit" 
                                 className="btn btn-block text-white btn-theme-green btn-lg">
@@ -164,6 +159,13 @@ class Login extends Component{
                                         )}
                                   {t('Login')}
                                   </button>
+                              </div>
+                              <div className={`form-group clear pull-${folat} text-center p-5`}>
+                                <Link 
+                                  className="text-theme-colored font-weight-600 font-12" 
+                                  to="/forgot_password">
+                                    {t('Forgot Your Password')}
+                                  </Link>
                               </div>
                             
                             </form>

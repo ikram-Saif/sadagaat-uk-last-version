@@ -7,6 +7,8 @@ import {Link } from 'react-router-dom'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import Pagination from '../pagination'
+import {getNumber} from '../events/getMonthName'
+
 
 
 
@@ -85,9 +87,17 @@ return(
   
 </div>
 <div className="causes-details clearfix p-15 pt-15 pb-15">
-    <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
-      <li className="pull-left font-weight-400 text-black-333 pr-0"><span className="text-theme-colored font-weight-700">{t('Raised')}{project.raised} SDG</span></li>
-      <li className="pull-right font-weight-400 text-black-333 pr-0"><span className="text-theme-colored font-weight-700">{t('Goal')}{project.goal} SDG</span></li>
+    <ul className="list-inline font-16 font-weight-600 clearfix mb-5">
+      <li className="pull-left font-weight-400 text-black-333 pr-0">
+        <span className="text-theme-colored font-weight-700">{t('Raised')}
+        { getNumber(project.raised)}
+        </span>
+        </li>
+      <li className="pull-right font-weight-400 text-black-333 pr-0">
+        <span className="text-theme-colored font-weight-700">{t('Goal')}
+        { getNumber(project.goal)}
+        </span>
+        </li>
     </ul>
       <h4 className="text-uppercase">{project.name}</h4>
     <div className="progress-item mt-0">
@@ -95,9 +105,15 @@ return(
         <div data-percent={project.donationProgress} className="progress-bar"><span className="percent"></span></div>
       </div>
     </div>
-    <p className="mt-20">{project.description}</p>
+    <p className="mt-20 project-discription">{project.description}</p>
 
-    <Link to={'/projects/'+project.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
+    <Link to={'/projects/'+project.id} 
+      className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
+      style = {{display:`
+      ${project.status ==='completed'|| project.donationProgress === '100'?'none':''}`
+    }}
+    >
+      {t('Donate')}</Link>
   </div>
   
 </div>

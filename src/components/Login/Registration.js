@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import { login , register} from '../../repository';
+import{Redirect} from 'react-router-dom'
 import i18n from 'i18next'
 import { withTranslation } from 'react-i18next'
 import {Link} from 'react-router-dom'
@@ -87,22 +88,30 @@ class Registration extends Component{
        let errorconfirm = this.state.response.errorPassword
        if (!errorconfirm){
 
-       register(this.state.form)
-       
-       .then(token => 
-         this.setState({
-           response:{
-             ...this.state.response,
-             success : 1,
-           //sccessfullRegistration:'Registerd Successfully. Please   ',
-           message:'Registerd Successfully Please',
-           styleClass:'success-msg',
-           iconClass:'fa fa-check fa-2x',
-           loginLink:'Login'
-           }
-         })
-         
-         )
+          register(this.state.form)
+          
+          .then(token => {
+            this.setState({
+              response:{
+                ...this.state.response,
+                success : 1,
+              //sccessfullRegistration:'Registerd Successfully. Please   ',
+              message:'Registerd Successfully Please',
+              styleClass:'success-msg',
+              iconClass:'fa fa-check fa-2x',
+              loginLink:'Login'
+              }
+            })
+            //window.location = '/login'
+            // <Redirect 
+            // to = {{
+            //   pathname: "/login",
+            //   state:{success_register: "register successfully" }
+            //     }}  />
+     
+
+          }
+          )
 
 
         // .then(token => 
@@ -133,7 +142,8 @@ class Registration extends Component{
            })
           }
         )
-        document.getElementById('reg-form1').reset() 
+        document.getElementById('reg-form1').reset()
+
 
                      
         }else{
@@ -330,7 +340,7 @@ class Registration extends Component{
                                         minlength="8"                                     
                                         data-match="#inputPassword" 
                                         data-match-error={t('Not Matching')} 
-                                        placeholder={t("Confirm")}
+                                        // placeholder={t("Confirm")}
                                          required
                                          onChange = {this.handleConfirmPassword}
                                    />

@@ -197,7 +197,7 @@ font-weight: 500;
 
 .dropdown-menu>li>a:hover {
 background-color: #FFF;
-color: #00a74f;
+/* color: #00a74f; */
 }
 
 .menuzord-menu > li > a {
@@ -264,4 +264,10 @@ font-family: 'sadagaat';
 .slider-img{
   background-size: cover;
   background-repeat: no-repeat;
+}
+.project-discription{
+  white-space: wrap;
+  height:3em;
+  overflow: hidden;
+  text-overflow: ellipsis
 }

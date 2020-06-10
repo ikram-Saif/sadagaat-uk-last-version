@@ -140,7 +140,7 @@ function App() {
 
         <Route
           exact
-          path="/finished-project"
+          path="/complete-projects"
           component={FinishedProjects}
         />
     

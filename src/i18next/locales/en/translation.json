@@ -153,9 +153,10 @@
   "Latest": "Latest",
   "Photo": "Photo",
   "Gallery": "Gallery",
-  "Raised": "Raised:",
-  "Goal": "Goal:",
-  "Finished Projects": "Finished Projects",
+  "Raised": "Campaign:",
+  "Charity Campaign":"Chartiy Campaign",
+  "Goal": "Target:",
+  "Completed Projects": "Completed Projects",
   "Let's have a": "Let's have a",
   "video": "video",
   "Tour": "Tour",
@@ -169,7 +170,7 @@
   "Proccess Failed": "Proccess Failed",
   "Network Error": "Network Error",
   "Not Finished Projects": "Not Finished Projects",
-  "Dooners": "Dooners",
+  "Donors": "Donors",
   "Volunteer": "Volunteer",
   "We provides always our best industrial solution for our clientsand always try to": "We provides always our best industrial solution for our clientsand always try to",
   "achieve our client  trust and satisfaction": "achieve our client  trust and satisfaction",
@@ -216,6 +217,7 @@
   "password reset successfully":"Password reset successfully",
   "Ammarat 27 st , Khartoum Sudan":"Ammarat 27 st , Khartoum Sudan",
   "Website":"Website",
-  "Donate Now":"Donate Now"
+  "Donate Now":"Donate Now",
+  "Total Donation":"Total Donation"
 
 }

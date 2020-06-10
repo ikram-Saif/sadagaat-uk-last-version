@@ -6,6 +6,8 @@ import 'react-circular-progressbar/dist/styles.css';
 import {Link } from 'react-router-dom'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
+import {getNumberWithComma, getNumber} from '../events/getMonthName'
+
 
 
 
@@ -60,14 +62,14 @@ return(
     {currentPosts.length > 0 ? data.map(project => (        
 
 
-<div className="col-md-4" key ={project.id}>
+<div className="col-md-4" key ={project.id} >
 <Link to={'/single-projects/'+project.id}>
     <div className="causes bg-white mb-30">
       <div className="thumb">
       <img src={project.imageUrl}  className="img-fullwidth"  width = '390' height = '260'/>
       </div>
   
-  <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+  <div style={{maxWidth: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
   <CircularProgressbar
     value={project.projectProgress}
@@ -89,19 +91,35 @@ return(
   
 </div>
 <div className="causes-details clearfix p-15 pt-15 pb-15">
-    <ul className="list-inline font-18 font-weight-600 clearfix mb-5">
-      <li className="pull-left font-weight-400 text-black-333 pr-0"><span className="text-theme-colored font-weight-700">{t('Raised')}{project.raised} SDG</span></li>
-      <li className="pull-right font-weight-400 text-black-333 pr-0"><span className="text-theme-colored font-weight-700">{t('Goal')}{project.goal} SDG</span></li>
+    <ul className="list-inline font-16 font-weight-600 clearfix mb-5">
+      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')}
+      <span className="text-theme-colored font-weight-700">
+        { getNumber(project.raised)}
+      </span>
+      </li>
+      <li className="pull-right font-weight-400 text-black-333 pr-0">
+        {t('Goal')}
+        <span className="text-theme-colored font-weight-700">
+          { getNumber(project.goal)}
+        </span>
+      </li>
     </ul>
-      <h4 className="text-uppercase">{project.name}</h4>
-    <div className="progress-item mt-0">
+     <div className="progress-item mt-0">
       <div className="progress mb-0">
         <div data-percent={project.donationProgress} className="progress-bar"><span className="percent"></span></div>
       </div>
     </div>
-    <p className="mt-20">{project.description}</p>
+      <h4 className="text-uppercase">{project.name}</h4>
+   
+    <p className="mt-20 project-discription">{project.description}</p>
 
-    <Link to={'/projects/'+project.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
+    <Link to={'/projects/'+project.id} 
+      className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
+      style = {{display:`
+      ${project.status ==='completed'|| project.donationProgress === '100'?'none':''}`
+    }}
+    >
+      {t('Donate')}</Link>
   </div>
   
 </div>

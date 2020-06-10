@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Header from '../sub_page_header';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import {resetPassword} from '../../repository'
 import  {withTranslation}  from 'react-i18next'
 
@@ -20,7 +20,8 @@ class ResetPassword extends Component{
                   styleClass:'',
                   iconClass:'',
                   loginLink:'',
-                  errorPassword:false
+                  errorPassword:false,
+                  success:false
                 }
     
 }
@@ -71,16 +72,26 @@ async componentDidMount (){
     resetPassword(this.state)
     .then(token =>{
         this.setState({
+          success : true,
           message:'password reset successfully',
           styleClass:'success-msg',
           iconClass:'fa fa-check fa-2x',
           loginLink:'Login',
           loading: true
           })
+          
           setTimeout(() => {
             this.setState({ loading: false });
           }, 2000)
-        }
+
+          // <Redirect 
+          //   to = {{
+          //     pathname: "/login",
+          //     state:{ssuccess_reset: "password reset successfully" }
+          //       }}  />
+     
+
+    }
     )
     .catch(err => 
           {
@@ -103,6 +114,7 @@ async componentDidMount (){
   
     }
   
+    document.getElementById('reset-form').reset()
 
      
 
@@ -136,7 +148,7 @@ async componentDidMount (){
                               
                                     <i className = {this.state.iconClass} style = {{margin:'5px'}}/>
                                     {t(this.state.message)}
-                                    
+                                    {this.state.success && <a href = '/login'>{t(this.state.loginLink)}</a>}
                                     </div>
 
                             <form  
@@ -179,7 +191,7 @@ async componentDidMount (){
                                         minlength="8"                                     
                                         data-match="#inputPassword" 
                                         data-match-error={t('Not Matching')} 
-                                        placeholder={t("Confirm")}
+                                        // placeholder={t("Confirm")}
                                          required
                                          onChange = {this.handleConfirmPassword}
                                    />

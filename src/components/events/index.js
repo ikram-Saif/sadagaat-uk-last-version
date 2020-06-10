@@ -10,7 +10,7 @@ import {getMonthName} from './getMonthName'
 function Event() {
   const [news, setNews] = useState([]);
   const [events, setEvent] = useState([]);
-  const didMountRef = useRef(true);
+  // const didMountRef = useRef(true);
   const style = i18n.dir() === "rtl" ? "pl-0" : "pr-0"
   const styleMr = i18n.dir() === "rtl" ? " ml-5" : " mr-5"
 

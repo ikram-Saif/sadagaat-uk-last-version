@@ -22,7 +22,7 @@ function Education (props){
 
 
   async function eduHub() {
-    const fetcher = await window.fetch(`${address()}hubs/36`,{headers: {'accept-language': `${i18n.language}`}})
+    const fetcher = await window.fetch(`${address()}hubs/1738`,{headers: {'accept-language': `${i18n.language}`}})
     const response = await fetcher.json()
     seteducation(response)
     console.log(response)
@@ -31,7 +31,7 @@ function Education (props){
        async function eduSubHubs() {
          const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
          const response = await fetcher.json()
-         const filteredSubhubs = response.filter((subhub) => subhub.hubId === 36)
+         const filteredSubhubs = response.filter((subhub) => subhub.hubId === 1738)
          setSubhubs(filteredSubhubs)
          console.log(response)
        }
@@ -55,41 +55,77 @@ function Education (props){
 return(
 <div>
 <Header name={t('Education')}/>
-{/* <section>
   <div className="container">
-    <div className="row mtli-row-clearfix">
-      <div className="col-sm-12 col-md-10 col-md-offset-1">
-        <div className="causes bg-white maxwidth500 mb-30">
+    <div className="row multi-row-clearfix">
+    <div className = 'section-content'>
+          <div className="col-xs-12 col-sm-6 col-md-12">
+              <h2 >
 
-          <div className="thumb">
-          {/* <img src={education.imageUrl}
-             alt className="img-fullwidth"
-             width = '945'
-             height = '630'
-              /> */}
-  {/* <div style={{width: "10%", left:"18px", top:"15px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+              </h2>
 
- 
-</div> */}
-          {/* </div>
-  
-     </div> */}
-        {/* <div className="event-details">
-          <p className="mb-20 mt-20">{education.description}</p>
-          <p />
-          <p />
-        </div> */}
-      {/* </div>
-    </div>
+              <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
+                <div className="row">
+                   
+                      <div className="causes">
+                        <div className="row-fluid">
+                          <div className="col-md-6">
+                      
+                            <div className ="post-thumb thumb" style = {{mxaHeight:"600px"}}>
+                            <img
+                              className= 'img-responsive'
+                              src={education.imageUrl}
+                              alt="education image"
+                               style= {{height:'400px',
+                              width:'500px'}}
+                              
+                            />
+                            </div>
+                       
+                             
+                            
+
+                          </div>
+                          <div class="causes-details col-md-6">
+                                
+                                <h2 class="line-bottom mt-0">{education.name}</h2>
+                                 
+
+                                  <p>{education.description}</p>
+                                  
+                                  <div class="mt-10 mb-20">
+                                  <ul class="list-inline clearfix mt-10">
+                                    <li class="text-theme-colored pull-left flip pr-0 font-weight-700 font-14"> {t("Total Donation")}:  <span> {education.total_donation} SDG</span></li>
+                                    <li class="text-theme-colored pull-right flip pr-0">
+                                      
+                                    </li>
+                                  </ul>
+                                </div>
+                                <Link to= {'/donate'} class="btn btn-theme-colored btn-sm">{t('Donate Now')}</Link>
+                              </div>
+           
+                        </div>
+                      </div>
+              
+                </div>
+           
+              </div>
+            </div>
+
+                 
+        
+            
+          </div>
+        
+      
+     
   </div>
-</section> */} 
+   <br />
+   
 
-    <section>
-      <div className="container">
       
         <div className="row multi-row-clearfix">
           <div className="blog-posts">
-          <h3 class="mt-0 line-bottom">{t('Education Sub Sectors')}</h3>
+          <h3 class="mt-10 line-bottom">{t('Education Sub Sectors')}</h3>
           <br/>
 
 
@@ -134,7 +170,7 @@ return(
 <Pagination postsPerPage={postsPerPage} totalPosts={subhub.length} paginate={paginate}/>
           </div>
      
-      </div></section></div>
+      </div></div>
 
 );
 
