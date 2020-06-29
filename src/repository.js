@@ -39,17 +39,6 @@ export function login(data)
 
         console.log(data)
         return axios.post(`${address()}users/member/signUp`,
-        /* {
-         
-            userName:data.userName,
-            password: data.password,
-            firstName:data.firstName,
-            lastName:data.lastName,
-            phoneNumber:data.phoneNumber,
-            gender:data.gender,
-            dateOfBirth:data.dateOfBirth   
-            
-        }*/
         data
         )
              
@@ -58,8 +47,6 @@ export function login(data)
         return response.data
         })
             .catch(err =>Promise.reject(err));
-            //.catch(localStorage.setItem('x-access-token', 'authintication fail'))*/
-
         }
         /**verfication code for  first registration  */
 

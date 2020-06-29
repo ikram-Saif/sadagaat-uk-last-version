@@ -42,8 +42,6 @@ import SinglNews from './components/news/single-news'
 import singleNews from "./components/news/single-news";
 
 
-
-
 function App() {
   const { i18n } = useTranslation();
   document.getElementById("direction").dir = i18n.dir();

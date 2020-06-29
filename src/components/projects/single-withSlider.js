@@ -24,7 +24,7 @@ class SinglProject2 extends Component {
 
   async componentDidMount (){
     
-               let id = this.props.match.params.project_id;
+     let id = this.props.match.params.project_id;
 
     try {
       const { data: project } = await axios.get(`${address()}projects/${id}`, {

@@ -17,3 +17,9 @@ export function getNumber(num) {
 //    console.log(number);
 return number
 }
+export function getCurrentDate() {
+
+    const date = new Date();
+    const now = date.toLocaleString('en-US');
+return now
+}

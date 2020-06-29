@@ -5,6 +5,7 @@ import axios from 'axios';
 import { render } from '@testing-library/react';
 import i18n from 'i18next'
 import  {withTranslation}  from 'react-i18next'
+import DonationTable from './DonationTable';
 
 
 
@@ -47,7 +48,7 @@ class DonateToSubhub extends Component {
           message:error.message
         })
     })
-  
+
 }
 async componentWillReceiveProps(){
 
@@ -90,37 +91,54 @@ async componentWillReceiveProps(){
 
           axios.post(`${address()}donate`,data)
 
-          .then(response =>{
-                  response.data.responseCode !== 1 ?
-                      this.setState(
-                        {
-                          message :"network erorr please try again later",
-                          iconClass:'fa fa-times-circle',
-                          styleClass:'error-msg',
-                           amount:''
-                        }) :
-                        
-                        window.location = response.data.paymentUrl
-                        this.setState({loading:true})
-                        setTimeout(() => {
-                         this.setState({ loading: false });
-                       }, 2000)
-         
-                /** syber bay payment feedback */
+          /** syber bay payment feedback */
 
+          .then(response =>{
+
+            if (response.data.responseCode === 1)
+            {
+                window.location = response.data.paymentUrl
+
+                this.setState({loading:true})
+                setTimeout(() => {
+                  this.setState({ loading: false });
+                }, 2000)
+
+            } else if(response.data.responseCode === 2)
+            {
+              this.setState({
+
+                  message :"Please Enter Valid Amount",
+                  iconClass:'fa fa-times-circle',
+                  styleClass:'error-msg',
+                  donateTo:'Sadagaat', 
+                  amount:'',
+                })
+              } else
+              {
+                this.setState(
+                  {
+                    message :"something went wrong try again later",
+                    iconClass:'fa fa-times-circle',
+                    styleClass:'error-msg',
+                    donateTo:'Sadagaat', 
+                    amount:'',
+                  })
+
+              }
+            
               }) .catch(error => {
                 this.setState({
-                      
-                        loading:true
-                  })
+                            loading:true 
+                          })
                   setTimeout(() => {
-                    this.setState({ loading: false,
-                      message:error.message,
-                        iconClass:'fa fa-times-circle',
-                        styleClass:'error-msg' });
-                  }, 2000)
-                  
-                })
+                        this.setState({ loading: false,
+                                        message:error.message,
+                                        iconClass:'fa fa-times-circle',
+                                        styleClass:'error-msg'
+                                      });
+                      }, 2000)
+                  })
    
   }
 
@@ -182,6 +200,10 @@ async componentWillReceiveProps(){
                               type="number" 
                               onChange ={this.handleChange}
                               min="1"
+                              onInvalid = {function(e) {
+                                e.target.setCustomValidity(t('Enter a valid amount'))}}
+                              onInput={function(e) {
+                                   e.target.setCustomValidity(t(''))}}
                               required
                             />
                             
@@ -224,48 +246,7 @@ async componentWillReceiveProps(){
                     </div>
                 </form>     
               </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-7">
-                <h3 class="mt-0 line-bottom">{t('Donate Through Banks')}</h3>
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>{t('Bank')}</th>
-                        <th>{t('Branch')}</th>
-                        <th>{t('Account No')}</th>
-                        <th>{t('Account Name')}</th>
-                      </tr>
-                    </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">{t('Khartoum')}</th>
-                            <td>{t('Riadh')}</td>
-                            <td>1228765</td>
-                            <td>{t('Sadagaat')}</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Khartoum</th>
-                            <td>Riadh</td>
-                            <td>1228765</td>
-                            <td>Sadagaat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Khartoum</th>
-                            <td>Riadh</td>
-                            <td>1228765</td>
-                            <td>Sadagaat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Khartoum</th>
-                            <td>Riadh</td>
-                            <td>1228765</td>
-                            <td>Sadagaat</td>
-                          </tr>
-                        </tbody>
-                  </table>
-              </div>
-            </div>
+                  <DonationTable />
             </div>
           </div>
         </div>

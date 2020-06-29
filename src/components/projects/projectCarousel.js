@@ -122,12 +122,14 @@ class ProjectSlider extends Component {
                 {projects.map((project) => (
                   <div className="item ml-5" key={project.id} >
 
-                      <div className="causes bg-white mb-30">
+                      <div className="causes bg-white mb-30" key={project.id}>
                       <Link to={'/single-projects/'+project.id}>
-                        <div className="thumb">
+                        <div className="thumb" 
+                        // style = {{MaxHeight:'320px'}}
+                        >
                             <img
                               src={project.imageUrl}
-                              alt="alt"
+                              // alt="project picture"
                               className="img-fullwidth"
                               width="240"
                               height="320"

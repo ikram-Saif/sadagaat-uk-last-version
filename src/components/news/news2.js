@@ -37,7 +37,6 @@ function News() {
     <div>
       <Header name={t("News")} />
 
-      <section>
         <div className="container mt-30 mb-30 pt-30 pb-30">
           {currentPosts.map((news) => (
             <div class="row mb-15">
@@ -86,7 +85,6 @@ function News() {
             paginate={paginate}
           />
         </div>
-      </section>
     </div>
   );
 }
