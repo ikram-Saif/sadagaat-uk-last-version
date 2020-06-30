@@ -24,9 +24,7 @@ function News() {
     });
     const response = await fetcher.json();
     setData(response);
-    // console.log(response);
   }
-
 
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;

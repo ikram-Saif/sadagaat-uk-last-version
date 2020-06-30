@@ -9,6 +9,7 @@ import "@brainhubeu/react-carousel/lib/style.css";
 import {Link} from 'react-router-dom'
 import work from "../images/work.jpg";
 import {getNumberWithComma} from '../events/getMonthName'
+import parse from 'html-react-parser';
 
 
 
@@ -26,6 +27,7 @@ class SinglProject2 extends Component {
     
      let id = this.props.match.params.project_id;
 
+
     try {
       const { data: project } = await axios.get(`${address()}projects/${id}`, {
         headers: { "accept-language": `${i18n.language}` },
@@ -37,6 +39,8 @@ class SinglProject2 extends Component {
                setTimeout(function() { 
     this.setState({render: true}) }.bind(this), 10)
   }
+
+
   async componentWillReceiveProps(){
     let id = this.props.match.params.project_id;
 
@@ -52,11 +56,16 @@ class SinglProject2 extends Component {
   }
 
   render() {
+
         let renderContainer = false
         if(this.state.render) {
                 const { t } = this.props;
                 const { project } = this.state;
-    // console.log(project)
+                //const parse = require('html-react-parser');
+                var parse = require('html-react-parser');
+                
+
+
 
       renderContainer = 
       <div className="container">
@@ -148,9 +157,9 @@ class SinglProject2 extends Component {
                                   <i className= "fa fa-map-marker m-5"></i>
 
                                   <span className = "">{project.locationName}</span></h5>
-
-                                  {/* <span classNam = "font-weight-600 text-gray-dimgray">Khartoum</span> */}
-                                  <p>{project.description}</p>
+                                    <div>
+                                   {parse(project.description)}
+                                   </div>
                                   <div className="progress-item mt-0">
                                       <div className="progress mb-0">
                                         <div

@@ -8,9 +8,7 @@ import {address} from './components/utils/address'
 
 //const BASE_URL =  'https://reqres.in/api/login'
 const tokenKey = 'x-access-token';
-const new_user_email ='new_user_email';
-const user_id = 'user_id'
-const id = localStorage.getItem(user_id)
+const user_email ='user_email';
 
 export function login(data) 
 
@@ -21,8 +19,8 @@ export function login(data)
 
           })
     .then(response => {
-            localStorage.setItem(tokenKey, data.email);
-            localStorage.setItem(user_id,response.data.id)
+            localStorage.setItem(tokenKey, response.data.token);
+            localStorage.setItem(user_email,response.data.email)
             //localStorage.setItem(tokenKey, Date.now() + 2 * 60 * 60 * 1000);
             return response.data
          
@@ -53,8 +51,6 @@ export function login(data)
         export function email_verify(data) 
 
         {
-          const email = localStorage.getItem(new_user_email)
-           // alert(data.code + email)
 
              return axios.post(`${address()}user/verifyUser`, {
                  //userName: email,
@@ -128,16 +124,21 @@ export function login(data)
  
 
         }
-        export function submit_volunteer_data(data) {
-            console.log(data)
-    
-            return axios.post(`${address()}members`, data)
+        export function submit_volunteer_data(data) 
+        {
+            let token = localStorage.getItem(tokenKey)
+            console.log(token)
+            return axios.post(`${address()}members`, data,{ 
+                headers:{ 
+                            "Authorization":`Bearer ${token}`
+                        }})
                  
             .then(response => {
             
             return response.data
             })
                 .catch(err =>Promise.reject(err));
+
         }
 
 

@@ -102,15 +102,15 @@ class VolunteerForm extends Component{
         submit_volunteer_data(this.state.form)
 
         .then(response => {
-
+                this.clearState()
             this.setState({
                 response:{
                     ...this.state.response ,
-                message:'Your Form Submitted  Successfully Thanks for volunteering',
+                message:'Your Form Submitted Successfully',
                 styleClass:'success-msg'
             }
             })
-            this.clearState()
+           
         })
       
         .catch(err => {
@@ -123,10 +123,6 @@ class VolunteerForm extends Component{
                 }
         })
     })
-                    
-      
-           //document.getElementById('reg-form').reset()
-           //document.getElementsByTagName("input").value = '';
                      scroll.scrollTo(70);
     }
        
@@ -153,8 +149,6 @@ return(
                                             id="reg-form" 
                                             name = 'volunteer-form'
                                             className="register-form" 
-                                            //data-toggle="validator"
-                                            // role="form"
                                             onSubmit ={this.handleSubmit}
                                          >           
                                         <div className="icon-box mb-0 p-0">

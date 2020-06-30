@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next'
 
 function Auth_user_menu()
 {
-  const userName = localStorage.getItem('x-access-token')
+  const userName = localStorage.getItem('user_email')
   const {t} = useTranslation()
   const menuStyle = i18n.dir() === 'rtl'?'pull-left':'pull-right'
 

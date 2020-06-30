@@ -7,6 +7,8 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {getNumberWithComma, getNumber} from '../events/getMonthName'
+import parse from 'html-react-parser';
+
 
 
 class ProjectSlider extends Component {
@@ -51,7 +53,8 @@ class ProjectSlider extends Component {
   render() {
     const { t } = this.props;
     const { projects } = this.state;
-    console.log(projects)
+    const parse = require('html-react-parser');
+
     return (
       <React.Fragment>
         <section id="causes" className="bg-silver-light">
@@ -192,7 +195,7 @@ class ProjectSlider extends Component {
                               data-percent={project.donationProgress}
                               className="progress-bar"
                             >
-                              <span className="percent">
+                              <span className="percent" maxSizs = '2'>
                                 {project.donationProgress}
                               </span>
                             </div>
@@ -203,7 +206,7 @@ class ProjectSlider extends Component {
                         </h4>
                         
                         <p className="mt-20 project-discription">
-                          {project.description}</p>
+                          {parse(project.description)}</p>
 
                         
                         <Link
