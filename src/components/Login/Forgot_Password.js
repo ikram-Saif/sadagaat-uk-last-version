@@ -111,14 +111,12 @@ class ForgotPassword extends Component{
                                     id="inputEmail" 
                                     name="email" 
                                     className="form-control"
-                                     type="email"
+                                     type="text"
                                      data-error={t("this email address is invalid")}
                                       onChange = {this.handleChange} 
                                       required = 'true'
-                                      onvalid="this.setCustomValidity('')"
-                                      oninvalid="this.setCustomValidity('Enter User Name Here')"
-                                      
-                                      data-errormessage-value-missing="Please input something"
+                                      pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
+                                      title = {t("that email address is invalid")} 
                                       />
 
                                     <div class="help-block with-errors"></div>

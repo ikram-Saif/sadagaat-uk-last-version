@@ -4,6 +4,9 @@ import Axios from 'axios';
 import { get_volunteer_profile , submit_volunteer_data} from '../../repository'
 import {animateScroll as scroll } from "react-scroll";
 import  {withTranslation}  from 'react-i18next'
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 class VolunteerForm extends Component{ 
@@ -41,7 +44,8 @@ class VolunteerForm extends Component{
                 message:'',
                 styleClass:''
                 
-            }
+            },
+            dob: moment()
           
             /*there is some quistion not found in bakend and mobile app  */
          
@@ -78,23 +82,7 @@ class VolunteerForm extends Component{
             })
 
         } 
-       
- /**componentDidMount (){
 
-            get_volunteer_profile()
-            .then(response =>{
-                    this.setState({
-                    response
-
-                });
-            })
-            .catch(err =>alert(err));
-        
-    }*/
-    // clearForm =()=>{
-    //     document.getElementById('reg-form').reset()
- 
-    // }
 
        handleChange = (e)=> {
         this.setState({
@@ -114,36 +102,27 @@ class VolunteerForm extends Component{
         submit_volunteer_data(this.state.form)
 
         .then(response => {
-
+                this.clearState()
             this.setState({
                 response:{
                     ...this.state.response ,
-                message:'Your Form Submitted  Successfully Thanks for volunteering',
+                message:'Your Form Submitted Successfully',
                 styleClass:'success-msg'
             }
             })
            
-         
-            //alert(this.state.message)
-           
-                
-           
         })
       
         .catch(err => {
+            const message = err.message ==='Network Error'?err.message : "something went wrong try again later"
             this.setState({
                 response:{
                     ...this.state.response ,
-                        message:err.message,
+                        message:message,
                         styleClass:'error-msg'
                 }
         })
     })
-                    
-      
-           //document.getElementById('reg-form').reset()
-           //document.getElementsByTagName("input").value = '';
-                  this.clearState()
                      scroll.scrollTo(70);
     }
        
@@ -170,8 +149,6 @@ return(
                                             id="reg-form" 
                                             name = 'volunteer-form'
                                             className="register-form" 
-                                            //data-toggle="validator"
-                                            role="form"
                                             onSubmit ={this.handleSubmit}
                                          >           
                                         <div className="icon-box mb-0 p-0">
@@ -179,40 +156,41 @@ return(
                                                 {t('Fill Your Volunteering Form')}
                                             </h4>
                                         </div>
-                                        <hr />
                                        
                                         <div className={`${this.state.response.styleClass} bold`} role="alert">
                                                <p> {t(this.state.response.message)} </p>
                                         </div>
                                         
-                                        <p className="text-gray"><br/></p>
+                                        <p className="text-gray"></p>
 
                                         <div className ="row">
-                                            <div className="form-group col-md-12">
-                                                <label>{t('name')}</label>
+                                            <div className="form-group required col-md-12 ">
+                                                <label className = "control-label">{t('name')}</label>
 
                                                 <input 
                                                     name="name" 
                                                     className="form-control" 
                                                     type="text"
                                                     onChange ={this.handleChange}
-                                                    pattern = '^[^\s].+[^\s]$'
+                                                    pattern = '^([A-Za-z\u0621-\u064A]+)\s([A-Za-z\u0621-\u064A]+)(\s[A-Za-z\u0621-\u064A]+)?(\s[A-Za-z\u0621-\u064A]+)?([A-Za-z\u0621-\u064A\s]+)?$'
+                                                    title = {t('Please enter your fullName')}
                                                     value  = {this.state.form.name}
-                                                    required
+                                                    required="required"
                                                 />
                                             </div>
                                         </div>
 
                                         <div className="row">
-                                            <div className="form-group col-md-5">
+                                            <div className="form-group required col-md-5">
 
-                                                <label for="" className="float-left">{t('Gender')}</label>
+                                                <label for="" className="control-label float-left">{t('Gender')}</label>
 
                                                 <select 
                                                     name="gender"
                                                     className ="form-control float-right" 
                                                     onChange ={this.handleChange}
                                                     value= {this.state.form.gender}
+                                                    required = "required"
                                                 
                                                 >
                                                     <option name ='gender'>{t("FEMALE")}</option>
@@ -221,8 +199,8 @@ return(
                                             </div>
                                             
 
-                                            <div className="form-group col-md-7">
-                                                <label>{t('Age Range')}</label>
+                                            <div className="form-group required col-md-7">
+                                                <label className = "control-label">{t('Age Range')}</label>
 
                                                 <div className="form-check- form-inline">
                                                     <div className="radio-inline ">
@@ -297,23 +275,26 @@ return(
                                             </div>
                                       
                                         <div className="row">
-                                            <div className="form-group col-md-6">
-                                                <label for="">{t('Phone')}.</label>
+                                            <div className="form-group required col-md-6">
+                                                <label for="" className = "control-label">{t('Phone')}.</label>
+                                                    <small className = "font-12 text-gray">   </small>
 
                                                 <input 
                                                    
                                                     name="phoneNumber"
                                                     className="form-control"
-                                                    type="tele"
+                                                    type="tel"
                                                     onChange ={this.handleChange}
-                                                    pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
+                                                    pattern="^(0[0-9]{9})|(00[0-9]{12})$"
+                                                    title = {t('Enter a valid phone number with 10 number or 14')}
                                                     value = {this.state.form.phoneNumber}
-                                                    required
+                                                    required="required"
                                                  />
-                                                 <div className="help-block with-errors"></div>
                                             </div>
-                                            <div className="form-group col-md-6">
+                                            <div className="form-group required col-md-6">
                                                 <label>{t('Additional Phone')}</label>
+                                                <small className = "font-12 text-gray">   </small>
+
 
                                                 <input
                                                     name="secondPhoneNumber"
@@ -321,7 +302,8 @@ return(
                                                      type="tele"
                                                      onChange ={this.handleChange}
                                                      value = {this.state.form.secondPhoneNumber}
-                                                     pattern="[0-9]{10}|[0-9]{12}|[0-9]{14}"
+                                                     pattern="^(0[0-9]{9})|(00[0-9]{12})$"
+                                                     title = {t('Enter a valid phone number with 10 number or 14')}
                                                      
                                                     
                                                 />
@@ -329,24 +311,25 @@ return(
                                             </div>
                                             </div>
                                             <div className="row">
-                                            <div className="form-group col-md-8">
-                                                <label for="">{t('E-Mail')}</label>
-
+                                            <div className="form-group required col-md-8">
+                                                <label for="" className = "control-label">{t('E-Mail')}</label>
+                                                
                                                 <input 
                                                     id="" 
                                                     name="email"
                                                     className="form-control"
-                                                    type="email"
+                                                    type="text"
                                                     onChange ={this.handleChange}
-                                                    pattern = '^[^\s].+[^\s]$'
+                                                    pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
+                                                    title = {t("that email address is invalid")}
                                                     value ={this.state.form.email}
-                                                    required
+                                                    required="required"
                                                     
                                                 />
                                                 <div class="help-block with-errors"></div>
                                             </div>
-                                            <div className="form-group col-md-4">
-                                                <label>{t('Blood Group')}</label>
+                                            <div className="form-group required col-md-4">
+                                                <label className = "control-label">{t('Blood Group')}</label>
 
                                                 <select 
                                                     name="bloodGroup"
@@ -361,7 +344,7 @@ return(
                                             </div>
                                         </div>
                                         <div className="row">
-                                            <div className="form-group col-md-6">
+                                            <div className="form-group required col-md-6">
                                                 <label>{t('Educational Level')}</label>
 
                                                 <select
@@ -375,13 +358,14 @@ return(
                                                     <option >{t('University Degree')}</option>
                                                 </select>
                                             </div>
-                                            <div className="form-group col-md-6">
+                                            <div className="form-group required col-md-6">
                                                 <label>{t('Languages you Know?')}</label> 
 
                                                 <input 
                                                     name="languages"
                                                     className="form-control" 
                                                     type="text"
+                                                    pattern = '^[^\s].+[^\s]$'
                                                     onChange ={this.handleChange}                                                    
                                                     value = {this.state.form.languages}
                                                     
@@ -389,110 +373,37 @@ return(
                                             </div>
                                             </div>
 
-                                           { /*<div className="form-group col-md-6">
-                                                <label>
-                                                    {t('Do you currently work')}
-                                                </label>
-                                                <div className="form-check- form-inline">
-                                                    <div className="radio-inline">
-                                                        <input 
-                                                            className="form-check-input"
-                                                            type="radio"
-                                                            name="q1" 
-                                                            value ='yes'
-                                                            id="1"
-                                                            checked={this.state.q1 === 'no'}
-
-                                                            
-                                                            />
-
-                                                        <label className="form-check-label" for="1">
-                                                            {t('Yes')}
-                                                        </label>
-                                                    </div>
-                                                    <div className="radio-inline">
-
-                                                        <input 
-                                                                    className="form-check-input" 
-                                                                    type="radio"
-                                                                    name="q1"
-                                                                    id="" 
-                                                                    value='no'
-                                                                    checked={this.state.q1 === 'no'}
-                                                                    
-                                                                 />
-                                                        <label className="form-check-label" for="">
-                                                            {t('No')}
-                                                        </label>
-                                                    </div>
-
-                                                </div>
-                                            </div>*/}
                                         <div className="row">
-                                            <div className="form-group col-md-6">
+                                            <div className="form-group required col-md-6">
                                                 <label>{t('What did you Study(or are studding)?')}</label>
 
                                                 <input 
                                                     name="studyField"
                                                     className="form-control" 
                                                     type="text"
+                                                    pattern = '^[^\s].+[^\s]$'
                                                     value = {this.state.form.studyField}
                                                     onChange ={this.handleChange}
                                                 />
                                             </div>
                                             
-                                            <div className="form-group col-md-6">
+                                            <div className="form-group required col-md-6">
                                                 <label>{t('If you currently work , what is your job?')}</label>
 
                                                 <input 
                                                     name="job" 
                                                     className="form-control"
                                                     type="text"
+                                                    pattern = '^[^\s].+[^\s]$'
                                                     value = {this.state.form.job}
                                                     onChange ={this.handleChange}
                                                     
                                                 />
                                             </div>
-                                          {/**   <div className="form-group col-md-6">
-                                                <label>
-                                                    {t('Do you live in Sudan?')}
-                                                </label>
-                                                <div className="form-check- form-inline">
-                                                    <div className="radio-inline">
-
-                                                        <input 
-                                                            className="form-check-input"
-                                                            type="radio"
-                                                            name="q2"
-                                                            id="1"
-                                                            value='yes'
-                                                            checked={this.state.form.q2 === 'yes'}
-                                                        />
-                                                        <label className="form-check-label" for="1">
-                                                        {t('Yes')}
-                                                        </label>
-                                                    </div>
-                                                    <div className="radio-inline">
-
-                                                        <input 
-                                                            className="form-check-input" 
-                                                            type="radio"
-                                                            name="q2" 
-                                                            id=""
-                                                            value='no'
-                                                            checked={this.state.form.q2 === 'no'}
-                                                            
-                                                        />
-                                                        <label className="form-check-label" for="">
-                                                            {t('No')}
-                                                        </label>
-                                                    </div>
-
-                                                </div>
-</div>*/}
+                                         
                                         </div>
                                         <div className="row">
-                                            <div className="form-group col-md-6">
+                                            <div className="form-group required col-md-6">
                                                 <label for="">
                                                     {t('In which State do you live ?')}
                                                 </label>
@@ -501,13 +412,14 @@ return(
                                                     name="country"
                                                     className="form-control"
                                                     type="text"
+                                                    pattern = '^[^\s].+[^\s]$'
                                                     value = {this.state.form.country}
                                                     onChange ={this.handleChange}
                                                     
                                                     
                                                  />
                                             </div>
-                                            <div className="form-group col-md-6">
+                                            <div className="form-group required col-md-6">
                                                 <label>{t('In which city?')}</label>
 
                                                 <input 
@@ -522,7 +434,7 @@ return(
                                                     
                                                 />
                                             </div>
-                                            <div className="form-group col-md-6">
+                                            {/* <div className="form-group required col-md-6">
                                                 <label for="">{t('Address')}</label>
 
                                                 <input 
@@ -534,8 +446,8 @@ return(
                                                    // onChange ={this.handleChange}
                                                     
                                                  />
-                                            </div>
-                                            <div className="form-group col-md-6">
+                                            </div> */}
+                                            <div className="form-group required col-md-6">
                                                 <label>
                                                     {t('Did Sadagaat executed any projects in your State?')}
                                                 </label>
@@ -592,7 +504,7 @@ return(
                                         </div>
                                         <div className="row">
                                             
-                                         <div className="form-group col-md-6">
+                                         <div className="form-group required col-md-6">
                                                 <label>
                                                     {t('Did you volunteer in Sadagaat before?')}
                                                 </label>
@@ -630,15 +542,20 @@ return(
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="form-group col-md-6">
+                                            <div className="form-group required col-md-6">
                                                 <label for="">{t('If yes , Since when?')}</label>
                                                 <input 
+                                                    id = 'date'
                                                     name="volunteerTime"
                                                     className="form-control"
                                                      type="date"
                                                      value = {this.state.form.volunteerTime}
                                                      onChange ={this.handleChange}
-                                                     
+                                                     max={moment().format("YYYY-MM-DD")}
+                                                     onInvalid = {function(e) {
+                                                        e.target.setCustomValidity(t('enter date no later than')+ moment().format("YYYY-MM-DD"))}}
+                                                    onInput={function(e) {
+                                                         e.target.setCustomValidity(t(''))}}                                                     
                                                 />
                                             </div>
                                             <div className="form-group col-md-12">

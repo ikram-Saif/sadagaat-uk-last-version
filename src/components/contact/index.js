@@ -7,9 +7,6 @@ import {animateScroll as scroll } from "react-scroll";
 import i18n from 'i18next'
 import  {withTranslation}  from 'react-i18next'
 
-
-
-
 class Contact extends Component{
 
   constructor(props) {
@@ -204,10 +201,10 @@ class Contact extends Component{
                           type="text" 
                           placeholder={t("full_name" )}
                           onChange = {this.handleChange}
-                          pattern = '^[^\s].+[^\s]$'
+                          pattern = '^([A-Za-z\u0621-\u064A]+)\s([A-Za-z\u0621-\u064A]+)(\s[A-Za-z\u0621-\u064A]+)?(\s[A-Za-z\u0621-\u064A]+)?([A-Za-z\u0621-\u064A\s]+)?$'
+                          title = {t('Please enter your fullName')}
                           required
                       />
-                      <div className="help-block with-errors"></div>
                     </div>
                   </div>
                   <div className="col-sm-6">
@@ -217,11 +214,11 @@ class Contact extends Component{
                       <input 
                           name="email"
                           className="form-control required email"
-                          type="email" 
+                          type="text" 
                           placeholder={t("Enter Email" )}
                           onChange = {this.handleChange}
-                          data-error={t("that email address is invalid")}
-                          pattern = '^[^\s].+[^\s]$'
+                          pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
+                          title = {t("that email address is invalid")}
                           required
                           
                         />
@@ -241,6 +238,7 @@ class Contact extends Component{
                           placeholder={t("Enter Subject")}
                           onChange = {this.handleChange}
                           pattern = '^[^\s].+[^\s]$'
+                          title = "Enter a valid Subject"
                           required
 
                       />
@@ -248,16 +246,18 @@ class Contact extends Component{
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label>{t('Phone')}</label>
+                      <label>{t('Phone')}:
+                      </label>
+                      <small className = "font-12 text-gray">   </small>
 
                       <input 
                         name="phone" 
                         className="form-control" 
                         type="tel" 
                         placeholder={t("Enter Phone" )}
-                        pattern="[0-9]+"
                         onChange = {this.handleChange}
-                        // title = ''
+                        pattern="^(0[0-9]{9})|(00[0-9]{12})$"
+                        title = {t('Enter a valid phone number with 10 number or 14')}
                         required
                       />
                     </div>

@@ -17,7 +17,7 @@ function PlannedProjects(){
   const [data, setData ] = useState([])
   const [currentPage,setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
-
+  const parse = require('html-react-parser');
   const {t} = useTranslation()
 
   
@@ -105,7 +105,7 @@ return(
         <div data-percent={project.donationProgress} className="progress-bar"><span className="percent"></span></div>
       </div>
     </div>
-    <p className="mt-20 project-discription">{project.description}</p>
+    <p className="mt-20 project-discription">{parse(project.description)}</p>
 
     <Link to={'/projects/'+project.id} 
       className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"

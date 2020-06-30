@@ -24,9 +24,7 @@ function News() {
     });
     const response = await fetcher.json();
     setData(response);
-    // console.log(response);
   }
-
 
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;
@@ -38,7 +36,6 @@ function News() {
     <div>
       <Header name={t("News")} />
 
-      <section>
         <div className="container mt-30 mb-30 pt-30 pb-30">
         <div class="row">
           {currentPosts.map((news) => (
@@ -91,7 +88,6 @@ function News() {
          </div>
 
         </div>
-      </section>
     </div>
   );
 }

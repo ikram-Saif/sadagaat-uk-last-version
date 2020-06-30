@@ -18,7 +18,9 @@ function Calendar(){
   const [postsPerPage, setPostsPerPage] = useState(6);
   const {t} = useTranslation()
   const didMountRef = useRef(true)
-  const styleMr = i18n.dir() === "rtl" ? " ml-5" : " mr-5"
+  // const styleMr = i18n.dir() === "rtl" ? " ml-5" : " mr-5"
+  const styleMr = i18n.dir() === "rtl" ? "l" : "r"
+
 
 
 
@@ -53,7 +55,7 @@ function Calendar(){
         <div className="col-sm-6 col-md-4 col-lg-4">
           <div className="schedule-box maxwidth500 bg-lighter mb-30">
             <div className="schedule-details border-bottom-theme-color-2px clearfix p-15 pt-10">
-              <div className="text-center pull-left flip bg-theme-colored p-10 pt-5 pb-5 mr-10" key = {event.id}>
+              <div className={`text-center pull-left flip bg-theme-colored p-10 pt-5 pb-5 m${styleMr}-10`} key = {event.id}>
                 <ul>
                   <li className="font-19 text-white font-weight-600 border-bottom ">
                       {event.startDate.slice(8,10)}
@@ -69,14 +71,15 @@ function Calendar(){
                  {event.name} 
                 
                 </h4>
-                </Link>
+               
               <ul className="list-inline font-11 text-gray">
-                <li><i className={`fa fa-calendar ${styleMr}`} /> {event.startDate}</li>
+                <li><i className={`fa fa-calendar m${styleMr}-5`} /> {event.startDate}</li>
                 <li><i className={`fa fa-map-marker ${styleMr}`} /> {event.locationName}</li>
               </ul>
               <div className="clearfix" >
-              <p className="mt-10">{event.description}</p>
+              <p className="mt-10 project-discription">{event.description}</p>
             </div>
+            </Link>
           </div>
         </div>
         </div>

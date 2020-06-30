@@ -7,20 +7,18 @@ import {Link } from 'react-router-dom'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import {getNumberWithComma, getNumber} from '../events/getMonthName'
+import parse from 'html-react-parser';
+
 
 
 
 
 
 function Projects_(){
-  const [hub,setHub] = useState([]);
-  const [year,setYear] = useState([]);
   const [data, setData ] = useState([])
-  const [edit, setEdit ] = useState([])
   const [currentPage,setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
-  const hub_name = sessionStorage.getItem("hub")
-
+  //const parse = require('html-react-parser');
   const {t} = useTranslation()
 
   
@@ -46,6 +44,7 @@ var currentPosts = data.slice(firstPost,  lastPost);
 
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
   
 
 
@@ -111,7 +110,7 @@ return(
     </div>
       <h4 className="text-uppercase">{project.name}</h4>
    
-    <p className="mt-20 project-discription">{project.description}</p>
+    <p className="mt-20 project-discription">{parse(project.description)}</p>
 
     <Link to={'/projects/'+project.id} 
       className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"

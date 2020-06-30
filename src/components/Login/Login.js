@@ -20,6 +20,9 @@ class Login extends Component{
                 }                 
             }
    
+            // componentDidMount(props){
+            //   console.log("property_id",this.props.location.state.property_id)
+            // }
    
    handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
@@ -32,6 +35,7 @@ class Login extends Component{
     
      login(this.state)
       .then(data =>{ 
+
         
         this.setState({loading:true})
         setTimeout(() => {
@@ -44,7 +48,13 @@ class Login extends Component{
     
     .catch(err =>{
       console.log(err.message)
-
+      let message;
+        if (err.message === 'Request failed with status code 500')
+          message = 'username or Password not correct'
+          else if (err.message === 'Network Error')
+           message = 'Network Error'
+           else 
+           message = 'something went wrong try again later'
         this.setState({
           
           loading:true
@@ -52,7 +62,7 @@ class Login extends Component{
         })
         setTimeout(() => {
           this.setState({ loading: false,
-            errorMessage: err.message,
+            errorMessage: message,
             iconClass:'fa fa-times-circle',
             styleClass:'error-msg',
             // email: "",
@@ -119,10 +129,10 @@ class Login extends Component{
                                     id="inputEmail" 
                                     name="email" 
                                     className="form-control"
-                                     type="email"
+                                     type="text"
                                      data-error={t("that email address is invalid")}
-                                     pattern = '^[^\s].+[^\s]$'
-                                      onChange = {this.handleChange} required 
+                                     pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
+                                     title = {t("that email address is invalid")}                                      onChange = {this.handleChange} required 
                                       value = {this.state.email}
                                       />
 

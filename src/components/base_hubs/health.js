@@ -97,7 +97,9 @@ return(
                                   
                                   <div class="mt-10 mb-20">
                                   <ul class="list-inline clearfix mt-10">
-                                    <li class="text-theme-colored pull-left flip pr-0 font-weight-700 font-14"> {t("Total Donation")}:  <span> {health.total_donation} SDG</span></li>
+                                    {/* <li class="text-theme-colored pull-left flip pr-0 font-weight-700 font-14">
+                                       {t("Total Donation")}:  <span> {health.total_donation} SDG</span>
+                                    </li> */}
                                     <li class="text-theme-colored pull-right flip pr-0">
                                       
                                     </li>

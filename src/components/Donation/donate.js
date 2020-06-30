@@ -6,12 +6,13 @@ import { render } from '@testing-library/react';
 import i18n from 'i18next'
 import  {withTranslation}  from 'react-i18next'
 import { donateTo } from '../../repository';
+import DonationTable from './DonationTable'
 
 
 class Donate extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       id:null,        
       donateTo: "Sadagaat",
@@ -21,7 +22,7 @@ class Donate extends Component {
       iconClass:'',
       styleClass:'',
       loading: false,
-      hubs:[]
+      hubs:[],
                 }
 }
 
@@ -37,6 +38,12 @@ class Donate extends Component {
         .catch(error => {
           console.log(error);
         })
+
+    //     const {t} = this.props
+    //     var htmlInput = document.getElementById("id");
+    //     htmlInput.oninvalid = function(e) {
+    //       e.target.setCustomValidity(t('Enter a valid amount'))
+    // };
   }
   async componentWillReceiveProps(){
 
@@ -72,31 +79,45 @@ class Donate extends Component {
               currency:this.state.currency
             }
             console.log(data)
+            
           axios.post(`${address()}donate`,data)
 
+     /** syber bay payment feedback */
+
           .then(response =>{
+
+            if (response.data.responseCode === 1)
+            {
+                window.location = response.data.paymentUrl
+
+                this.setState({loading:true})
+                setTimeout(() => {
+                  this.setState({ loading: false });
+                }, 2000)
+
+            } else if(response.data.responseCode === 2)
+            {
+              this.setState({
+
+                  message :"Please Enter Valid Amount",
+                  iconClass:'fa fa-times-circle',
+                  styleClass:'error-msg',
+                  donateTo:'Sadagaat', 
+                  amount:'',
+                })
+              } else
+              {
+                this.setState(
+                  {
+                    message :"something went wrong try again later",
+                    iconClass:'fa fa-times-circle',
+                    styleClass:'error-msg',
+                    donateTo:'Sadagaat', 
+                    amount:'',
+                  })
+
+              }
             
-                  response.data.responseCode !== 1 ?
-                  
-                      this.setState(
-                        {
-                          message :"network erorr please try again later",
-                          iconClass:'fa fa-times-circle',
-                          styleClass:'error-msg',
-                          donateTo:'Sadagaat', 
-                          amount:'',
-                        })
-                      
-                         :
-                         window.location = response.data.paymentUrl
-                        this.setState({loading:true})
-                        setTimeout(() => {
-                          this.setState({ loading: false });
-                        }, 2000)
-
-              
-                /** syber bay payment feedback */
-
               }) .catch(error => {
                 this.setState({loading:true })
                   setTimeout(() => {
@@ -109,6 +130,7 @@ class Donate extends Component {
                   })
    
   }
+  
 
    render(){
      const{t}= this.props
@@ -168,11 +190,16 @@ class Donate extends Component {
                           <label><strong>{t('How much do you want to donate?')}</strong></label>
 
                            <input
+                               id = 'id'
                                 name="amount" 
                                 className="form-control"
                                 type="number" 
                                 min="1"
                                 onChange ={this.handleChange}
+                                onInvalid = {function(e) {
+                                        e.target.setCustomValidity(t('Enter a valid amount'))}}
+                                onInput={function(e) {
+                                    e.target.setCustomValidity(t(''))}}
                                 required
                                />
                                
@@ -214,48 +241,10 @@ class Donate extends Component {
                       </div>
                   </form>     
                 </div>
+                
+                    <DonationTable />
 
-              <div class="col-xs-12 col-sm-12 col-md-7">
-                  <h3 class="mt-0 line-bottom">{t('Donate Through Banks')}</h3>
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>{t('Bank')}</th>
-                          <th>{t('Branch')}</th>
-                          <th>{t('Account No')}</th>
-                          <th>{t('Account Name')}</th>
-                        </tr>
-                      </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">{t('Khartoum')}</th>
-                              <td>{t('Riadh')}</td>
-                              <td>1228765</td>
-                              <td>{t('Sadagaat')}</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Khartoum</th>
-                              <td>Riadh</td>
-                              <td>1228765</td>
-                              <td>Sadagaat</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Khartoum</th>
-                              <td>Riadh</td>
-                              <td>1228765</td>
-                              <td>Sadagaat</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Khartoum</th>
-                              <td>Riadh</td>
-                              <td>1228765</td>
-                              <td>Sadagaat</td>
-                            </tr>
-                          </tbody>
-                    </table>
-                </div>
-              </div>
+
               </div>
             </div>
           </div>

@@ -49,8 +49,8 @@ function Event() {
           <div className="row">
             <div className="col-xs-12 col-sm-6 col-md-4">
               <h3 className="text-uppercase title line-bottom mt-0 mb-30">
-                {t("Upcoming")}{" "}
-                <span className="text-theme-colored">{t("Events")}</span>
+                {t("Upcoming1")}{" "}
+                <span className="text-theme-colored">{t("Events1")}</span>
               </h3>
 
               {events.map((event) => (

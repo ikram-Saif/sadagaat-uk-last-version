@@ -16,15 +16,15 @@ function Pictures_library(){
   const {t} = useTranslation()
 
   
-  // useEffect(() => {
+  useEffect(() => {
     
-  //         async function fetchData() {
-  //           const fetcher = await window.fetch(`${address()}`,{headers: {'accept-language': `${i18n.language}`}})
-  //           const response = await fetcher.json()
-  //          setData(response)
-  //         }
-  //         fetchData()
-  //        }, [])
+          async function fetchData() {
+            const fetcher = await window.fetch(`https://jsonplaceholder.typicode.com/photos`,{headers: {'accept-language': `${i18n.language}`}})
+            const response = await fetcher.json()
+           setData(response)
+          }
+          fetchData()
+         }, [])
 
    const lastPost = currentPage * postsPerPage;
     const firstPost = lastPost - postsPerPage;

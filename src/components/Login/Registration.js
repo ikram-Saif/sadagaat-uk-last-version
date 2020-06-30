@@ -6,6 +6,8 @@ import { withTranslation } from 'react-i18next'
 import {Link} from 'react-router-dom'
 import {animateScroll as scroll } from "react-scroll";
 import $ from 'jquery'
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 
@@ -37,10 +39,13 @@ class Registration extends Component{
         confirmPassword:'',
         errorPassword:false
         
-      }
+      },
+      dob: moment()
+
 
     };
   }
+
 
    
    handleChange = (e)=> 
@@ -102,6 +107,7 @@ class Registration extends Component{
               loginLink:'Login'
               }
             })
+            this.clearState()
             //window.location = '/login'
             // <Redirect 
             // to = {{
@@ -112,37 +118,28 @@ class Registration extends Component{
 
           }
           )
-
-
-        // .then(token => 
-        //  window.location = '/verify'
-        //  )
        
        .catch(err => {
-        console.log(err.message)
-
+        console.log(err)
+        let message;
+        if (err.message === 'Request failed with status code 403')
+          message = 'This Email Already Exist'
+          else if (err.message === 'Network Error')
+           message = 'Network Error'
+           else 
+           message = 'something went wrong try again later'
+          
             this.setState({
-              form:{
-                ...this.state.form,
-                firstName:'',
-                lastName:'',
-                userName: '',
-                password: '',
-                phoneNumber:'',
-                gender:'MALE',
-                dateOfBirth:'',
-              },
               response:{
                 ...this.state.response,
                 success:0,
-                message: err.message,
+                message: message,
                 iconClass:'fa fa-times-circle',
                 styleClass:'error-msg'
               }
            })
           }
         )
-        document.getElementById('reg-form1').reset()
 
 
                      
@@ -157,6 +154,21 @@ class Registration extends Component{
           })
         }
         scroll.scrollTo(70);
+
+    }
+    clearState=()=>{
+      this.setState({
+        form:{
+          ...this.state.form,
+          firstName:'',
+          lastName:'',
+          userName: '',
+          password: '',
+          phoneNumber:'',
+          gender:'MALE',
+          dateOfBirth:'',
+        }
+      })
 
     }
    
@@ -209,34 +221,35 @@ class Registration extends Component{
                                                           
                              
                               <div className="row">
-                                <div className="form-group col-md-6">
-                                  <label for="first-name">{t('First Name')}</label>
+                                <div className="form-group required col-md-6">
+                                  <label className = "control-label" for="first-name">{t('First Name')}</label>
 
                                   <input
                                       id="firs-name" 
                                       name="firstName" 
                                       className="form-control" 
                                       type="text"
-                                      pattern = '^[^\s].+[^\s]$'
-                                      required
+                                      pattern = '^([A-Za-z\u0621-\u064A]+)(\s[A-Za-z\u0621-\u064A]+)?$'
+                                      title = {t('Please enter a valid name')}
+                                      required = "required"
                                       onChange = {this.handleChange}
                                       value = {this.state.form.firstName}
 
                                       
                                   />
                                 </div>
-                                <div className="form-group col-md-6">
-                                  <label>{t('Last Name')}</label>
+                                <div className="form-group required col-md-6">
+                                  <label className = "control-label">{t('Last Name')}</label>
 
                                   <input 
                                         id="last-Mame" 
                                         name="lastName"  
                                         className="form-control"  
                                         type="text" 
-                                        pattern = '^[^\s].+[^\s]$'
-                                        onChange = {this.handleChange}
+                                        pattern = '^([A-Za-z\u0621-\u064A]+)(\s[A-Za-z\u0621-\u064A]+)?$'
+                                        title = {t('Please enter a valid name')}                                        onChange = {this.handleChange}
                                         value = {this.state.form.lastName}
-                                        required
+                                        required = "required"
                                    />
                                        
                                 </div>
@@ -245,62 +258,71 @@ class Registration extends Component{
                               </div>
                               <div className="row">
                                 
-                                <div className="form-group col-md-6">
-                                  <label>{t('Email Address')}</label>
+                                <div className="form-group required col-md-6">
+                                  <label className = "control-label">{t('Email Address')}</label>
 
                                   <input 
                                       name="userName" 
                                       className="form-control" 
-                                      type="email" id="inputEmail"
+                                      type="text" id="inputEmail"
                                       onChange = {this.handleChange}
                                       value = {this.state.form.userName}
-                                      pattern = '^[^\s].+[^\s]$'
-                                      
-                                      required 
+                                      pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
+                                      title = {t("that email address is invalid")}
+                                      required = "required" 
                                       
                                     />
                                    <div className="help-block with-errors"></div>
                                 </div>
-                                <div className="form-group col-md-6">
-                                                <label for="" className="float-left">{t('Gender')}</label>
+                                <div className="form-group required col-md-6">
+                                                <label for="" className="float-left control-label">{t('Gender')}</label>
                                                 <select 
                                                 className="form-control float-right" 
                                                 name ="gender" 
                                                 value ={this.state.form.gender} 
                                                 onChange = {this.handleChange}
                                                 >
-                                                    <option>{t('FEMALE')}</option>
-                                                    <option>{t('MALE')}</option>
+                                                    <option value = "FEMALE">{t('FEMALE')}</option>
+                                                    <option value = "MALE">{t('MALE')}</option>
                                                 </select>
                                             </div>
                                       </div>
                               <div className="row">
                                 
-                                <div className="form-group col-md-6">
-                                  <label>{t('Phone')}</label>
+                                <div className="form-group required col-md-6">
+                                  <label className = "control-label">{t('Phone')}</label>
+                                  <small className = "font-12 text-gray"></small>
+
 
                                   <input 
                                       name="phoneNumber" 
                                       className="form-control" 
                                       type="tel" 
-                                      pattern="[0-9]+"
+                                      pattern="^(0[0-9]{9})|(00[0-9]{12})$"
+                                      title = {t('Enter a valid phone number with 10 number or 14')}
                                       onChange = {this.handleChange}
                                       value ={this.state.form.phoneNumber} 
-                                      required 
+                                      required = "required" 
                                       
                                     />
                                    <div className="help-block with-errors">{t('')}</div>
                                 </div>
-                                <div className="form-group col-md-6">
-                                    <label>{t('Date Of Birth')}</label>
+                                <div className="form-group required col-md-6">
+                                    <label className = "control-label">{t('Date Of Birth')}</label>
 
                                   <input 
                                       name="dateOfBirth" 
                                       className="form-control" 
                                       type="date" 
                                       onChange ={this.handleChange}
-                                      required 
-                                      value ={this.state.form.dateOfBirth} 
+                                      required = "required" 
+                                      value ={this.state.form.dateOfBirth}
+                                      max={moment().format("YYYY-MM-DD")}  
+                                      title = {t('enter date no later than')+ moment().format("YYYY-MM-DD")}
+                                      onInvalid = {function(e) {
+                                        e.target.setCustomValidity(t('enter date no later than')+ moment().format("YYYY-MM-DD"))}}
+                                      onInput={function(e) {
+                                         e.target.setCustomValidity(t(''))}}  
                                     />
                                    <div className="help-block with-errors"></div>
                                 </div>
@@ -309,8 +331,8 @@ class Registration extends Component{
                                             </div>
 
                               <div className="row">
-                                <div className="form-group col-md-6  has-feedback">
-                                  <label for="form_choose_password"> {t('password')}</label>
+                                <div className="form-group required col-md-6  has-feedback">
+                                  <label className = "control-label" for="form_choose_password"> {t('password')}</label>
 
                                   <input
                                       id="inputPassword" 
@@ -320,15 +342,15 @@ class Registration extends Component{
                                       data-minlength="8"
                                       minlength="8"
                                       data-error={t('Minimum of 8 characters')}
-                                      required
+                                      required = "required"
                                       onChange = {this.handleChange}
                                       value ={this.state.form.password}
                                       /> 
 
                                 <div className="help-block with-errors"></div>
                                 </div>
-                                <div className="form-group col-md-6  has-feedback" >
-                                  <label>{t('Re-enter Password')}</label>
+                                <div className="form-group required col-md-6  has-feedback" >
+                                  <label className = "control-label">{t('Re-enter Password')}</label>
                                   <i className = {this.state.response.confirmPassword}></i>
 
 
@@ -341,7 +363,7 @@ class Registration extends Component{
                                         data-match="#inputPassword" 
                                         data-match-error={t('Not Matching')} 
                                         // placeholder={t("Confirm")}
-                                         required
+                                         required = "required"
                                          onChange = {this.handleConfirmPassword}
                                    />
                                     

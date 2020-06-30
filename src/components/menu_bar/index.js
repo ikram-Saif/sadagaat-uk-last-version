@@ -30,7 +30,17 @@ function MenuBar() {
                 </li>
 
                 <li>
-                   <NavLink className="nav-link" to="/about">{t("About Us")}</NavLink>
+                <a>{t("About Us")} <span class="indicator"></span></a>
+                  <ul className="dropdown">
+                    
+                    <li>
+                      <NavLink className="nav-link" to="/about">{t("About Us")}</NavLink>
+                    </li>
+                    <li><NavLink className="nav-link" activeclassName="active"  to="/contact">
+                        {t("Contact")}
+                      </NavLink>
+                    </li>
+                  </ul>
                 </li>
 
                 <li>
@@ -57,25 +67,20 @@ function MenuBar() {
                   {" "}
                    <NavLink className="nav-link" to="/projects">{t("Ongoing Projects")}</NavLink>
                 </li>
-                <li>
-                  <a>{t("Media Center")} <span class="indicator"></span></a>
-                  <ul className="dropdown">
-                    <li>
-                       <NavLink className="nav-link" to="/film">{t("Film Library")}</NavLink>
-                    </li>
-                    <li>
-                       <NavLink className="nav-link" to="pictures">{t("Pictures Library")}</NavLink>
-                    </li>
+                {/* <li> */}
+                  {/* <a>{t("Media Center")} <span class="indicator"></span></a>
+                  <ul className="dropdown"> */}
+                    
                     <li>
                        <NavLink className="nav-link" to="/news">{t("News")}</NavLink>
                     </li>
                     <li>
-                       <NavLink className="nav-link" to="/calendar">{t("Event Calendar")}</NavLink>
+                       <NavLink className="nav-link" to="/calendar">{t("Events")}</NavLink>
                     </li>
-                  </ul>
-                </li>
+                  {/* </ul> */}
+                {/* </li> */}
                
-                <li>
+                {/* <li>
                    <NavLink 
                     className="nav-link"
                     activeclassName="active"
@@ -83,7 +88,7 @@ function MenuBar() {
                   >
                     {t("Contact")}
                   </NavLink>
-                </li>
+                </li> */}
                 <li className="nav-link">
                   {" "}
                   <LanguageSelector />{" "}
