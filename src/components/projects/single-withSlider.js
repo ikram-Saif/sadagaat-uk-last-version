@@ -19,8 +19,9 @@ class SinglProject2 extends Component {
     super();
     this.state = {
       project: [],
-      render: false 
+      render: false,
     };
+    const parse = require('html-react-parser');
   }
 
   async componentDidMount (){
@@ -61,8 +62,7 @@ class SinglProject2 extends Component {
         if(this.state.render) {
                 const { t } = this.props;
                 const { project } = this.state;
-                //const parse = require('html-react-parser');
-                var parse = require('html-react-parser');
+                const project_images = project.images
                 
 
 
@@ -82,35 +82,62 @@ class SinglProject2 extends Component {
                       <div className="causes">
                         <div className="row-fluid">
                           <div className="col-md-6">
-                          {/* <div class="owl-carousel-1col owl-dots-bottom-right">
-                              <div class="causes">
+                         
+                      <Carousel 
+                      // style = {{
+                      //   position:'relative',
+                      //   overflow:'hidden',
+                      //   }}
+                          slidesPerScroll={1}
+                          autoPlay={6000}
+                          rtl
+                          arrowLeft={
+                            <i
+                              className="fa fa-chevron-right fa-2x"
+                              style={{ margin:"10px" }}
+                            />
+                          }
+                          arrowRight={
+                            <i
+                              className="fa fa-chevron-left fa-2x"
+                              style={{ margin: "10px" }}
+                            />
+                          }
+                          addArrowClickHandler
+                          // animationSpeed={1000}
+                          infinite
+                          clickToChange
+                          centered
+                          breakpoints={{
+                            1000: {
+                              // these props will be applied when screen width is less than 1000px
+                              slidesPerPage: 2,
+                              clickToChange: false,
+                              centered: false,
+          
+                              infinite: false,
+                            },
+                            500: {
+                              slidesPerPage: 1,
+                              slidesPerScroll: 1,
+                              clickToChange: false,
+                              centered: false,
+                              animationSpeed: 2000,
+                              infinite: false,
+                            },
+                          }} >
+                            {project_images.map((image) =>(
+                                <div className ="post-thumb thumb" style = {{maxHeight: '600px'}}>
                                 <img
-                              src={work}
-                              alt="News"
-                              // height="250px"
-                              // width="250px"
-                            />
-                            </div>
-                            </div> */}
-                          <Carousel autoPlay={2000}  rtl>
-                            <div className ="post-thumb thumb" style = {{mxaHeight:"600px"}}>
-                            <img
-                              src={project.imageUrl}
-                              alt="project image"
-                               width="500"
-                              className= 'img-responsive'
-                            />
-                            </div>
-                            {/* <div className ="post-thumb thumb" style = {{mxaHeight:"600px"}}>
+                                  src={`${address()}projects/${image.name}/image`}
+                                  alt="project image"
+                                  width="100%"
+                                  className= 'img-responsive'
+                                  style = {{height:'500px'}}
+                                />
+                                </div>
 
-                            <img
-                              src={work}
-                              alt="News"
-                              // height="250px"
-                              // width="250px"
-                              className= 'img-responsive'
-                            />
-                            </div> */}
+                            ))}
                             
                              </Carousel>
                              

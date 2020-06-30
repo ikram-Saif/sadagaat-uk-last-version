@@ -115,7 +115,7 @@ import { useTranslation } from 'react-i18next';
                   <div class="thumb">
 
                      
-                        <img src={sub_hub.imageUrl}
+                        <img src={`${address()}subHubs/${sub_hub.id}/image`}
                         alt 
                         className="img-fullwidth img-responsive"
                         width="240px" 

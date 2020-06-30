@@ -79,7 +79,7 @@ class SinglProject extends Component {
             > */}
 
               <div className="thumb">
-                <img src={project.imageUrl} alt="" className="img-fullwidth" width='945'height='532' />
+                <img src={`${address()}projects/${project.id}/image`} alt="" className="img-fullwidth" width='945'height='532' />
 
               </div>
               {/* <div className="thumb" style = {{width:'900px', height:'500px'}}>
@@ -135,11 +135,7 @@ class SinglProject extends Component {
               <div className="causes-details clearfix  border-bottom-theme-color-1px p-15 pt-10 pb-10">
                 <h5 className="font-weight-600 font-16">{project.name}</h5>
                 <p>{project.description}</p>
-                {/* <div>
-                <strong classNam = "font-weight-600"><i className= "fa fa-map-marker  m-5"></i> </strong>
-                <span classNam = "font-weight-600 text-gray-dimgray">{project.status}</span>
                
-                </div> */}
                 <div>
                 <strong classNam = "font-weight-600"><i className= "fa fa-map-marker  m-5"></i> </strong>
                 <span classNam = "font-weight-600 text-gray-dimgray">{project.locationName}</span>

@@ -47,7 +47,7 @@ function News() {
                     <div class="entry-header">
                       <div class="post-thumb thumb" style = {{height:'200px'}}>
                         <img
-                          src={news.imageUrl}
+                          src={`${address()}news/${news.id}/image`}
                           className="img-fullwidth img-responsive"
                           // height="200"
                           alt=""

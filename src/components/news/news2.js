@@ -38,7 +38,7 @@ function News() {
 
         <div className="container mt-30 mb-30 pt-30 pb-30">
           {currentPosts.map((news) => (
-            <div class="row mb-15">
+            <div class="row mb-15" key = {news.id}>
               <div class="col-md-10 col-md-offset-1">
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
@@ -52,7 +52,7 @@ function News() {
                     >
                       <div class="post-thumb thumb">
                         <img
-                          src={news.imageUrl}
+                          src={`${address()}news/${news.id}/image`}
                           className="img-responsive"
                           width="250"
                           height="250"

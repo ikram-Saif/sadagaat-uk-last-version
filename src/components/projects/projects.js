@@ -65,7 +65,7 @@ return(
 <Link to={'/single-projects/'+project.id}>
     <div className="causes bg-white mb-30">
       <div className="thumb">
-      <img src={project.imageUrl}  className="img-fullwidth"  width = '390' height = '260'/>
+      <img src={`${address()}projects/${project.id}/image`}  className="img-fullwidth"  width = '390' height = '260'/>
       </div>
   
   <div style={{maxWidth: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>

@@ -68,7 +68,7 @@ class SinglEvent extends Component {
 
             <div className="" style = {{border:'1px solid gray' }} >
               <img 
-              src={event.imageUrl}
+              src = {`${address()}events/${event.id}/image`}
               alt="" 
               className= 'img-fullwidth img-responsive'
                />

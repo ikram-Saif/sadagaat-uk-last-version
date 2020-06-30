@@ -170,7 +170,7 @@ render(){
                 <div className="causes bg-white mb-30">
                   <div className="thumb" 
                   style = {{ maxHeight: '260px'}}>
-                  <img src={project.imageUrl}  className="img-fullwidth img-responsive"  />
+                  <img src={`${address()}projects/${project.id}/image`}  className="img-fullwidth img-responsive"  />
                   </div>
               
               <div style={{maxWidth: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>

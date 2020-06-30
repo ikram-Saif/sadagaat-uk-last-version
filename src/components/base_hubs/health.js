@@ -78,7 +78,7 @@ return(
                       
                             <div className ="post-thumb thumb" style = {{mxaHeight:"600px"}}>
                             <img
-                              src={health.imageUrl}
+                              src = {`${address()}hubs/${health.id}/image`}
                               alt="health image"
                               className= 'img-responsive'
                               style= {{height:'400px',
@@ -140,7 +140,7 @@ return(
                 <div class="thumb">
 
                   
-                      <img src={sub_hub.imageUrl}
+                      <img src={`${address()}subHubs/${sub_hub.id}/image`}
                       alt 
                       className="img-fullwidth"
                       height="250px"

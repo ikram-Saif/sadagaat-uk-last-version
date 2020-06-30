@@ -45,15 +45,9 @@ class ProjectSlider extends Component {
     }
   }
 
-  // displayDonationButton(){
-  //   const project = this.state.project
-  //   const display = 
-  //   return display
-  // }
   render() {
     const { t } = this.props;
     const { projects } = this.state;
-    const parse = require('html-react-parser');
 
     return (
       <React.Fragment>
@@ -68,16 +62,11 @@ class ProjectSlider extends Component {
                       {t("Projects")}
                     </span>
                   </h2>
-                  {/* <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Rem autem voluptatem obcaecati! <br />
-                    ipsum dolor sit Rem autem voluptatem obcaecati
-                  </p> */}
+               
                 </div>
               </div>
             </div>
             <div className="row-fluid">
-              {/* <div className="owl-carousel-3col"> */}
               <Carousel
               
                 slidesPerPage={3}
@@ -85,7 +74,6 @@ class ProjectSlider extends Component {
                 autoPlay={6000}
                 margin={10}
                 rtl
-                // arrows = {<i style = {{backgroundColor :'red'}} /> }
                 arrowLeft={
                   <i
                     className="fa fa-chevron-right fa-2x"
@@ -131,7 +119,7 @@ class ProjectSlider extends Component {
                         //style = {{ width:"500px"}}
                         >
                             <img
-                              src={project.imageUrl}
+                              src={`${address()}projects/${project.id}/image`}
                               // alt="project picture"
                               className="img-fullwidth"
                               width="240"
@@ -139,10 +127,7 @@ class ProjectSlider extends Component {
                             />
                         
                       </div>
-                      {/* <div className="donation-progress mt-5 ml-5 text-center">
-                        {project.donationProgress}
-                      </div> */}
-
+                
                       <div
                         style={{
                           width: "15%",
