@@ -191,9 +191,9 @@ class Contact extends Component{
 
                 <div className="row">
                   <div className="col-sm-6">
-                    <div className="form-group">
+                    <div className="form-group required">
 
-                      <label>{t('name')}<small>*</small></label>
+                      <label className = "control-label" className = "control-label">{t('name')}</label>
 
                       <input 
                           name="name" 
@@ -201,15 +201,15 @@ class Contact extends Component{
                           type="text" 
                           placeholder={t("full_name" )}
                           onChange = {this.handleChange}
-                          pattern = '^([A-Za-z\u0621-\u064A]+)\s([A-Za-z\u0621-\u064A]+)(\s[A-Za-z\u0621-\u064A]+)?(\s[A-Za-z\u0621-\u064A]+)?([A-Za-z\u0621-\u064A\s]+)?$'
+                          pattern = '^([A-Za-z\u0621-\u064A]+)([A-Za-z\u0621-\u064A\s]+)?$'
                           title = {t('Please enter your fullName')}
-                          required
+                          required = "required"
                       />
                     </div>
                   </div>
                   <div className="col-sm-6">
-                    <div className="form-group">
-                      <label>{t('E-Mail')}<small>*</small></label>
+                    <div className="form-group required">
+                      <label className = "control-label">{t('E-Mail')}</label>
 
                       <input 
                           name="email"
@@ -219,7 +219,7 @@ class Contact extends Component{
                           onChange = {this.handleChange}
                           pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
                           title = {t("that email address is invalid")}
-                          required
+                          required = "required"
                           
                         />
                       <div className="help-block with-errors"></div>
@@ -229,26 +229,25 @@ class Contact extends Component{
                 <div className="row">
                   <div className="col-sm-6">
                     <div className="form-group">
-                      <label>{t('Subject')}<small>*</small></label>
+                      <label>{t('Subject')}</label>
 
                       <input 
                           name="subject" 
-                          className="form-control required" 
+                          className="form-control " 
                           type="text"
                           placeholder={t("Enter Subject")}
                           onChange = {this.handleChange}
                           pattern = '^[^\s].+[^\s]$'
                           title = "Enter a valid Subject"
-                          required
 
                       />
                     </div>
                   </div>
                   <div className="col-sm-6">
-                    <div className="form-group">
-                      <label>{t('Phone')}:
+                    <div className="form-group required">
+                      <label className = "control-label">{t('Phone')}:
                       </label>
-                      <small className = "font-12 text-gray">   </small>
+                      <small className = "font-12 text-gray">  </small>
 
                       <input 
                         name="phone" 
@@ -258,13 +257,13 @@ class Contact extends Component{
                         onChange = {this.handleChange}
                         pattern="^(0[0-9]{9})|(00[0-9]{12})$"
                         title = {t('Enter a valid phone number with 10 number or 14')}
-                        required
+                        required = "required"
                       />
                     </div>
                   </div>
                 </div>
-                <div className="form-group">
-                  <label>{t('Message')}</label>
+                <div className="form-group required">
+                  <label className = "control-label">{t('Message')}</label>
 
                   <textarea 
                     name="message"
@@ -274,10 +273,10 @@ class Contact extends Component{
                     defaultValue={""} 
                     onChange = {this.handleChange}
                     pattern = '^[^\s].+[^\s]$'
-                    required
+                    required = "required"
                   />
                 </div>
-                <div className="form-group">
+                <div className="form-group required">
                   <input name="form_botcheck" className="form-control" type="hidden" defaultValue />
                   
                   <button type="submit" 

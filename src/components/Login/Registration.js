@@ -169,6 +169,7 @@ class Registration extends Component{
           dateOfBirth:'',
         }
       })
+      document.getElementById('confirmPassword').value = ''
 
     }
    
