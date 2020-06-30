@@ -4,7 +4,7 @@ import address from "./../utils/address";
 import Pagination from "./../pagination";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import SocialMedia from '../social media/social-media'
+import SocialMedia from "../social media/social-media";
 
 function News() {
   const [data, setData] = useState([]);
@@ -26,7 +26,6 @@ function News() {
     console.log(response);
   }
 
-
   const lastPost = currentPage * postsPerPage;
   const firstPost = lastPost - postsPerPage;
   const currentPosts = data.slice(firstPost, lastPost);
@@ -44,7 +43,14 @@ function News() {
               <div class="col-md-10 col-md-offset-1">
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
-                    <div class="entry-header" style = {{position:"absolute",left: '39px',top: '69px'}}>
+                    <div
+                      class="entry-header"
+                      style={{
+                        position: "absolute",
+                        left: "39px",
+                        top: "69px",
+                      }}
+                    >
                       <div class="post-thumb thumb">
                         <img
                           src={news.imageUrl}
@@ -71,8 +77,7 @@ function News() {
 
                       <p className="mb-15">{news.description}.</p>
 
-                      < SocialMedia />
-                 
+                      <SocialMedia />
                     </div>
                   </article>
                 </div>
