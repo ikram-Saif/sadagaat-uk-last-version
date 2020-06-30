@@ -75,7 +75,7 @@ function MenuBar() {
                        <NavLink className="nav-link" to="/news">{t("News")}</NavLink>
                     </li>
                     <li>
-                       <NavLink className="nav-link" to="/calendar">{t("Event Calendar")}</NavLink>
+                       <NavLink className="nav-link" to="/calendar">{t("Events")}</NavLink>
                     </li>
                   {/* </ul> */}
                 {/* </li> */}

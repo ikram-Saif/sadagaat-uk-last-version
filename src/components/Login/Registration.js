@@ -291,15 +291,15 @@ class Registration extends Component{
                                 
                                 <div className="form-group required col-md-6">
                                   <label className = "control-label">{t('Phone')}</label>
-                                  <small className = "font-12 text-gray">   123-456-7890</small>
+                                  <small className = "font-12 text-gray"></small>
 
 
                                   <input 
                                       name="phoneNumber" 
                                       className="form-control" 
                                       type="tel" 
-                                      pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
-                                      title = {t('Enter a valid phone number with this format 123-456-7890')}
+                                      pattern="^(0[0-9]{9})|(00[0-9]{12})$"
+                                      title = {t('Enter a valid phone number with 10 number or 14')}
                                       onChange = {this.handleChange}
                                       value ={this.state.form.phoneNumber} 
                                       required = "required" 

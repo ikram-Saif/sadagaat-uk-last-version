@@ -128,7 +128,7 @@ class ProjectSlider extends Component {
                       <div className="causes bg-white mb-30" key={project.id}>
                       <Link to={'/single-projects/'+project.id}>
                         <div className="thumb" 
-                        // style = {{MaxHeight:'320px'}}
+                        //style = {{ width:"500px"}}
                         >
                             <img
                               src={project.imageUrl}
@@ -195,7 +195,7 @@ class ProjectSlider extends Component {
                               data-percent={project.donationProgress}
                               className="progress-bar"
                             >
-                              <span className="percent" maxSizs = '2'>
+                              <span className="percent" maxSizs = '3'>
                                 {project.donationProgress}
                               </span>
                             </div>

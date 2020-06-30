@@ -248,16 +248,16 @@ class Contact extends Component{
                     <div className="form-group">
                       <label>{t('Phone')}:
                       </label>
-                      <small className = "font-12 text-gray">   123-456-7890</small>
+                      <small className = "font-12 text-gray">   </small>
 
                       <input 
                         name="phone" 
                         className="form-control" 
                         type="tel" 
                         placeholder={t("Enter Phone" )}
-                        pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
                         onChange = {this.handleChange}
-                        title = {t('Enter a valid phone number with this format 123-456-7890')}
+                        pattern="^(0[0-9]{9})|(00[0-9]{12})$"
+                        title = {t('Enter a valid phone number with 10 number or 14')}
                         required
                       />
                     </div>

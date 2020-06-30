@@ -277,7 +277,7 @@ return(
                                         <div className="row">
                                             <div className="form-group required col-md-6">
                                                 <label for="" className = "control-label">{t('Phone')}.</label>
-                                                    <small className = "font-12 text-gray">   123-456-7890</small>
+                                                    <small className = "font-12 text-gray">   </small>
 
                                                 <input 
                                                    
@@ -285,15 +285,15 @@ return(
                                                     className="form-control"
                                                     type="tel"
                                                     onChange ={this.handleChange}
-                                                    pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
-                                                    title = {t('Enter a valid phone number with this format 123-456-7890')}
+                                                    pattern="^(0[0-9]{9})|(00[0-9]{12})$"
+                                                    title = {t('Enter a valid phone number with 10 number or 14')}
                                                     value = {this.state.form.phoneNumber}
                                                     required="required"
                                                  />
                                             </div>
                                             <div className="form-group required col-md-6">
                                                 <label>{t('Additional Phone')}</label>
-                                                <small className = "font-12 text-gray">   123-456-7890</small>
+                                                <small className = "font-12 text-gray">   </small>
 
 
                                                 <input
@@ -302,8 +302,8 @@ return(
                                                      type="tele"
                                                      onChange ={this.handleChange}
                                                      value = {this.state.form.secondPhoneNumber}
-                                                     pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
-                                                    title = {t('Enter a valid phone number with this format 123-456-7890')}
+                                                     pattern="^(0[0-9]{9})|(00[0-9]{12})$"
+                                                     title = {t('Enter a valid phone number with 10 number or 14')}
                                                      
                                                     
                                                 />
