@@ -8,7 +8,7 @@ import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import {Link} from 'react-router-dom'
 import work from "../images/work.jpg";
-import {getNumberWithComma} from '../events/getMonthName'
+import {getNumberWithComma , Precision} from '../events/getMonthName'
 import parse from 'html-react-parser';
 
 
@@ -63,8 +63,8 @@ class SinglProject2 extends Component {
                 const { t } = this.props;
                 const { project } = this.state;
                 const project_images = project.images
+               const projectHasImages = project_images.length > 0? true : false
                 
-
 
 
       renderContainer = 
@@ -82,66 +82,73 @@ class SinglProject2 extends Component {
                       <div className="causes">
                         <div className="row-fluid">
                           <div className="col-md-6">
-                         
-                      <Carousel 
-                      // style = {{
-                      //   position:'relative',
-                      //   overflow:'hidden',
-                      //   }}
-                          slidesPerScroll={1}
-                          autoPlay={6000}
-                          rtl
-                          arrowLeft={
-                            <i
-                              className="fa fa-chevron-right fa-2x"
-                              style={{ margin:"10px" }}
-                            />
-                          }
-                          arrowRight={
-                            <i
-                              className="fa fa-chevron-left fa-2x"
-                              style={{ margin: "10px" }}
-                            />
-                          }
-                          addArrowClickHandler
-                          // animationSpeed={1000}
-                          infinite
-                          clickToChange
-                          centered
-                          breakpoints={{
-                            1000: {
-                              // these props will be applied when screen width is less than 1000px
-                              slidesPerPage: 2,
-                              clickToChange: false,
-                              centered: false,
-          
-                              infinite: false,
-                            },
-                            500: {
-                              slidesPerPage: 1,
-                              slidesPerScroll: 1,
-                              clickToChange: false,
-                              centered: false,
-                              animationSpeed: 2000,
-                              infinite: false,
-                            },
-                          }} >
-                            {project_images.map((image) =>(
-                                <div className ="post-thumb thumb" style = {{maxHeight: '600px'}}>
-                                <img
-                                  src={`${address()}projects/${image.name}/image`}
-                                  alt="project image"
-                                  width="100%"
-                                  className= 'img-responsive'
-                                  style = {{height:'500px'}}
-                                />
-                                </div>
+                          {projectHasImages? ( <Carousel 
+                    
+                    slidesPerScroll={1}
+                    autoPlay={6000}
+                    rtl
+                    arrowLeft={
+                      <i
+                        className="fa fa-chevron-right fa-2x"
+                        style={{ margin:"10px" }}
+                      />
+                    }
+                    arrowRight={
+                      <i
+                        className="fa fa-chevron-left fa-2x"
+                        style={{ margin: "10px" }}
+                      />
+                    }
+                    addArrowClickHandler
+                    // animationSpeed={1000}
+                    infinite
+                    clickToChange
+                    centered
+                    breakpoints={{
+                      1000: {
+                        // these props will be applied when screen width is less than 1000px
+                        slidesPerPage: 2,
+                        clickToChange: false,
+                        centered: false,
+    
+                        infinite: false,
+                      },
+                      500: {
+                        slidesPerPage: 1,
+                        slidesPerScroll: 1,
+                        clickToChange: false,
+                        centered: false,
+                        animationSpeed: 2000,
+                        infinite: false,
+                      },
+                    }} >
+                                                  
+                      {project_images.map((image) =>(
+                          <div className ="post-thumb thumb" style = {{maxHeight: '600px'}}>
+                          <img
+                            src={`${address()}projects/${image.name}/image`}
+                            alt="project image"
+                            width='500'
+                            className= 'img-responsive'
+                            style = {{height:'500px'}}
+                          />
+                          </div>
 
-                            ))}
-                            
-                             </Carousel>
-                             
-
+                      ))}
+                      
+                       </Carousel>
+                       
+                    ):(<div className ="post-thumb thumb" style = {{maxHeight: '600px'}}>
+                    <img
+                      src={`${address()}projects/${project.id}/image`}
+                      alt="project image"
+                      width='500'
+                      className= 'img-responsive'
+                      style = {{height:'500px'}}
+                    />
+                    </div>
+                    )}
+                     
                <div
                         style={{
                           width: "12%",
@@ -187,17 +194,18 @@ class SinglProject2 extends Component {
                                     <div>
                                    {parse(project.description)}
                                    </div>
-                                  <div className="progress-item mt-0">
-                                      <div className="progress mb-0">
-                                        <div
-                                        className="progress-bar"
-                                          data-percent={project.donationProgress}>
-                                          <span className="percent">
-                                          {project.donationProgress}
-                                          </span>
-                                        </div>
-                                      </div>
-                                    </div>
+                                   <div className="progress-item mt-0">
+                                <div className="progress mb-0">
+                                  <div
+                                    data-percent={Precision(project.donationProgress)}
+                                    className="progress-bar"
+                                  >
+                                      <span className="percent">
+                                          {Precision(project.donationProgress)}%
+                                                </span>
+                                  </div>
+                                </div>
+                              </div>
                                 <div class="mt-10 mb-20">
                                   <ul class="list-inline clearfix mt-10">
                                     <li class="pull-left flip pr-0"> {t("Chartiy Campaign")} <span class="font-weight-700 font-">

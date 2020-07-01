@@ -7,7 +7,7 @@ import  {withTranslation}  from 'react-i18next'
 import { CircularProgressbar , buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {Link } from 'react-router-dom'
-import {getNumberWithComma} from '../events/getMonthName'
+import {getNumberWithComma  , Precision} from '../events/getMonthName'
 
 
 
@@ -104,7 +104,7 @@ render(){
                               <div className ="post-thumb thumb" style = {{mxaHeight:"600px"}}>
                               <img
                                 className= 'img-responsive'
-                                src={subhub.imageUrl}
+                                src={`${address()}subHubs/${subhub.id}/image`}
                                 alt="subhub image"
                                  style= {{height:'400px',
                                 width:'500px'}}
@@ -210,7 +210,11 @@ render(){
                   <h4 className="text-uppercase">{project.name}</h4>
                 <div className="progress-item mt-0">
                   <div className="progress mb-0">
-                    <div data-percent={project.donationProgress} className="progress-bar"><span className="percent"></span></div>
+                    <div data-percent={Precision(project.donationProgress)} className="progress-bar">
+                      <span className="percent">
+                          {Precision(project.donationProgress)}%
+                        </span>
+                      </div>
                   </div>
                 </div>
                 <p className="mt-20 project-discription">{project.description}</p>

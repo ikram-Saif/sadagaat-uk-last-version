@@ -6,7 +6,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import {Link } from 'react-router-dom'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
-import {getNumberWithComma, getNumber} from '../events/getMonthName'
+  import {getNumberWithComma , Precision, getNumber} from '../events/getMonthName'
 import parse from 'html-react-parser';
 
 
@@ -105,7 +105,11 @@ return(
     </ul>
      <div className="progress-item mt-0">
       <div className="progress mb-0">
-        <div data-percent={project.donationProgress} className="progress-bar"><span className="percent"></span></div>
+        <div data-percent={Precision(project.donationProgress)} className="progress-bar">  
+        <span className="percent">
+            {Precision(project.donationProgress)}%
+          </span>
+        </div>
       </div>
     </div>
       <h4 className="text-uppercase">{project.name}</h4>

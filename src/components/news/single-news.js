@@ -67,9 +67,9 @@ class SinglNews extends Component {
         onAnimationStart={onAnimationStart}
         onAnimationEnd={onAnimationEnd}
       >
-        <div data-src={news.imageUrl} />
-        <div data-src={news.imageUrl} />
-        <div data-src={news.imageUrl} />
+        <div data-src={`${address()}news/${news.id}/image`} />
+        <div data-src={`${address()}news/${news.id}/image`} />
+        <div data-src={`${address()}news/${news.id}/image`} />
       </AwesomeSlider>
     );
 
@@ -85,16 +85,16 @@ class SinglNews extends Component {
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
                       {AwesomeSlider}
-                      {/* <div
+                      <div
                         class="post-thumb thumb"
                         style={{ mxaHeight: "500px" }}
                       >
                         <img
-                          src={news.imageUrl}
+                          src={`${address()}news/${news.id}/image`}
                           className="img-fullwidth img-responsive"
                           alt=""
                         />
-                      </div> */}
+                      </div>
                       {/* <div class="post-thumb thumb mt-20">{NewsSlider}</div> */}
                     </div>
 

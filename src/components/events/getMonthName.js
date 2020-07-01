@@ -23,3 +23,8 @@ export function getCurrentDate() {
     const now = date.toLocaleString('en-US');
 return now
 }
+export function Precision(percentage) {
+
+ let shortPercentage = percentage.toPrecision(3)
+return shortPercentage
+}

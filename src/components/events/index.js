@@ -113,7 +113,7 @@ function Event() {
                         <div className="row-fluid">
                           <div className="col-md-5">
                             <img
-                              src={news_.imageUrl}
+                              src={`${address()}news/${news_.id}/image`}
                               alt="News"
                               height="250px"
                               // width="250px"

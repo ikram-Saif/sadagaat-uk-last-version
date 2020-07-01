@@ -6,7 +6,7 @@ import Carousel from "@brainhubeu/react-carousel";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import {getNumberWithComma, getNumber} from '../events/getMonthName'
+import {getNumberWithComma, getNumber,Precision} from '../events/getMonthName'
 import parse from 'html-react-parser';
 
 
@@ -177,12 +177,12 @@ class ProjectSlider extends Component {
                         <div className="progress-item mt-0">
                           <div className="progress mb-0">
                             <div
-                              data-percent={project.donationProgress}
+                              data-percent={Precision(project.donationProgress)}
                               className="progress-bar"
                             >
-                              <span className="percent" maxSizs = '3'>
-                                {project.donationProgress}
-                              </span>
+                                <span className="percent">
+                                          {Precision(project.donationProgress)}%
+                                          </span>
                             </div>
                           </div>
                         </div>

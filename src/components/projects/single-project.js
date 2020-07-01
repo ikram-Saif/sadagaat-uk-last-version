@@ -7,7 +7,7 @@ import { withTranslation } from "react-i18next";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import {Link} from 'react-router-dom'
-import {getNumberWithComma} from '../events/getMonthName'
+  import {getNumberWithComma , Precision} from '../events/getMonthName'
 
 
 class SinglProject extends Component {

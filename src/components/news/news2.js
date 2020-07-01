@@ -18,7 +18,7 @@ function News() {
   }, [i18n.language]);
 
   async function fetchData() {
-    const fetcher = await window.fetch(`${address()}news`, {
+    const fetcher = await window.fetch(`${address()}news`,{
       headers: { "accept-language": `${i18n.language}` },
     });
     const response = await fetcher.json();
