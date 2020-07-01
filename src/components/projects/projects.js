@@ -28,8 +28,10 @@ function Projects_(){
            const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
            const response = await fetcher.json()
            console.log(response)
-           const Projects = response.filter(project => project.status === 'ongoing' )
+           const Projects = response.filter(project => project.projectProgress > 0 && project.projectProgress < 100)
            setData(Projects)
+          
+
            
          }
          fetchData()

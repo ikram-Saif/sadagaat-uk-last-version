@@ -27,7 +27,7 @@ function FinishedProjects(){
          async function fetchData() {
            const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
            const response = await fetcher.json()
-          const Projects = response.filter(project => project.status === 'completed')
+          const Projects = response.filter(project => project.projectProgress === 100)
            setData(Projects)
            
          }
@@ -119,7 +119,7 @@ return(
 
 }
   
-<Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/> 
+{/* <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/>  */}
 
 </div>
 </div>    

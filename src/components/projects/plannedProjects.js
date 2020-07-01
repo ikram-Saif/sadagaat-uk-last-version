@@ -27,6 +27,7 @@ function PlannedProjects(){
            const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
            const response = await fetcher.json()
           const Projects = response.filter(project => project.projectProgress === 0)
+          console.log("Planned Projects",Projects)
            setData(Projects)
            
          }
