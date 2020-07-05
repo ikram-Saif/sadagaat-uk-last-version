@@ -27,6 +27,7 @@ class Donate extends Component {
 }
 
    async componentDidMount () {
+     console.log(this.props.location)
 
      await axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
         .then(response => {
@@ -39,11 +40,6 @@ class Donate extends Component {
           console.log(error);
         })
 
-    //     const {t} = this.props
-    //     var htmlInput = document.getElementById("id");
-    //     htmlInput.oninvalid = function(e) {
-    //       e.target.setCustomValidity(t('Enter a valid amount'))
-    // };
   }
   async componentWillReceiveProps(){
 
@@ -103,7 +99,6 @@ class Donate extends Component {
                   iconClass:'fa fa-times-circle',
                   styleClass:'error-msg',
                   donateTo:'Sadagaat', 
-                  amount:'',
                 })
               } else
               {
@@ -113,7 +108,6 @@ class Donate extends Component {
                     iconClass:'fa fa-times-circle',
                     styleClass:'error-msg',
                     donateTo:'Sadagaat', 
-                    amount:'',
                   })
 
               }

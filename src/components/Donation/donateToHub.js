@@ -9,62 +9,59 @@ import DonationTable from './DonationTable';
 
 
 
-
-class DonateToSubhub extends Component {
+class DonateToHub extends Component {
 
   constructor() {
     super();
     this.state = 
     {
                   
-      subhub_id: null,
+      hub_id: null,
       amount: 0,
       message:'',
       iconClass:'',
       styleClass:'',
-      currency:"SDG",
       loading: false,
-      subHubs:[]
+      currency:"SDG",
+      hub:[]
       }
 }
 
- componentDidMount =() =>{
+ async componentDidMount (){
 
-    let id = this.props.match.params.subhub_id
-    console.log(this.props.match.params.subhub_id) 
+    let id = this.props.match.params.hubId
+    // console.log(this.props.match.params.hub_id) 
 
-    this.setState({subhub_id:id})
+    this.setState({hub_id:id})
  
-
-    axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+  // console.log('*********',i18n)
+    await axios.get(`${address()}hubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
     .then(response => {
 
-         const subHubs = response.data
-          this.setState({subHubs})
+         const hub = response.data
+          this.setState({hub})
 
     }).catch(error => {
-        this.setState({
-          message:error.message
-        })
+        alert(error.message)
     })
+ 
+ }
 
-}
 async componentWillReceiveProps(){
 
-  let id = this.state.subhub_id
+    let id = this.props.match.params.hubId
+    this.setState({hub_id:id})
 
-  axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
+  axios.get(`${address()}hubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
   .then(response => {
 
-       const subHubs = response.data
-        this.setState({subHubs})
+       const hub = response.data
+        this.setState({hub})
 
   }).catch(error => {
-      this.setState({
-        message:error.message
-      })
+      alert(error.message)
   })
 
 }
@@ -80,17 +77,16 @@ async componentWillReceiveProps(){
   handleSubmite =(e)=>{
 
         e.preventDefault()
-            let id = this.state.subhub_id
+            let id = this.state.hub_id
             const data = 
             {
-              sid :id,
+               hid :id,
               amount:this.state.amount,
               currency:this.state.currency
             }
           console.log(data)
 
           axios.post(`${address()}donate`,data)
-
           /** syber bay payment feedback */
 
           .then(response =>{
@@ -113,8 +109,7 @@ async componentWillReceiveProps(){
                   styleClass:'error-msg',
                   donateTo:'Sadagaat', 
                 })
-              } else
-              {
+              } else {
                 this.setState(
                   {
                     message :"something went wrong try again later",
@@ -122,13 +117,10 @@ async componentWillReceiveProps(){
                     styleClass:'error-msg',
                     donateTo:'Sadagaat', 
                   })
-
               }
             
               }) .catch(error => {
-                this.setState({
-                            loading:true 
-                          })
+                this.setState({loading:true })
                   setTimeout(() => {
                         this.setState({ loading: false,
                                         message:error.message,
@@ -138,13 +130,12 @@ async componentWillReceiveProps(){
                       }, 2000)
                   })
    
-  }
+               }
 
 
    render(){
     const{t}= this.props
     const loading  = this.state.loading;
-
 
 
     return (
@@ -163,15 +154,15 @@ async componentWillReceiveProps(){
                         <i className ={this.state.iconClass} style = {{margin:'5px'}}>
                         </i>
                         {t(this.state.message)}
-                      </p>
+                   </p>
               <form
-                  data-toggle="validator"
+                  // data-toggle="validator"
                   role="form"
                   id="popup_paypal_donate_form_onetime_recurring"
-                  onSubmit = {this.handleSubmite}>
+                  onSubmit = {this.handleSubmite}
+                  >
 
-
-                    <div className="row">
+                  <div className="row">
                     <div className="col-sm-12">
                     <div className="form-group mb-20">
 
@@ -179,14 +170,15 @@ async componentWillReceiveProps(){
                               name="name" 
                               className="form-control"
                               type="readOnly" 
-                              value = {this.state.subHubs.name}
-                              style = {{fontWight:'bold'}}
+                              value = {this.state.hub.name}
+                              style = {{fontSize:'16px'}}
                               readonly
+                              required
                             />
+                      </div>
                     </div>
                    </div>
-                   </div>
-
+                     
                     <div className="row">
                     <div className="col-sm-9">
                     <div className="form-group mb-20">
@@ -196,17 +188,15 @@ async componentWillReceiveProps(){
                               name="amount" 
                               className="form-control"
                               type="number" 
-                              onChange ={this.handleChange}
                               min="1"
+                              onChange ={this.handleChange}
                               onInvalid = {function(e) {
                                 e.target.setCustomValidity(t('Enter a valid amount'))}}
                               onInput={function(e) {
-                                   e.target.setCustomValidity(t(''))}}
+                                  e.target.setCustomValidity(t(''))}}
                               required
                             />
-                            
-                          <div className="help-block with-errors"></div>
-                        </div>
+                            </div>
                       </div>
                   
                       <div className="col-sm-3">
@@ -231,20 +221,20 @@ async componentWillReceiveProps(){
                         <button type="submit" 
                           className="btn btn-flat btn-dark btn-theme-colored mt-10 pl-30 pr-30"
                           data-loading-text="Please wait...">
-                            {loading && (
+                                   {loading && (
                                           <i
                                             className="fa fa-spinner fa-spin"
                                             style={{ margin: "5px" }}
                                           />
                                         )}
-                            
                             {t('Donate')} {t('Now!')}
                         </button>
                       </div>
                     </div>
                 </form>     
               </div>
-                  <DonationTable />
+
+                <DonationTable />
             </div>
           </div>
         </div>
@@ -256,4 +246,4 @@ async componentWillReceiveProps(){
 }
 }
 
-export default withTranslation()(DonateToSubhub);
+export default withTranslation()(DonateToHub);

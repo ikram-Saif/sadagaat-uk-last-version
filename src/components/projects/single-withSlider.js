@@ -9,8 +9,10 @@ import "@brainhubeu/react-carousel/lib/style.css";
 import {Link} from 'react-router-dom'
 import work from "../images/work.jpg";
 import {getNumberWithComma , Precision} from '../events/getMonthName'
-import parse from 'html-react-parser';
-
+import { renderToStaticMarkup } from 'react-dom/server';
+import parse,{ domToReact }  from 'html-react-parser';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import $ from 'jquery'
 
 
 class SinglProject2 extends Component {
@@ -21,7 +23,6 @@ class SinglProject2 extends Component {
       project: [],
       render: false,
     };
-    const parse = require('html-react-parser');
   }
 
   async componentDidMount (){
@@ -56,6 +57,9 @@ class SinglProject2 extends Component {
     }
   }
 
+  addclassTable =(node)=>{
+  alert(node)
+  }
   render() {
 
         let renderContainer = false
@@ -193,6 +197,7 @@ class SinglProject2 extends Component {
                                   <span className = "">{project.locationName}</span></h5>
                                     <div>
                                    {parse(project.description)}
+                                        
                                    </div>
                                    <div className="progress-item mt-0">
                                 <div className="progress mb-0">

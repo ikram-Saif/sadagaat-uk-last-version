@@ -70,7 +70,7 @@ function News() {
 
                       <p className="mb-15" style = {{height:'100px'}}>{news.description}.</p>
 
-                      < SocialMedia />
+                      {/* < SocialMedia /> */}
                       </div>
 
                        

@@ -76,7 +76,7 @@ function News() {
 
                       <p className="mb-15">{news.description}.</p>
 
-                      <SocialMedia />
+                        {/* <SocialMedia /> */}
                     </div>
                   </article>
                 </div>
@@ -84,11 +84,11 @@ function News() {
             </div>
           ))}
 
-          <Pagination
+          {/* <Pagination
             postsPerPage={postsPerPage}
             totalPosts={data.length}
             paginate={paginate}
-          />
+          /> */}
         </div>
     </div>
   );

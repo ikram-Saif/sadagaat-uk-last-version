@@ -27,6 +27,7 @@ import VolunteerForm from "./components/vlounteers/VolunteerForm";
 import Donate from "./components/Donation/donate";
 import DonateToProject from "./components/Donation/DonateToProject";
 import DonateToSubhub from "./components/Donation/DonateToSubhub";
+import DonateToHub from "./components/Donation/donateToHub";
 import SuccessDonate from "./components/Donation/successfullDonation";
 import FaildDonate from "./components/Donation/faildDonation";
 import SingleProject from "./components/projects/single-project";
@@ -103,7 +104,10 @@ function App() {
         <Route exact path="/sub_hubs" component={Sub_hubs} />
         <Route path="/contact" component={Contact} />
         <Route exact path="/projects" component={Projects_} />
-        <Route exact path="/donate" component={Donate} />
+        <Route exact path="/donate/" component={Donate} />
+        <Route exact path="/projects/:project_id" component={DonateToProject} />
+        <Route exact path="/sub_hubs/:subhub_id" component={DonateToSubhub} />
+        <Route exact path="/hub/:hubId" component={DonateToHub} />
         <Route exact path="/success-donate" component={SuccessDonate} />
         <Route exact path="/failed-donate" component={FaildDonate} />
         <Route path="/about" component={About} />
@@ -118,8 +122,7 @@ function App() {
         <Route exact path="/reset-password/:token" component={RestPassword} />
         <PrivateRoute exact path="/volunteerForm" component={VolunteerForm} />
         <Route exact path="/verify" component={Email_verification} />
-        <Route exact path="/projects/:project_id" component={DonateToProject} />
-        <Route exact path="/sub_hubs/:subhub_id" component={DonateToSubhub} />
+       
         <Route
           exact
           path="/single-projects/:project_id"

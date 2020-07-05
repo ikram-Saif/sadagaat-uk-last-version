@@ -64,17 +64,12 @@ class SinglEvent extends Component {
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-              <h2 class="text-theme-colored">{event.name}</h2>
+              <h2 class="text-theme-colored ">{event.name}</h2>
 
-            <div className="" style = {{border:'1px solid gray' }} >
-              <img 
-              src = {`${address()}events/${event.id}/image`}
-              alt="" 
-              className= 'img-fullwidth img-responsive'
-               />
-               </div>
+
+                <p>{event.description}</p>
           </div>
-          <div class="col-md-4 mt-60">
+          <div class="col-md-4">
             <ul>
               <li>
                 <h4>{t('Topic')}:</h4>
@@ -95,18 +90,12 @@ class SinglEvent extends Component {
              
               <li>
                 <h5></h5>
-                < SocialMedia />
+                {/* < SocialMedia /> */}
               </li>
             </ul>
           </div>
         </div>
-        <div class="row mt-60">
-          <div class="col-md-8">
-            <h3 class="mt-0 text-theme-colored">{t('Event Description')}</h3>
-                <p>{event.descreption}</p>
-          </div>
-         
-        </div>
+
         
       </div>
     </section>

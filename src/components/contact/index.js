@@ -65,17 +65,26 @@ class Contact extends Component{
         )
       //console.log(e.target.value)
     }
+    // textareaValue(){
+    //   var myTxtArea = document.getElementById('message');
+    //       myTxtArea.value = myTxtArea.value;
+    //       var patt = /[^[^\s].+[^\s]$]/
+    //       var result = patt.test(myTxtArea);
+    //   return result
+    // }
 
    
    handleSubmit = (e) => 
    {
+
         e.preventDefault();
         //console.log(this.state.form)
-    
-       const {t} = this.props
-      
-
-         axios.post(`${address()}feedBacks`,
+        var myTxtArea = document.getElementById('message').value;
+        // var patt = /[^[^\s].+[^\s]$]/
+        // var result = patt.test(myTxtArea);
+        //var result = (myTxtArea.match(/\S+/) | myTxtArea.match(/\n+/))
+        if(myTxtArea.match(/\S+/)){
+          axios.post(`${address()}feedBacks`,
 
         { fullName:this.state.form.name,
           email:this.state.form.email,
@@ -105,6 +114,20 @@ class Contact extends Component{
             scroll.scrollTo();
 
     });
+        }
+        else {
+          const {t} = this.props
+          //e.target.message.setCustomValidity(t('Enter a valid message'))
+          this.setState({
+            response:{
+              ...this.state.response,
+              responseMessage : 'white sapace',
+              alertClass:"error-msg",
+              iconClass:"fa fa-times-circle"
+            }
+          })
+        }
+         
 
     }
    
@@ -266,9 +289,10 @@ class Contact extends Component{
                   <label className = "control-label">{t('Message')}</label>
 
                   <textarea 
+                    id = 'message'
                     name="message"
                     className="form-control required" 
-                    rows={5} 
+                    rows={5}
                     placeholder={t("contact_message" )}
                     defaultValue={""} 
                     onChange = {this.handleChange}

@@ -105,7 +105,7 @@ return(
                                     </li>
                                   </ul>
                                 </div>
-                                <Link to= {'/donate'} class="btn btn-theme-colored btn-sm">{t('Donate Now')}</Link>
+                                <Link to = {'/hub/'+health.id} class="btn btn-theme-colored btn-sm">{t('Donate Now')}</Link>
                               </div>
            
                         </div>

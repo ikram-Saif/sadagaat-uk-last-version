@@ -107,7 +107,6 @@ async componentWillReceiveProps(){
                   iconClass:'fa fa-times-circle',
                   styleClass:'error-msg',
                   donateTo:'Sadagaat', 
-                  amount:'',
                 })
               } else {
                 this.setState(
@@ -116,7 +115,6 @@ async componentWillReceiveProps(){
                     iconClass:'fa fa-times-circle',
                     styleClass:'error-msg',
                     donateTo:'Sadagaat', 
-                    amount:'',
                   })
               }
             

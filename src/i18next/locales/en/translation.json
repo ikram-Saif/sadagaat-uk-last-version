@@ -176,8 +176,6 @@
   "Volunteer": "Volunteer",
   "We provides always our best industrial solution for our clientsand always try to": "We provides always our best industrial solution for our clientsand always try to",
   "achieve our client  trust and satisfaction": "achieve our client  trust and satisfaction",
-  "Request failed with status code 500": "Username or Password Not Correct",
-  "Request failed with status code 404": "Please Fill Your Information",
   "This Email Already Exist": "This Email Already Exist",
   "Share": "Share",
   "Enter Email": "Enter Email",
@@ -245,6 +243,8 @@
   "Enter a valid amount":"Enter a valid amount",
   "Please enter a valid name":"Please enter a valid name",
   "enter date no later than":"enter date no later than",
-  "Your Form Submitted Successfully":"Your Form Submitted Successfully"
+  "Your Form Submitted Successfully":"Your Form Submitted Successfully",
+  "your password should not contain whitespace":"your password should not contain whitespace",
+  "your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters":" your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters"
 
 }

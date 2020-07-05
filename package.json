@@ -30,6 +30,7 @@
     "react-dom": "^16.13.0",
     "react-fa": "^5.0.0",
     "react-final-form": "^6.4.0",
+    "react-html-parser": "^2.0.2",
     "react-i18next": "^11.3.4",
     "react-icons": "^3.9.0",
     "react-responsive-background": "^1.5.0",

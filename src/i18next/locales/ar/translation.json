@@ -178,8 +178,6 @@
   "We provides always our best industrial solution for our clientsand always try to": "نقدم دائمًا أفضل الحلول التي نقدمها لعملائنا ونحاول دائمًا",
   "achieve our client  trust and satisfaction": "تحقيق ثقة عملائنا ورضاهم.",
   "Network Error": "خطأ الاتصال بالشبكة",
-  "Request failed with status code 500": "اسم المستخدم او كلمة المرور غير صحيح",
-  "Request failed with status code 404": "تأكد من ادخال البيانات المطلوبة",
   "This Email Already Exist": "هذا الإيميل مستخدم مسبقا",
   "Enter Email": "ادخل بريدك الالكتروني",
   "Enter Phone": "ادخل الهاتف",
@@ -247,6 +245,8 @@
   "Enter a valid amount":"الرجاء ادخال مبلغ صحيح",
   "Please enter a valid name":"الرجاء ادخال الاسم بشكل صحيح",
   "enter date no later than":"ادخل تاريخ لايتجاوز ",
-  "Your Form Submitted Successfully":"تم إرسال النموذج الخاص بك بنجاح"
+  "Your Form Submitted Successfully":"تم إرسال النموذج الخاص بك بنجاح",
+  "your password should not contain whitespace":"يجب ألا تحتوي كلمة المرور الخاصة بك على مسافة بيضاء",
+  "your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters":"يجب ألا تحتوي كلمة المرور الخاصة بك على مسافة بيضاء ، وتحتوي على رقم واحد على الأقل ، وتحتوي على حرف كبير واحد على الأقل ، و 8 أحرف على الأقل و 20 حرفًا على الأكثر"
 
 }

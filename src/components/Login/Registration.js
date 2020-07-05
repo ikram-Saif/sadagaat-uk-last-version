@@ -346,6 +346,13 @@ class Registration extends Component{
                                       required = "required"
                                       onChange = {this.handleChange}
                                       value ={this.state.form.password}
+                                      pattern = '^(?!.* )(?=.*\d)(?=.*[A-Z]).{8,20}$'
+                                      onInvalid = {function(e) {
+                                        e.target.setCustomValidity(t('your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters'))}}
+                                        onInput={function(e) {
+                                            e.target.setCustomValidity(t(''))}}
+
+
                                       /> 
 
                                 <div className="help-block with-errors"></div>

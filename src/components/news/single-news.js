@@ -113,7 +113,7 @@ class SinglNews extends Component {
 
                       <p className="mb-15">{news.description}.</p>
 
-                      <SocialMedia />
+                        {/* <SocialMedia /> */}
                     </div>
                   </article>
                 </div>
