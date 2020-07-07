@@ -252,6 +252,7 @@
   "fill this field":"املأ هذا الحقل",
   "Select Hub":"اختر محور",
   "select a hub from the list":"اختر محور من القائمة",
-  "your value must not be white space":"القيمة المدخلة يجب الا تكون مسافة بيضاء"
+  "your value must not be white space":"القيمة المدخلة يجب الا تكون مسافة بيضاء",
+  "This is an invalid password reset link":"رابط إعادة تعيين كلمة المرور غير صالح"
 
 }

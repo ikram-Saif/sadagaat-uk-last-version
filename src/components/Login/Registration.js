@@ -203,11 +203,11 @@ class Registration extends Component{
                                       style = {{margin:'5px'}} />
 
                                       {t(this.state.response.message)}
-                                 <Redirect 
+                                 {/* <Redirect 
                                       to = {{
                                           pathname: "/login",
                                          state:{success_register: "register successfully" }
-                                          }}  />
+                                          }}  /> */}
                                       
                                       <a href = '/login'>{t(this.state.response.loginLink)}</a>
                                        

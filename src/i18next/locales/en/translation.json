@@ -250,5 +250,6 @@
   "fill this field":"fill this field",
   "Select Hub":"Select Hub",
   "select a hub from the list":"select a hub from the list",
-  "your value must not be white space":"your value must not be white space"
+  "your value must not be white space":"your value must not be white space",
+  "This is an invalid password reset link":"This is an invalid password reset link"
 }

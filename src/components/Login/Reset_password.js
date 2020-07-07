@@ -103,10 +103,21 @@ handleFormErrorMessage =(e,message = '')=>{
     )
     .catch(err => 
           {
+
             this.setState({loading:true})
+
+            let message;
+            
+            if(err.message === 'Request failed with status code 400')
+              message = 'This is an invalid password reset link'
+            else
+             if (err.message === 'Network Error')
+                message = 'Network Error'
+            else 
+            message = 'something went wrong try again later'
             setTimeout(() => {
               this.setState({ loading: false,
-                message: err.message,
+                message: message,
                 iconClass:'fa fa-times-circle',
                 styleClass:'error-msg',
               
@@ -167,7 +178,7 @@ handleFormErrorMessage =(e,message = '')=>{
                                     //       pathname: "/login",
                                     //       state:{referrer: 'password reset successfully'}
                                     //       }} />
-                                    <Link to = '/login'>{t(this.state.response.loginLink)}</Link>
+                                    <Link to = '/login'>{t(this.state.loginLink)}</Link>
                                     }
                                     </div>
 
