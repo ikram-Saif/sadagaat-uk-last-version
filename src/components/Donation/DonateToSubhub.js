@@ -12,12 +12,12 @@ import DonationTable from './DonationTable';
 
 class DonateToSubhub extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = 
     {
                   
-      subhub_id: null,
+      subhub_id: this.props.match.params.hubId,
       amount: 0,
       message:'',
       iconClass:'',
@@ -88,6 +88,7 @@ async componentWillReceiveProps(){
               currency:this.state.currency
             }
           console.log(data)
+          this.setState({loading:true})
 
           axios.post(`${address()}donate`,data)
 
@@ -99,7 +100,6 @@ async componentWillReceiveProps(){
             {
                 window.location = response.data.paymentUrl
 
-                this.setState({loading:true})
                 setTimeout(() => {
                   this.setState({ loading: false });
                 }, 2000)
@@ -125,13 +125,19 @@ async componentWillReceiveProps(){
 
               }
             
-              }) .catch(error => {
+              }) .catch(err => {
                 this.setState({
-                            loading:true 
-                          })
+                  loading:true 
+                })
+                let message;
+                  if (err.message === 'Network Error')
+                  message = 'Network Error'
+                  else 
+                  message = 'something went wrong try again later'
+               
                   setTimeout(() => {
                         this.setState({ loading: false,
-                                        message:error.message,
+                                        message:message,
                                         iconClass:'fa fa-times-circle',
                                         styleClass:'error-msg'
                                       });

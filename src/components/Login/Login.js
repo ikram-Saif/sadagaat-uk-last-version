@@ -5,8 +5,8 @@ import Registration from './Registration'
 import { Link } from 'react-router-dom';
 import  {withTranslation}  from 'react-i18next'
 import i18n from 'i18next'
-
-
+import 'react-notifications/lib/notifications.css';
+import {NotificationManager} from 'react-notifications';
 class Login extends Component{
 
   constructor() {
@@ -15,30 +15,45 @@ class Login extends Component{
                   email: "",
                   password: "",
                   loading:false,
-                  success_reset:''
-                  
+                  success_reset:''   
                 }                 
             }
+            // componentDidMount(){
+            //   // let successPassworddReset  =  this.props.location.state.referrer
+            //   NotificationManager.success('Success message', 'successMessage');
+            //   // alert(successPassworddReset)
+            //  }
    
-            // componentDidMount(props){
-            //   console.log("property_id",this.props.location.state.property_id)
+            // componentWillReceiveProps(){
+            //  let successPassworddReset  =  this.props.location.state.referrer
+            //  NotificationManager.success('Success message', successPassworddReset);
+            //  // alert(successPassworddReset)
             // }
+  handleFormErrorMessage =(e,message = '')=>{
+    const {t} = this.props
+  
+    if (e.target.value === '')
+    
+    e.target.setCustomValidity(t('fill this field'))
+    else
+    e.target.setCustomValidity(message)
+      
+    }
+
    
    handleChange = (e) => {
+
     this.setState({[e.target.name]: e.target.value})
     }
 
-
-   
    handleSubmit = (e) => {
     e.preventDefault();
-    
      login(this.state)
       .then(data =>{ 
 
-        
         this.setState({loading:true})
-        setTimeout(() => {
+        setTimeout(() => 
+        {
           this.setState({ loading: false });
         }, 2000)
         window.location = '/'
@@ -65,7 +80,6 @@ class Login extends Component{
             errorMessage: message,
             iconClass:'fa fa-times-circle',
             styleClass:'error-msg',
-            // email: "",
              password: ""
            });
         }, 2000)
@@ -113,13 +127,13 @@ class Login extends Component{
                                  <i className ={this.state.iconClass} style = {{margin:'5px'}}></i> 
                                      {t(this.state.errorMessage)}
                                 </div>
-                            <form  
-                                    // data-toggle="validator"
-                                    role="form" name="login-form" 
+                                <form  
+                                    role="form" 
+                                    name="login-form" 
                                     className="clearfix" 
                                     onSubmit ={this.handleSubmit}
                                     
-                              >
+                                  >
 
                               <div className="row">
                                 <div className="form-group col-md-12">
@@ -129,14 +143,17 @@ class Login extends Component{
                                     id="inputEmail" 
                                     name="email" 
                                     className="form-control"
-                                     type="text"
-                                     data-error={t("that email address is invalid")}
-                                     pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
-                                     title = {t("that email address is invalid")}                                      onChange = {this.handleChange} required 
-                                      value = {this.state.email}
+                                    type="text"
+                                    onChange = {this.handleChange} required 
+                                    value = {this.state.email}
+                                    pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
+                                    title = {t("that email address is invalid")}
+                                    required = "required"
+                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t("that email address is invalid"))}
+                                    onInput={function(e) {
+                                            e.target.setCustomValidity(t(''))}
+                                          }
                                       />
-
-                                    <div class="help-block with-errors"></div>
                                 </div>
                                </div>
                                 
@@ -148,12 +165,14 @@ class Login extends Component{
                                    name="password" 
                                    className="form-control" 
                                    type="password"
-                                   data-minlength="8"
-                                   minlength="8" 
                                    value = {this.state.password}
-
                                     onChange = {this.handleChange}
-                                     required/>
+                                    onInvalid = {(e)=>this.handleFormErrorMessage(e)}
+                                    onInput={function(e) {
+                                     e.target.setCustomValidity(t(''))}
+                                        }
+                                    required
+                                    />
                                 </div>
 
                               </div>

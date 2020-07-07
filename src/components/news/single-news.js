@@ -80,7 +80,7 @@ class SinglNews extends Component {
         <section>
           <div className="container mt-30 mb-30 pt-30 pb-30">
             <div class="row">
-              <div class="col-md-10 col-md-offset-1">
+              <div class="col-md-6">
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
@@ -93,10 +93,15 @@ class SinglNews extends Component {
                           src={`${address()}news/${news.id}/image`}
                           className="img-fullwidth img-responsive"
                           alt=""
+                          style = {{height:'400px'}}
                         />
                       </div>
                       {/* <div class="post-thumb thumb mt-20">{NewsSlider}</div> */}
                     </div>
+                    </article>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
 
                     <div class="entry-content">
                       <div class="entry-meta media no-bg no-border mt-15 pb-20">
@@ -114,8 +119,7 @@ class SinglNews extends Component {
                       <p className="mb-15">{news.description}.</p>
 
                         {/* <SocialMedia /> */}
-                    </div>
-                  </article>
+                   
                 </div>
               </div>
             </div>

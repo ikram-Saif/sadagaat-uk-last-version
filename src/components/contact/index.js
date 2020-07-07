@@ -24,7 +24,7 @@ class Contact extends Component{
 
         },
         response:{
-          
+          EmptyMessageError:'',
           responseMessage:'',
           alertClass:'',
           iconClass:''
@@ -34,24 +34,17 @@ class Contact extends Component{
     const {t} = this.props
   }
 
-  // componentDidMount() {
-  //   axios.get(`${address()}/contactUsInfos`, {headers: {'accept-language': `${i18n.language}`}})
-  //       .then(response => {
-  //         console.log(response.data);
-  //         this.setState({
-  //          contactInfo:{
-  //           links: response.data,
-  //          }
+  handleFormErrorMessage =(e,message = '')=>{
+    const {t} = this.props
+  
+    if (e.target.value === '')
+    
+    e.target.setCustomValidity(t('fill this field'))
+    else
+    e.target.setCustomValidity(message)
+      
+    }
 
-  //         });
-
-  //       })
-  //       .catch(error => {
-  //         console.log(error);
-  //       });
-  // }
-   
-   
    handleChange = (e)=> 
    {
       this.setState({
@@ -61,24 +54,12 @@ class Contact extends Component{
         }
       
       
-    }
-        )
-      //console.log(e.target.value)
-    }
-    // textareaValue(){
-    //   var myTxtArea = document.getElementById('message');
-    //       myTxtArea.value = myTxtArea.value;
-    //       var patt = /[^[^\s].+[^\s]$]/
-    //       var result = patt.test(myTxtArea);
-    //   return result
-    // }
-
+      })
+  }
    
    handleSubmit = (e) => 
-   {
-
-        e.preventDefault();
-        //console.log(this.state.form)
+   {    
+     e.preventDefault();
         var myTxtArea = document.getElementById('message').value;
         // var patt = /[^[^\s].+[^\s]$]/
         // var result = patt.test(myTxtArea);
@@ -116,14 +97,12 @@ class Contact extends Component{
     });
         }
         else {
-          const {t} = this.props
-          //e.target.message.setCustomValidity(t('Enter a valid message'))
           this.setState({
             response:{
               ...this.state.response,
-              responseMessage : 'white sapace',
+              responseMessage : 'your message must not be a space or newline',
               alertClass:"error-msg",
-              iconClass:"fa fa-times-circle"
+              iconClass:"fa fa-times-circle",
             }
           })
         }
@@ -209,7 +188,7 @@ class Contact extends Component{
                   >
 
         <div className ={`${this.state.response.alertClass}`}> 
-        <i className = {this.state.response.iconClass}></i>
+        <i className = {this.state.response.iconClass}  style = {{margin:'5px'}}></i>
           {t(this.state.response.responseMessage)}</div>
 
                 <div className="row">
@@ -227,6 +206,9 @@ class Contact extends Component{
                           pattern = '^([A-Za-z\u0621-\u064A]+)([A-Za-z\u0621-\u064A\s]+)?$'
                           title = {t('Please enter your fullName')}
                           required = "required"
+                          onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Please enter your fullName'))}
+                          onInput={function(e) {
+                              e.target.setCustomValidity(t(''))}}
                       />
                     </div>
                   </div>
@@ -242,10 +224,12 @@ class Contact extends Component{
                           onChange = {this.handleChange}
                           pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
                           title = {t("that email address is invalid")}
+                          onInvalid = {(e)=>this.handleFormErrorMessage(e,t('that email address is invalid'))}
+                          onInput={function(e) {
+                              e.target.setCustomValidity(t(''))}}
                           required = "required"
                           
                         />
-                      <div className="help-block with-errors"></div>
                     </div>
                   </div>
                 </div>
@@ -261,7 +245,10 @@ class Contact extends Component{
                           placeholder={t("Enter Subject")}
                           onChange = {this.handleChange}
                           pattern = '^[^\s].+[^\s]$'
-                          title = "Enter a valid Subject"
+                          title = {t("Enter a valid Subject")}
+                          onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Enter a valid Subject'))}
+                          onInput={function(e) {
+                              e.target.setCustomValidity(t(''))}}
 
                       />
                     </div>
@@ -281,12 +268,18 @@ class Contact extends Component{
                         pattern="^(0[0-9]{9})|(00[0-9]{12})$"
                         title = {t('Enter a valid phone number with 10 number or 14')}
                         required = "required"
+                        onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Enter a valid phone number with 10 number or 14'))}
+                        onInput={function(e) {
+                              e.target.setCustomValidity(t(''))}}
+
                       />
                     </div>
                   </div>
                 </div>
                 <div className="form-group required">
-                  <label className = "control-label">{t('Message')}</label>
+                  <label className = "control-label">{t('Message')}
+                    <small>{this.state.response.EmptyMessageError}</small>
+                  </label>
 
                   <textarea 
                     id = 'message'
@@ -297,6 +290,9 @@ class Contact extends Component{
                     defaultValue={""} 
                     onChange = {this.handleChange}
                     pattern = '^[^\s].+[^\s]$'
+                    onInvalid = {(e)=>this.handleFormErrorMessage(e)}
+                    onInput={function(e) {
+                      e.target.setCustomValidity(t(''))}}
                     required = "required"
                   />
                 </div>
@@ -321,20 +317,8 @@ class Contact extends Component{
               <iframe width={600} height={500} id="gmap_canvas"
                 src={mapUrl}
                 frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} ></iframe>
-               {/* <a href="https://www.embedgooglemap.net">embedgooglemap.net</a> */}
                </div>
-               {/* <style dangerouslySetInnerHTML={{__html: ".mapouter{position:relative;text-align:right;height:400px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:100%;}" }} /> */}
                </div>
-
-            
-            {/* <div 
-            id="map-canvas-multipointer"
-            data-mapstyle="default"
-            data-height="500"
-            data-zoom="15"
-            data-marker="images/map-marker.png">
-          </div>
-           */}
          
           </div>
         </div>

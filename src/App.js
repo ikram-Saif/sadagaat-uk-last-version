@@ -20,7 +20,6 @@ import Water from "./components/base_hubs/water";
 import News from "./components/news/index";
 import Login from "./components/Login/Login";
 import ForgotPassword from "./components/Login/Forgot_Password";
-import Password_verfy_code from "./components/Login/Password_verfy_code";
 import RestPassword from "./components/Login/Reset_password";
 import Email_verification from "./components/Login/email_verfication";
 import VolunteerForm from "./components/vlounteers/VolunteerForm";
@@ -114,11 +113,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <PubliceRoute exact path="/login" component={Login} />
         <Route exact path="/forgot_password" component={ForgotPassword} />
-        <Route
-          exact
-          path="/verify_password_code"
-          component={Password_verfy_code}
-        />
+       
         <Route exact path="/reset-password/:token" component={RestPassword} />
         <PrivateRoute exact path="/volunteerForm" component={VolunteerForm} />
         <Route exact path="/verify" component={Email_verification} />

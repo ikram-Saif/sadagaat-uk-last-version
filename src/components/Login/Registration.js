@@ -1,37 +1,31 @@
 import React,{Component} from 'react';
-import { login , register} from '../../repository';
+import {register} from '../../repository';
 import{Redirect} from 'react-router-dom'
 import i18n from 'i18next'
 import { withTranslation } from 'react-i18next'
-import {Link} from 'react-router-dom'
 import {animateScroll as scroll } from "react-scroll";
-import $ from 'jquery'
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-
-
 class Registration extends Component{
-
 
   constructor() {
     super();
     this.state = { 
       form:{
    
-              firstName:'',
-              lastName:'',
-              userName: '',
-              password: '',
-              phoneNumber:'',
-              gender:'MALE',
-              dateOfBirth:'',
-      },
-      response:{
-
+            firstName:'',
+            lastName:'',
+            userName: '',
+            password: '',
+            phoneNumber:'',
+            gender:'MALE',
+            dateOfBirth:'',
+          },
+      response:
+      {
         message:'',
-        //sccessfullRegistration:``,
         success: null,
         styleClass:'',
         iconClass:'',
@@ -41,12 +35,19 @@ class Registration extends Component{
         
       },
       dob: moment()
-
-
     };
   }
 
+ handleFormErrorMessage =(e,message = '')=>{
+  const {t} = this.props
 
+  if (e.target.value === '')
+  
+  e.target.setCustomValidity(t('fill this field'))
+  else
+  e.target.setCustomValidity(message)
+    
+  }
    
    handleChange = (e)=> 
    {
@@ -55,8 +56,7 @@ class Registration extends Component{
           ...this.state.form,
         [e.target.name]: e.target.value
         }
-      })
-      console.log(e.target.value)
+      })   
     }
 
     handleConfirmPassword = (e)=>{
@@ -100,7 +100,6 @@ class Registration extends Component{
               response:{
                 ...this.state.response,
                 success : 1,
-              //sccessfullRegistration:'Registerd Successfully. Please   ',
               message:'Registerd Successfully Please',
               styleClass:'success-msg',
               iconClass:'fa fa-check fa-2x',
@@ -114,8 +113,6 @@ class Registration extends Component{
             //   pathname: "/login",
             //   state:{success_register: "register successfully" }
             //     }}  />
-     
-
           }
           )
        
@@ -154,7 +151,6 @@ class Registration extends Component{
           })
         }
         scroll.scrollTo(70);
-
     }
     clearState=()=>{
       this.setState({
@@ -207,6 +203,11 @@ class Registration extends Component{
                                       style = {{margin:'5px'}} />
 
                                       {t(this.state.response.message)}
+                                 <Redirect 
+                                      to = {{
+                                          pathname: "/login",
+                                         state:{success_register: "register successfully" }
+                                          }}  />
                                       
                                       <a href = '/login'>{t(this.state.response.loginLink)}</a>
                                        
@@ -218,9 +219,7 @@ class Registration extends Component{
                                     
                                     </div>) 
                                 }
-
-                                                          
-                             
+  
                               <div className="row">
                                 <div className="form-group required col-md-6">
                                   <label className = "control-label" for="first-name">{t('First Name')}</label>
@@ -235,6 +234,10 @@ class Registration extends Component{
                                       required = "required"
                                       onChange = {this.handleChange}
                                       value = {this.state.form.firstName}
+                                      onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Please enter a valid name'))}
+                                      onInput={function(e) {
+                                          e.target.setCustomValidity(t(''))}}
+                                      
 
                                       
                                   />
@@ -248,9 +251,14 @@ class Registration extends Component{
                                         className="form-control"  
                                         type="text" 
                                         pattern = '^([A-Za-z\u0621-\u064A]+)(\s[A-Za-z\u0621-\u064A]+)?$'
-                                        title = {t('Please enter a valid name')}                                        onChange = {this.handleChange}
+                                        title = {t('Please enter a valid name')}                                    
+                                        onChange = {this.handleChange}
                                         value = {this.state.form.lastName}
                                         required = "required"
+                                        onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Please enter a valid name'))}
+                                        onInput={function(e) {
+                                            e.target.setCustomValidity(t(''))}}
+                               
                                    />
                                        
                                 </div>
@@ -270,10 +278,13 @@ class Registration extends Component{
                                       value = {this.state.form.userName}
                                       pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
                                       title = {t("that email address is invalid")}
-                                      required = "required" 
+                                      required = "required"
+                                      onInvalid = {(e)=>this.handleFormErrorMessage(e,t("that email address is invalid"))}
+                                        onInput={function(e) {
+                                            e.target.setCustomValidity(t(''))}}
+                                       
                                       
                                     />
-                                   <div className="help-block with-errors"></div>
                                 </div>
                                 <div className="form-group required col-md-6">
                                                 <label for="" className="float-left control-label">{t('Gender')}</label>
@@ -294,7 +305,6 @@ class Registration extends Component{
                                   <label className = "control-label">{t('Phone')}</label>
                                   <small className = "font-12 text-gray"></small>
 
-
                                   <input 
                                       name="phoneNumber" 
                                       className="form-control" 
@@ -304,9 +314,12 @@ class Registration extends Component{
                                       onChange = {this.handleChange}
                                       value ={this.state.form.phoneNumber} 
                                       required = "required" 
+                                      onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Enter a valid phone number with 10 number or 14'))}
+                                      onInput={function(e) {
+                                          e.target.setCustomValidity(t(''))}}
+
                                       
                                     />
-                                   <div className="help-block with-errors">{t('')}</div>
                                 </div>
                                 <div className="form-group required col-md-6">
                                     <label className = "control-label">{t('Date Of Birth')}</label>
@@ -320,16 +333,15 @@ class Registration extends Component{
                                       value ={this.state.form.dateOfBirth}
                                       max={moment().format("YYYY-MM-DD")}  
                                       title = {t('enter date no later than')+ moment().format("YYYY-MM-DD")}
-                                      onInvalid = {function(e) {
-                                        e.target.setCustomValidity(t('enter date no later than')+ moment().format("YYYY-MM-DD"))}}
+                                      onInvalid = {(e)=>
+                                        this.handleFormErrorMessage(e,t('enter date no later than')+ moment().format("YYYY-MM-DD"))
+                                            }
                                       onInput={function(e) {
                                          e.target.setCustomValidity(t(''))}}  
                                     />
-                                   <div className="help-block with-errors"></div>
                                 </div>
 
-                              
-                                            </div>
+                                  </div>
 
                               <div className="row">
                                 <div className="form-group required col-md-6  has-feedback">
@@ -340,22 +352,17 @@ class Registration extends Component{
                                       name="password" 
                                       className="form-control" 
                                       type="password"
-                                      data-minlength="8"
                                       minlength="8"
-                                      data-error={t('Minimum of 8 characters')}
                                       required = "required"
                                       onChange = {this.handleChange}
                                       value ={this.state.form.password}
                                       pattern = '^(?!.* )(?=.*\d)(?=.*[A-Z]).{8,20}$'
-                                      onInvalid = {function(e) {
-                                        e.target.setCustomValidity(t('your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters'))}}
-                                        onInput={function(e) {
-                                            e.target.setCustomValidity(t(''))}}
-
+                                      onInvalid = {(e)=>this.handleFormErrorMessage(e,t('your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters'))}
+                                      onInput={function(e) {
+                                          e.target.setCustomValidity(t(''))}}
 
                                       /> 
 
-                                <div className="help-block with-errors"></div>
                                 </div>
                                 <div className="form-group required col-md-6  has-feedback" >
                                   <label className = "control-label">{t('Re-enter Password')}</label>
@@ -374,12 +381,8 @@ class Registration extends Component{
                                          required = "required"
                                          onChange = {this.handleConfirmPassword}
                                    />
-                                    
-
                                 </div>
 
-                                
-                              
                                 <div className="form-group">
                                 <button className="btn text-white btn-theme-green btn-lg btn-block mt-15" type="submit">{t('Register')}</button>
                               </div>

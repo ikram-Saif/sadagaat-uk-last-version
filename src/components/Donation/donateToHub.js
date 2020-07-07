@@ -11,12 +11,12 @@ import DonationTable from './DonationTable';
 
 class DonateToHub extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = 
     {
                   
-      hub_id: null,
+      hub_id: this.props.match.params.hubId,
       amount: 0,
       message:'',
       iconClass:'',
@@ -29,12 +29,8 @@ class DonateToHub extends Component {
 
  async componentDidMount (){
 
-    let id = this.props.match.params.hubId
-    // console.log(this.props.match.params.hub_id) 
-
-    this.setState({hub_id:id})
- 
-  // console.log('*********',i18n)
+    //let id = this.props.match.params.hubId
+    let id = this.state.hub_id
     await axios.get(`${address()}hubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
     .then(response => {
@@ -50,8 +46,10 @@ class DonateToHub extends Component {
 
 async componentWillReceiveProps(){
 
-    let id = this.props.match.params.hubId
-    this.setState({hub_id:id})
+    //let id = this.props.match.params.hubId
+    let id = this.state.hub_id
+
+    //this.setState({hub_id:id})
 
   axios.get(`${address()}hubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
 
@@ -86,6 +84,8 @@ async componentWillReceiveProps(){
             }
           console.log(data)
 
+          this.setState({loading:true})
+
           axios.post(`${address()}donate`,data)
           /** syber bay payment feedback */
 
@@ -95,7 +95,6 @@ async componentWillReceiveProps(){
             {
                 window.location = response.data.paymentUrl
 
-                this.setState({loading:true})
                 setTimeout(() => {
                   this.setState({ loading: false });
                 }, 2000)
@@ -119,11 +118,19 @@ async componentWillReceiveProps(){
                   })
               }
             
-              }) .catch(error => {
+              }) .catch(err => {
                 this.setState({loading:true })
+
+                let message;
+                  if (err.message === 'Network Error')
+                  message = 'Network Error'
+                  else 
+                  message = 'something went wrong try again later'
+
+                
                   setTimeout(() => {
                         this.setState({ loading: false,
-                                        message:error.message,
+                                        message:message,
                                         iconClass:'fa fa-times-circle',
                                         styleClass:'error-msg'
                                       });

@@ -7,12 +7,8 @@ import { withTranslation } from "react-i18next";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import {Link} from 'react-router-dom'
-import work from "../images/work.jpg";
 import {getNumberWithComma , Precision} from '../events/getMonthName'
-import { renderToStaticMarkup } from 'react-dom/server';
-import parse,{ domToReact }  from 'html-react-parser';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
-import $ from 'jquery'
+import parse  from 'html-react-parser';
 
 
 class SinglProject2 extends Component {
@@ -38,8 +34,8 @@ class SinglProject2 extends Component {
     } catch (error) {
       console.log("can not load project for the home page slider");
     }
-               setTimeout(function() { 
-    this.setState({render: true}) }.bind(this), 10)
+    setTimeout(function() { 
+        this.setState({render: true}) }.bind(this), 10)
   }
 
 
@@ -57,9 +53,7 @@ class SinglProject2 extends Component {
     }
   }
 
-  addclassTable =(node)=>{
-  alert(node)
-  }
+ 
   render() {
 
         let renderContainer = false
@@ -225,7 +219,7 @@ class SinglProject2 extends Component {
                                 <Link to= {'/projects/'+project.id} 
                                 class="btn btn-theme-colored btn-sm"
                                 style = {{display:`
-                                ${project.status ==='completed'|| project.donationProgress === '100'?'none':''}`
+                                ${project.projectProgress === 100 || project.donationProgress >= 100 ?'none':''}`
                               }}>
                                   {t('Donate Now')}
                                 </Link>

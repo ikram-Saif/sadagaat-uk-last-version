@@ -5,7 +5,6 @@ import axios from 'axios';
 import { render } from '@testing-library/react';
 import i18n from 'i18next'
 import  {withTranslation}  from 'react-i18next'
-import { donateTo } from '../../repository';
 import DonationTable from './DonationTable'
 
 
@@ -13,9 +12,9 @@ class Donate extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = 
+    {
       id:null,        
-      donateTo: "Sadagaat",
       amount: "",
       currency:"SDG",
       message:'',
@@ -23,7 +22,9 @@ class Donate extends Component {
       styleClass:'',
       loading: false,
       hubs:[],
-                }
+      render: false,
+
+    }
 }
 
    async componentDidMount () {
@@ -33,12 +34,15 @@ class Donate extends Component {
         .then(response => {
           const hubs = response.data
           this.setState({hubs})
+
           })
 
       
         .catch(error => {
           console.log(error);
         })
+        setTimeout(function() { 
+          this.setState({render: true}) }.bind(this), 10)
 
   }
   async componentWillReceiveProps(){
@@ -56,18 +60,27 @@ class Donate extends Component {
   }
 
 
+  handleFormErrorMessage =(e,message = '')=>{
+    const {t} = this.props
+  
+    if (e.target.value === '' && message ==='')
+    
+    e.target.setCustomValidity(t('select a hub from the list'))
+    else
+    e.target.setCustomValidity(message)
+      
+    }
 
-       handleChange=(e)=>{
-       
-          this.setState({
-            [e.target.name]:e.target.value,
-          })
-      }
+    handleChange=(e)=>{
+    
+      this.setState({
+        [e.target.name]:e.target.value,
+      })
+  }
       
        handleSubmite =(e)=>{
             e.preventDefault()
             const id = this.state.id
-            console.log(id)
 
           const data = {
               hid : id ,
@@ -75,8 +88,9 @@ class Donate extends Component {
               currency:this.state.currency
             }
             console.log(data)
-            
+            this.setState({loading:true})
           axios.post(`${address()}donate`,data)
+
 
      /** syber bay payment feedback */
 
@@ -86,7 +100,6 @@ class Donate extends Component {
             {
                 window.location = response.data.paymentUrl
 
-                this.setState({loading:true})
                 setTimeout(() => {
                   this.setState({ loading: false });
                 }, 2000)
@@ -112,11 +125,18 @@ class Donate extends Component {
 
               }
             
-              }) .catch(error => {
+              }) .catch(err => {
                 this.setState({loading:true })
+
+                let message;
+
+                if (err.message === 'Network Error')
+                  message = 'Network Error'
+                  else 
+                  message = 'something went wrong try again later'
                   setTimeout(() => {
                         this.setState({ loading: false,
-                                        message:error.message,
+                                        message:message,
                                         iconClass:'fa fa-times-circle',
                                         styleClass:'error-msg'
                                       });
@@ -127,6 +147,7 @@ class Donate extends Component {
   
 
    render(){
+    let renderContainer = false
      const{t}= this.props
      const loading  = this.state.loading;
 
@@ -142,7 +163,9 @@ class Donate extends Component {
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-5">
                
-                <h3 class="mt-0 line-bottom">{t('Donate Through Syber Pay')}<span class="font-weight-300"></span></h3>
+                <h3 class="mt-0 line-bottom">{t('Donate Through Syber Pay')}
+                    <span class="font-weight-300"></span>
+                </h3>
                    <p className={this.state.styleClass}>
                      <i className ={this.state.iconClass} style = {{margin:'5px'}}>
                      </i>
@@ -163,9 +186,13 @@ class Donate extends Component {
                           <select    
                               name="id"
                               className="form-control"
-                              onChange ={this.handleChange} 
-                              required>
-
+                              onChange ={this.handleChange}
+                              onInvalid = {(e)=> this.handleFormErrorMessage(e)}
+                              onInput={function(e) {
+                                e.target.setCustomValidity(t(''))}}
+                              required
+                              >
+                                <option value = ''>{t('Select Hub')}...</option>
                               {this.state.hubs.map(hub =>
                               <option key={hub.id} value = {hub.id} >
 
@@ -190,8 +217,7 @@ class Donate extends Component {
                                 type="number" 
                                 min="1"
                                 onChange ={this.handleChange}
-                                onInvalid = {function(e) {
-                                        e.target.setCustomValidity(t('Enter a valid amount'))}}
+                                onInvalid = {(e)=> this.handleFormErrorMessage(e,t('Enter a valid amount'))}
                                 onInput={function(e) {
                                     e.target.setCustomValidity(t(''))}}
                                 required
@@ -219,7 +245,6 @@ class Donate extends Component {
 
                       <div className="col-sm-12">
                         <div className="form-group">
-
                           <button type="submit" 
                             className="btn btn-flat btn-dark btn-theme-colored mt-10 pl-30 pr-30"
                             data-loading-text="Please wait...">

@@ -19,6 +19,16 @@ class ForgotPassword extends Component{
                 }
     
 }
+handleFormErrorMessage =(e,message = '')=>{
+  const {t} = this.props
+
+  if (e.target.value === '')
+  
+  e.target.setCustomValidity(t('fill this field'))
+  else
+  e.target.setCustomValidity(message)
+    
+  }
    
  
    
@@ -45,9 +55,16 @@ class ForgotPassword extends Component{
                       })
      .catch(err => {
               this.setState({loading:true})
+              let message;
+              if (err.message === 'Request failed with status code 404')
+                message = 'email not found'
+                else if (err.message === 'Network Error')
+                message = 'Network Error'
+                else 
+                message = 'something went wrong try again later'
               setTimeout(() => {
                 this.setState({ loading: false,
-                                message: 'email not found',
+                                message: message,
                                 iconClass:'fa fa-times-circle',
                                 styleClass:'error-msg',
                                 loginLink:'Login' 
@@ -92,7 +109,7 @@ class ForgotPassword extends Component{
 
                             <h4 className="text-gray mt-0 pt-5"> {t('Reset Password')}</h4>
                             <p className = {this.state.styleClass}>
-                                <i className = {this.state.iconClass}></i>
+                                <i className = {this.state.iconClass} style = {{margin:'5px'}}></i>
                                     {t(this.state.message)}
                               </p>
 
@@ -117,6 +134,10 @@ class ForgotPassword extends Component{
                                       required = 'true'
                                       pattern = '^([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-z]{2,8})(\.[a-z]{2,8})?$'
                                       title = {t("that email address is invalid")} 
+                                      onInvalid = {(e)=>this.handleFormErrorMessage(e,t("that email address is invalid"))}
+                                      onInput={function(e) {
+                                              e.target.setCustomValidity(t(''))}
+                                            }
                                       />
 
                                     <div class="help-block with-errors"></div>

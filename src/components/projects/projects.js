@@ -121,7 +121,7 @@ return(
     <Link to={'/projects/'+project.id} 
       className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
       style = {{display:`
-      ${project.status ==='completed'|| project.donationProgress === '100'?'none':''}`
+      ${project.projectProgress === 100 || project.donationProgress >= 100 ?'none':''}`
     }}
     >
       {t('Donate')}</Link>

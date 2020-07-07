@@ -245,6 +245,10 @@
   "enter date no later than":"enter date no later than",
   "Your Form Submitted Successfully":"Your Form Submitted Successfully",
   "your password should not contain whitespace":"your password should not contain whitespace",
-  "your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters":" your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters"
-
+  "your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters":" your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters",
+  "your message must not be a space or newline":"your message must not be a space or newline",
+  "fill this field":"fill this field",
+  "Select Hub":"Select Hub",
+  "select a hub from the list":"select a hub from the list",
+  "your value must not be white space":"your value must not be white space"
 }

@@ -29,13 +29,21 @@ class ResetPassword extends Component{
 async componentDidMount (){
    let token = this.props.match.params.token
 
-  // let token = this.props.location.search
   this.setState({token})
   console.log(token)
 
 }
 
- 
+handleFormErrorMessage =(e,message = '')=>{
+  const {t} = this.props
+
+  if (e.target.value === '')
+  
+  e.target.setCustomValidity(t('fill this field'))
+  else
+  e.target.setCustomValidity(message)
+    
+  }
    
    handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
@@ -97,9 +105,13 @@ async componentDidMount (){
           {
             this.setState({loading:true})
             setTimeout(() => {
-              this.setState({ loading: false });
+              this.setState({ loading: false,
+                message: err.message,
+                iconClass:'fa fa-times-circle',
+                styleClass:'error-msg',
+              
+               });
             }, 2000)
-            alert(err.message)
           }
             )
     }
@@ -148,31 +160,41 @@ async componentDidMount (){
                               
                                     <i className = {this.state.iconClass} style = {{margin:'5px'}}/>
                                     {t(this.state.message)}
-                                    {this.state.success && <a href = '/login'>{t(this.state.loginLink)}</a>}
+                                    {this.state.success &&  
+                                    
+                                    // <Redirect 
+                                    //   to = {{
+                                    //       pathname: "/login",
+                                    //       state:{referrer: 'password reset successfully'}
+                                    //       }} />
+                                    <Link to = '/login'>{t(this.state.response.loginLink)}</Link>
+                                    }
                                     </div>
 
-                            <form  
+                               <form  
                                     id = 'reset-form'
-                                    // data-toggle="validator"
-                                    role="form" name="login-form" 
+                                    //role="form" 
+                                    name="login-form" 
                                     className="clearfix" 
                                     onSubmit ={this.handleSubmit}>
 
-                               <div className="row">
-                                <div className="form-group col-md-6">
-                                <label for="form_choose_password"> {t('password')}</label>
-                                
-                               
-                                <input
+                                  <div className="row">
+                                    <div className="form-group col-md-6">
+                                    <label for="form_choose_password"> {t('password')}</label>
+                                    
+                                  
+                                    <input
                                       id="inputPassword" 
                                       name="password" 
                                       className="form-control" 
                                       type="password"
-                                      data-minlength="8"
                                       minlength="8"
-                                      data-error={t('Minimum of 8 characters')}
-                                      required
                                       onChange = {this.handleChange}
+                                      pattern = '^(?!.* )(?=.*\d)(?=.*[A-Z]).{8,20}$'
+                                      onInvalid = {(e)=>this.handleFormErrorMessage(e,t('your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters'))}
+                                      onInput={function(e) {
+                                      e.target.setCustomValidity(t(''))}}
+                                      required
                                       
                                       /> 
 
@@ -191,7 +213,6 @@ async componentDidMount (){
                                         minlength="8"                                     
                                         data-match="#inputPassword" 
                                         data-match-error={t('Not Matching')} 
-                                        // placeholder={t("Confirm")}
                                          required
                                          onChange = {this.handleConfirmPassword}
                                    />

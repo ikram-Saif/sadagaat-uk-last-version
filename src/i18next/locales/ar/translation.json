@@ -247,6 +247,11 @@
   "enter date no later than":"ادخل تاريخ لايتجاوز ",
   "Your Form Submitted Successfully":"تم إرسال النموذج الخاص بك بنجاح",
   "your password should not contain whitespace":"يجب ألا تحتوي كلمة المرور الخاصة بك على مسافة بيضاء",
-  "your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters":"يجب ألا تحتوي كلمة المرور الخاصة بك على مسافة بيضاء ، وتحتوي على رقم واحد على الأقل ، وتحتوي على حرف كبير واحد على الأقل ، و 8 أحرف على الأقل و 20 حرفًا على الأكثر"
+  "your password should not contain whitespace ,contains at least one digit,contains at least one capital letter, at least 8 characters and at most 20 characters":"يجب ألا تحتوي كلمة المرور الخاصة بك على مسافة بيضاء ، وتحتوي على رقم واحد على الأقل ، وتحتوي على حرف كبير واحد على الأقل ، و 8 أحرف على الأقل و 20 حرفًا على الأكثر",
+  "your message must not be a space or newline":"يجب ألا تكون رسالتك مسافة أو سطر جديد",
+  "fill this field":"املأ هذا الحقل",
+  "Select Hub":"اختر محور",
+  "select a hub from the list":"اختر محور من القائمة",
+  "your value must not be white space":"القيمة المدخلة يجب الا تكون مسافة بيضاء"
 
 }

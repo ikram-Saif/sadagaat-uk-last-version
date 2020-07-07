@@ -1,7 +1,7 @@
 import React ,{Component}from 'react';
 import Header from '../sub_page_header';
 import Axios from 'axios';
-import { get_volunteer_profile , submit_volunteer_data} from '../../repository'
+import {submit_volunteer_data} from '../../repository'
 import {animateScroll as scroll } from "react-scroll";
 import  {withTranslation}  from 'react-i18next'
 import DatePicker from 'react-datepicker';
@@ -83,6 +83,16 @@ class VolunteerForm extends Component{
 
         } 
 
+    handleFormErrorMessage =(e,message = '')=>{
+        const {t} = this.props
+        
+        if (e.target.value === '')
+        
+        e.target.setCustomValidity(t('fill this field'))
+        else
+        e.target.setCustomValidity(message)
+            
+        }
 
        handleChange = (e)=> {
         this.setState({
@@ -176,6 +186,9 @@ return(
                                                     title = {t('Please enter your fullName')}
                                                     value  = {this.state.form.name}
                                                     required="required"
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Please enter your fullName'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}}
                                                 />
                                             </div>
                                         </div>
@@ -289,6 +302,9 @@ return(
                                                     title = {t('Enter a valid phone number with 10 number or 14')}
                                                     value = {this.state.form.phoneNumber}
                                                     required="required"
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Enter a valid phone number with 10 number or 14'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}}
                                                  />
                                             </div>
                                             <div className="form-group required col-md-6">
@@ -299,17 +315,18 @@ return(
                                                 <input
                                                     name="secondPhoneNumber"
                                                     className="form-control"
-                                                     type="tele"
-                                                     onChange ={this.handleChange}
-                                                     value = {this.state.form.secondPhoneNumber}
-                                                     pattern="^(0[0-9]{9})|(00[0-9]{12})$"
-                                                     title = {t('Enter a valid phone number with 10 number or 14')}
-                                                     
-                                                    
-                                                />
-                                                <div className="help-block with-errors"></div>
-                                            </div>
-                                            </div>
+                                                    type="tele"
+                                                    onChange ={this.handleChange}
+                                                    value = {this.state.form.secondPhoneNumber}
+                                                    pattern="^(0[0-9]{9})|(00[0-9]{12})$"
+                                                    title = {t('Enter a valid phone number with 10 number or 14')}
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Enter a valid phone number with 10 number or 14'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}
+                                                        }
+                                                    />
+                                                </div>
+                                                </div>
                                             <div className="row">
                                             <div className="form-group required col-md-8">
                                                 <label for="" className = "control-label">{t('E-Mail')}</label>
@@ -324,9 +341,10 @@ return(
                                                     title = {t("that email address is invalid")}
                                                     value ={this.state.form.email}
                                                     required="required"
-                                                    
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('that email address is invalid'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}} 
                                                 />
-                                                <div class="help-block with-errors"></div>
                                             </div>
                                             <div className="form-group required col-md-4">
                                                 <label className = "control-label">{t('Blood Group')}</label>
@@ -368,6 +386,9 @@ return(
                                                     pattern = '^[^\s].+[^\s]$'
                                                     onChange ={this.handleChange}                                                    
                                                     value = {this.state.form.languages}
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('your value must not be white space'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}}
                                                     
                                                 />
                                             </div>
@@ -384,6 +405,9 @@ return(
                                                     pattern = '^[^\s].+[^\s]$'
                                                     value = {this.state.form.studyField}
                                                     onChange ={this.handleChange}
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('your value must not be white space'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}}
                                                 />
                                             </div>
                                             
@@ -397,6 +421,9 @@ return(
                                                     pattern = '^[^\s].+[^\s]$'
                                                     value = {this.state.form.job}
                                                     onChange ={this.handleChange}
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('your value must not be white space'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}}
                                                     
                                                 />
                                             </div>
@@ -415,6 +442,9 @@ return(
                                                     pattern = '^[^\s].+[^\s]$'
                                                     value = {this.state.form.country}
                                                     onChange ={this.handleChange}
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('your value must not be white space'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}}
                                                     
                                                     
                                                  />
@@ -423,30 +453,20 @@ return(
                                                 <label>{t('In which city?')}</label>
 
                                                 <input 
-                                                    id="form_re_enter_password" 
+                                                    id="city" 
                                                     name="city"
                                                     className="form-control"
                                                     type="text"
                                                     value = {this.state.form.city}
                                                     pattern = '^[^\s].+[^\s]$'
                                                     onChange ={this.handleChange}
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('your value must not be white space'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}}
                                                     
                                                     
                                                 />
                                             </div>
-                                            {/* <div className="form-group required col-md-6">
-                                                <label for="">{t('Address')}</label>
-
-                                                <input 
-                                                    id="" 
-                                                    name="address"
-                                                    className="form-control"
-                                                    type="text"
-                                                    pattern = '^[^\s].+[^\s]$'
-                                                   // onChange ={this.handleChange}
-                                                    
-                                                 />
-                                            </div> */}
                                             <div className="form-group required col-md-6">
                                                 <label>
                                                     {t('Did Sadagaat executed any projects in your State?')}
@@ -548,12 +568,11 @@ return(
                                                     id = 'date'
                                                     name="volunteerTime"
                                                     className="form-control"
-                                                     type="date"
-                                                     value = {this.state.form.volunteerTime}
-                                                     onChange ={this.handleChange}
-                                                     max={moment().format("YYYY-MM-DD")}
-                                                     onInvalid = {function(e) {
-                                                        e.target.setCustomValidity(t('enter date no later than')+ moment().format("YYYY-MM-DD"))}}
+                                                    type="date"
+                                                    value = {this.state.form.volunteerTime}
+                                                    onChange ={this.handleChange}
+                                                    max={moment().format("YYYY-MM-DD")}
+                                                    onInvalid = {(e) =>(e,t('enter date no later than')+ moment().format("YYYY-MM-DD"))}
                                                     onInput={function(e) {
                                                          e.target.setCustomValidity(t(''))}}                                                     
                                                 />
@@ -571,6 +590,9 @@ return(
                                                     pattern = '^[^\s].+[^\s]$'
                                                     onChange ={this.handleChange}
                                                     value = {this.state.form.volunteeredProjects}
+                                                    onInvalid = {(e)=>this.handleFormErrorMessage(e,t('your value must not be white space'))}
+                                                    onInput={function(e) {
+                                                        e.target.setCustomValidity(t(''))}}
                                                 />
                                             </div>
                                             <div className="form-group col-md-12">
