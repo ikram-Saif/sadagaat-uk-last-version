@@ -10,7 +10,6 @@ import {getMonthName} from './getMonthName'
 function Event() {
   const [news, setNews] = useState([]);
   const [events, setEvent] = useState([]);
-  // const didMountRef = useRef(true);
   const style = i18n.dir() === "rtl" ? "pl-0" : "pr-0"
   const styleMr = i18n.dir() === "rtl" ? " ml-5" : " mr-5"
 
@@ -30,7 +29,6 @@ function Event() {
     });
     const response = await fetcher.json();
     setNews(response.slice(-3));
-    console.log(response);
   }
 
   async function fetcEvents() {
@@ -39,7 +37,6 @@ function Event() {
     });
     const response = await fetcher.json();
     setEvent(response.slice(-3));
-    console.log(response);
   }
 
   return (
@@ -120,6 +117,7 @@ function Event() {
                             />
                           </div>
                           <div className="col-md-7">
+                            <div class="event-content pull-left flip">
                             <h2 className="line-bottom mt-0">{news_.name}</h2>
                             <h4 className="mt-0 mb-0 text-theme-colored">
                             </h4>
@@ -130,6 +128,7 @@ function Event() {
                             >
                               {t("Read More")}
                             </Link>
+                          </div>
                           </div>
                         </div>
                       </div>
