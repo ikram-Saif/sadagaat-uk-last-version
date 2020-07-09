@@ -5,23 +5,27 @@ import Registration from './Registration'
 import { Link } from 'react-router-dom';
 import  {withTranslation}  from 'react-i18next'
 import i18n from 'i18next'
-import 'react-notifications/lib/notifications.css';
-import {NotificationManager} from 'react-notifications';
+// import 'react-notifications/lib/notifications.css';
+// import {NotificationManager} from 'react-notifications';
 class Login extends Component{
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
                   email: "",
                   password: "",
                   loading:false,
-                  success_reset:''   
+                  success_reset:'',
+                     
                 }                 
             }
             // componentDidMount(){
-            //   // let successPassworddReset  =  this.props.location.state.referrer
+            //   if (this.props.location.state !== undefined) {
+            //   let successPassworddReset  =  this.props.location.state.referrer 
             //   NotificationManager.success('Success message', 'successMessage');
-            //   // alert(successPassworddReset)
+            //   alert(successPassworddReset)
+            // }
+         
             //  }
    
             // componentWillReceiveProps(){
