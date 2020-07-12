@@ -5,19 +5,16 @@ import i18n from "i18next";
 import { withTranslation } from "react-i18next";
 import Header from "../sub_page_header";
 import SocialMedia from "../social media/social-media";
-import {
-  AwesomeSlider,
-  onAnimationStart,
-  onAnimationEnd,
-  onFirstMount,
-} from "react-awesome-slider";
-import "react-awesome-slider/dist/styles.css";
+import Carousel from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
+
 
 class SinglNews extends Component {
   constructor() {
     super();
     this.state = {
       news: [],
+      newsImages : [],
     };
   }
 
@@ -28,9 +25,9 @@ class SinglNews extends Component {
       const { data: news } = await axios.get(`${address()}news/${id}`, {
         headers: { "accept-language": `${i18n.language}` },
       });
-      this.setState({ news });
+      this.setState({ news,newsImages:news.images });
     } catch (error) {
-      console.log("can not load project for the home page slider");
+      console.log("can not load news for the home page slider");
     }
   }
   async componentWillReceiveProps() {
@@ -42,36 +39,18 @@ class SinglNews extends Component {
       });
       this.setState({ news });
     } catch (error) {
-      console.log("can not load project for the home page slider");
+      console.log("can not load news for the home page slider");
     }
   }
 
   render() {
     const { t } = this.props;
     const { news } = this.state;
-    const onAnimationStart = ({
-      element,
-      currentIndex,
-      nextIndex,
-      currentScreen,
-      nextScreen,
-    }) => {
-      /*
-        ... do Something
-      */
-    };
-    const NewsSlider = (
-      <AwesomeSlider
-        // cssModule={styles}
-        onFirstMount={onFirstMount}
-        onAnimationStart={onAnimationStart}
-        onAnimationEnd={onAnimationEnd}
-      >
-        <div data-src={`${address()}news/${news.id}/image`} />
-        <div data-src={`${address()}news/${news.id}/image`} />
-        <div data-src={`${address()}news/${news.id}/image`} />
-      </AwesomeSlider>
-    );
+    const news_images = this.state.newsImages
+    const newsHasImages = news_images.length > 0? false : true
+    let newsImage = `${address()}news/${news.id}/image`
+    console.log(newsImage)
+
 
     return (
       <div>
@@ -84,19 +63,83 @@ class SinglNews extends Component {
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
-                      {AwesomeSlider}
-                      <div
-                        class="post-thumb thumb"
-                        style={{ mxaHeight: "500px" }}
-                      >
-                        <img
-                          src={`${address()}news/${news.id}/image`}
-                          className="img-fullwidth img-responsive"
-                          alt=""
-                          style = {{height:'400px'}}
-                        />
-                      </div>
-                      {/* <div class="post-thumb thumb mt-20">{NewsSlider}</div> */}
+                     {newsHasImages? 
+                     (<Carousel  
+                          slidesPerScroll={1}
+                          autoPlay={6000}
+                          rtl
+                          arrowLeft={
+                            <i
+                              className="fa fa-chevron-right fa-2x"
+                              style={{ margin:"10px" }}
+                            />
+                          }
+                          arrowRight={
+                            <i
+                              className="fa fa-chevron-left fa-2x"
+                              style={{ margin: "10px" }}
+                            />
+                          }
+                          addArrowClickHandler
+                          // animationSpeed={1000}
+                          infinite
+                          clickToChange
+                          centered
+                          breakpoints={{
+                            1000: {
+                              // these props will be applied when screen width is less than 1000px
+                              slidesPerPage: 2,
+                              clickToChange: false,
+                              centered: false,
+          
+                              infinite: false,
+                            },
+                            500: {
+                              slidesPerPage: 1,
+                              slidesPerScroll: 1,
+                              clickToChange: false,
+                              centered: false,
+                              animationSpeed: 2000,
+                              infinite: false,
+                            },
+                          }} >
+
+                            <div
+                              class="post-thumb thumb"
+                              style={{ mxaHeight: "500px" }} >
+                              <img
+                                src={`${address()}news/${news.id}/image`}
+                                className="img-fullwidth img-responsive"
+                                alt=""
+                                style = {{height:'400px'}}
+                              />
+                            </div>
+                            <div
+                              class="post-thumb thumb"
+                              style={{ mxaHeight: "500px" }} >
+                              <img
+                                src={`${address()}news/${news.id}/image`}
+                                className="img-fullwidth img-responsive"
+                                alt=""
+                                style = {{height:'400px'}}
+                              />
+                            </div>
+                            </Carousel>):
+                            (
+                               <div
+                                class="post-thumb thumb"
+                                style={{ mxaHeight: "500px" }} >
+                                <img
+                                  src={`${address()}news/${news.id}/image`}
+                                  className="img-fullwidth img-responsive"
+                                  alt=""
+                                  style = {{height:'400px'}}
+                                />
+                              </div>
+                            )
+                      } 
+                    
+
                     </div>
                     </article>
                     </div>
