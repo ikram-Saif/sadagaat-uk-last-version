@@ -7,6 +7,7 @@ import Header from "../sub_page_header";
 import SocialMedia from "../social media/social-media";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
+import testVideo from './ROI Calculator for UX Solutions.mp4'
 
 
 class SinglNews extends Component {
@@ -15,6 +16,8 @@ class SinglNews extends Component {
     this.state = {
       news: [],
       newsImages : [],
+      newsVideos :[{id:1,name :testVideo},{id:2,name : testVideo}],
+      allMedia:[]
     };
   }
 
@@ -29,6 +32,7 @@ class SinglNews extends Component {
     } catch (error) {
       console.log("can not load news for the home page slider");
     }
+    this.fillMediaArray()
   }
   async componentWillReceiveProps() {
     let id = this.props.match.params.news_id;
@@ -42,13 +46,71 @@ class SinglNews extends Component {
       console.log("can not load news for the home page slider");
     }
   }
+   fillMediaArray =()=>{
+    const news_images = this.state.newsImages
+    const news_videos = this.state.newsVideos
+    const allMedia = []
+
+    if(news_images.length > 0)
+    {
+      news_images.map((image) =>{
+
+        allMedia.push({
+          type :'image',
+          id : image.id,
+          name : image.name
+        })
+      
+      })
+    }
+    
+    if(news_videos.length > 0)
+    {
+    news_videos .map((video) =>{
+
+      allMedia.push({
+        type :'video',
+        id : video.id,
+        name : video.name
+      })
+    
+    })
+  }
+    this.setState({allMedia})
+    console.log(allMedia)
+
+   }
+
 
   render() {
     const { t } = this.props;
     const { news } = this.state;
-    const news_images = this.state.newsImages
-    const newsHasImages = news_images.length > 0? true : false
-    console.log(newsHasImages)
+     //const news_images = this.state.newsImages
+    // const news_videos = this.state.newsVideos
+    const allMedia = this.state.allMedia
+
+    // news_images .map((image) =>{
+
+    //   allMedia.push({
+    //     type :'image',
+    //     id : image.id,
+    //     name : image.name
+    //   })
+    
+    // })
+    // news_videos .map((video) =>{
+
+    //   allMedia.push({
+    //     type :'video',
+    //     id : video.id,
+    //     name : video.name
+    //   })
+    
+    // })
+    // console.log(allMedia)
+
+
+    
 
 
     return (
@@ -62,10 +124,10 @@ class SinglNews extends Component {
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
-                     {newsHasImages? 
+                     {allMedia.length > 0? 
                      (<Carousel  
                           slidesPerScroll={1}
-                          autoPlay={6000}
+                          //autoPlay={6000}
                           rtl
                           arrowLeft={
                             <i
@@ -103,17 +165,29 @@ class SinglNews extends Component {
                             },
                           }} >
 
-                  {news_images.map((image) =>(
+                  {allMedia.map((media) =>(
+                    media.type === 'image'?(
                             <div
                               class="post-thumb thumb"
                               style={{ mxaHeight: "500px" }} >
                               <img
-                                src={`${address()}news/${image.name}/image`}
+                                src={`${address()}news/${media.name}/image`}
                                 className="img-fullwidth img-responsive"
                                 alt=""
                                 style = {{height:'400px'}}
                               />
                             </div>
+                      ):
+                      (
+                         <video 
+                              class="post-thumb thumb"
+                              style={{ mxaHeight: "500px" }} 
+                              controls 
+                              >
+                                  <source src= {media.name} type="video/mp4"/>
+
+                        </video >
+                      )
                         ))
                   }
                         
