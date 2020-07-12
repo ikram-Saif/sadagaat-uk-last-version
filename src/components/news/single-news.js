@@ -47,9 +47,8 @@ class SinglNews extends Component {
     const { t } = this.props;
     const { news } = this.state;
     const news_images = this.state.newsImages
-    const newsHasImages = news_images.length > 0? false : true
-    let newsImage = `${address()}news/${news.id}/image`
-    console.log(newsImage)
+    const newsHasImages = news_images.length > 0? true : false
+    console.log(newsHasImages)
 
 
     return (
@@ -104,26 +103,20 @@ class SinglNews extends Component {
                             },
                           }} >
 
+                  {news_images.map((image) =>(
                             <div
                               class="post-thumb thumb"
                               style={{ mxaHeight: "500px" }} >
                               <img
-                                src={`${address()}news/${news.id}/image`}
+                                src={`${address()}news/${image.name}/image`}
                                 className="img-fullwidth img-responsive"
                                 alt=""
                                 style = {{height:'400px'}}
                               />
                             </div>
-                            <div
-                              class="post-thumb thumb"
-                              style={{ mxaHeight: "500px" }} >
-                              <img
-                                src={`${address()}news/${news.id}/image`}
-                                className="img-fullwidth img-responsive"
-                                alt=""
-                                style = {{height:'400px'}}
-                              />
-                            </div>
+                        ))
+                  }
+                        
                             </Carousel>):
                             (
                                <div
