@@ -17,7 +17,7 @@ class SinglNews extends Component {
       news: [],
       newsImages : [],
       newsVideos :[
-        // {id:1,name :testVideo},{id:2,name : testVideo}
+        {id:1,name :testVideo},{id:2,name : testVideo}
       ],
       allMedia:[]
     };
