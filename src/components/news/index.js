@@ -40,26 +40,27 @@ function News() {
         <div class="row">
           {currentPosts.map((news) => (
             
-              <div class="col-md-4" key = {news.id}>
+              <div class="col-md-4 mb-30" key = {news.id}>
                 <Link to = {'/news/'+news.id}>
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
-                      <div class="post-thumb thumb" style = {{height:'200px'}}>
+                      <div class="post-thumb thumb" style = {{maxHeight:'260px'}}>
                         <img
                           src={`${address()}news/${news.id}/image`}
                           className="img-fullwidth img-responsive"
                           // height="200"
+                          style = {{height:'260px',width:'390px'}}
                           alt=""
                         />
                       </div>
                     </div>
 
                     <div class="entry-content">
-                      <div class="entry-meta media no-bg no-border mt-15 pb-20">
+                      <div class="entry-meta media no-bg no-border mt-15">
                         <div class="media-body pl-15">
                           <div class="event-content pull-left flip">
-                            <h2 class="line-bottom mt-0" style = {{height:'100px'}}>{news.name}</h2>
+                            <h2 class="line-bottom mt-0">{news.name}</h2>
 
                             <h4 className="mt-0 mb-0 text-theme-colored">
                               {news.startDate}
@@ -68,7 +69,7 @@ function News() {
                         </div>
                       </div>
 
-                      <p className="mb-15" style = {{height:'100px'}}>{news.description}.</p>
+                      <p className="mb-15 project-discription" style = {{height:'100px'}}>{news.description}.</p>
 
                       {/* < SocialMedia /> */}
                       </div>
