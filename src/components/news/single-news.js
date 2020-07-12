@@ -16,7 +16,9 @@ class SinglNews extends Component {
     this.state = {
       news: [],
       newsImages : [],
-      newsVideos :[{id:1,name :testVideo},{id:2,name : testVideo}],
+      newsVideos :[
+        // {id:1,name :testVideo},{id:2,name : testVideo}
+      ],
       allMedia:[]
     };
   }
@@ -28,7 +30,10 @@ class SinglNews extends Component {
       const { data: news } = await axios.get(`${address()}news/${id}`, {
         headers: { "accept-language": `${i18n.language}` },
       });
-      this.setState({ news,newsImages:news.images });
+      this.setState({ 
+        news,
+        newsImages:news.images,
+       });
     } catch (error) {
       console.log("can not load news for the home page slider");
     }
@@ -50,6 +55,12 @@ class SinglNews extends Component {
     const news_images = this.state.newsImages
     const news_videos = this.state.newsVideos
     const allMedia = []
+    /**fill array with default Image */
+    allMedia.push({
+          type :'image',
+          id : this.state.news.id,
+          name : this.state.news.id
+    })
 
     if(news_images.length > 0)
     {
@@ -124,7 +135,7 @@ class SinglNews extends Component {
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
-                     {allMedia.length > 0? 
+                     {allMedia.length > 1? 
                      (<Carousel  
                           slidesPerScroll={1}
                           //autoPlay={6000}

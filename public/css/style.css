@@ -271,6 +271,12 @@ font-family: 'sadagaat';
   overflow: hidden;
   text-overflow: ellipsis
 }
+.event-discription{
+  white-space: wrap;
+  height:1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
 .form-group.required .control-label:after {
   color:red;
   font-family: 'FontAwesome';
