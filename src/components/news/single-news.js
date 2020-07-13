@@ -162,11 +162,42 @@ class SinglNews extends Component {
                               animationSpeed: 2000,
                               infinite: false,
                             },
-                          }}
-                        >
-                          {allMedia.map((media) =>
-                            media.type === "image" ? (
-                              <div
+                          }} >
+
+                  {allMedia.map((media) =>(
+                    media.type === 'image'?(
+                            <div
+                              class="post-thumb thumb"
+                              style={{ mxaHeight: "500px" }} >
+                              <img
+                                src={`${address()}news/${media.name}/image`}
+                                className="img-fullwidth img-responsive"
+                                alt=""
+                                style = {{height:'400px'}}
+                              />
+                            </div>
+                      ):
+                      (
+                        <div
+                              class="post-thumb thumb"
+                              style={{ mxaHeight: "500px" }} >
+                         <video 
+                              className="img-fullwidth img-responsive"
+                              style = {{height:'400px'}}
+ 
+                              controls 
+                              >
+                                  <source src= {media.name} type="video/mp4"/>
+
+                        </video >
+                        </div>
+                      )
+                        ))
+                  }
+                        
+                            </Carousel>):
+                            (
+                               <div
                                 class="post-thumb thumb"
                                 style={{
                                   mxaHeight: "400px",
