@@ -8,6 +8,7 @@ import SocialMedia from "../social media/social-media";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import testVideo from './ROI Calculator for UX Solutions.mp4'
+import ReactPlayer from 'react-player'
 
 
 class SinglNews extends Component {
@@ -22,6 +23,7 @@ class SinglNews extends Component {
       allMedia:[]
     };
   }
+
 
   async componentDidMount() {
     let id = this.props.match.params.news_id;
@@ -39,6 +41,7 @@ class SinglNews extends Component {
     }
     this.fillMediaArray()
   }
+
   async componentWillReceiveProps() {
     let id = this.props.match.params.news_id;
 
@@ -51,10 +54,16 @@ class SinglNews extends Component {
       console.log("can not load news for the home page slider");
     }
   }
-   fillMediaArray =()=>{
+
+  
+/**this function call after componentDidMount to join two videos and images in one array, and add new attribute type 'image'/'video'   */
+   
+
+fillMediaArray =()=>{
     const news_images = this.state.newsImages
     const news_videos = this.state.newsVideos
     const allMedia = []
+
     /**fill array with default Image */
     allMedia.push({
           type :'image',
@@ -88,7 +97,6 @@ class SinglNews extends Component {
     })
   }
     this.setState({allMedia})
-    console.log(allMedia)
 
    }
 
@@ -96,33 +104,7 @@ class SinglNews extends Component {
   render() {
     const { t } = this.props;
     const { news } = this.state;
-     //const news_images = this.state.newsImages
-    // const news_videos = this.state.newsVideos
     const allMedia = this.state.allMedia
-
-    // news_images .map((image) =>{
-
-    //   allMedia.push({
-    //     type :'image',
-    //     id : image.id,
-    //     name : image.name
-    //   })
-    
-    // })
-    // news_videos .map((video) =>{
-
-    //   allMedia.push({
-    //     type :'video',
-    //     id : video.id,
-    //     name : video.name
-    //   })
-    
-    // })
-    // console.log(allMedia)
-
-
-    
-
 
     return (
       <div>
@@ -135,6 +117,7 @@ class SinglNews extends Component {
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
+                       {/**check if  all media has image other than default image */}
                      {allMedia.length > 1? 
                      (<Carousel  
                           slidesPerScroll={1}
@@ -193,7 +176,7 @@ class SinglNews extends Component {
                         <div
                               class="post-thumb thumb"
                               style={{ mxaHeight: "500px" }} >
-                         <video 
+                         {/* <video 
                               className="img-fullwidth img-responsive"
                               style = {{height:'400px'}}
  
@@ -201,7 +184,13 @@ class SinglNews extends Component {
                               >
                                   <source src= {media.name} type="video/mp4"/>
 
-                        </video >
+                        </video > */}
+                        <ReactPlayer 
+                                      controls
+                                      playIcon
+                                      className="img-fullwidth img-responsive"
+                                      style = {{height:'400px'}}
+                                      url = {media.name} />
                         </div>
                       )
                         ))
