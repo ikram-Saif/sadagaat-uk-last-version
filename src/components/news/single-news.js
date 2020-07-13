@@ -88,29 +88,7 @@ class SinglNews extends Component {
   render() {
     const { t } = this.props;
     const { news } = this.state;
-    //const news_images = this.state.newsImages
-    // const news_videos = this.state.newsVideos
     const allMedia = this.state.allMedia;
-
-    // news_images .map((image) =>{
-
-    //   allMedia.push({
-    //     type :'image',
-    //     id : image.id,
-    //     name : image.name
-    //   })
-
-    // })
-    // news_videos .map((video) =>{
-
-    //   allMedia.push({
-    //     type :'video',
-    //     id : video.id,
-    //     name : video.name
-    //   })
-
-    // })
-    // console.log(allMedia)
 
     return (
       <div>
@@ -119,13 +97,13 @@ class SinglNews extends Component {
         <section>
           <div className="container mt-30 mb-30 pt-30 pb-30">
             <div class="row">
-              <div class="col-md-7">
+              <div class="col-md-6">
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
                       {allMedia.length > 1 ? (
                         <Carousel
-                          // slidesPerScroll={1}
+                          slidesPerScroll={1}
                           //autoPlay={6000}
                           rtl
                           arrowLeft={
@@ -148,82 +126,43 @@ class SinglNews extends Component {
                           breakpoints={{
                             1000: {
                               // these props will be applied when screen width is less than 1000px
-                              slidesPerPage: 1,
-                              slidesPerScroll: 1,
+                              slidesPerPage: 2,
                               clickToChange: false,
-                              centered: true,
+                              centered: false,
+
                               infinite: false,
                             },
                             500: {
                               slidesPerPage: 1,
                               slidesPerScroll: 1,
                               clickToChange: false,
-                              centered: true,
+                              centered: false,
                               animationSpeed: 2000,
                               infinite: false,
                             },
-                          }} >
-
-                  {allMedia.map((media) =>(
-                    media.type === 'image'?(
-                            <div
-                              class="post-thumb thumb"
-                              style={{ mxaHeight: "500px" }} >
-                              <img
-                                src={`${address()}news/${media.name}/image`}
-                                className="img-fullwidth img-responsive"
-                                alt=""
-                                style = {{height:'400px'}}
-                              />
-                            </div>
-                      ):
-                      (
-                        <div
-                              class="post-thumb thumb"
-                              style={{ mxaHeight: "500px" }} >
-                         <video 
-                              className="img-fullwidth img-responsive"
-                              style = {{height:'400px'}}
- 
-                              controls 
-                              >
-                                  <source src= {media.name} type="video/mp4"/>
-
-                        </video >
-                        </div>
-                      )
-                        ))
-                  }
-                        
-                            </Carousel>):
-                            (
-                               <div
+                          }}
+                        >
+                          {allMedia.map((media) =>
+                            media.type === "image" ? (
+                              <div
                                 class="post-thumb thumb"
-                                style={{
-                                  mxaHeight: "400px",
-                                  width: "100%",
-                                  overflow: "hidden",
-                                }}
+                                style={{ mxaHeight: "500px" }}
                               >
                                 <img
                                   src={`${address()}news/${media.name}/image`}
-                                  // className="img-fullwidth img-responsive"
+                                  className="img-fullwidth img-responsive"
                                   alt=""
-                                  style={{
-                                    height: "400px",
-                                    width: "100%",
-                                    overflow: "hidden",
-                                  }}
+                                  style={{ height: "400px" }}
                                 />
                               </div>
                             ) : (
-                              <div className="post-thumb thumb">
+                              <div
+                                class="post-thumb thumb"
+                                style={{ mxaHeight: "500px" }}
+                              >
                                 <video
-                                  style={{
-                                    mxaHeight: "400px",
-                                    width: "100%",
-                                    overflow: "hidden",
-                                  }}
+                                  className="img-fullwidth img-responsive"
+                                  style={{ height: "400px" }}
                                   controls
                                 >
                                   <source src={media.name} type="video/mp4" />
@@ -235,11 +174,11 @@ class SinglNews extends Component {
                       ) : (
                         <div
                           class="post-thumb thumb"
-                          style={{ mxaHeight: "400px" }}
+                          style={{ mxaHeight: "500px" }}
                         >
                           <img
                             src={`${address()}news/${news.id}/image`}
-                            // className="img-fullwidth img-responsive"
+                            className="img-fullwidth img-responsive"
                             alt=""
                             style={{ height: "400px" }}
                           />
@@ -249,7 +188,7 @@ class SinglNews extends Component {
                   </article>
                 </div>
               </div>
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="entry-content">
                   <div class="entry-meta media no-bg no-border mt-15 pb-20">
                     <div class="media-body pl-15">
