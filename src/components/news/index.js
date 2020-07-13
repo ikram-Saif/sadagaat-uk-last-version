@@ -4,8 +4,8 @@ import address from "./../utils/address";
 import Pagination from "./../pagination";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import SocialMedia from '../social media/social-media'
-import {Link} from 'react-router-dom'
+import SocialMedia from "../social media/social-media";
+import { Link } from "react-router-dom";
 
 function News() {
   const [data, setData] = useState([]);
@@ -36,21 +36,23 @@ function News() {
     <div>
       <Header name={t("News")} />
 
-        <div className="container mt-30 mb-30 pt-30 pb-30">
+      <div className="container mt-30 mb-30 pt-30 pb-30">
         <div class="row">
           {currentPosts.map((news) => (
-            
-              <div class="col-md-4 mb-30" key = {news.id}>
-                <Link to = {'/news/'+news.id}>
+            <div class="col-md-4 mb-30" key={news.id}>
+              <Link to={"/news/" + news.id}>
                 <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
-                      <div class="post-thumb thumb" style = {{maxHeight:'260px'}}>
+                      <div
+                        class="post-thumb thumb"
+                        style={{ maxHeight: "260px" }}
+                      >
                         <img
                           src={`${address()}news/${news.id}/image`}
                           className="img-fullwidth img-responsive"
                           // height="200"
-                          style = {{height:'260px',width:'390px'}}
+                          style={{ height: "260px", width: "390px" }}
                           alt=""
                         />
                       </div>
@@ -69,16 +71,19 @@ function News() {
                         </div>
                       </div>
 
-                      <p className="mb-15 project-discription" style = {{height:'100px'}}>{news.description}.</p>
+                      <p
+                        className="mb-15 project-discription"
+                        style={{ height: "100px" }}
+                      >
+                        {news.description}.
+                      </p>
 
                       {/* < SocialMedia /> */}
-                      </div>
-
-                       
+                    </div>
                   </article>
                 </div>
-                </Link>
-              </div>
+              </Link>
+            </div>
           ))}
 
           <Pagination
@@ -86,9 +91,8 @@ function News() {
             totalPosts={data.length}
             paginate={paginate}
           />
-         </div>
-
         </div>
+      </div>
     </div>
   );
 }

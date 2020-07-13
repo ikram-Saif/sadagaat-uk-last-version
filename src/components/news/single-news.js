@@ -64,12 +64,15 @@ fillMediaArray =()=>{
     const news_videos = this.state.newsVideos
     const allMedia = []
 
-    /**fill array with default Image */
-    allMedia.push({
-          type :'image',
-          id : this.state.news.id,
-          name : this.state.news.id
-    })
+    /**fill array with default Image if its not null */
+    if (this.state.news.imageUrl !== null)
+     {
+        allMedia.push({
+              type :'image',
+              id : this.state.news.id,
+              name : this.state.news.id
+        })
+     }
 
     if(news_images.length > 0)
     {
@@ -118,7 +121,7 @@ fillMediaArray =()=>{
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
                        {/**check if  all media has image other than default image */}
-                     {allMedia.length > 1? 
+                     {allMedia.length > 0? 
                      (<Carousel  
                           slidesPerScroll={1}
                           //autoPlay={6000}
@@ -186,7 +189,7 @@ fillMediaArray =()=>{
 
                         </video > */}
                         <ReactPlayer 
-                                      controls
+                                      controls = {true}
                                       playIcon
                                       className="img-fullwidth img-responsive"
                                       style = {{height:'400px'}}
