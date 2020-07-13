@@ -190,14 +190,19 @@ class SinglNews extends Component {
                             </div>
                       ):
                       (
-                         <video 
+                        <div
                               class="post-thumb thumb"
-                              style={{ mxaHeight: "500px" }} 
+                              style={{ mxaHeight: "500px" }} >
+                         <video 
+                              className="img-fullwidth img-responsive"
+                              style = {{height:'400px'}}
+ 
                               controls 
                               >
                                   <source src= {media.name} type="video/mp4"/>
 
                         </video >
+                        </div>
                       )
                         ))
                   }
