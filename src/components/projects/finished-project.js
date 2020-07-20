@@ -61,7 +61,7 @@ return(
 
       <div className="col-md-4" key ={project.id}>
       <Link to={'/single-projects/'+project.id}>
-          <div className="causes bg-white mb-30">
+          <div className="causes bg-white mb-30 border-bottom"  style ={{height:'500px'}}>
             <div className="thumb">
             <img src={`${address()}projects/${project.id}/image`}  className="img-fullwidth"  width = '390' height = '260'/>
             </div>
@@ -92,7 +92,7 @@ return(
       <li className="pull-left font-weight-400 text-black-333 pr-0"><span className="text-theme-colored font-weight-700">{t('Raised')}{ getNumber(project.raised)}</span></li>
       <li className="pull-right font-weight-400 text-black-333 pr-0"><span className="text-theme-colored font-weight-700">{t('Goal')}{ getNumber(project.goal)}</span></li>
     </ul>
-      <h4 className="text-uppercase">{project.name}</h4>
+      {/* <h4 className="text-uppercase">{project.name}</h4> */}
     <div className="progress-item mt-0">
       <div className="progress mb-0">
         <div data-percent={Precision(project.donationProgress)} className="progress-bar">  
@@ -102,6 +102,7 @@ return(
       </div>
       </div>
     </div>
+    <h4 className="text-uppercase">{project.name}</h4>
     <p className="mt-20 project-discription">{parse(project.description)}</p>
 
     {/* <Link to={'/projects/'+project.id} 

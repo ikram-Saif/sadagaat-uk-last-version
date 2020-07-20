@@ -4,7 +4,6 @@ import axios from "axios";
 import i18n from "i18next";
 import { withTranslation } from "react-i18next";
 import Header from "../sub_page_header";
-import SocialMedia from "../social media/social-media";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import testVideo from './ROI Calculator for UX Solutions.mp4'
@@ -35,6 +34,7 @@ class SinglNews extends Component {
       this.setState({ 
         news,
         newsImages:news.images,
+        newsVideo: news.video
        });
     } catch (error) {
       console.log("can not load news for the home page slider");
@@ -49,7 +49,11 @@ class SinglNews extends Component {
       const { data: news } = await axios.get(`${address()}news/${id}`, {
         headers: { "accept-language": `${i18n.language}` },
       });
-      this.setState({ news });
+      this.setState({ 
+                  news,
+                  newsImages:news.images,
+                  newsVideo: news.video 
+                });
     } catch (error) {
       console.log("can not load news for the home page slider");
     }
@@ -57,8 +61,9 @@ class SinglNews extends Component {
 
   
 /**this function call after componentDidMount to join two videos and images in one array, and add new attribute type 'image'/'video'   */
-   
-
+   /**
+    * 
+    */
 fillMediaArray =()=>{
     const news_images = this.state.newsImages
     const news_videos = this.state.newsVideos
@@ -235,8 +240,6 @@ fillMediaArray =()=>{
                       </div>
 
                       <p className="mb-15">{news.description}.</p>
-
-                        {/* <SocialMedia /> */}
                    
                 </div>
               </div>

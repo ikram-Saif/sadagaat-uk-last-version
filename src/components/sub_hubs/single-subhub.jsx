@@ -167,7 +167,7 @@ render(){
 
             <div className="col-md-4" key ={project.id} style = {{width:'400px'}}>
             <Link to={'/single-projects/'+project.id}>
-                <div className="causes bg-white mb-30">
+                <div className="causes bg-white mb-30" style = {{height:'500px'}}>
                   <div className="thumb" 
                   style = {{ maxHeight: '260px'}}>
                   <img src={`${address()}projects/${project.id}/image`}  className="img-fullwidth img-responsive"  />

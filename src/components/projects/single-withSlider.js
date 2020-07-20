@@ -61,8 +61,14 @@ class SinglProject2 extends Component {
                 const { t } = this.props;
                 const { project } = this.state;
                 const project_images = project.images
-               const projectHasImages = project_images.length > 0? true : false
-                
+                if (project.imageUrl !== null){
+                  project_images.push({
+                    id : project.id,
+                    name : project.id
+                  })
+                 }
+               //const projectHasImages = project_images.length > 0? true : false
+               
 
 
       renderContainer = 
@@ -80,7 +86,7 @@ class SinglProject2 extends Component {
                       <div className="causes">
                         <div className="row-fluid">
                           <div className="col-md-6">
-                          {projectHasImages? ( <Carousel 
+                          {project_images.length > 1? ( <Carousel 
                     
                     slidesPerScroll={1}
                     autoPlay={6000}
@@ -122,13 +128,13 @@ class SinglProject2 extends Component {
                     }} >
                                                   
                       {project_images.map((image) =>(
-                          <div className ="post-thumb thumb" style = {{maxHeight: '600px'}}>
+                          <div className ="post-thumb thumb" style = {{maxHeight: '400px'}}>
                           <img
                             src={`${address()}projects/${image.name}/image`}
                             alt="project image"
                             width='500'
                             className= 'img-responsive'
-                            style = {{height:'500px'}}
+                            style = {{height:'400px'}}
                           />
                           </div>
 
@@ -136,7 +142,7 @@ class SinglProject2 extends Component {
                       
                        </Carousel>
                        
-                    ):(<div className ="post-thumb thumb" style = {{maxHeight: '600px'}}>
+                    ):(<div className ="post-thumb thumb" style = {{maxHeight: '400px'}}>
                     <img
                       src={`${address()}projects/${project.id}/image`}
                       alt="project image"
@@ -193,15 +199,14 @@ class SinglProject2 extends Component {
                                    {parse(project.description)}
                                         
                                    </div>
-                                   <div className="progress-item mt-0">
-                                <div className="progress mb-0">
-                                  <div
-                                    data-percent={Precision(project.donationProgress)}
-                                    className="progress-bar"
-                                  >
-                                      <span className="percent">
-                                          {Precision(project.donationProgress)}%
-                                                </span>
+                                    <div className="progress-item mt-0">
+                                    <div className="progress mb-0">
+                                    <div
+                                      data-percent={Precision(project.donationProgress)}
+                                      className="progress-bar">
+                                        <span className="percent">
+                                            {Precision(project.donationProgress)}%
+                                      </span>
                                   </div>
                                 </div>
                               </div>

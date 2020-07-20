@@ -6,8 +6,9 @@ import 'react-circular-progressbar/dist/styles.css';
 import {Link } from 'react-router-dom'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
-  import {getNumberWithComma , Precision, getNumber} from '../events/getMonthName'
+import {getNumberWithComma , Precision, getNumber} from '../events/getMonthName'
 import parse from 'html-react-parser';
+import Pagination from './../pagination'
 
 
 
@@ -16,9 +17,8 @@ import parse from 'html-react-parser';
 
 function Projects_(){
   const [data, setData ] = useState([])
-  const [currentPage,setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
-  //const parse = require('html-react-parser');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
   const {t} = useTranslation()
 
   
@@ -36,19 +36,16 @@ function Projects_(){
          }
          fetchData()
         }, [i18n.language])
-     
-
-      
-const lastPost = currentPage * postsPerPage;
-const firstPost = lastPost - postsPerPage;
-var currentPosts = data.slice(firstPost,  lastPost);
-
-
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+    
 
   
+ // Get current posts
+ const indexOfLastPost = currentPage * postsPerPage;
+ const indexOfFirstPost = indexOfLastPost - postsPerPage;
+ const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
 
+ // Change page
+ const paginate = pageNumber => setCurrentPage(pageNumber);
 
 
 return(
@@ -60,12 +57,12 @@ return(
     <div className="row">
      
        
-    {currentPosts.length > 0 ? data.map(project => (        
+    {currentPosts.length > 0 ? currentPosts.map(project => (        
 
 
-<div className="col-md-4" key ={project.id} >
+<div className="col-md-4" key ={project.id}>
 <Link to={'/single-projects/'+project.id}>
-    <div className="causes bg-white mb-30">
+    <div className="causes bg-white mb-30 border-bottom" style ={{height:'500px'}} >
       <div className="thumb">
       <img src={`${address()}projects/${project.id}/image`}  className="img-fullwidth"  width = '390' height = '260'/>
       </div>
@@ -133,9 +130,11 @@ return(
 ))
 :
 ""}
-  
-{/* <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/> */}
-
+  <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={data.length}
+        paginate={paginate}
+      />
 </div>
 </div>    
       
