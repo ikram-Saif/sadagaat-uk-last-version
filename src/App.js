@@ -40,6 +40,7 @@ import PlannedProjects from "./components/projects/plannedProjects";
 import FinishedProjects from "./components/projects/finished-project";
 import SinglNews from './components/news/single-news'
 import singleNews from "./components/news/single-news";
+import Volunteers from './components/vlounteers/volunteersPage'
 
 
 function App() {
@@ -115,6 +116,9 @@ function App() {
         <Route exact path="/forgot_password" component={ForgotPassword} />
        
         <Route exact path="/reset-password/:token" component={RestPassword} />
+        
+        <Route exact path="/volunteers" component={Volunteers} />
+
         <PrivateRoute exact path="/volunteerForm" component={VolunteerForm} />
         <Route exact path="/verify" component={Email_verification} />
        

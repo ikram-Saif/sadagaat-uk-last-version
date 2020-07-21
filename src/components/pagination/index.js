@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink , Link } from "react-router-dom";
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
@@ -7,19 +7,20 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
-
+  var Active = paginate === 1? ' active':''
   return (
-    <nav aria-label="Page navigation">
+    <nav aria-label="Page navigation" style = {{position:"absolute",bottom:'0%'}}> 
       <ul className="pagination">
         {pageNumbers.map(number => (
-          <li key={number} className='page-item'onClick={() => paginate(number)}>
-            <NavLink className='page-link'
-                    activeclassName="active"
-                    exact
-                    to="/projects"
->
+          <li key={number} 
+                  className={`page-item${number === 1 &&' active'}`}
+                  onClick={() => paginate(number)} 
+                  style = {{float:'left'}}>
+            <Link className={(paginate === number ? 'active ' : '') + 'page-link'}
+            >
               {number}
-            </NavLink>
+              
+            </Link>
           </li>
         ))}
       </ul>
