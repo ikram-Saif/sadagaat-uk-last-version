@@ -30,13 +30,9 @@ function Volunteers(){
         }, [i18n.language])
 
 
-  
-
-
-
 return(
 <section>
-<Header name={t('Vlounteers')}/>
+<Header name={t('Volunteers')}/>
 
     <div className="container">    
 

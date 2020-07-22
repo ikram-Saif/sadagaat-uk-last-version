@@ -6,11 +6,14 @@ import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 import SocialMedia from "../social media/social-media";
 import { Link } from "react-router-dom";
+import ReactPaginate from 'react-paginate'
+
 
 function News() {
   const [data, setData] = useState([]);
+  const [offset ,setOffset]= useState(0)
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
+  const [postsPerPage] = useState(6);
   const { t } = useTranslation();
   const style = i18n.dir() === "rtl" ? "pull-right ml-20" : "pull-left mr-20";
 
@@ -25,12 +28,14 @@ function News() {
     const response = await fetcher.json();
     setData(response);
   }
+// Get current posts
+const currentPosts = data.slice(offset , offset + postsPerPage);
 
-  const lastPost = currentPage * postsPerPage;
-  const firstPost = lastPost - postsPerPage;
-  const currentPosts = data.slice(firstPost, lastPost);
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+// Change page
+const paginate = (e) => {
+  setCurrentPage(e.selected)
+  setOffset(e.selected * postsPerPage)
+}
 
   return (
     <div>
@@ -85,14 +90,27 @@ function News() {
               </Link>
             </div>
           ))}
+{data.length > postsPerPage &&(
+<div style = {{position:'relative',bottom:'0%'}}>
 
-          <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={data.length}
-            paginate={paginate}
-          />
+<ReactPaginate
+              previousLabel={t('prev')}
+              nextLabel={t('next')}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(data.length / postsPerPage)}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={paginate}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}/>
         </div>
+      )}
+        </div>
+        
       </div>
+      
     </div>
   );
 }

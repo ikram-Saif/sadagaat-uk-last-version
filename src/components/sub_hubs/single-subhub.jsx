@@ -8,6 +8,10 @@ import { CircularProgressbar , buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {Link } from 'react-router-dom'
 import {getNumberWithComma  , Precision} from '../events/getMonthName'
+import ReactPaginate from 'react-paginate'
+import parse from 'html-react-parser';
+
+
 
 
 
@@ -18,7 +22,10 @@ class SingleSubhub extends Component {
     this.state = 
     {
       subhub:[],
-      projects:[]
+      projects:[],
+      offset:0,
+      currentPage:1,
+      postsPerPage:6
       }
 }
 
@@ -77,13 +84,24 @@ async componentDidMount(){
     })
 
 }
+ // Change page
+  paginate = (e) => {
+  this.setState({
+    currentPage : e.selected,
+    offset:e.selected * this.state.postsPerPage
+  })
+}
 
-render(){
+render()
+{
   const {t} = this.props
   const {subhub} = this.state
   const {projects} = this.state
   const totalDonation = subhub.total_donation
-  console.log(totalDonation)
+
+  const currentPosts = projects.slice(this.state.offset , this.state.offset + this.state.postsPerPage)
+
+
     return (
 
       <div className="container">
@@ -217,7 +235,7 @@ render(){
                       </div>
                   </div>
                 </div>
-                <p className="mt-20 project-discription">{project.description}</p>
+                <p className="mt-20 project-discription">{parse(project.description)}</p>
 
                 <Link to={'/projects/'+project.id} className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">{t('Donate')}</Link>
               </div>
@@ -228,7 +246,25 @@ render(){
             ))
            }
              </div>
+             
              </div> 
+    {projects.length > this.state.postsPerPage &&(
+      <div style = {{position:'relative',bottom:'0%'}}>
+
+      <ReactPaginate
+                    previousLabel={t('prev')}
+                    nextLabel={t('next')}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(projects.length / this.state.postsPerPage)}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={this.paginate}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
+            </div>
+      )}
              </div>
 
          )

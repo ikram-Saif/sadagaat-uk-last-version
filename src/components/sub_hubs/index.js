@@ -2,30 +2,21 @@ import React, {useCallback, useState, useEffect ,useRef } from 'react';
 
 import Header from '../sub_page_header';
 import address from './../utils/address';
-import Pagination from './../pagination';
-import { CircularProgressbar , buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
 import { Link } from 'react-router-dom';
-import { get } from 'react-scroll/modules/mixins/scroller';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
+import ReactPaginate from 'react-paginate'
 
 
-
-//function Sub_hub(){
-  
   function Sub_hub() {
 
     const {t} = useTranslation()
 
-    const Hub = sessionStorage.getItem("hub")     
     const [data, setData ] = useState([])
     const [hubs, setHubs ] = useState([])
-    const [edit, setEdit ] = useState([])
-    const [currentPage,setCurrentPage] = useState(1);
-    const [postsPerPage, setPostsPerPage] = useState(6);
-    const [framework,setFramework] = useState([]);
-    const didMountRef = useRef(true)
+    const [offset ,setOffset]= useState(0)
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(6);
     const styleMenu = i18n.dir() ==='rtl'? 'folat-left':'float-right'
 
 
@@ -47,32 +38,16 @@ import { useTranslation } from 'react-i18next';
     
           },[i18n.language])
           
-        
    
-     function handleSubmit(event){
+    // Get current posts
+const currentPosts = data.slice(offset , offset + postsPerPage);
 
-       event.preventDefault();
+// Change page
+const paginate = (e) => {
+  setCurrentPage(e.selected)
+  setOffset(e.selected * postsPerPage)
+}
 
-       console.log(framework);
-       console.log(data) 
-       const get = data.filter(pro => pro.id == framework) 
-       console.log(get);
-       setEdit(get)
-   
-      }
-   
-     // const currentPosts;
-   
-  const lastPost = currentPage * postsPerPage;
-  const firstPost = lastPost - postsPerPage;
-   if(edit == "")
-  var currentPosts = data.slice(firstPost,  lastPost);
-  else
-    var currentPosts = edit.slice(firstPost,  lastPost)
-  
- 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
-  
   
   return(
   
@@ -141,7 +116,24 @@ import { useTranslation } from 'react-i18next';
             </div>
                ))}
 
-               <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/> 
+{data.length > postsPerPage &&(
+      <div style = {{position:'relative',bottom:'0%'}}>
+
+    <ReactPaginate
+                        previousLabel={t('prev')}
+                        nextLabel={t('next')}
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        pageCount={Math.ceil(data.length / postsPerPage)}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={paginate}
+                        containerClassName={"pagination"}
+                        subContainerClassName={"pages pagination"}
+                        activeClassName={"active"}/>
+            </div>
+      )}
+
             </div>
        
         </div>

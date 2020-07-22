@@ -7,21 +7,16 @@ import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import {Link} from 'react-router-dom'
 import {getMonthName} from '../events/getMonthName'
-
-
-
+import ReactPaginate from 'react-paginate'
 
 function Calendar(){
 
   const [data, setData ] = useState([])
-  const [currentPage,setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
+  const [offset ,setOffset]= useState(0)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
   const {t} = useTranslation()
-  const didMountRef = useRef(true)
-  // const styleMr = i18n.dir() === "rtl" ? " ml-5" : " mr-5"
   const styleMr = i18n.dir() === "rtl" ? "l" : "r"
-
-
 
 
   async function fetchData() {
@@ -36,12 +31,14 @@ function Calendar(){
      
         },[i18n.language])
 
-  const lastPost = currentPage * postsPerPage;
-  const firstPost = lastPost - postsPerPage;
-  const currentPosts = data.slice(firstPost,  lastPost);
+  // Get current posts
+const currentPosts = data.slice(offset , offset + postsPerPage);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
+// Change page
+const paginate = (e) => {
+  setCurrentPage(e.selected)
+  setOffset(e.selected * postsPerPage)
+}
     return(
         <div>
           
@@ -87,10 +84,29 @@ function Calendar(){
 
       </div>
       
-<Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/>
 
       
-      </div></div></section></div>
+      </div>
+      {data.length > postsPerPage &&(
+      <div style = {{position:'absolute',bottom:'0%'}}>
+
+    <ReactPaginate
+                        previousLabel={t('prev')}
+                        nextLabel={t('next')}
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        pageCount={Math.ceil(data.length / postsPerPage)}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={paginate}
+                        containerClassName={"pagination"}
+                        subContainerClassName={"pages pagination"}
+                        activeClassName={"active"}/>
+            </div>
+      )}
+      </div>
+      </section>
+      </div>
 
     )
 }

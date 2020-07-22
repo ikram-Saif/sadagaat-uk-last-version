@@ -7,13 +7,15 @@ import{Link} from 'react-router-dom'
 import 'react-circular-progressbar/dist/styles.css';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
+import ReactPaginate from 'react-paginate'
 
 
 const Hub_Subhubs = (props)=>{
 
   const [subhub, setSubhubs] = useState([])
-  const [currentPage,setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
+  const [offset ,setOffset]= useState(0)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
   const hubId = props.hubId
   const {t} = useTranslation()
 
@@ -32,15 +34,14 @@ const Hub_Subhubs = (props)=>{
          console.log(filteredSubhubs)
        }
 
-  
+  // Get current posts
+const currentPosts = subhub.slice(offset , offset + postsPerPage);
 
-  const lastPost = currentPage * postsPerPage;
-  const firstPost = lastPost - postsPerPage;
-  const currentPosts = subhub.slice(firstPost,  lastPost);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
-  
- //const getSubhub = project.filter(hub => hub.id === 2)
- 
+// Change page
+const paginate = (e) => {
+  setCurrentPage(e.selected)
+  setOffset(e.selected * postsPerPage)
+}
 
 return(
 <div>
@@ -88,8 +89,23 @@ return(
      
      
 </div>
+{subhub.length > postsPerPage &&(
+      <div style = {{position:'relative',bottom:'0%'}}>
 
-<Pagination postsPerPage={postsPerPage} totalPosts={subhub.length} paginate={paginate}/>
+    <ReactPaginate
+                        previousLabel={t('prev')}
+                        nextLabel={t('next')}
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        pageCount={Math.ceil(subhub.length / postsPerPage)}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={paginate}
+                        containerClassName={"pagination"}
+                        subContainerClassName={"pages pagination"}
+                        activeClassName={"active"}/>
+            </div>
+      )}
           </div>
      
       </div>

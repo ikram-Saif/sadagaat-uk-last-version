@@ -8,15 +8,14 @@ import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import Pagination from '../pagination'
 import {getNumber , Precision} from '../events/getMonthName'
-
-
-
+import ReactPaginate from 'react-paginate'
 
 
 function PlannedProjects(){
   const [data, setData ] = useState([])
-  const [currentPage,setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(6);
+  const [offset ,setOffset]= useState(0)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
   const parse = require('html-react-parser');
   const {t} = useTranslation()
 
@@ -35,16 +34,14 @@ function PlannedProjects(){
         }, [i18n.language])
 
 
+// Get current posts
+const currentPosts = data.slice(offset , offset + postsPerPage);
 
-const lastPost = currentPage * postsPerPage;
-const firstPost = lastPost - postsPerPage;
-
-const currentPosts = data.slice(firstPost,  lastPost)
-
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
-  
-
+// Change page
+const paginate = (e) => {
+  setCurrentPage(e.selected)
+  setOffset(e.selected * postsPerPage)
+}
 
 
 return(
@@ -56,7 +53,7 @@ return(
     <div className="row">
      
        
-    {currentPosts.length > 0 ?data.map(project => (        
+    {currentPosts.length > 0 ?currentPosts.map(project => (        
 
 
       <div className="col-md-4" key ={project.id}>
@@ -123,13 +120,30 @@ return(
   
 </div>
 </Link>
+
+
+
 </div>
 ))
 : <h3 className = 'text-center'>{t('There Is No Planned Project Yet')}</h3>
 
 }
-  
-<Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate}/> 
+{data.length > postsPerPage &&(
+<div style = {{position:'absolute',bottom:'0%'}}>
+<ReactPaginate
+                    previousLabel={t('prev')}
+                    nextLabel={t('next')}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(data.length / postsPerPage)}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={paginate}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
+        </div>
+)}
 
 </div>
 </div>    

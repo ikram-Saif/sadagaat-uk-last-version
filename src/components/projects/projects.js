@@ -8,15 +8,12 @@ import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import {getNumberWithComma , Precision, getNumber} from '../events/getMonthName'
 import parse from 'html-react-parser';
-import Pagination from './../pagination'
-
-
-
-
+import ReactPaginate from 'react-paginate'
 
 
 function Projects_(){
   const [data, setData ] = useState([])
+  const [offset ,setOffset]= useState(0)
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
   const {t} = useTranslation()
@@ -40,13 +37,13 @@ function Projects_(){
 
   
  // Get current posts
- const indexOfLastPost = currentPage * postsPerPage;
- const indexOfFirstPost = indexOfLastPost - postsPerPage;
- const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
+const currentPosts = data.slice(offset , offset + postsPerPage);
 
- // Change page
- const paginate = pageNumber => setCurrentPage(pageNumber);
-
+// Change page
+const paginate = (e) => {
+  setCurrentPage(e.selected)
+  setOffset(e.selected * postsPerPage)
+}
 
 return(
 <section>
@@ -55,45 +52,56 @@ return(
   <div className="container">
 
     <div className="row">
-     
-       
-    {currentPosts.length > 0 ? currentPosts.map(project => (        
+      
+    {currentPosts.length > 0 ?currentPosts.map(project => (        
 
 
 <div className="col-md-4" key ={project.id}>
 <Link to={'/single-projects/'+project.id}>
     <div className="causes bg-white mb-30 border-bottom" style ={{height:'500px'}} >
       <div className="thumb">
-      <img src={`${address()}projects/${project.id}/image`}  className="img-fullwidth"  width = '390' height = '260'/>
+        <img 
+          src={`${address()}projects/${project.id}/image`} 
+          className="img-fullwidth" 
+          width = '390'
+          height = '260'
+          />
       </div>
   
-  <div style={{maxWidth: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+  <div style={{
+          maxWidth: "15%",
+          left:"25px",
+          top:"8px",
+          position: "absolute",
+          rotation: 1 / 2 + 1 / 8
+        }}>
 
-  <CircularProgressbar
-    value={project.projectProgress}
-    text={`${project.projectProgress}%`}
-    background
-    backgroundPadding={6}
-        styles={buildStyles({
-          rotation: 0.25,
-          strokeLinecap: "butt",
-          textSize: "26",
-          pathTransitionDuration: 0.5,
-          backgroundColor: "#066993",
-          textColor: "#fff",
-          pathColor: "#fff",
-          trailColor: "transparent"
+    <CircularProgressbar
+      value={project.projectProgress}
+      text={`${project.projectProgress}%`}
+      background
+      backgroundPadding={6}
+      styles={
+        buildStyles({
+            rotation: 0.25,
+            strokeLinecap: "butt",
+            textSize: "26",
+            pathTransitionDuration: 0.5,
+            backgroundColor: "#066993",
+            textColor: "#fff",
+            pathColor: "#fff",
+            trailColor: "transparent"
+            })
+             }/>  
+      </div>
 
-        })}
-  />  
-  
-</div>
 <div className="causes-details clearfix p-15 pt-15 pb-15">
     <ul className="list-inline font-16 font-weight-600 clearfix mb-5">
-      <li className="pull-left font-weight-400 text-black-333 pr-0">{t('Raised')}
-      <span className="text-theme-colored font-weight-700">
-        { getNumber(project.raised)}
-      </span>
+      <li className="pull-left font-weight-400 text-black-333 pr-0">
+        {t('Raised')}
+        <span className="text-theme-colored font-weight-700">
+          { getNumber(project.raised)}
+        </span>
       </li>
       <li className="pull-right font-weight-400 text-black-333 pr-0">
         {t('Goal')}
@@ -102,6 +110,7 @@ return(
         </span>
       </li>
     </ul>
+    
      <div className="progress-item mt-0">
       <div className="progress mb-0">
         <div data-percent={Precision(project.donationProgress)} className="progress-bar">  
@@ -111,30 +120,49 @@ return(
         </div>
       </div>
     </div>
-      <h4 className="text-uppercase">{project.name}</h4>
-   
-    <p className="mt-20 project-discription">{parse(project.description)}</p>
 
-    <Link to={'/projects/'+project.id} 
-      className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
-      style = {{display:`
-      ${project.projectProgress === 100 || project.donationProgress >= 100 ?'none':''}`
-    }}
-    >
-      {t('Donate')}</Link>
+    <h4 className="text-uppercase">{project.name}</h4>
+   
+    <p className="mt-20 project-discription">
+      {parse(project.description)}
+    </p>
+
+    <Link 
+        to={'/projects/'+project.id} 
+        className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
+        style = {{
+          display:`${project.projectProgress === 100 || project.donationProgress >= 100 ?'none':''}`
+            }}>
+      {t('Donate')}
+    </Link>
   </div>
   
 </div>
 </Link>
 </div>
 ))
+
 :
 ""}
-  <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={data.length}
-        paginate={paginate}
-      />
+{data.length > postsPerPage &&(
+<div style = {{position:'absolute',bottom:'0%'}}>
+  <ReactPaginate
+                    previousLabel={t('prev')}
+                    nextLabel={t('next')}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={Math.ceil(data.length / postsPerPage)}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={paginate}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}
+                    
+                    />
+                    </div>
+)}
+                    
 </div>
 </div>    
       
