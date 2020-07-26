@@ -1,7 +1,7 @@
 import React ,{Component}from 'react';
 import Header from '../sub_page_header';
 import Axios from 'axios';
-import {submit_volunteer_data} from '../../repository'
+import {submit_volunteer_data, logout} from '../../repository'
 import {animateScroll as scroll } from "react-scroll";
 import  {withTranslation}  from 'react-i18next'
 import DatePicker from 'react-datepicker';
@@ -124,6 +124,8 @@ class VolunteerForm extends Component{
         })
       
         .catch(err => {
+            if (err.message === 'Request failed with status code 401')
+            logout()
             const message = err.message ==='Network Error'?err.message : "something went wrong try again later"
             this.setState({
                 response:{
