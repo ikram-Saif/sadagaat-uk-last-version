@@ -163,7 +163,7 @@ class Donate extends Component {
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-5">
                
-                <h3 class="mt-0 line-bottom">{t('Donate Through Syber Pay')}
+                <h3 class="mt-0 line-bottom">{t('Donate Through SyberPay')}
                     <span class="font-weight-300"></span>
                 </h3>
                    <p className={this.state.styleClass}>

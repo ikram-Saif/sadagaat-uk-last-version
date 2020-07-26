@@ -48,7 +48,7 @@ return(
       
         <div className="row multi-row-clearfix">
           <div className="blog-posts">
-          <h3 class="mt-10 line-bottom">{t('Education Sub Sectors')}</h3>
+          <h3 class="mt-10 line-bottom">{props.name}</h3>
           <br/>
 
 

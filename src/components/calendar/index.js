@@ -40,11 +40,10 @@ const paginate = (e) => {
   setOffset(e.selected * postsPerPage)
 }
     return(
-        <div>
+   <section>
           
 <Header name={t("Event Calendar")}/>
-<section>
-  <div className="container pb-30">
+  <div className="container mt-30 mb-30">
     <div className="section-content">
       <div className="row">
         
@@ -81,11 +80,7 @@ const paginate = (e) => {
         </div>
         </div>
       ))}
-
       </div>
-      
-
-      
       </div>
       {data.length > postsPerPage &&(
       <div style = {{position:'absolute',bottom:'0%'}}>
@@ -106,7 +101,6 @@ const paginate = (e) => {
       )}
       </div>
       </section>
-      </div>
 
     )
 }

@@ -40,10 +40,10 @@ function MenuBar() {
                         {t("Contact")}
                       </NavLink>
                     </li>
-                    <li><NavLink className="nav-link" activeclassName="active"  to="/volunteers">
+                    {/* <li><NavLink className="nav-link" activeclassName="active"  to="/volunteers">
                         {t("Volunteers")}
                       </NavLink>
-                    </li>
+                    </li> */}
                   </ul>
                 </li>
 

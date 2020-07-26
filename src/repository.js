@@ -21,7 +21,7 @@ export function login(data)
     .then(response => {
             localStorage.setItem(tokenKey, response.data.token);
             localStorage.setItem(user_email,response.data.email)
-            //localStorage.setItem(tokenKey, Date.now() + 2 * 60 * 60 * 1000);
+            localStorage.setItem('tokenExpired', Date.now() + 1 * 60 * 60 * 1000);
             return response.data
          
         })

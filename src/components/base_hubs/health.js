@@ -95,7 +95,7 @@ return(
      
   </div>
    <br />
-    <Hub_Subhubs  hubId = {health.id}/>
+    <Hub_Subhubs  hubId = {health.id} name = {t('Health Sub Sectors')}/>
                                             
       </div>
       </div>

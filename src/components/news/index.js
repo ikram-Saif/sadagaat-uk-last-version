@@ -38,7 +38,7 @@ const paginate = (e) => {
 }
 
   return (
-    <div>
+    <section>
       <Header name={t("News")} />
 
       <div className="container mt-30 mb-30 pt-30 pb-30">
@@ -91,27 +91,27 @@ const paginate = (e) => {
             </div>
           ))}
 {data.length > postsPerPage &&(
-<div style = {{position:'relative',bottom:'0%'}}>
+  <div style = {{position:'absolute',bottom:'0%'}}>
 
-<ReactPaginate
-              previousLabel={t('prev')}
-              nextLabel={t('next')}
-              breakLabel={"..."}
-              breakClassName={"break-me"}
-              pageCount={Math.ceil(data.length / postsPerPage)}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={5}
-              onPageChange={paginate}
-              containerClassName={"pagination"}
-              subContainerClassName={"pages pagination"}
-              activeClassName={"active"}/>
-        </div>
+    <ReactPaginate
+                  previousLabel={t('prev')}
+                  nextLabel={t('next')}
+                  breakLabel={"..."}
+                  breakClassName={"break-me"}
+                  pageCount={Math.ceil(data.length / postsPerPage)}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={5}
+                  onPageChange={paginate}
+                  containerClassName={"pagination"}
+                  subContainerClassName={"pages pagination"}
+                  activeClassName={"active"}/>
+            </div>
       )}
         </div>
-        
+
       </div>
       
-    </div>
+    </section>
   );
 }
 

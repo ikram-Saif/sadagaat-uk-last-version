@@ -95,7 +95,7 @@ return(
      
   </div>
    <br />
-   <Hub_Subhubs  hubId = {Feeding.id}/>
+   <Hub_Subhubs  hubId = {Feeding.id} name = {t('Feeding Sub Sectors')} />
 
      
       </div>

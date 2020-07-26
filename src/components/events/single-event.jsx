@@ -8,17 +8,18 @@ import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import SocialMedia from "../social media/social-media";
 import testVideo from "../news/ROI Calculator for UX Solutions.mp4";
+import ReactPlayer from 'react-player'
+
+
 
 class SinglEvent extends Component {
   constructor() {
     super();
     this.state = {
       event: [],
-      eventImages: [],
-      eventVideos: [
-        { id: 1, name: testVideo },
-        { id: 2, name: testVideo },
-      ],
+      // eventImages: [],
+      // eventVideos: [
+      // ],
       allMedia: [],
     };
   }
@@ -35,13 +36,14 @@ class SinglEvent extends Component {
       .then((response) => {
         const event = response.data;
         console.log(event);
-        this.setState({ event, eventImages: event.images });
+        this.setState({ event });
         console.log(this.state.event.images);
+        this.fillMediaArray();
       })
       .catch((error) => {
         console.log(error.message);
       });
-    this.fillMediaArray();
+   
   }
 
   async componentWillReceiveProps() {
@@ -55,6 +57,7 @@ class SinglEvent extends Component {
       .then((response) => {
         const event = response.data;
         this.setState({ event });
+        this.fillMediaArray();
       })
       .catch((error) => {
         console.log(error.message);
@@ -62,8 +65,8 @@ class SinglEvent extends Component {
   }
 
   fillMediaArray = () => {
-    const event_images = this.state.eventImages;
-    const event_videos = this.state.eventVideos;
+    const event_images = this.state.event.images;
+    const event_videos = this.state.event.video;
     const allMedia = [];
     /**fill array with default Image  if event has image*/
 
@@ -167,18 +170,16 @@ class SinglEvent extends Component {
                             />
                           </div>
                         ) : (
-                          <div
-                            class="post-thumb thumb"
-                            style={{ mxaHeight: "500px" }}
-                          >
-                            <video
-                              className="img-fullwidth img-responsive"
-                              style={{ height: "400px" }}
-                              controls
-                            >
-                              <source src={media.name} type="video/mp4" />
-                            </video>
-                          </div>
+                          <div>
+                            <ReactPlayer 
+                                      controls = {true}
+                                      playIcon
+                                      className="img-fullwidth img-responsive"
+                                      //height='400px'
+                                      //width = '500px'
+                                      url = {`${address()}events/${media.name}/video`}
+                                       />
+                        </div>
                         )
                       )}
                     </Carousel>

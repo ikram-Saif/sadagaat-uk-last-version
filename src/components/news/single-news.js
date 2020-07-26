@@ -15,10 +15,8 @@ class SinglNews extends Component {
     super();
     this.state = {
       news: [],
-      newsImages : [],
-      newsVideos :[
-        {id:1,name :testVideo},{id:2,name : testVideo}
-      ],
+      // newsImages : [],
+      // newsVideos: [],
       allMedia:[]
     };
   }
@@ -32,14 +30,14 @@ class SinglNews extends Component {
         headers: { "accept-language": `${i18n.language}` },
       });
       this.setState({ 
-        news,
-        newsImages:news.images,
-        newsVideo: news.video
-       });
-    } catch (error) {
+              news   
+            });
+            this.fillMediaArray()
+    } 
+    catch (error) {
       console.log("can not load news for the home page slider");
     }
-    this.fillMediaArray()
+   
   }
 
   async componentWillReceiveProps() {
@@ -50,11 +48,11 @@ class SinglNews extends Component {
         headers: { "accept-language": `${i18n.language}` },
       });
       this.setState({ 
-                  news,
-                  newsImages:news.images,
-                  newsVideo: news.video 
-                });
-    } catch (error) {
+                  news
+                  });
+                  this.fillMediaArray()
+    } 
+    catch (error) {
       console.log("can not load news for the home page slider");
     }
   }
@@ -65,8 +63,8 @@ class SinglNews extends Component {
     * 
     */
 fillMediaArray =()=>{
-    const news_images = this.state.newsImages
-    const news_videos = this.state.newsVideos
+    const news_images = this.state.news.images
+    const news_videos = this.state.news.video
     const allMedia = []
 
     /**fill array with default Image if its not null */
@@ -113,7 +111,7 @@ fillMediaArray =()=>{
     const { t } = this.props;
     const { news } = this.state;
     const allMedia = this.state.allMedia
-
+console.log(news.video)
     return (
       <div>
         <Header name={t("News")} />
@@ -126,7 +124,7 @@ fillMediaArray =()=>{
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
                        {/**check if  all media has image other than default image */}
-                     {allMedia.length > 0? 
+                     {allMedia.length > 1? 
                      (<Carousel  
                           slidesPerScroll={1}
                           //autoPlay={6000}
@@ -181,9 +179,8 @@ fillMediaArray =()=>{
                             </div>
                       ):
                       (
-                        <div
-                              class="post-thumb thumb"
-                              style={{ mxaHeight: "500px" }} >
+                        <div>
+                              
                          {/* <video 
                               className="img-fullwidth img-responsive"
                               style = {{height:'400px'}}
@@ -197,8 +194,10 @@ fillMediaArray =()=>{
                                       controls = {true}
                                       playIcon
                                       className="img-fullwidth img-responsive"
-                                      style = {{height:'400px'}}
-                                      url = {media.name} />
+                                     // height='100%'
+                                     // width = '100%'
+                                      url = {`${address()}news/${media.name}/video`}
+                                       />
                         </div>
                       )
                         ))
