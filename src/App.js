@@ -145,7 +145,6 @@ function App() {
           path="/complete-projects"
           component={FinishedProjects}
         />
-    
        <Become />
         <Footer />
       </div>

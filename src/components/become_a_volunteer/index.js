@@ -1,15 +1,16 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link , withRouter} from 'react-router-dom'
 import  i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 
 
 
-function Become(){
+function Become(props){
   const {t , i18n} = useTranslation()
   const styleClass = i18n.dir() === 'rtl' ? '':''
-  const show = window.location.pathname === '/volunteerForm' ? 'none' : 'show'
-  console.log(window.location.pathname)
+  const show = props.history.location.pathname === '/volunteerForm' ? 'none' : ''
+  //console.log(props.history.location.pathname)
+
 
 
   // const handleClick = (e)=> {
@@ -32,6 +33,7 @@ function Become(){
 
             <Link to = '/volunteerForm'>
                 <button className="btn btn-transparent btn-border btn-circled btn-lg mt-15"
+                style={{ display: show }}
                 //  onClick={handleClick}
                 >
                   {t('Become a Volunteer')}
@@ -48,4 +50,4 @@ function Become(){
     );
 } 
 
-export default Become;
+export default withRouter (Become);

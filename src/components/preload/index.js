@@ -4,7 +4,6 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 function Preload(props){
   const style = { 
-    // position: "relative", top: "50%", left: "50%", right: "50%",
     textAlign: 'center'
   }
 

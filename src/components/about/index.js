@@ -1,15 +1,15 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link , withRouter } from "react-router-dom";
 import about1 from "../images/work.jpg";
 import about2 from "../images/dates.jpg";
 import about3 from "../images/tree.jpg";
 
-function About(){
+function About(props){
   const {t ,i18n} = useTranslation()
   const classParameter = i18n.dir() ==='rtl'?'pr-0':'pl-0'
   const buttonClass = i18n.dir() ==='rtl'?'mr-5':'ml-5'
-  const show = window.location.pathname === '/about' ? 'none' : ''
+  const show = props.history.location.pathname === '/about' ? 'none' : ''
   //console.log(window.location.pathname)
      
 return(
@@ -82,4 +82,4 @@ return(
   );
 }
 
-export default About;
+export default withRouter(About);
