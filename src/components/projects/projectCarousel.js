@@ -21,7 +21,7 @@ class ProjectSlider extends Component {
 
   async componentDidMount() {
     try {
-      const { data: projects } = await axios.get(`${address()}projects`, {
+      const { data: projects } = await axios.get(`${address()}projects/home`, {
         headers: { "accept-language": `${i18n.language}` },
       });
       this.setState({ projects });
@@ -33,7 +33,7 @@ class ProjectSlider extends Component {
   async componentWillReceiveProps(propos) {
     try {
       axios
-        .get(`${address()}projects`, {
+        .get(`${address()}projects/home`, {
           headers: { "accept-language": `${i18n.language}` },
         })
         .then((response) => this.setState({ projects: response.data }))

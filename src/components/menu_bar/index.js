@@ -3,7 +3,7 @@ import LanguageSelector from "../../i18next/LanguageSelector";
 
 import { Link, NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import logo from '../images/Logo.png'
+import logo from '../images/logo.png'
 
 function MenuBar() {
   const { t } = useTranslation();

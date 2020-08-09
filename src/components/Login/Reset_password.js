@@ -173,12 +173,12 @@ handleFormErrorMessage =(e,message = '')=>{
                                     {t(this.state.message)}
                                     {this.state.success &&  
                                     
-                                    // <Redirect 
-                                    //   to = {{
-                                    //       pathname: "/login",
-                                    //       state:{referrer: 'password reset successfully'}
-                                    //       }} />
-                                    <Link to = '/login'>{t(this.state.loginLink)}</Link>
+                                    <Redirect 
+                                      to = {{
+                                          pathname: "/login",
+                                          state:{referrer: 'password reset successfully'}
+                                          }} />
+                                    // <Link to = '/login'>{t(this.state.loginLink)}</Link>
                                     }
                                     </div>
 

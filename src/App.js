@@ -41,6 +41,7 @@ import FinishedProjects from "./components/projects/finished-project";
 import SinglNews from './components/news/single-news'
 import singleNews from "./components/news/single-news";
 import Volunteers from './components/vlounteers/volunteersPage'
+import Registration from "./components/Login/Registration";
 
 
 function App() {
@@ -113,6 +114,7 @@ function App() {
         <Route path="/about" component={About} />
         <Route exact path="/" component={Home} />
         <PubliceRoute exact path="/login" component={Login} />
+        <Route exact path="/registration" component={Registration} />
         <Route exact path="/forgot_password" component={ForgotPassword} />
        
         <Route exact path="/reset-password/:token" component={RestPassword} />

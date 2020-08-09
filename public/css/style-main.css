@@ -165,6 +165,7 @@ body {
 }
 
 
+
 a {
   color: #808080;
   text-decoration: none;
@@ -1110,7 +1111,9 @@ section > .container-fluid {
   }
 }
 .menuzord-brand img {
-  max-height: 38px;
+  max-height: 53px;
+  position:absolute;
+  top:9px
 }
 /* -------- Inner Header ---------- */
 .inner-header .title {

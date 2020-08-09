@@ -8,6 +8,8 @@ import { useTranslation } from 'react-i18next';
 import {Link} from 'react-router-dom'
 import {getMonthName} from '../events/getMonthName'
 import ReactPaginate from 'react-paginate'
+import Preload from '../preload'
+
 
 function Calendar(){
 
@@ -16,6 +18,7 @@ function Calendar(){
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
   const {t} = useTranslation()
+  const [loading , setLoading] = useState(true)
   const styleMr = i18n.dir() === "rtl" ? "l" : "r"
 
 
@@ -24,10 +27,13 @@ function Calendar(){
     const response = await fetcher.json()
     setData(response)
     console.log(response)
+    setLoading(false)
+
   }
   
   useEffect(() => {
       fetchData()
+      
      
         },[i18n.language])
 
@@ -46,7 +52,8 @@ const paginate = (e) => {
   <div className="container mt-30 mb-30">
     <div className="section-content">
       <div className="row">
-        
+      {loading && <Preload  loading = {loading}/>}
+
       {currentPosts.map((event) => (  
         <div className="col-sm-6 col-md-4 col-lg-4">
           <div className="schedule-box maxwidth500 bg-lighter mb-30" >

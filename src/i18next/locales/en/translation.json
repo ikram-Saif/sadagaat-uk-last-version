@@ -167,6 +167,7 @@
   "username or Password not correct": "Username or Password Not Correct",
   "This Email Already Exist": "This Email Already Exist",
   "Donation was completed successfully": "Donation was completed successfully",
+  "Donation failed":"Donation failed",
   "Thank You!": "Thank You!",
   "Continue to homepage": "Continue to homepage",
   "Proccess Failed": "Proccess Failed",
@@ -194,7 +195,7 @@
   "Start Date":"Start Date",
   "End Date":"End Date",
   "Location":"Location",
-  "Registerd Successfully Please":"Registerd Successfully. Please",
+  "Registerd Successfully":"Registerd Successfully",
   "Reset Password":"Reset Password",
   "send":"send",
   "that email address is invalid":"that email address is invalid",
@@ -254,5 +255,9 @@
   "This is an invalid password reset link":"This is an invalid password reset link",
   "Volunteers":"Volunteers",
   "prev":"prev",
-  "next":"next"
+  "next":"next",
+  "Please Login Again":"Please Login Again",
+  "Registration":"Registration",
+  "Sorry":"Sorry...",
+  "Retry donation":"Retry donation"
 }

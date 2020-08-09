@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import logo from '../images/logo-05.png'
 
 import { Link, NavLink } from "react-router-dom";
 
@@ -18,10 +19,13 @@ function Footer() {
           <div className="row border-bottom-black">
             <div className="col-sm-6 col-md-3">
               <div className="widget dark">
-                {/* <img class="mt-10 mb-20" alt="" src="images/logo.png"> */}
+                {/* <div class = "thumbs">
+                <img class="" alt="" src={logo} />
+                </div> */}
                 <h2 className="text-white">{t("SADAGAAT")}</h2>
                 <span className="text-white">{t("Community of Charity")}</span>
                 <p>{t("Nonprofit Organization Located in Sudan.")}</p>
+
                 <ul className="styled-icons icon-dark icon-theme-colored icon-circled icon-sm">
                   <li>
                     <a

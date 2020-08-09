@@ -10,6 +10,8 @@ import Pagination from '../pagination'
 import {getNumber , Precision} from '../events/getMonthName'
 import parse from 'html-react-parser';
 import ReactPaginate from 'react-paginate'
+import Preload from '../preload'
+
 
 
 
@@ -18,6 +20,7 @@ function FinishedProjects(){
   const [offset ,setOffset]= useState(0)
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
+  const [loading , setLoading] = useState(true)
   const parse = require('html-react-parser');
 
 
@@ -31,6 +34,8 @@ function FinishedProjects(){
            const response = await fetcher.json()
           const Projects = response.filter(project => project.projectProgress === 100)
            setData(Projects)
+           setLoading(false)
+
            
          }
          fetchData()
@@ -56,8 +61,10 @@ return(
   <div className="container">
 
     <div className="row">
-     
-       
+     {loading && 
+    <Preload  loading = {loading}/>
+     }
+
     {currentPosts.length > 0 ?currentPosts.map(project => (        
 
 
@@ -69,7 +76,6 @@ return(
             </div>
         
         <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
-
       <CircularProgressbar
         value={project.projectProgress}
         text={`${project.projectProgress}%`}

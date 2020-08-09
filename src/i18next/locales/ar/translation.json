@@ -157,8 +157,8 @@
   "Latest": "اخر",
   "Photo": "الصور",
   "Gallery": "معرض",
-  "Raised": "المتبقي:",
-  "Chartiy Campaign":"المتبقي",
+  "Raised": "التبرعات:",
+  "Chartiy Campaign":"التبرعات",
   "Goal": "الهدف:",
   "Completed Projects": "المشاريع المكتملة",
   "Let's have a": "",
@@ -169,6 +169,7 @@
   "username or Password not correct": "اسم المستخدم او كلمة المرور غير صحيح",
   "This Email Already Exist": "هذاالايميل موجود مسبقا",
   "Donation was completed successfully": "اكتملت عملية التبرع بنجاح",
+  "Donation failed":"فشلت عملية التبرع",
   "Thank You!": "   شكرا لك  ! ",
   "Continue to homepage": "الرجوع الى الصفحة الرئيسية",
   "Proccess Failed": "فشلت العملية",
@@ -196,7 +197,7 @@
   "End Date":"زمن النهاية",
   "Location":"الموقع",
   "Share": "مشاركة",
-  "Registerd Successfully Please":"تم التسجيل بنجاح الرجاء ",
+  "Registerd Successfully":"تم التسجيل بنجاح",
   "Login ...!":"تسجيل الدخول",
   "Reset Password":"اعادة تعين كلمة المرور",
   "send":"ارسال",
@@ -256,6 +257,9 @@
   "This is an invalid password reset link":"رابط إعادة تعيين كلمة المرور غير صالح",
   "Volunteers":"المتطوعين",
   "prev":"السابق",
-  "next":"التالي"
-
+  "next":"التالي",
+  "Please Login Again":"الرجاءاعادة تسجيل الدخول",
+  "Registration":"انشاء حساب",
+  "Sorry":"عذراً...",
+  "Retry donation":"إعادة التبرع"
 }

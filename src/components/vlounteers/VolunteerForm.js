@@ -124,9 +124,18 @@ class VolunteerForm extends Component{
         })
       
         .catch(err => {
+            const message = ''
             if (err.message === 'Request failed with status code 401')
-            logout()
-            const message = err.message ==='Network Error'?err.message : "something went wrong try again later"
+            {
+                logout()
+                message = 'Please Login Again'
+            }
+
+            if (err.message ==='Network Error')
+                message = 'Network Error'
+            else 
+                message = "something went wrong try again later"
+            //const message = err.message ==='Network Error'?err.message : "something went wrong try again later"
             this.setState({
                 response:{
                     ...this.state.response ,

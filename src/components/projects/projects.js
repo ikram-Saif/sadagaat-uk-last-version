@@ -9,15 +9,18 @@ import { useTranslation } from 'react-i18next';
 import {getNumberWithComma , Precision, getNumber} from '../events/getMonthName'
 import parse from 'html-react-parser';
 import ReactPaginate from 'react-paginate'
-
+import Preload from '../preload'
+// import { css } from "@emotion/core";
+// import BeatLoader from "react-spinners/BeatLoader";
 
 function Projects_(){
   const [data, setData ] = useState([])
   const [offset ,setOffset]= useState(0)
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
+  const [loading , setLoading] = useState(true)
   const {t} = useTranslation()
-
+  // const style = { position: "relative", top: "50%", left: "50%"}
   
   useEffect(() => {
     
@@ -27,6 +30,7 @@ function Projects_(){
            console.log(response)
            const Projects = response.filter(project => project.projectProgress > 0 && project.projectProgress < 100)
            setData(Projects)
+           setLoading(false)
           
 
            
@@ -52,7 +56,10 @@ return(
   <div className="container">
 
     <div className="row">
-      
+    {loading && 
+    <Preload  loading = {loading}/>
+     }
+     
     {currentPosts.length > 0 ?currentPosts.map(project => (        
 
 
@@ -100,13 +107,13 @@ return(
       <li className="pull-left font-weight-400 text-black-333 pr-0">
         {t('Raised')}
         <span className="text-theme-colored font-weight-700">
-          { getNumber(project.raised)}
+          {getNumber(project.raised)}
         </span>
       </li>
       <li className="pull-right font-weight-400 text-black-333 pr-0">
         {t('Goal')}
         <span className="text-theme-colored font-weight-700">
-          { getNumber(project.goal)}
+          {getNumber(project.goal)}
         </span>
       </li>
     </ul>
@@ -142,8 +149,9 @@ return(
 </div>
 ))
 
-:
-""}
+:''
+
+}
 {data.length > postsPerPage &&(
 <div style = {{position:'absolute',bottom:'0%'}}>
   <ReactPaginate

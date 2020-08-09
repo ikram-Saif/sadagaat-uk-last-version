@@ -1,18 +1,19 @@
 import React from 'react';
+import { css } from "@emotion/core";
+import BeatLoader from "react-spinners/BeatLoader";
 
-function Preload(){
+function Preload(props){
+  const style = { position: "relative", top: "50%", left: "50%"}
+
     return(
-<div id="wrapper" className="clearfix">
-  <div id="preloader">
-    <div id="spinner">
-      <div className="preloader-dot-loading">
-        <div className="cssload-loading"><i /><i /><i /><i /></div>
-      </div>
-    </div>
-    <div id="disable-preloader" className="btn btn-default btn-sm">Disable Preloader</div>
-  </div>
+<div className="sweet-loading" style = {{style}}>
+<BeatLoader
+  css = {style}
+  size={20}
+  loading={props.loading}
+  color = {'rgb(6, 105, 147) !important'}
+/>
 </div>
-
     )
     
 }

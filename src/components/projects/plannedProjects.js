@@ -9,6 +9,8 @@ import { useTranslation } from 'react-i18next';
 import Pagination from '../pagination'
 import {getNumber , Precision} from '../events/getMonthName'
 import ReactPaginate from 'react-paginate'
+import Preload from '../preload'
+
 
 
 function PlannedProjects(){
@@ -17,6 +19,7 @@ function PlannedProjects(){
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
   const parse = require('html-react-parser');
+  const [loading , setLoading] = useState(true)
   const {t} = useTranslation()
 
   
@@ -28,6 +31,8 @@ function PlannedProjects(){
           const Projects = response.filter(project => project.projectProgress === 0)
           console.log("Planned Projects",Projects)
            setData(Projects)
+           setLoading(false)
+
            
          }
          fetchData()
@@ -51,7 +56,10 @@ return(
   <div className="container">
 
     <div className="row">
-     
+      
+    {loading && 
+    <Preload  loading = {loading}/>
+     }
        
     {currentPosts.length > 0 ?currentPosts.map(project => (        
 
@@ -125,7 +133,10 @@ return(
 
 </div>
 ))
-: <h3 className = 'text-center'>{t('There Is No Planned Project Yet')}</h3>
+:
+!loading &&
+ <h3 className = 'text-center text-theme-colored font-weight-700'>{t('There Is No Planned Project Yet')}</h3>
+
 
 }
 {data.length > postsPerPage &&(

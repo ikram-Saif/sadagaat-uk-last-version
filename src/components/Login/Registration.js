@@ -100,7 +100,7 @@ class Registration extends Component{
               response:{
                 ...this.state.response,
                 success : 1,
-              message:'Registerd Successfully Please',
+              message:'Registerd Successfully',
               styleClass:'success-msg',
               iconClass:'fa fa-check fa-2x',
               loginLink:'Login'
@@ -113,6 +113,7 @@ class Registration extends Component{
             //   pathname: "/login",
             //   state:{success_register: "register successfully" }
             //     }}  />
+            
           }
           )
        
@@ -175,8 +176,9 @@ class Registration extends Component{
 
   
     return(
-      
-            <div>
+                   
+                   <div className="tab-pane fade in  p-15" id="register-tab">
+
 
                             <form 
                             
@@ -198,20 +200,23 @@ class Registration extends Component{
                              
                                 {this.state.response.success === 1 ?
 
-                                  (<div className = {this.state.response.styleClass}>
-                                      <i className = {this.state.response.iconClass} 
-                                      style = {{margin:'5px'}} />
+                                  (
+                                  // <div className = {this.state.response.styleClass}>
+                                  //     <i className = {this.state.response.iconClass} 
+                                  //     style = {{margin:'5px'}} />
 
-                                      {t(this.state.response.message)}
-                                 {/* <Redirect 
+                                  //     {t(this.state.response.message)}
+                                
+                                      
+                                    //  <a href = '/login'>{t(this.state.response.loginLink)}</a> 
+                                       
+                                    //   </div>
+                                      <Redirect 
                                       to = {{
                                           pathname: "/login",
-                                         state:{success_register: "register successfully" }
-                                          }}  /> */}
-                                      
-                                      <a href = '/login'>{t(this.state.response.loginLink)}</a>
-                                       
-                                      </div>) :
+                                         state:{referrer: this.state.response.message}
+                                          }}  />
+                                      ) :
 
                                     (<div className = {this.state.response.styleClass}>
                                     <i className = {this.state.response.iconClass} style = {{margin:'5px'}}/>

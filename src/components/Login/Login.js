@@ -2,12 +2,18 @@ import React,{Component} from 'react';
 import Header from '../sub_page_header';
 import { login } from '../../repository';
 import Registration from './Registration'
-import { Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import  {withTranslation}  from 'react-i18next'
 import i18n from 'i18next'
-// import 'react-notifications/lib/notifications.css';
-// import {NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import {NotificationManager,NotificationContainer} from 'react-notifications';
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import { store } from 'react-notifications-component';
+import NotificationSystem from 'react-notification-system';
+import $ from "jquery";
 class Login extends Component{
+  notificationSystem = React.createRef();
 
   constructor(props) {
     super(props);
@@ -16,23 +22,78 @@ class Login extends Component{
                   password: "",
                   loading:false,
                   success_reset:'',
-                     
+                
                 }                 
             }
-            // componentDidMount(){
-            //   if (this.props.location.state !== undefined) {
-            //   let successPassworddReset  =  this.props.location.state.referrer 
-            //   NotificationManager.success('Success message', 'successMessage');
-            //   alert(successPassworddReset)
-            // }
-         
-            //  }
-   
-            // componentWillReceiveProps(){
-            //  let successPassworddReset  =  this.props.location.state.referrer
-            //  NotificationManager.success('Success message', successPassworddReset);
-            //  // alert(successPassworddReset)
-            // }
+
+            componentDidMount(){
+              const {t , history} = this.props
+
+              if (this.props.location.state !== undefined) {
+              let successPassworddReset  =  this.props.location.state.referrer 
+             // NotificationManager.success(successPassworddReset);
+              // alert(successPassworddReset)
+              // store.addNotification({
+              //   title:'',
+              //    message: t(successPassworddReset),
+              //   type: "success",
+              //   insert: "center",
+              //   container: "top-center",
+              //   animationIn: ["animated", "fadeIn"],
+              //   animationOut: ["animated", "fadeOut"],
+              //   dismiss: false,
+              //   // width:700,
+              //   className:"success-msg"
+              // });
+              const notification = this.notificationSystem.current;
+                  notification.addNotification({
+                    title: t('Reset Password'),
+                    message: t(successPassworddReset),
+                    level: 'success',
+                    //dismissible:'none',
+                    autoDismiss:8,
+                    position:'tc',
+
+                  });
+              history.replace("/login")
+            }
+          
+             }
+             componentDidUpdate(){
+              const {t , history} = this.props
+              if (this.props.location.state !== undefined ) {
+                let successPassworddReset  =  this.props.location.state.referrer 
+              // store.addNotification({
+              //   title:'',
+              //   message: t(successPassworddReset),
+              //   type: "success",
+              //   insert: "center",
+              //   container: "top-center",
+              //   animationIn: ["animated", "fadeIn"],
+              //   animationOut: ["animated", "fadeOut"],
+              //   dismiss: false,
+              //   // width:700,
+              //   className:"success-msg"
+              // });
+              const notification = this.notificationSystem.current;
+                  notification.addNotification({
+                    title:t('Registration'),
+                    message: t(successPassworddReset),
+                    level: 'success',
+                    //dismissible:'none',
+                    autoDismiss:8,
+                    position:'tc',
+
+                  });
+
+              history.replace("/login")
+              window.$('.nav-tabs a[href="#login-tab"]').tab('show');
+
+            }
+                  }
+
+                  
+  
   handleFormErrorMessage =(e,message = '')=>{
     const {t} = this.props
   
@@ -51,6 +112,8 @@ class Login extends Component{
     }
 
    handleSubmit = (e) => {
+    const {history} = this.props
+
     e.preventDefault();
      login(this.state)
       .then(data =>{ 
@@ -60,7 +123,7 @@ class Login extends Component{
         {
           this.setState({ loading: false });
         }, 2000)
-        window.location = '/'
+        history.push("/")
     
     })
     
@@ -91,34 +154,69 @@ class Login extends Component{
       );
     }
    
-  
- 
+    clearHistory=()=>{
+      const notification = this.notificationSystem.current;
+      notification.clearNotifications()
+    }
    render(){
     const {t} = this.props 
     const folat = i18n.dir()==='rtl'?'right':'left'
     const loading  = this.state.loading
     const message = this.props.location.state
-    console.log(message)
+    var style = {
+      NotificationItem: { // Override the notification item
+        DefaultStyle: { // Applied to every notification, regardless of the notification level
+          margin: '10px 5px 2px 1px',
+        },
+      },
+        Containers: {
+          DefaultStyle: {
+            position: 'absolute',
+            margin:'-25px 5px 5px -190px',
+            left:'50%',
+            maxWidth:'500px'
+          },
+      },
+      MessageWrapper: {
+        DefaultStyle: {
+         textAlign:'center'
+        }
+      },
+      Title: {
+        DefaultStyle: {
+          textAlign:'center'
+        },
+      }
+    }
+
   
     return(
 
         <div id="wrapper" className="clearfix">
 
           <Header name={t('Login/Register')}/>
-
+          {/* <NotificationContainer/> */}
+          {/* <ReactNotification /> */}
+         
 
               <div className="main-content">
                 <section>
+                <NotificationSystem ref={this.notificationSystem} style={style}/>
                   <div className="container">
                     <div className="row">
                       <div className="col-md-8 col-md-offset-2">
                         <ul className="nav nav-tabs">
-                          <li className="active" style = {{ float:`${folat}`}}>
-                            <a href="#login-tab" data-toggle="tab">{t('Login')}
+                          <li className ="active" style = {{ float:`${folat}`}}>
+                            <a 
+                            href="#login-tab"
+                            data-toggle="tab"
+                            id = "login"
+                            >
+                                {t('Login')}
                             </a>
                             </li>
-                          <li style = {{ float:`${folat}`}}>
-                            <a href="#register-tab" data-toggle="tab">
+                          <li  style = {{ float:`${folat}`}}>
+                            <a href="#register-tab" data-toggle="tab"  onClick = {this.clearHistory}>
                               {t('Register')}
                               </a>
                               </li>
@@ -203,9 +301,7 @@ class Login extends Component{
                             
                             </form>
                           </div>
-                          <div className="tab-pane fade in p-15" id="register-tab">
                           <Registration />
-                          </div>
                         </div>
                       </div>
                     </div>

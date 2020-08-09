@@ -22,12 +22,12 @@ class FaildDonate extends Component {
           <div className="section-content">
            
           <div className="jumbotron text-center ">
-            <div><i className="fa fa-check-circle lg font-30 text-primary"></i></div>
-              <h1 className="display-3">{t('Sorry...')}</h1>
-              <div className=""><h3>{t('Donation was completed successfully')}</h3></div>
+            <div><i className="fa fa-times-circle fa-5x text-danger"></i></div>
+              <h1 className="display-3">{t('Sorry')}</h1>
+              <div className=""><h3>{t('Donation failed')}</h3></div>
               {/* <hr /> */}
               <p className="lead mt-5">
-              <Link className="btn btn-primary" to="/donate" role="button">{t('retry donation')}</Link>
+              <Link className="btn btn-primary" to="/donate" role="button">{t('Retry donation')}</Link>
 
               </p>
             </div>

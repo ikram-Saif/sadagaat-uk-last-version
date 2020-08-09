@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import SocialMedia from "../social media/social-media";
 import { Link } from "react-router-dom";
 import ReactPaginate from 'react-paginate'
+import Preload from '../preload'
+
 
 
 function News() {
@@ -16,6 +18,8 @@ function News() {
   const [postsPerPage] = useState(6);
   const { t } = useTranslation();
   const style = i18n.dir() === "rtl" ? "pull-right ml-20" : "pull-left mr-20";
+  const [loading , setLoading] = useState(true)
+
 
   useEffect(() => {
     fetchData();
@@ -27,6 +31,7 @@ function News() {
     });
     const response = await fetcher.json();
     setData(response);
+    setLoading(false)
   }
 // Get current posts
 const currentPosts = data.slice(offset , offset + postsPerPage);
@@ -43,6 +48,8 @@ const paginate = (e) => {
 
       <div className="container mt-30 mb-30 pt-30 pb-30">
         <div class="row">
+        {loading && <Preload  loading = {loading}/>}
+
           {currentPosts.map((news) => (
             <div class="col-md-4 mb-30" key={news.id}>
               <Link to={"/news/" + news.id}>
