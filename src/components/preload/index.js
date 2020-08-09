@@ -3,7 +3,10 @@ import { css } from "@emotion/core";
 import BeatLoader from "react-spinners/BeatLoader";
 
 function Preload(props){
-  const style = { position: "relative", top: "50%", left: "50%"}
+  const style = { 
+    // position: "relative", top: "50%", left: "50%", right: "50%",
+    textAlign: 'center'
+  }
 
     return(
 <div className="sweet-loading" style = {{style}}>

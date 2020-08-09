@@ -36,6 +36,7 @@ function Projects_(){
            
          }
          fetchData()
+         
         }, [i18n.language])
     
 
@@ -58,6 +59,7 @@ return(
     <div className="row">
     {loading && 
     <Preload  loading = {loading}/>
+    
      }
      
     {currentPosts.length > 0 ?currentPosts.map(project => (        
