@@ -55,7 +55,7 @@ return(
               <div className="about-details">
                 <h2 className="font-28 text-uppercase mt-1">
                   {t("About")}{" "}
-                  <span className="text-theme-colored">{t("Sadagaat")}</span>
+                  <span>{t("Sadagaat")}</span>
                 </h2>
                 <p>{t("about_message_1")}</p>
 

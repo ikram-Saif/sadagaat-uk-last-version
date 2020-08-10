@@ -144,7 +144,7 @@ class SinglProject extends Component {
                 <ul className="list-inline project-conditions mt-20 text-center bg-theme-colored-transparent-1 m-0 p-10">
                   <li className="target-fund text-center text-theme-colored float-left">
                     <strong>
-                      {t("Goal")} { getNumberWithComma(project.goal)}
+                      {t("Goal:")} { getNumberWithComma(project.goal)}
                     </strong>
                     
                   </li>

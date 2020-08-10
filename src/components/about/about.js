@@ -35,7 +35,7 @@ function About() {
             </div>
           </div>
         </section>
-        <section>
+        {/* <section>
           <div className="container">
             <div className="section-content">
               <div className="row">
@@ -80,14 +80,7 @@ function About() {
                     </span>
                     {t("Figuers")}
                   </h2>
-                  {/* <div class="title-icon">
-                    <i class="flaticon-charity-hand-holding-a-heart"></i>
-                  </div> */}
-                  {/* <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Rem autem voluptatem obcaecati! <br />
-                    ipsum dolor sit Rem autem voluptatem obcaecati
-                  </p> */}
+             
                 </div>
               </div>
             </div>
@@ -146,7 +139,7 @@ function About() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
 
       <Parteners />

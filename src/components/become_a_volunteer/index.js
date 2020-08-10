@@ -9,16 +9,6 @@ function Become(props){
   const {t , i18n} = useTranslation()
   const styleClass = i18n.dir() === 'rtl' ? '':''
   const show = props.history.location.pathname === '/volunteerForm' ? 'none' : ''
-  //console.log(props.history.location.pathname)
-
-
-
-  // const handleClick = (e)=> {
-  //   e.preventDefault()
-  //     window.location ='/volunteerForm'
-    
-
-  // }
 
     return(
   <section className="bg-theme-colored">
@@ -28,13 +18,13 @@ function Become(props){
         <div className="call-to-action pt-30  pb-30">
           <div className="col-md-9">
             <h3 className="text-white">{t('join us now as a volunteer')}</h3>
+            <h4 className="text-white text-decoration-line" style  = {{textDecorationLine:'solid'}}>{t('hashtag')}</h4>
           </div>
           <div className="col-md-3 text-right sm-text-center"> 
 
             <Link to = '/volunteerForm'>
                 <button className="btn btn-transparent btn-border btn-circled btn-lg mt-15"
                 style={{ display: show }}
-                //  onClick={handleClick}
                 >
                   {t('Become a Volunteer')}
                 </button> 
