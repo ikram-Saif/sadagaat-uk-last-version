@@ -1111,9 +1111,13 @@ section > .container-fluid {
   }
 }
 .menuzord-brand img {
-  max-height: 50px;
+  /* max-height: 50px; */
   /* position:absolute;
   top:9px */
+  max-height: 80%;
+  position: absolute;
+  top: 4px;
+  max-width: 200px;
 }
 /* -------- Inner Header ---------- */
 .inner-header .title {

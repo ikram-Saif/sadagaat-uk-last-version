@@ -48,6 +48,7 @@ class ProjectSlider extends Component {
   render() {
     const { t } = this.props;
     const { projects } = this.state;
+    const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
 
     return (
       <React.Fragment>
@@ -186,8 +187,9 @@ class ProjectSlider extends Component {
                             </div>
                           </div>
                         </div>
+                       
                         <div className="progress-item mt-0">
-                                <span className = "">{t('Project Progress')}</span>
+                        <p className = "" style = {{textAlign:projectProgressAlign}}>{t('Project Progress')}</p>
                                 <div className="progress">
                                   <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
                                   <span className="percent">

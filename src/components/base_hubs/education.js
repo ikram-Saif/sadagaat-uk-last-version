@@ -44,7 +44,7 @@ const Education =()=>{
 
 return(
     <div>
-        <Header name={t('Education')}/>
+        <Header name={t('Education')} coverImage = 'education-bg-img'/>
           <div className="container">
             <div className="row multi-row-clearfix">
             <div className = 'section-content'>

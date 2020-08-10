@@ -123,7 +123,7 @@ class Login extends Component{
         {
           this.setState({ loading: false });
         }, 2000)
-        history.push("/")
+        window.location = "/"
     
     })
     

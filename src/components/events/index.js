@@ -121,7 +121,7 @@ function Event() {
                             <h2 className="line-bottom mt-0">{news_.name}</h2>
                             <h4 className="mt-0 mb-0 text-theme-colored">
                             </h4>
-                            <p>{news_.description}</p>
+                            <p className = "project-discription">{news_.description}</p>
                             <Link
                               className="btn btn-theme-colored btn-sm"
                               to={'/news/'+news_.id}

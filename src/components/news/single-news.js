@@ -114,7 +114,7 @@ fillMediaArray =()=>{
 console.log(news.video)
     return (
       <div>
-        <Header name={t("News")} />
+        <Header name={t("News")}  coverImage = 'news-bg-img'/>
 
         <section>
           <div className="container mt-30 mb-30 pt-30 pb-30">

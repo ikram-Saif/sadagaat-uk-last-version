@@ -1,20 +1,22 @@
 import React from "react";
 import { Slide } from "react-slideshow-image";
-import education from "../images/education.jpg";
-import group from "../images/group2.jpg";
-import accounts from "../images/accounts.jpg";
+import water2Slider from "../images/water2Slider.jpg";
+import healthSlider from "../images/healthSlider.JPG";
+import covid19 from "../images/Covid-19Slid.JPG";
 //import work from "../images/work.jpg";
-import slid1 from "../images/aa.JPG"
+import ALPSlide from "../images/ALP.JPG"
+import waterSlider from "../images/waterSlider.jpg"
+import {Link } from 'react-router-dom'
+
+
 
 const slideImages = [
-  "images/slide-1.jpg",
-  // "images/slide-11.jpg",
-  // "images/x.jpg",
-  // "images/slide-3.jpg",
-  education,
-  group,
-  accounts,
-  slid1
+  waterSlider,
+  water2Slider,
+  healthSlider,
+  covid19,
+  ALPSlide,
+  
 ];
 
 const properties = {
@@ -35,7 +37,9 @@ const properties = {
         <div className="each-slide">
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[0]})`}}> */}
           <div>
+            <Link to = '/single-projects/1911'>
           <img   className = 'img-responsive' src = {slideImages[0]} style ={{ height:'100%' , width:'100%'}} />
+          </Link>
           </div>
           {/* </div> */}
 
@@ -45,26 +49,34 @@ const properties = {
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[1]})`, backgroundSize: 'auto'}}></div>
         </div> */}
         <div>
+          <Link to = '/single-projects/2374'>
           <img  className = 'img-responsive' src = {slideImages[1]} 
           style ={{ height:'100%' , width:'100%'}} />
+          </Link>
           </div>
           </div>
         <div className="each-slide">
            {/* <div style={{ backgroundImage: `url(${slideImages[2]})`}} ></div> */}
         <div>
+          <Link to = '/single-projects/2710'>
           <img   className = 'img-responsive' src = {slideImages[2]} style ={{ height:'100%' , width:'100%'}} />
+          </Link>
           </div>
           </div>
         <div className="each-slide">
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
           <div>
+            <Link to = '/single-projects/2054'>
           <img   className = 'img-responsive' src = {slideImages[3]} style ={{ height:'100%' , width:'100%'}} />
+          </Link>
           </div>
         </div>
         <div className="each-slide">
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
           <div>
-          <img   className = 'img-responsive' src = {slideImages[4]} style ={{ height:'100%' , width:'100%'}} />
+            <Link to = '/single-projects/2042'>
+              <img   className = 'img-responsive' src = {slideImages[4]} style ={{ height:'100%' , width:'100%'}} />
+            </Link>
           </div>
         </div>
       </Slide>

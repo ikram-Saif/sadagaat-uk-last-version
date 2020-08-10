@@ -18,7 +18,6 @@ function Become(props){
         <div className="call-to-action pt-30  pb-30">
           <div className="col-md-9">
             <h3 className="text-white">{t('join us now as a volunteer')}</h3>
-            <h4 className="text-white text-decoration-line" style  = {{textDecorationLine:'solid'}}>{t('hashtag')}</h4>
           </div>
           <div className="col-md-3 text-right sm-text-center"> 
 

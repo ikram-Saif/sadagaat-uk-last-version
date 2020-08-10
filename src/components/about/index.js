@@ -57,7 +57,8 @@ return(
                   {t("About")}{" "}
                   <span>{t("Sadagaat")}</span>
                 </h2>
-                <p>{t("about_message_1")}</p>
+                <p>{t("about_message_1")} <br/>{t("about_message_2")}</p>
+               
 
                 <Link
                   to="/about"

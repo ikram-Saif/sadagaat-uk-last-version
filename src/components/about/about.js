@@ -15,22 +15,26 @@ function About() {
   const marginStyle = i18n.dir() === 'rtl'? 'mr-120':'ml-120'
   return (
     <div>
-      <Header name={t("About Sadagaat")} />
+      <Header name={t("About Sadagaat")} coverImage = 'about-bg-img' />
       <About_ />
       <div>
         <section
-          className="bg-img divider parallax layer-overlay overlay-theme-colored-8"
+          className="about-bg-img divider parallax layer-overlay overlay-theme-colored-8"
           // data-bg-img="images/slide-2.jpg"
         >
           <div className="container">
-            <div className="row text-justify">
-              <div className="col-md-6">
+            <div className="row text-center">
+              <div className="col-md-4">
                 <h2 className="text-white">{t("Our Vision")}</h2>
                 <p className="text-white">{t("vision_message_1")}</p>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-4">
                 <h2 className="text-white">{t("Our Mission")}</h2>
                 <p className="text-white">{t("mission_message_1")}</p>
+              </div>
+              <div className="col-md-4">
+                <h2 className="text-white">{t("Our Values")}</h2>
+                <p className="text-white">{t("our_values_description")}</p>
               </div>
             </div>
           </div>

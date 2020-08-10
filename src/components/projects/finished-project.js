@@ -53,10 +53,11 @@ const paginate = (e) => {
 };
 
 
+const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
 
 return(
 <section>
-<Header name={t('Completed Projects')}/>
+<Header name={t('Completed Projects')} coverImage = 'ongoing-bg-img'/>
 
   <div className="container">
 
@@ -70,7 +71,7 @@ return(
 
       <div className="col-md-4" key ={project.id}>
       <Link to={'/single-projects/'+project.id}>
-          <div className="causes bg-white mb-30 border-bottom"  style ={{height:'500px'}}>
+          <div className="causes bg-white mb-30 border-bottom"  style ={{height:'600px'}}>
             <div className="thumb">
             <img src={`${address()}projects/${project.id}/image`}  className="img-fullwidth"  width = '390' height = '260'/>
             </div>
@@ -111,7 +112,7 @@ return(
       </div>
     </div>
     <div className="progress-item mt-0">
-      <span className = "">{t('Project Progress')}</span>
+      <p className = "" style = {{textAlign:projectProgressAlign}}>{t('Project Progress')}</p>
       <div className="progress">
         <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
         <span className="percent">

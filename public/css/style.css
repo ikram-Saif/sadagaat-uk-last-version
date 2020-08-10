@@ -40,7 +40,36 @@ theme. But don't modify style-main.css file.
 .bg-img{
   background-image: url('../images/bg-inside_1.jpg');
 }
-
+.water-bg-img{
+  background-image: url('../images/waterCover.JPG');
+}
+.education-bg-img{
+  background-image: url('../images/EduCover.JPG');
+}
+.feeding-bg-img{
+  background-image: url('../images/feedingCover.JPG');
+}
+.health-bg-img{
+  background-image: url('../images/healthCover.JPG');
+}
+.volunteer-bg-img{
+  background-image: url('../images/volunteerCover.JPG');
+}
+.about-bg-img{
+  background-image: url('../images/AboutCover.JPG');
+}
+.events-bg-img{
+  background-image: url('../images/EventsCover.JPG');
+}
+.news-bg-img{
+  background-image: url('../images/newsCover.JPG');
+}
+.contact-bg-img{
+  background-image: url('../images/ContactCover.JPG');
+}
+.ongoing-bg-img{
+  background-image: url('../images/OngoingCover.JPG');
+}
 
 .slide-container {
   direction: ltr;

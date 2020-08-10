@@ -7,6 +7,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import Hub_Subhubs from './hub_subHubs'
+import waterCover from '../images/waterCover.JPG'
 
 
 function Water (props){
@@ -29,7 +30,7 @@ function Water (props){
 
 return(
 <div>
-<Header name={t('Water')}/>
+<Header name={t('Water')} coverImage = 'water-bg-img'/>
 
       <div className="container">
         <div className="row multi-row-clearfix">

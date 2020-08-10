@@ -21,6 +21,8 @@ function PlannedProjects(){
   const parse = require('html-react-parser');
   const [loading , setLoading] = useState(true)
   const {t} = useTranslation()
+  const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
+
 
   
   useEffect(() => {
@@ -51,7 +53,7 @@ const paginate = (e) => {
 
 return(
 <section>
-<Header name={t('Planned Projects')}/>
+<Header name={t('Planned Projects')} coverImage = 'ongoing-bg-img'/>
 
   <div className="container">
 
@@ -66,7 +68,7 @@ return(
 
       <div className="col-md-4" key ={project.id}>
       <Link to={'/single-projects/'+project.id}>
-          <div className="causes bg-white mb-30 border-bottom" style ={{height:'500px'}}>
+          <div className="causes bg-white mb-30 border-bottom" style ={{height:'600px'}}>
             <div className="thumb">
             <img src={`${address()}projects/${project.id}/image`}  className="img-fullwidth"  width = '390' height = '260'/>
             </div>
@@ -115,7 +117,7 @@ return(
       </div>
     </div>
     <div className="progress-item mt-0">
-      <span className = "">{t('Project Progress')}</span>
+      <span className = "" style = {{textAlign:projectProgressAlign}}>{t('Project Progress')}</span>
       <div className="progress">
         <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
         <span className="percent">

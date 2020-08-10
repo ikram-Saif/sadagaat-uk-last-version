@@ -2,7 +2,14 @@ import React from "react";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { useTranslation } from "react-i18next";
-import sama from "../images/sama.png";
+import partener1 from "../images/partener1.PNG";
+import partener2 from "../images/partener2.png";
+import partener3 from "../images/partener3.png";
+import partener4 from "../images/partener4.jpg";
+import partener5 from "../images/partener5.png";
+import partener6 from "../images/partener6.png";
+import partener7 from "../images/partener7.jpg";
+
 import soba from "../images/soba.png";
 import sadagaat from "../images/sadagaat.png";
 
@@ -59,22 +66,42 @@ import sadagaat from "../images/sadagaat.png";
               <div className="item">
                 <a href="https://sama-sd.org/" target="blank">
                   <img
-                    src={sama}
-                    height="100vh"
+                    src={partener1}
+                    height="100vh" width = '150px'
                     alt="Sudanese American Medical Association"
                   />
                 </a>
               </div>
               <div className="item">
                 <img
-                  src={soba}
+                  src={partener2}
                   alt="Soba Uneviersity Hospital"
-                  height="100vh"
+                  height="100vh" width = '150px'
                 />
               </div>
               <div className="item">
                 <a href="https://www.sadagaat-usa.org/" target="blank">
-                  <img src={sadagaat} alt="Sadagaat USA" height="100vh" />
+                  <img src={partener3} alt="Sadagaat USA" height="100vh" width = '150px' />
+                </a>
+              </div>
+              <div className="item">
+                <a href="https://www.sadagaat-usa.org/" target="blank">
+                  <img src={partener4} alt="Sadagaat USA" height="100vh" width = '150px' />
+                </a>
+              </div>
+              <div className="item">
+                <a href="https://www.sadagaat-usa.org/" target="blank">
+                  <img src={partener5} alt="Sadagaat USA" height="100vh" width = '150px' />
+                </a>
+              </div>
+              <div className="item">
+                <a href="https://www.sadagaat-usa.org/" target="blank">
+                  <img src={partener6} alt="Sadagaat USA" height="100vh" width = '150px' />
+                </a>
+              </div>
+              <div className="item">
+                <a href="https://www.sadagaat-usa.org/" target="blank">
+                  <img src={partener7} alt="Sadagaat USA" height="100vh" width = '150px' />
                 </a>
               </div>
             </Carousel>

@@ -150,13 +150,13 @@ class VolunteerForm extends Component{
        
 
     render(){
-        const { t}= this.props
+        const {t}= this.props
      
 return(
     <div>
         <div className="main-content">
 
-        <Header name={t('Volunteer Registration')}/>
+        <Header name={t('Volunteer Registration')} coverImage = 'volunteer-bg-img'/>
 
 
             <section>

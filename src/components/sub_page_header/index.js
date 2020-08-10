@@ -5,9 +5,11 @@ import { useTranslation } from "react-i18next";
 
 function Header(props) {
   const { t } = useTranslation();
+  const coverImage = props.coverImage !== undefined ? props.coverImage :'bg-img'
+  console.log(coverImage)
 
   return (
-    <section className="bg-img inner-header divider parallax layer-overlay overlay-dark-6">
+    <section className={`${coverImage} inner-header divider parallax layer-overlay overlay-dark-6`}>
       <div className="container pt-60 pb-60">
         <div className="section-content">
           <div className="row">

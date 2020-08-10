@@ -29,7 +29,7 @@ const Feeding=()=>{
         } , [i18n.language])
 return(
 <div>
-<Header name={t('Feeding')}/>
+<Header name={t('Feeding')}  coverImage = 'feeding-bg-img'/>
 
 <div className="container">
     <div className="row multi-row-clearfix">

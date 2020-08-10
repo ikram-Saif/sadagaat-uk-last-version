@@ -68,6 +68,8 @@ class SinglProject2 extends Component {
                   })
                  }
                //const projectHasImages = project_images.length > 0? true : false
+               const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
+
                
 
 
@@ -195,12 +197,23 @@ class SinglProject2 extends Component {
                                   <i className= "fa fa-map-marker m-5"></i>
 
                                   <span className = "">{project.locationName}</span></h5>
-                                    <div>
+                                    <div className = "mb-5">
                                    {parse(project.description)}
                                         
                                    </div>
-                                    <div className="progress-item mt-0">
-                                    <div className="progress">
+
+                                   <div className="progress-item mt-0">
+                                <p className = "text-theme-colored font-weight-700" style = {{textAlign:projectProgressAlign}}>{t('Project Progress')}</p>
+                                <div className="progress">
+                                  <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
+                                  <span className="percent">
+                                      {Precision(project.projectProgress)}%
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                                    <div className="progress-item mt-2">
+                                    <div className="progress mb-0">
                                     <div
                                       data-percent={Precision(project.donationProgress)}
                                       className="progress-bar">
@@ -223,16 +236,7 @@ class SinglProject2 extends Component {
                                   </ul>
                                 </div>
 
-                                <div className="progress-item mt-0">
-                                <span className = "">{t('Project Progress')}</span>
-                                <div className="progress">
-                                  <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
-                                  <span className="percent">
-                                      {Precision(project.projectProgress)}%
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
+                              
 
                                 <Link to= {'/projects/'+project.id} 
                                 class="btn btn-theme-colored btn-sm"

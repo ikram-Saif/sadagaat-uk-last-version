@@ -1,6 +1,6 @@
 {
   "name": "sadagaat_local",
-  "homepage": "https://test.local.sadagaat-uk.org",
+  "homepage": "https://local.sadagaat-uk.org",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

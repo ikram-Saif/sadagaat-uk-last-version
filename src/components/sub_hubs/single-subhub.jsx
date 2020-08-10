@@ -13,8 +13,6 @@ import parse from 'html-react-parser';
 
 
 
-
-
 class SingleSubhub extends Component {
 
   constructor() {
@@ -50,6 +48,7 @@ async componentDidMount(){
 
          const projects = response.data
           this.setState({projects})
+          console.log(projects)
 
     }).catch(error => {
         // alert(error.message)
@@ -101,6 +100,7 @@ render()
   const totalDonation = subhub.total_donation
 
   const currentPosts = projects.slice(this.state.offset , this.state.offset + this.state.postsPerPage)
+  const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
 
 
     return (
@@ -186,7 +186,7 @@ render()
 
             <div className="col-md-4" key ={project.id}>
             <Link to={'/single-projects/'+project.id}>
-              <div className="causes bg-white mb-30 border-bottom" style ={{height:'500px'}} >
+              <div className="causes bg-white mb-30 border-bottom" style ={{height:'600px'}} >
                   <div className="thumb" 
                   // style = {{ maxHeight: '260px'}}
                   >
@@ -242,7 +242,7 @@ render()
                   </div>
                 </div>
                 <div className="progress-item mt-0">
-                  <span className = "">{t('Project Progress')}</span>
+                  <p className = "" style = {{textAlign:projectProgressAlign}}>{t('Project Progress')}</p>
                   <div className="progress">
                     <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
                     <span className="percent">

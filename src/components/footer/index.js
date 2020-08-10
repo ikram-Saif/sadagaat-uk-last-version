@@ -22,9 +22,17 @@ function Footer() {
                 {/* <div class = "thumbs">
                 <img class="" alt="" src={logo} />
                 </div> */}
-                <h2 className="text-white">{t("SADAGAAT")}</h2>
-                <span className="text-white">{t("Community of Charity")}</span>
-                <p>{t("Nonprofit Organization Located in Sudan.")}</p>
+                <h2 className="text-white pb-0">{t("SADAGAAT")}</h2>
+                {/* <span className="text-white">{t("Community of Charity")}</span>
+                <p>{t("Nonprofit Organization Located in Sudan.")}</p> */}
+                <h4 
+                className="text-white text-decoration-inline" 
+                style  = {{textDecoration:'underline'}}>
+                  
+                  {t('hashtag')}
+              
+                </h4>
+
 
                 <ul className="styled-icons icon-dark icon-theme-colored icon-circled icon-sm">
                   <li>
