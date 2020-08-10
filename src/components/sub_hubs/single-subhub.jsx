@@ -197,7 +197,7 @@ render()
                       height = '260'  />
                   </div>
               
-              <div style={{maxWidth: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+              {/* <div style={{maxWidth: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
               <CircularProgressbar
                 value={project.projectProgress}
@@ -217,7 +217,7 @@ render()
                     })}
               />  
               
-            </div>
+            </div> */}
             <div className="causes-details clearfix p-10 pt-15 pb-15">
                 <ul className="list-inline font-14 font-weight-600 clearfix mb-5">
                   <li className="pull-left font-weight-400 text-black-333 pr-0">
@@ -233,12 +233,22 @@ render()
                 </ul>
                   
                 <div className="progress-item mt-0">
-                  <div className="progress mb-0">
+                  <div className="progress">
                     <div data-percent={Precision(project.donationProgress)} className="progress-bar">
                       <span className="percent">
                           {Precision(project.donationProgress)}%
                         </span>
                       </div>
+                  </div>
+                </div>
+                <div className="progress-item mt-0">
+                  <span className = "">{t('Project Progress')}</span>
+                  <div className="progress">
+                    <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
+                    <span className="percent">
+                        {Precision(project.projectProgress)}%
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <h4 className="text-uppercase">{project.name}</h4>
@@ -248,7 +258,7 @@ render()
                     to={'/projects/'+project.id} 
                     className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
                     style = {{
-                      display:`${project.projectProgress === 100 || project.donationProgress >= 100 ?'none':''}`
+                      display:`${project.donationProgress >= 100 ?'none':''}`
                         }}
                     >
                   {t('Donate')}

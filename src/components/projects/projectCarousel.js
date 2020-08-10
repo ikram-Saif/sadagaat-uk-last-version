@@ -128,7 +128,7 @@ class ProjectSlider extends Component {
                         
                       </div>
                 
-                      <div
+                      {/* <div
                         style={{
                           width: "15%",
                           left: "25px",
@@ -157,7 +157,7 @@ class ProjectSlider extends Component {
                             //backgroundColor: '',
                           })}
                         />
-                      </div>
+                      </div> */}
 
                       <div className="causes-details clearfix border-bottom p-15 pt-15 pb-15">
                         <ul className="list-inline font-16 font-weight-600 clearfix mb-5">
@@ -175,7 +175,7 @@ class ProjectSlider extends Component {
                           </li>
                         </ul>
                         <div className="progress-item mt-0">
-                          <div className="progress mb-0">
+                          <div className="progress">
                             <div
                               data-percent={Precision(project.donationProgress)}
                               className="progress-bar"
@@ -186,6 +186,16 @@ class ProjectSlider extends Component {
                             </div>
                           </div>
                         </div>
+                        <div className="progress-item mt-0">
+                                <span className = "">{t('Project Progress')}</span>
+                                <div className="progress">
+                                  <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
+                                  <span className="percent">
+                                      {Precision(project.projectProgress)}%
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
                         <h4 className="text-uppercase">
                           <a href="">{project.name}</a>
                         </h4>

@@ -5,6 +5,7 @@ import 'react-awesome-slider/dist/styles.css';
 import education from "../images/education.jpg";
 import group from "../images/group.jpg";
 import accounts from "../images/accounts.jpg";
+import aa from '../images/aa.jpg'
 
 
 
@@ -20,6 +21,7 @@ import accounts from "../images/accounts.jpg";
           </div>
           <div data-src = {group}>2</div>
           <div data-src = {accounts}>3</div>
+          <div data-src = {aa}>4</div>
           
         </AwesomeSlider>
       )

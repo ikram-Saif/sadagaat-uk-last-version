@@ -3,7 +3,8 @@ import { Slide } from "react-slideshow-image";
 import education from "../images/education.jpg";
 import group from "../images/group2.jpg";
 import accounts from "../images/accounts.jpg";
-import work from "../images/work.jpg";
+//import work from "../images/work.jpg";
+import slid1 from "../images/aa.JPG"
 
 const slideImages = [
   "images/slide-1.jpg",
@@ -13,7 +14,7 @@ const slideImages = [
   education,
   group,
   accounts,
-  work,
+  slid1
 ];
 
 const properties = {
@@ -58,6 +59,12 @@ const properties = {
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
           <div>
           <img   className = 'img-responsive' src = {slideImages[3]} style ={{ height:'100%' , width:'100%'}} />
+          </div>
+        </div>
+        <div className="each-slide">
+          {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
+          <div>
+          <img   className = 'img-responsive' src = {slideImages[4]} style ={{ height:'100%' , width:'100%'}} />
           </div>
         </div>
       </Slide>

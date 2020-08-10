@@ -71,7 +71,7 @@ return(
             <img src={`${address()}projects/${project.id}/image`}  className="img-fullwidth"  width = '390' height = '260'/>
             </div>
         
-        <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
+        {/* <div style={{width: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
 
       <CircularProgressbar
         value={project.projectProgress}
@@ -91,7 +91,7 @@ return(
             })}
       />  
   
-</div>
+</div> */}
 <div className="causes-details clearfix p-15 pt-15 pb-15">
     <ul className="list-inline font-16 font-weight-600 clearfix mb-5">
       <li className="pull-left font-weight-400 text-black-333 pr-0">
@@ -106,11 +106,21 @@ return(
         </li>
     </ul>
     <div className="progress-item mt-0">
-      <div className="progress mb-0">
+      <div className="progress">
         <div data-percent={Precision(project.donationProgress)} className="progress-bar"> 
          <span className="percent">
           {Precision(project.donationProgress)}%
         </span>
+        </div>
+      </div>
+    </div>
+    <div className="progress-item mt-0">
+      <span className = "">{t('Project Progress')}</span>
+      <div className="progress">
+        <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
+        <span className="percent">
+            {Precision(project.projectProgress)}%
+          </span>
         </div>
       </div>
     </div>
@@ -120,7 +130,7 @@ return(
     <Link to={'/projects/'+project.id} 
       className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
       style = {{display:`
-      ${project.projectProgress === 100 || project.donationProgress >= 100?'none':''}`
+      ${project.donationProgress >= 100?'none':''}`
     }}
     >
       {t('Donate')}</Link>
@@ -135,7 +145,7 @@ return(
 ))
 :
 !loading &&
- <h3 className = 'text-center text-theme-colored font-weight-700'>{t('There Is No Planned Project Yet')}</h3>
+ <h3 className = 'text-center text-theme-colored font-weight-700'></h3>
 
 
 }

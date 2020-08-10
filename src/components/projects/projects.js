@@ -77,7 +77,7 @@ return(
           />
       </div>
   
-  <div style={{
+  {/* <div style={{
           maxWidth: "15%",
           left:"25px",
           top:"8px",
@@ -102,7 +102,7 @@ return(
             trailColor: "transparent"
             })
              }/>  
-      </div>
+      </div> */}
 
 <div className="causes-details clearfix p-15 pt-15 pb-15">
     <ul className="list-inline font-16 font-weight-600 clearfix mb-5">
@@ -121,10 +121,21 @@ return(
     </ul>
     
      <div className="progress-item mt-0">
-      <div className="progress mb-0">
+     {/* <span>{t('Donation Progress')}</span> */}
+      <div className="progress">
         <div data-percent={Precision(project.donationProgress)} className="progress-bar">  
         <span className="percent">
             {Precision(project.donationProgress)}%
+          </span>
+        </div>
+      </div>
+    </div>
+    <div className="progress-item mt-0">
+      <span className = "">{t('Project Progress')}</span>
+      <div className="progress">
+        <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
+        <span className="percent">
+            {Precision(project.projectProgress)}%
           </span>
         </div>
       </div>
@@ -140,7 +151,7 @@ return(
         to={'/projects/'+project.id} 
         className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
         style = {{
-          display:`${project.projectProgress === 100 || project.donationProgress >= 100 ?'none':''}`
+          display:`${project.donationProgress >= 100 ?'none':''}`
             }}>
       {t('Donate')}
     </Link>

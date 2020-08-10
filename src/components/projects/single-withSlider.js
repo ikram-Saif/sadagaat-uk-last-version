@@ -153,7 +153,7 @@ class SinglProject2 extends Component {
                     </div>
                     )}
                      
-               <div
+               {/* <div
                         style={{
                           width: "12%",
                           left: "10%",
@@ -183,7 +183,7 @@ class SinglProject2 extends Component {
                            
                           })}
                         />
-                      </div> 
+                      </div>  */}
                             
 
                           </div>
@@ -200,7 +200,7 @@ class SinglProject2 extends Component {
                                         
                                    </div>
                                     <div className="progress-item mt-0">
-                                    <div className="progress mb-0">
+                                    <div className="progress">
                                     <div
                                       data-percent={Precision(project.donationProgress)}
                                       className="progress-bar">
@@ -210,6 +210,7 @@ class SinglProject2 extends Component {
                                   </div>
                                 </div>
                               </div>
+                             
                                 <div class="mt-10 mb-20">
                                   <ul class="list-inline clearfix mt-10">
                                     <li class="pull-left flip pr-0"> {t("Raised")} <span class="font-weight-700 font-">
@@ -221,10 +222,22 @@ class SinglProject2 extends Component {
                                     </li>
                                   </ul>
                                 </div>
+
+                                <div className="progress-item mt-0">
+                                <span className = "">{t('Project Progress')}</span>
+                                <div className="progress">
+                                  <div data-percent={Precision(project.projectProgress)} className="progress-bar">  
+                                  <span className="percent">
+                                      {Precision(project.projectProgress)}%
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+
                                 <Link to= {'/projects/'+project.id} 
                                 class="btn btn-theme-colored btn-sm"
                                 style = {{display:`
-                                ${project.projectProgress === 100 || project.donationProgress >= 100 ?'none':''}`
+                                ${project.donationProgress >= 100 ?'none':''}`
                               }}>
                                   {t('Donate Now')}
                                 </Link>
