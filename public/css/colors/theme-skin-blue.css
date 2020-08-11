@@ -7,7 +7,7 @@ COLOR CODE: #3DB4D9
 ----------------------------------------- */
 /* text-theme-color */
 .text-theme-colored {
-  color: rgb(6, 105, 147) !important;
+  color: rgb(36, 63, 96) !important;
 }
 /* text-hover-theme-color */
 .text-hover-theme-colored:hover {
@@ -27,13 +27,13 @@ COLOR CODE: #3DB4D9
   background-color: #00dcf8 !important;
 }
 .bg-theme-colored-darker2 {
-  background-color: #00aec5 !important;
+  background-color: #5c7e9b!important;
 }
 .bg-theme-colored-darker3 {
-  background-color: #00a5bb !important;
+  background-color: #3d5e7f !important;
 }
 .bg-theme-colored-darker4 {
-  background-color: #009cb0 !important;
+  background-color: #243f60 !important;
 }
 /* background-color-transparent */
 .bg-theme-colored-transparent-9 {
@@ -437,7 +437,7 @@ blockquote.theme-colored {
   border-left: 3px solid #132847;
 }
 blockquote.bg-theme-colored {
-  border-left: 3px solid #008fa1;
+  border-left: 3px solid #3d5e7f;
   color: #fff;
 }
 blockquote.bg-theme-colored footer {
@@ -611,8 +611,8 @@ fieldset[disabled] .btn-border.btn-theme-colored.focus {
 .btn-border.btn-theme-colored:hover,
 .btn-border.btn-theme-colored:active,
 .btn-border.btn-theme-colored:focus {
-  background-color: #008fa1;
-  border-color: #008fa1;
+  background-color: #3d5e7f;
+  border-color: #3d5e7f;
   color: #fff;
 }
 /*
@@ -627,19 +627,19 @@ fieldset[disabled] .btn-border.btn-theme-colored.focus {
 .btn-dark.btn-theme-colored:focus,
 .btn-dark.btn-theme-colored.focus {
   color: #fff;
-  background-color: #008fa1;
+  background-color: #3d5e7f;
   border-color: #004b55;
 }
 .btn-dark.btn-theme-colored:hover {
   color: #fff;
-  background-color: #008fa1;
+  background-color: #3d5e7f;
   border-color: #008697;
 }
 .btn-dark.btn-theme-colored:active,
 .btn-dark.btn-theme-colored.active,
 .open > .dropdown-toggle.btn-dark.btn-theme-colored {
   color: #fff;
-  background-color: #008fa1;
+  background-color: #3d5e7f;
   border-color: #008697;
 }
 .btn-dark.btn-theme-colored:active:hover,
@@ -713,7 +713,7 @@ fieldset[disabled] .btn-dark.btn-theme-colored.focus {
 .btn-gray.btn-theme-colored.active.focus,
 .open > .dropdown-toggle.btn-gray.btn-theme-colored.focus {
   color: #fff;
-  background-color: #009cb0;
+  background-color: #243f60;
   border-color: #007888;
 }
 .btn-gray.btn-theme-colored:active,
@@ -749,19 +749,19 @@ fieldset[disabled] .btn-gray.btn-theme-colored.focus {
 .btn-theme-colored:focus,
 .btn-theme-colored.focus {
   color: #fff;
-  background-color: #008fa1;
+  background-color: #3d5e7f;
   border-color: #004b55;
 }
 .btn-theme-colored:hover {
   color: #fff;
-  background-color: #008fa1;
+  background-color: #3d5e7f;
   border-color: #008697;
 }
 .btn-theme-colored:active,
 .btn-theme-colored.active,
 .open > .dropdown-toggle.btn-theme-colored {
   color: #fff;
-  background-color: #008fa1;
+  background-color: #3d5e7f;
   border-color: #008697;
 }
 .btn-theme-colored:active:hover,
@@ -822,8 +822,8 @@ fieldset[disabled] .btn-theme-colored.focus {
   border-color: #132847;
 }
 .btn-transparent.btn-dark.btn-theme-colored:hover {
-  background-color: #008fa1;
-  border-color: #008fa1;
+  background-color: #3d5e7f;
+  border-color: #3d5e7f;
 }
 .btn-transparent.btn-border {
   background-color: transparent;
@@ -854,7 +854,7 @@ fieldset[disabled] .btn-theme-colored.focus {
   color: #fff;
 }
 .btn-gray.btn-transparent.btn-theme-colored:hover {
-  background-color: #008fa1;
+  background-color: #3d5e7f;
   color: #e6e6e6;
 }
 .btn-hover-theme-colored:hover {
@@ -881,7 +881,7 @@ fieldset[disabled] .btn-theme-colored.focus {
   color: #fff;
 }
 .icon-theme-colored.icon-dark a:hover {
-  background-color: #008fa1;
+  background-color: #3d5e7f;
   color: #e6e6e6;
 }
 .icon-theme-colored.icon-dark.icon-bordered a {
@@ -897,7 +897,7 @@ fieldset[disabled] .btn-theme-colored.focus {
   color: #132847;
 }
 .icon-theme-colored.icon-gray a:hover {
-  color: #008fa1;
+  color: #3d5e7f;
 }
 .icon-theme-colored.icon-gray.icon-bordered a {
   color: #132847;
@@ -908,7 +908,7 @@ fieldset[disabled] .btn-theme-colored.focus {
   color: #132847;
 }
 .icon-theme-colored a:hover {
-  color: #008fa1;
+  color: #3d5e7f;
 }
 .icon-hover-theme-colored a:hover {
   background-color: #132847;

@@ -11,7 +11,7 @@ function Become(props){
   const show = props.history.location.pathname === '/volunteerForm' ? 'none' : ''
 
     return(
-  <section className="bg-theme-colored">
+  <section className="bg-theme-colored-darker4">
   <div className="container pt-0 pb-0">
     <div className="row">
       <div className="col-md-12">

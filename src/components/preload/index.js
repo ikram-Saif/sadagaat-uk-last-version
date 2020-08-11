@@ -13,7 +13,7 @@ function Preload(props){
   css = {style}
   size={20}
   loading={props.loading}
-  color = {'rgb(6, 105, 147) !important'}
+  color = {'#243f60 !important'}
 />
 </div>
     )

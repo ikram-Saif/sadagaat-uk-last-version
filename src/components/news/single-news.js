@@ -6,7 +6,6 @@ import { withTranslation } from "react-i18next";
 import Header from "../sub_page_header";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
-import testVideo from './ROI Calculator for UX Solutions.mp4'
 import ReactPlayer from 'react-player'
 
 

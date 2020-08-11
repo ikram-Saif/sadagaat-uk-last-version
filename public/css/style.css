@@ -168,7 +168,7 @@ font-weight: 500;
 
 .dropdown-menu>li>a:hover {
 background-color: #FFF;
-color: #066993;
+color: #243f60;
 }
 
 /*
@@ -195,12 +195,12 @@ background: linear-gradient(90deg, rgba(6,105,147,1) 0%, rgba(0,159,78,1) 50%) !
 
 .btn-theme-green {
 border-radius: 0 !important;
-background-color: #066993 ;
+background-color: #243f60 ;
 color: #FFF !important;
 }
 
 .btn-theme-green:hover {
-background-color: #066993  !important;
+background-color: #243f60  !important;
 color: #FFF !important;
 }
 

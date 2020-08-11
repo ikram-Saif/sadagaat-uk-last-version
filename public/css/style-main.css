@@ -1114,10 +1114,16 @@ section > .container-fluid {
   /* max-height: 50px; */
   /* position:absolute;
   top:9px */
-  max-height: 80%;
+  /* max-height: 80%;
   position: absolute;
   top: 4px;
-  max-width: 200px;
+  max-width: 200px; */
+  position: absolute;
+top: 9px;
+max-height: 120%;
+position: absolute;
+top: -9px;
+width: 245px;
 }
 /* -------- Inner Header ---------- */
 .inner-header .title {
@@ -6984,4 +6990,16 @@ blockquote p {
 
 .footer-bottom a {
   color: #FFF;
+}
+.pagination  li  a{
+ color: #243f60;
+
+}
+.pagination .active a{
+ background-color: #243f60;
+ border-color:#243f60;
+}
+.pagination  .active  a:focus, .pagination  .active  a:hover, .pagination .active span, .pagination .active  span:focus, .pagination  .active > span:hover{
+  background-color: #243f60;
+  border-color:#243f60;
 }
