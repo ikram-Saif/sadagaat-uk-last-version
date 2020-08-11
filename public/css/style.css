@@ -1,0 +1,335 @@
+/*
+@Author: ThemeMascot
+@URL: http://ThemeMascot.com
+
+This is the file where you can add your custom styles to change the look of the
+theme. But don't modify style-main.css file.
+
+*/
+
+/* Your custom css codes start here: */
+
+
+.progress-item .progress-bar {
+  background: rgb(6,105,147);
+  background: linear-gradient(90deg, rgba(6,105,147,1) 0%, rgba(0,159,78,1) 50%) !important;
+}
+
+.btn-theme-green {
+  border-radius: 0 !important;
+  background-color: rgba(0,159,78,1);
+  color: #FFF !important;
+}
+
+.btn-theme-green:hover {
+  background-color: rgb(0,120,78,1) !important;
+  color: #FFF !important;
+}
+
+.facts {
+  padding: 60px 0;
+}
+
+.form-check {
+  display: inline !important;
+  margin-right: 20px;
+}
+
+
+
+.bg-img{
+  background-image: url('../images/bg-inside_1.jpg');
+}
+.water-bg-img{
+  background-image: url('../images/waterCover.JPG');
+}
+.education-bg-img{
+  background-image: url('../images/EduCover.JPG');
+}
+.feeding-bg-img{
+  background-image: url('../images/feedingCover.JPG');
+}
+.health-bg-img{
+  background-image: url('../images/healthCover.JPG');
+}
+.volunteer-bg-img{
+  background-image: url('../images/volunteerCover.JPG');
+}
+.about-bg-img{
+  background-image: url('../images/AboutCover.JPG');
+}
+.events-bg-img{
+  background-image: url('../images/EventsCover.JPG');
+}
+.news-bg-img{
+  background-image: url('../images/newsCover.JPG');
+}
+.contact-bg-img{
+  background-image: url('../images/ContactCover.JPG');
+}
+.ongoing-bg-img{
+  background-image: url('../images/OngoingCover.JPG');
+}
+
+.slide-container {
+  direction: ltr;
+  width: 100%;
+  margin-bottom:-140px;
+}
+
+.react-slideshow-container .nav {
+background-color: rgba(0, 0, 0, 0.35) !important;
+/* width: 50px !important; */
+}
+
+/* .react-slideshow-container .nav:last-of-type {
+margin-right: -50px !important;
+}
+
+.react-slideshow-container .nav:first-of-type {
+margin-left: -50px !important;
+} */
+
+.react-slideshow-container .nav span {
+border-color: #FFF !important;
+}
+
+/* h3 {
+  text-align: center; } */
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 600px;
+
+  
+}
+
+.each-slide h3 {
+  padding: 10px 20px;
+  font-size: 20px;
+  letter-spacing: 0.8rem;
+  border-radius: 0;
+  background: rgba(239, 239, 239, 0.75);
+  text-align: center;
+  display: block !important;
+  margin-bottom: 30px;
+  /* margin: auto; */
+}
+
+.each-slide a.btn {
+  margin: auto !important;
+  /* display: block; */
+}
+
+.each-fade {
+  display: flex;
+}
+
+.each-fade .image-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.each-fade .image-container img {
+  width: 100%;
+}
+
+.each-fade h2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: #adceed;
+}
+
+.number-animates{
+  font-style: italic;
+font-weight: 900;
+font-size: 99px;
+}
+.form-check {
+display: inline !important;
+margin-right: 20px;
+}
+
+.dropdown-menu {
+left: 50%;
+border-radius: 0;
+}
+
+.dropdown-menu>li>a {
+text-transform: capitalize !important;
+font-weight: 500;
+}
+
+.dropdown-menu>li>a:hover {
+background-color: #FFF;
+color: #243f60;
+}
+
+/*
+@Author: ThemeMascot
+@URL: http://ThemeMascot.com
+
+This is the file where you can add your custom styles to change the look of the
+theme. But don't modify style-main.css file.
+
+*/
+
+/* Your custom css codes start here: */
+
+
+.rev_slider_wrapper {
+direction: ltr !important;
+float: left;
+}
+
+.progress-item .progress-bar {
+background: rgb(6,105,147);
+background: linear-gradient(90deg, rgba(6,105,147,1) 0%, rgba(0,159,78,1) 50%) !important;
+}
+
+.btn-theme-green {
+border-radius: 0 !important;
+background-color: #243f60 ;
+color: #FFF !important;
+}
+
+.btn-theme-green:hover {
+background-color: #243f60  !important;
+color: #FFF !important;
+}
+
+
+.facts {
+padding: 60px 0;
+}
+
+.form-check {
+display: inline !important;
+margin-right: 20px;
+}
+
+.dropdown-menu {
+left: 50%;
+border-radius: 0;
+}
+
+.dropdown-menu>li>a {
+text-transform: capitalize !important;
+font-weight: 500;
+}
+
+.dropdown-menu>li>a:hover {
+background-color: #FFF;
+/* color: #00a74f; */
+}
+
+.menuzord-menu > li > a {
+font-family: 'sadagaat';
+}
+.lang-switch{
+  border:none;
+  background-color: transparent;
+}
+.d-none{
+  display: none;
+}
+
+.react-slideshow-container + div.indicators {
+  display: none !important;
+}
+
+.jumbotron {
+  background-color: transparent;
+}
+
+#causes .item {
+  padding: 0 5px;
+}
+
+#causes .causes-details {
+  height: 280px;
+}
+
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+}
+.info-msg {
+  color: #059;
+  background-color: #BEF;
+}
+.success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
+.warning-msg {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+.error-msg {
+  color: darkred;
+  /* background-color: #FFBABA; */
+}
+.news{
+  position: relative;
+  overflow: hidden;
+}
+.news-img{
+  position: absolute;
+  width:50px;
+  height:50px;
+  
+}
+.slider-img{
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.project-discription{
+  white-space: wrap;
+  height:3em;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+.event-discription{
+  white-space: wrap;
+  height:1.5em;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+.form-group.required .control-label:after {
+  color:red;
+  font-family: 'FontAwesome';
+  content:"   *";
+
+}
+table {
+  width: 100%;
+max-width: 100%;
+margin-bottom: 1rem;
+background-color: transparent;
+border-collapse: collapse;
+}
+table th {
+  padding: .75rem;
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+table td {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+tbody tr:nth-of-type(2n+1) {
+  background-color: rgba(0,0,0,.05)
+};
