@@ -135,23 +135,23 @@ class Contact extends Component{
                   </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Our Office Location')}</h5>
-                      <p style = {{overflow:'hidden'}}>{t('Ammarat 27 st , Khartoum Sudan')}</p>
+                      <p>{t('Ammarat 27 st , Khartoum Sudan')}</p>
                     </div>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
-                  <div className="icon-box media bg-deep p-30 mb-20"  style = {{height:'128px'}}>
+                  <div className="icon-box media bg-deep p-30 mb-20" style = {{height:'128px'}}>
                      <span className="media-left pull-left flip"> 
                       <i className="pe-7s-call text-theme-colored"></i>
                      </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Contact Number')}</h5>
-                      <p>{i18n.dir()=== 'rtl'?'447884060063+':'+447884060063'}</p>
+                      <p>0910010077</p>
                     </div>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
-                  <div className="icon-box media bg-deep p-30 mb-20"  style = {{height:'128px'}}>
+                  <div className="icon-box media bg-deep p-30 mb-20" style = {{height:'128px'}}>
                      <span className="media-left pull-left flip"> 
                       <i className="pe-7s-mail text-theme-colored"></i>
                      </span>
@@ -163,7 +163,7 @@ class Contact extends Component{
                 </div>
 
                 <div className="col-xs-12 col-sm-6 col-md-6">
-                  <div className="icon-box media bg-deep p-30 mb-20"  style = {{height:'128px'}}> 
+                  <div className="icon-box media bg-deep p-30 mb-20" style = {{height:'128px'}}> 
                   <span className="media-left pull-left flip"> 
                     <i className="fa fa-globe text-theme-colored" ></i>
                   </span>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import logo from '../images/logo-05.png'
-import i18n from 'i18next'
+
 import { Link, NavLink } from "react-router-dom";
 
 function Footer() {
@@ -121,7 +121,7 @@ function Footer() {
                   </li> */}
                   <li>
                     {" "}
-                    <i className="fa fa-phone text-theme-colored" />{i18n.dir()=== 'rtl'?'447884060063+':'+447884060063'} 
+                    <i className="fa fa-phone text-theme-colored" />0910010077
                   </li>
                   <li>
                     {" "}
