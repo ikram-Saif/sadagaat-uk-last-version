@@ -105,7 +105,7 @@ render()
 
     return (
 
-      <div className="container">
+      <section className="container">
       <div className="row multi-row-clearfix">
       <div className = 'section-content'>
             <div className="col-xs-12 col-sm-6 col-md-12">
@@ -270,11 +270,8 @@ render()
             </div>
             ))
            }
-             </div>
-             
-             </div> 
-    {projects.length > this.state.postsPerPage &&(
-      <div style = {{position:'relative',bottom:'0%'}}>
+           {projects.length > this.state.postsPerPage &&(
+       <div style = {{position:'relative',bottom:'0%'}}>
 
       <ReactPaginate
                     previousLabel={t('prev')}
@@ -288,9 +285,13 @@ render()
                     containerClassName={"pagination"}
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
-            </div>
+             </div>
       )}
              </div>
+             
+             </div> 
+    
+             </section>
 
          )
 }
