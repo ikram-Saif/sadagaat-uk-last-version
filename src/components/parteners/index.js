@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { useTranslation } from "react-i18next";
-import partener1 from "../images/partener1.PNG";
+import partener1 from "../images/partener1.png";
 import partener2 from "../images/partener2.png";
 import partener3 from "../images/partener3.png";
 import partener4 from "../images/partener4.jpg";

@@ -32,7 +32,7 @@ function Volunteers(){
 
 return(
 <section>
-<Header name={t('Volunteers')} coverImage = 'volunteer-bg-img'/>
+<Header name={t('Volunteers')} coverImage = '../images/volunteerCover.jpg'/>
 
     <div className="container">    
 

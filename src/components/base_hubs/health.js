@@ -29,7 +29,7 @@ function Health (props){
 
 return(
 <div>
-<Header name={t('Health')} coverImage = 'health-bg-img'/>
+<Header name={t('Health')} coverImage = '../images/healthCover.jpg'/>
 
       <div className="container">
     <div className="row multi-row-clearfix">

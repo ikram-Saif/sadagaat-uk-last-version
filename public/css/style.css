@@ -41,34 +41,34 @@ theme. But don't modify style-main.css file.
   background-image: url('../images/bg-inside_1.jpg');
 }
 .water-bg-img{
-  background-image: url('../images/waterCover.JPG');
+  background-image: url('../images/waterCover.jpg');
 }
 .education-bg-img{
-  background-image: url('../images/EduCover.JPG');
+  background-image: url('../images/EduCover.jpg');
 }
 .feeding-bg-img{
-  background-image: url('../images/feedingCover.JPG');
+  background-image: url('../images/feedingCover.jpg');
 }
 .health-bg-img{
-  background-image: url('../images/healthCover.JPG');
+  background-image: url('../images/healthCover.jpg');
 }
 .volunteer-bg-img{
-  background-image: url('../images/volunteerCover.JPG');
+  background-image: url('../images/volunteerCover.jpg');
 }
 .about-bg-img{
-  background-image: url('../images/AboutCover.JPG');
+  background-image: url('../images/AboutCover.jpg');
 }
 .events-bg-img{
-  background-image: url('../images/EventsCover.JPG');
+  background-image: url('../images/EventsCover.jpg');
 }
 .news-bg-img{
-  background-image: url('../images/newsCover.JPG');
+  background-image: url('../images/newsCover.jpg');
 }
 .contact-bg-img{
-  background-image: url('../images/ContactCover.JPG');
+  background-image: url('../images/ContactCover.jpg');
 }
 .ongoing-bg-img{
-  background-image: url('../images/OngoingCover.JPG');
+  background-image: url('../images/OngoingCover.jpg');
 }
 
 .slide-container {

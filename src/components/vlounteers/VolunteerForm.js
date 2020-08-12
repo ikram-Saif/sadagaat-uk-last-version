@@ -156,7 +156,7 @@ return(
     <div>
         <div className="main-content">
 
-        <Header name={t('Volunteer Registration')} coverImage = 'volunteer-bg-img'/>
+        <Header name={t('Volunteer Registration')} coverImage = '../images/volunteerCover.jpg'/>
 
 
             <section>

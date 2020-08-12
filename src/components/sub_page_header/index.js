@@ -9,7 +9,9 @@ function Header(props) {
   console.log(coverImage)
 
   return (
-    <section className={`${coverImage} inner-header divider parallax layer-overlay overlay-dark-6`}>
+    <section className={`inner-header divider parallax layer-overlay overlay-dark-6`}
+    style = {{backgroundImage:`url(${props.coverImage})`}}
+    >
       <div className="container pt-60 pb-60">
         <div className="section-content">
           <div className="row">

@@ -1118,12 +1118,9 @@ section > .container-fluid {
   position: absolute;
   top: 4px;
   max-width: 200px; */
-  position: absolute;
-top: 9px;
-max-height: 120%;
+max-height: 93px;
 position: absolute;
-top: -9px;
-width: 245px;
+top: -15px;
 }
 /* -------- Inner Header ---------- */
 .inner-header .title {
