@@ -43,11 +43,11 @@ const Education =()=>{
   }
 
 return(
-    <div>
+    <section>
         <Header name={t('Education')} coverImage = '../images/EduCover.jpg'/>
           <div className="container">
             <div className="row multi-row-clearfix">
-            <div className = 'section-content'>
+            <div>
                   <div className="col-xs-12 col-sm-6 col-md-12">
                       <h2 >
                       </h2>
@@ -107,7 +107,7 @@ return(
               <Hub_Subhubs  hubId = {education.id}  name = {t('Education Sub Sectors')}/>
 
             </div>
-      </div>
+      </section>
 
 )}
 export default Education;

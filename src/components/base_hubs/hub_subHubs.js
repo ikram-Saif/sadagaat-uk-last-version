@@ -15,7 +15,7 @@ const Hub_Subhubs = (props)=>{
   const [subhub, setSubhubs] = useState([])
   const [offset ,setOffset]= useState(0)
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(3);
+  const [postsPerPage] = useState(6);
   const hubId = props.hubId
   const {t} = useTranslation()
 
