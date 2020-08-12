@@ -15,7 +15,7 @@ const Hub_Subhubs = (props)=>{
   const [subhub, setSubhubs] = useState([])
   const [offset ,setOffset]= useState(0)
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
+  const [postsPerPage] = useState(3);
   const hubId = props.hubId
   const {t} = useTranslation()
 
@@ -90,7 +90,7 @@ return(
      
 </div>
 {subhub.length > postsPerPage &&(
-      <div style = {{position:'relative',bottom:'0%'}}>
+      <div style = {{position:'absolute',bottom:'0%'}}>
 
     <ReactPaginate
                         previousLabel={t('prev')}

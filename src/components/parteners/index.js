@@ -10,8 +10,6 @@ import partener5 from "../images/partener5.png";
 import partener6 from "../images/partener6.png";
 import partener7 from "../images/partener7.jpg";
 
-import soba from "../images/soba.png";
-import sadagaat from "../images/sadagaat.png";
 
  function Parteners() {
   const { t } = useTranslation();

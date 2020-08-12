@@ -1,7 +1,5 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import logo from '../images/logo-05.png'
-
 import { Link, NavLink } from "react-router-dom";
 
 function Footer() {

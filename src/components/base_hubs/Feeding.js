@@ -28,12 +28,12 @@ const Feeding=()=>{
     
         } , [i18n.language])
 return(
-<div>
+<section>
 <Header name={t('Feeding')}  coverImage = '../images/feedingCover.jpg'/>
 
 <div className="container">
     <div className="row multi-row-clearfix">
-    <div className = 'section-content'>
+    <div>
           <div className="col-xs-12 col-sm-6 col-md-12">
               <h2 >
 
@@ -99,7 +99,7 @@ return(
 
      
       </div>
-      </div>
+      </section>
 
 );
 

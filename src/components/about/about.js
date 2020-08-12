@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../sub_page_header";
 import Parteners from "../parteners";
 import About_ from "../about/";
-import donate from "../images/donate.jpg";
+// import donate from "../images/donate.jpg";
 import i18n from 'i18next'
 
 

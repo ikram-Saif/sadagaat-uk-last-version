@@ -28,12 +28,12 @@ function Health (props){
      },[i18n.language])
 
 return(
-<div>
+<section>
 <Header name={t('Health')} coverImage = '../images/healthCover.jpg'/>
 
       <div className="container">
     <div className="row multi-row-clearfix">
-    <div className = 'section-content'>
+    <div>
           <div className="col-xs-12 col-sm-6 col-md-12">
               <h2 >
 
@@ -98,7 +98,7 @@ return(
     <Hub_Subhubs  hubId = {health.id} name = {t('Health Sub Sectors')}/>
                                             
       </div>
-      </div>
+      </section>
 
 );
 
