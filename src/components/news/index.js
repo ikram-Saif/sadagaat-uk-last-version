@@ -32,7 +32,9 @@ function News() {
     const response = await fetcher.json();
     setData(response);
     setLoading(false)
+    console.log(response)
   }
+ 
 // Get current posts
 const currentPosts = data.slice(offset , offset + postsPerPage);
 

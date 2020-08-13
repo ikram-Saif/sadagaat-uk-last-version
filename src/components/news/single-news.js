@@ -16,7 +16,8 @@ class SinglNews extends Component {
       news: [],
       // newsImages : [],
       // newsVideos: [],
-      allMedia:[]
+      allMedia:[],
+      translationNews:{}
     };
   }
 
@@ -29,14 +30,16 @@ class SinglNews extends Component {
         headers: { "accept-language": `${i18n.language}` },
       });
       this.setState({ 
-              news   
+              news 
             });
-            this.fillMediaArray()
+            this.fillMediaArray();
+            this.setTranslationData()
+
     } 
     catch (error) {
       console.log("can not load news for the home page slider");
     }
-   
+  //  console.log(this.state.news)
   }
 
   async componentWillReceiveProps() {
@@ -50,6 +53,8 @@ class SinglNews extends Component {
                   news
                   });
                   this.fillMediaArray()
+                  this.setTranslationData()
+
     } 
     catch (error) {
       console.log("can not load news for the home page slider");
@@ -105,12 +110,29 @@ fillMediaArray =()=>{
 
    }
 
+   setTranslationData=()=>{
+     const newsData = this.state.news.newsTranslations
+
+     for(let i = 0 ;i < newsData.length; i++){
+       if(i18n.language === newsData[i].locale){
+         this.setState({
+          translationNews:{
+              name:newsData[i].name,
+              description:newsData[i].description
+            }
+         })
+         console.log('translationsDataname',this.state.translationNews)
+
+       }
+     }
+}
+
 
   render() {
     const { t } = this.props;
     const { news } = this.state;
     const allMedia = this.state.allMedia
-console.log(news.video)
+    const translationNews = this.state.translationNews
     return (
       <div>
         <Header name={t("News")}  coverImage = 'news-bg-img'/>
@@ -225,19 +247,19 @@ console.log(news.video)
                     <div class="col-md-6">
 
                     <div class="entry-content">
-                      <div class="entry-meta media no-bg no-border mt-15 pb-20">
+                      <div class="entry-meta media no-bg no-border mt-15">
                         <div class="media-body pl-15">
                           <div class="event-content pull-left flip">
-                            <h2 class="line-bottom mt-0">{news.name}</h2>
-
+                            <h2 class="line-bottom mt-0">{translationNews.name}</h2>
+{/* 
                             <h4 className="mt-0 mb-0 text-theme-colored">
                               {news.startDate}
-                            </h4>
+                            </h4> */}
                           </div>
                         </div>
                       </div>
 
-                      <p className="mb-15">{news.description}.</p>
+                      <p className="m-15 mt-0">{translationNews.description}.</p>
                    
                 </div>
               </div>
