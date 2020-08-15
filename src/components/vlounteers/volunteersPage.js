@@ -7,6 +7,7 @@ import 'froala-editor/js/froala_editor.pkgd.min.js';
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 import FroalaEditorView from 'react-froala-wysiwyg/FroalaEditorView';
+import Preload from '../preload'
 
 
 
@@ -16,6 +17,8 @@ function Volunteers(){
 
 
   const {t} = useTranslation()
+  const [loading , setLoading] = useState(true)
+
 
   
   useEffect(() => {
@@ -24,6 +27,9 @@ function Volunteers(){
            const fetcher = await window.fetch(`${address()}voulenter-page`,{headers: {'accept-language': `${i18n.language}`}})
            const response = await fetcher.json()
            setVolunteers(response)
+           console.log(response)
+           setLoading(false)
+
            
          }
          fetchData()
@@ -32,13 +38,22 @@ function Volunteers(){
 
 return(
 <section>
-<Header name={t('Volunteers')} coverImage = 'volunteer-bg-img'/>
+<Header name={t('Volunteers')} coverImage = '../images/volunteerCover.jpg'/>
 
-    <div className="container">    
-
+    <div className="container">  
+    {loading && 
+    <Preload  loading = {loading}/>
+     }  
+      {i18n.language === 'ar'?(
       <FroalaEditorView
-         model={volunteers.htmlPage}
+         model={volunteers.htmlPageAr}
         />
+      ):
+      (<FroalaEditorView
+
+         model={volunteers.htmlPageEn}
+        />)
+      }
     </div>     
 </section>
 

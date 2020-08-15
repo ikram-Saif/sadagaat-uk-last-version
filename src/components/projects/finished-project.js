@@ -57,7 +57,7 @@ const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
 
 return(
 <section>
-<Header name={t('Completed Projects')} coverImage = 'ongoing-bg-img'/>
+<Header name={t('Completed Projects')} coverImage = '../images/OngoingCover.jpg'/>
 
   <div className="container">
 

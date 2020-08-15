@@ -118,7 +118,7 @@ class Contact extends Component{
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.308792782386!2d32.542087414371004!3d15.57514198918783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x168e91da784579c7%3A0x5c0c21eeb61695d5!2z2YXZhti42YXYqSDYtdiv2YLYp9iqINin2YTYrtmK2LHZitip!5e0!3m2!1sen!2s!4v1590012628658!5m2!1sen!2s"
     return (
       <div>
-      <Header name={t("Contact Us")} coverImage = 'contact-bg-img'/>
+      <Header name={t("Contact Us")} coverImage = '../images/ContactCover.jpg'/>
 
       <section className="divider">
         <div className="container">
@@ -135,12 +135,12 @@ class Contact extends Component{
                   </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Our Office Location')}</h5>
-                      <p style = {{overflow:'hidden'}}>{t('Ammarat 27 st , Khartoum Sudan')}</p>
+                      <p>{t('Ammarat 27 st , Khartoum Sudan')}</p>
                     </div>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-6">
-                  <div className="icon-box media bg-deep p-30 mb-20"  style = {{height:'128px'}}>
+                  <div className="icon-box media bg-deep p-30 mb-20" style = {{height:'128px'}}>
                      <span className="media-left pull-left flip"> 
                       <i className="pe-7s-call text-theme-colored"></i>
                      </span>
@@ -163,7 +163,7 @@ class Contact extends Component{
                 </div>
 
                 <div className="col-xs-12 col-sm-6 col-md-6">
-                  <div className="icon-box media bg-deep p-30 mb-20"  style = {{height:'128px'}}> 
+                  <div className="icon-box media bg-deep p-30 mb-20" style = {{height:'128px'}}> 
                   <span className="media-left pull-left flip"> 
                     <i className="fa fa-globe text-theme-colored" ></i>
                   </span>

@@ -5,11 +5,13 @@ import { useTranslation } from "react-i18next";
 
 function Header(props) {
   const { t } = useTranslation();
-  const coverImage = props.coverImage !== undefined ? props.coverImage :'bg-img'
+  const coverImage = props.coverImage !== undefined ? props.coverImage :'../images/bg-inside_1.jpg'
   console.log(coverImage)
 
   return (
-    <section className={`${coverImage} inner-header divider parallax layer-overlay overlay-dark-6`}>
+    <section className={`inner-header divider parallax layer-overlay overlay-dark-6`}
+    style = {{backgroundImage:`url(${coverImage})`}}
+    >
       <div className="container pt-60 pb-60">
         <div className="section-content">
           <div className="row">

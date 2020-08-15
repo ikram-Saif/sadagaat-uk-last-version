@@ -1,8 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import logo from '../images/logo-05.png'
-import i18n from 'i18next'
 import { Link, NavLink } from "react-router-dom";
+import i18n from 'i18next'
 
 function Footer() {
   const { t } = useTranslation();

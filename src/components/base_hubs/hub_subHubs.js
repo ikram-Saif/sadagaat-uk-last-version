@@ -90,7 +90,7 @@ return(
      
 </div>
 {subhub.length > postsPerPage &&(
-      <div style = {{position:'relative',bottom:'0%'}}>
+      <div style = {{position:'absolute',bottom:'0%'}}>
 
     <ReactPaginate
                         previousLabel={t('prev')}

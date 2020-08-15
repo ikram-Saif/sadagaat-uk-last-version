@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../sub_page_header";
 import Parteners from "../parteners";
 import About_ from "../about/";
-import donate from "../images/donate.jpg";
+// import donate from "../images/donate.jpg";
 import i18n from 'i18next'
 
 
@@ -15,7 +15,7 @@ function About() {
   const marginStyle = i18n.dir() === 'rtl'? 'mr-120':'ml-120'
   return (
     <div>
-      <Header name={t("About Sadagaat")} coverImage = 'about-bg-img' />
+      <Header name={t("About Sadagaat")} coverImage = '../images/AboutCover.jpg' />
       <About_ />
       <div>
         <section

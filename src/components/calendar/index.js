@@ -48,7 +48,7 @@ const paginate = (e) => {
     return(
    <section>
           
-<Header name={t("Events")} coverImage = 'events-bg-img'/>
+<Header name={t("Events")} coverImage = '../images/EventsCover.jpg'/>
   <div className="container mt-30 mb-30">
     <div className="section-content">
       <div className="row">

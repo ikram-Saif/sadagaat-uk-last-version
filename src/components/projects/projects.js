@@ -54,7 +54,7 @@ const paginate = (e) => {
 
 return(
 <section>
-<Header name={t('Ongoing Projects')} coverImage = 'ongoing-bg-img'/>
+<Header name={t('Ongoing Projects')} coverImage = '../images/OngoingCover.jpg'/>
 
   <div className="container">
 

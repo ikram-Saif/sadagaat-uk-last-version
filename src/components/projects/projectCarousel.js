@@ -198,7 +198,7 @@ class ProjectSlider extends Component {
                                   </div>
                                 </div>
                               </div>
-                        <h4 className="text-uppercase">
+                        <h4 className="text-uppercase project-discription">
                           <a href="">{project.name}</a>
                         </h4>
                         

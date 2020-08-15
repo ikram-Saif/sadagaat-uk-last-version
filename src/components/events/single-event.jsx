@@ -7,7 +7,6 @@ import { withTranslation } from "react-i18next";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import SocialMedia from "../social media/social-media";
-import testVideo from "../news/ROI Calculator for UX Solutions.mp4";
 import ReactPlayer from 'react-player'
 
 
@@ -108,7 +107,7 @@ class SinglEvent extends Component {
     const allMedia = this.state.allMedia;
     return (
       <div class="main-content">
-        <Header name={t("Events")}  coverImage = 'events-bg-img'/>
+        <Header name={t("Events")}  coverImage = '../images/EventsCover.jpg'/>
 
         <section>
           <div class="container">
