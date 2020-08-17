@@ -52,8 +52,9 @@ const paginate = (e) => {
 
 
 return(
+  <React.Fragment>
 <section>
-<Header name={t('Planned Projects')} coverImage = '../images/OngoingCover.jpg'/>
+<Header name={t('Planned Projects')} coverImage = {'projects-bg-img'}/>
 
   <div className="container">
 
@@ -173,6 +174,7 @@ return(
       
             
 </section>
+</React.Fragment>
 
 )
 

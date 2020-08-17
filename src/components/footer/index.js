@@ -6,6 +6,7 @@ function Footer() {
   const { t } = useTranslation();
 
   return (
+    <React.Fragment>
     <div>
       <footer
         id="footer"
@@ -154,6 +155,7 @@ function Footer() {
         <i className="fa fa-angle-up" />
       </Link>
     </div>
+    </React.Fragment>
   );
 }
 

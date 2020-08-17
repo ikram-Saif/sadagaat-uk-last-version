@@ -43,8 +43,9 @@ const Education =()=>{
   }
 
 return(
+  <React.Fragment>
     <section>
-        <Header name={t('Education')} coverImage = '../images/EduCover.jpg'/>
+        <Header name={t('Education')} coverImage = {'education-bg-img'}/>
           <div className="container">
             <div className="row multi-row-clearfix">
             <div>
@@ -108,6 +109,7 @@ return(
 
             </div>
       </section>
+      </React.Fragment>
 
 )}
 export default Education;

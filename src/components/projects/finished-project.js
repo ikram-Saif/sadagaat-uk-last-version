@@ -56,8 +56,9 @@ const paginate = (e) => {
 const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
 
 return(
+  <React.Fragment>
 <section>
-<Header name={t('Completed Projects')} coverImage = '../images/OngoingCover.jpg'/>
+<Header name={t('Completed Projects')} coverImage = {'projects-bg-img'}/>
 
   <div className="container">
 
@@ -161,6 +162,7 @@ return(
       
             
 </section>
+</React.Fragment>
 
 )
 

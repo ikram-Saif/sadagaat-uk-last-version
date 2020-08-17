@@ -32,6 +32,7 @@ class EventSlider extends Component {
   }
   render() {
     return (
+      <React.Fragment>
       <div class="owl-carousel-1col owl-dots-bottom-right">
         <div class="causes">
           <div class="row-fluid">
@@ -88,6 +89,7 @@ class EventSlider extends Component {
           </div>
         </div>
       </div>
+      </React.Fragment>
     );
   }
 }

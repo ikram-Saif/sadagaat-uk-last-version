@@ -5,9 +5,10 @@ import { useTranslation } from "react-i18next";
   const { t } = useTranslation();
 
   return (
+    <React.Fragment>
     <section
-      className="bg-img divider parallax layer-overlay overlay-dark-9"
-      data-bg-img="images/slide-1.jpg"
+      className="divider parallax layer-overlay overlay-dark-9"
+      data-bg-img ={require("../images/x.jpg")}
       data-parallax-ratio="0.7"
     >
       <div className="display-table">
@@ -39,6 +40,7 @@ import { useTranslation } from "react-i18next";
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 }
 

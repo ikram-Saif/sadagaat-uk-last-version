@@ -74,6 +74,8 @@ class SinglProject2 extends Component {
 
 
       renderContainer = 
+      <React.Fragment>
+
       <div className="container">
         <div className="row">
           <div className = 'section-content'>
@@ -262,10 +264,12 @@ class SinglProject2 extends Component {
         
         </div>
       </div>
+      </React.Fragment>
                  
                   }
                    return (
-      renderContainer 
+
+                  renderContainer 
     )
   }
 }

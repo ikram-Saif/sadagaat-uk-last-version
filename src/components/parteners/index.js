@@ -16,6 +16,7 @@ import partener12 from "../images/partener12.png";
  function Parteners() {
   const { t } = useTranslation();
   return (
+    <React.Fragment>
     <section className="clients bg-light">
       <div className="container pt-0 pb-0">
         <div className="section-title text-center">
@@ -65,7 +66,7 @@ import partener12 from "../images/partener12.png";
             >
               <div className="item">
                   <img
-                    src={partener1}
+                    src={require("../images/partener1.png")}
                     height="100vh" width = '150px'
                     alt="Sudanese American Medical Association"
                   />
@@ -73,44 +74,45 @@ import partener12 from "../images/partener12.png";
               </div>
               <div className="item">
                 <img
-                  src={partener2}
+                  src={require("../images/partener2.png")}
                   alt="Soba Uneviersity Hospital"
                   height="100vh" width = '150px'
                 />
               </div>
               <div className="item">
-                  <img src={partener3} alt="Sadagaat USA" height="100vh" width = '150px' />
+                  <img src={require("../images/partener3.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
               </div>
               <div className="item">
-                  <img src={partener4} alt="Sadagaat USA" height="100vh" width = '150px' />
+                  <img src={require("../images/partener4.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
               </div>
               <div className="item">
-                  <img src={partener5} alt="Sadagaat USA" height="100vh" width = '150px' />
+                  <img src={require("../images/partener5.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
               </div>
               <div className="item">
-                  <img src={partener6} alt="Sadagaat USA" height="100vh" width = '150px' />
+                  <img src={require("../images/partener6.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
               </div>
               <div className="item">
-                  <img src={partener7} alt="Sadagaat USA" height="100vh" width = '150px' />
+                  <img src={require('../images/partener7.png')} alt="" height="100vh" width = '150px' />
               </div>
               <div className="item">
-                  <img src={partener9} alt="Sadagaat USA" height="100vh" width = '150px' />
+                  <img src={require("../images/partener9.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
                 
               </div>
               <div className="item">
-                  <img src={partener10} alt="Sadagaat USA" height="100vh" width = '150px' />
+                  <img src={require("../images/partener10.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
               </div>
               <div className="item">
-                  <img src={partener11} alt="Sadagaat USA" height="100vh" width = '150px' />
+                  <img src={require("../images/partener11.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
               </div>
               <div className="item">
-                  <img src={partener12} alt="Sadagaat USA" height="100vh" width = '150px' />
+                  <img src={require("../images/partener12.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
               </div>
             </Carousel>
           </div>
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 }
 

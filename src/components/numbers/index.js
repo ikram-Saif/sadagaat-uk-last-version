@@ -58,7 +58,8 @@ function Numbers(){
 
 
     return(
-   <section className="divider parallax layer-overlay overlay-dark-9" data-bg-img="images/x.jpg" data-parallax-ratio="0.7">
+      <React.Fragment>
+   <section className=" bg-img divider parallax layer-overlay overlay-dark-9" data-bg-img ={require("../images/x.jpg")} data-parallax-ratio="0.7">
   <div className="container pt-80 pb-80">
     <div className="row" 
     // style = {{display:'flex'}}
@@ -118,6 +119,7 @@ function Numbers(){
     </div>
   </div>
 </section>
+</React.Fragment>
     )
 }
 export default Numbers;

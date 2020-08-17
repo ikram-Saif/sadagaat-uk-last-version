@@ -8,6 +8,7 @@ function Preload(props){
   }
 
     return(
+      <React.Fragment>
 <div className="sweet-loading" style = {{style}}>
 <BeatLoader
   css = {style}
@@ -16,6 +17,7 @@ function Preload(props){
   color = {'#243f60 !important'}
 />
 </div>
+</React.Fragment>
     )
     
 }

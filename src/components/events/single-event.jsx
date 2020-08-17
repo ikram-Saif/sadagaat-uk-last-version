@@ -107,7 +107,7 @@ class SinglEvent extends Component {
     const allMedia = this.state.allMedia;
     return (
       <div class="main-content">
-        <Header name={t("Events")}  coverImage = '../images/EventsCover.jpg'/>
+        <Header name={t("Events")}  coverImage = {'events-bg-img'}/>
 
         <section>
           <div class="container">

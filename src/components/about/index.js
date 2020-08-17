@@ -13,6 +13,7 @@ function About(props){
   //console.log(window.location.pathname)
      
 return(
+  <React.Fragment>
     <section id="about">
       <div className="container">
         <div className="section-content">
@@ -23,7 +24,7 @@ return(
                   <div className="img-hover-border mt-sm-40">
                     <img
                       className="img-responsive"
-                      src="./images/about 275 330.jpg"
+                      src={require('../images/about 275 330.jpg')}
                       alt=""
                       style= {{width:'275px', height:'330px'}}
                     />
@@ -33,7 +34,7 @@ return(
                   <div className="img-hover-border mt-sm-30">
                     <img
                       className="img-responsive"
-                      src="./images/about 325-177.jpg"
+                      src = {require('../images/about 325-177.jpg')} 
                       alt=""
                       style= {{width:'250px', height:'156px'}}
 
@@ -42,7 +43,7 @@ return(
                   <div className="img-hover-border mt-15 mt-sm-30">
                     <img
                       className="img-responsive"
-                      src="./images/x.jpg"
+                      src={require('../images/x.jpg')}
                       alt=""
                       style= {{width:'250px', height:'156px'}}
 
@@ -80,6 +81,7 @@ return(
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 }
 

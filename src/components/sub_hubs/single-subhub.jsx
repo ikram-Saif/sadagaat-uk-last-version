@@ -104,8 +104,9 @@ render()
 
 
     return (
-
-      <section className="container">
+<React.Fragment>
+      <section>
+        <div className="container">
       <div className="row multi-row-clearfix">
       <div>
             <div className="col-xs-12 col-sm-6 col-md-12">
@@ -290,8 +291,10 @@ render()
              </div>
              
              </div> 
+             </div>
     
              </section>
+             </React.Fragment>
 
          )
 }

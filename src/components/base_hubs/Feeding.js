@@ -28,8 +28,9 @@ const Feeding=()=>{
     
         } , [i18n.language])
 return(
+  <React.Fragment>
 <section>
-<Header name={t('Feeding')}  coverImage = '../images/feedingCover.jpg'/>
+<Header name={t('Feeding')}  coverImage = {'feeding-bg-img'}/>
 
 <div className="container">
     <div className="row multi-row-clearfix">
@@ -100,6 +101,7 @@ return(
      
       </div>
       </section>
+      </React.Fragment>
 
 );
 
