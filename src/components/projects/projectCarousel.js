@@ -16,15 +16,18 @@ class ProjectSlider extends Component {
     super();
     this.state = {
       projects:[],
+      filterdProject:[]
+
     };
   }
 
   async componentDidMount() {
     try {
-      const { data: projects } = await axios.get(`${address()}projects/home`, {
+      const { data: projects } = await axios.get(`${address()}projects`, {
         headers: { "accept-language": `${i18n.language}` },
       });
       this.setState({ projects });
+      this.filterdProject(projects)
     } catch (error) {
       console.log("can not load project for the home page slider");
     }
@@ -33,10 +36,13 @@ class ProjectSlider extends Component {
   async componentWillReceiveProps(propos) {
     try {
       axios
-        .get(`${address()}projects/home`, {
+        .get(`${address()}projects`, {
           headers: { "accept-language": `${i18n.language}` },
         })
-        .then((response) => this.setState({ projects: response.data }))
+        .then((response) => {this.setState({ projects: response.data })
+        this.filterdProject(response.data)
+    }
+        )
         .catch((res) =>
           console.warn("execution failed with status " + res.status)
         );
@@ -44,10 +50,20 @@ class ProjectSlider extends Component {
       console.log("Something went wrong");
     }
   }
+  filterdProject(projects){
+
+    const filterdProject = this.state.projects.filter((project) =>
+     project.id === 2694 | project.id === 2722 | project.id === 2387 |project.id === 2733 
+     )
+     console.log(filterdProject)
+     this.setState({filterdProject})
+
+
+  }
 
   render() {
     const { t } = this.props;
-    const { projects } = this.state;
+    const projects  = this.state.filterdProject;
     const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
 
     return (
@@ -112,9 +128,10 @@ class ProjectSlider extends Component {
                 }}
               >
                 {projects.map((project) => (
+
                   <div className="item ml-5" key={project.id} >
 
-                      <div className="causes bg-white mb-30" key={project.id}>
+                      <div className="causes bg-white mb-30" key={project.id} style ={{height:'635px'}}>
                       <Link to={'/single-projects/'+project.id}>
                         <div className="thumb" 
                         //style = {{ width:"500px"}}
@@ -160,7 +177,7 @@ class ProjectSlider extends Component {
                         />
                       </div> */}
 
-                      <div className="causes-details clearfix border-bottom p-15 pt-15 pb-15">
+                      <div className="causes-details clearfix p-15 pt-15 pb-15">
                         <ul className="list-inline font-16 font-weight-600 clearfix mb-5">
                           <li className="pull-left font-weight-700 text-black-333 pr-0">
                             {t("Raised")}
@@ -198,7 +215,7 @@ class ProjectSlider extends Component {
                                   </div>
                                 </div>
                               </div>
-                        <h4 className="text-uppercase project-discription">
+                        <h4 className="text-uppercase">
                           <a href="">{project.name}</a>
                         </h4>
                         

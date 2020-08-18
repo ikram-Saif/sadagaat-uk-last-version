@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-// import Preload from "./components/preload";
 import TopBar from "./components/top_bar";
 import MenuBar from "./components/menu_bar";
 import Footer from "./components/footer";
@@ -70,7 +69,6 @@ function App() {
   return (
     <Switch>
       <div className="main-content">
-        {/* <Preload /> */}
         <TopBar />
         <MenuBar />
 

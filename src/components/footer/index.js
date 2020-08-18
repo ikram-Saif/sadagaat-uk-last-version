@@ -113,11 +113,6 @@ function Footer() {
               <div className="widget dark">
                 <h5 className="widget-title line-bottom">{t("Contact Us")}</h5>
                 <ul className="list angle-double-right list-border">
-                  {/* <li>
-                    {" "}
-                    <i className="fa fa-phone text-theme-colored" />
-                    123-456-789
-                  </li> */}
                   <li>
                     {" "}
                     <i className="fa fa-phone text-theme-colored" />{i18n.dir()=== 'rtl'?'447884060063+':'+447884060063'} 
@@ -125,7 +120,7 @@ function Footer() {
                   <li>
                     {" "}
                     <i className="fa fa-envelope-o text-theme-colored" />{" "}
-                    info@sadagaat.com
+                    info@sadagaat-uk.org
                   </li>
                   <li>
                     {" "}

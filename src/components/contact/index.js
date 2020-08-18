@@ -157,7 +157,7 @@ class Contact extends Component{
                      </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Email Address')}</h5>
-                      <p>info@sadagaat.com</p>
+                      <p>info@sadagaat-uk.org</p>
                     </div>
                   </div>
                 </div>

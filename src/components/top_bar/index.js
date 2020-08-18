@@ -66,7 +66,7 @@ function TopBar() {
                 <li className="m-0 pl-10 pr-10">
                   <i className="fa fa-envelope-o text-white">
                   <span className="text-white" style = {{padding:'7px'}}>
-                     info@sadagaat.com
+                      info@sadagaat-uk.org
                   </span>
                   </i>
                 </li>
