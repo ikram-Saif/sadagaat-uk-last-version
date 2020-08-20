@@ -105,9 +105,9 @@ function Event() {
 
               <div className="event media sm-maxwidth400 border-bottom mt-5 mb-0 pt-10 pb-15">
                 <div className="row">
-                  <Carousel autoPlay={5000} stopAutoPlayOnHover rtl dots>
+                  <Carousel autoPlay={5000} dots stopAutoPlayOnHover direction = {i18n.dir() === 'rtl'?'rtl':'ltr'} >
                     {news.map((news_) => (
-                      <div className="causes" key={news_.id}>
+                      <div className="causes" key={news_.id} >
                         <div className="row-fluid">
                           <div className="col-md-5">
                             <img
@@ -120,8 +120,8 @@ function Event() {
                           <div className="col-md-7">
                             <div class="event-content pull-left flip">
                             <h2 className="line-bottom mt-0">{news_.name}</h2>
-                            <h4 className="mt-0 mb-0 text-theme-colored">
-                            </h4>
+                            {/* <h4 className="mt-0 mb-0 text-theme-colored">
+                            </h4> */}
                             <p className = "project-discription">{news_.description}</p>
                             <Link
                               className="btn btn-theme-colored btn-sm"

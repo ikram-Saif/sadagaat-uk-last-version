@@ -3,7 +3,14 @@ import Header from '../sub_page_header';
 import address from './../utils/address';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
+import 'froala-editor/js/froala_editor.pkgd.min.js';
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+import FroalaEditorView from 'react-froala-wysiwyg/FroalaEditorView';
 import Preload from '../preload'
+import Carousel from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
+import ReactPlayer from 'react-player'
 import AllMedia from './AllMedia'
 
 
@@ -12,6 +19,7 @@ import AllMedia from './AllMedia'
 const Volunteers =()=>{
   const [volunteers, setVolunteers] = useState([])
   const [volunteerMedia , setVolunteerMedia] = useState([])
+  const [length , setLength]= useState(false)
   const {t} = useTranslation()
   const [loading , setLoading] = useState(true)
 
@@ -25,6 +33,9 @@ const Volunteers =()=>{
            setVolunteers(response)
            console.log(response)
            setLoading(false)
+           let length = response.images.length > 0 || response.video.length > 0 ? true : false
+           setLength(length)
+
 
            
          }
@@ -51,7 +62,7 @@ return(
                 videos = {volunteers.video}/>
                 }
                 </div>
-                    <div class={`${(volunteers.images !== undefined & volunteers.video !== undefined)?'col-md-6':'col-md-12'}`}>
+                    <div class={`${(volunteers.images !== undefined & volunteers.video !== undefined & length)?'col-md-6':'col-md-12'}`}>
 
                     <div class="entry-content">
                       <div class="entry-meta media no-bg no-border mt-15">
@@ -59,10 +70,15 @@ return(
                          
 
                       <div className="m-15 mt-0">
-                      {i18n.language === 'ar'?
-                        
-                         volunteers.htmlPageAr:volunteers.htmlPageEn
-                            
+                      {i18n.language === 'ar'?(
+                          <FroalaEditorView
+                            model={volunteers.htmlPageAr}
+                            />
+                          ):
+                          (<FroalaEditorView
+
+                            model={volunteers.htmlPageEn}
+                            />)
                           }
                       </div>
                       </div>
