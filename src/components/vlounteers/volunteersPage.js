@@ -3,14 +3,7 @@ import Header from '../sub_page_header';
 import address from './../utils/address';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
-import 'froala-editor/js/froala_editor.pkgd.min.js';
-import 'froala-editor/css/froala_style.min.css';
-import 'froala-editor/css/froala_editor.pkgd.min.css';
-import FroalaEditorView from 'react-froala-wysiwyg/FroalaEditorView';
 import Preload from '../preload'
-import Carousel from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
-import ReactPlayer from 'react-player'
 import AllMedia from './AllMedia'
 
 
@@ -66,15 +59,10 @@ return(
                          
 
                       <div className="m-15 mt-0">
-                      {i18n.language === 'ar'?(
-                          <FroalaEditorView
-                            model={volunteers.htmlPageAr}
-                            />
-                          ):
-                          (<FroalaEditorView
-
-                            model={volunteers.htmlPageEn}
-                            />)
+                      {i18n.language === 'ar'?
+                        
+                         volunteers.htmlPageAr:volunteers.htmlPageEn
+                            
                           }
                       </div>
                       </div>

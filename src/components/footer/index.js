@@ -126,7 +126,7 @@ function Footer() {
                   <li>
                     {" "}
                     <i className="fa fa-globe text-theme-colored" />{" "}
-                    http://.sadagaat-uk.org 
+                    http://sadagaat-uk.org 
                   </li>
                 </ul>
               </div>

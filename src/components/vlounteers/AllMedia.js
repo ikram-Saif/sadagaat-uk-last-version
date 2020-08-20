@@ -61,7 +61,7 @@ const propsvideos = props.videos
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
                        {/**check if  all media has image other than default image */}
-                  
+                
                      <Carousel  
                           slidesPerScroll={1}
                           //autoPlay={6000}
