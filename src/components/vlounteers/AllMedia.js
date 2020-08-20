@@ -61,8 +61,8 @@ const propsvideos = props.videos
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
                        {/**check if  all media has image other than default image */}
-                  
-                     <Carousel  
+                     {allMedia.length > 0? 
+                     (<Carousel  
                           slidesPerScroll={1}
                           //autoPlay={6000}
                           rtl
@@ -131,7 +131,14 @@ const propsvideos = props.videos
                         ))
                   }
                         
-                            </Carousel>
+                            </Carousel>):
+                            (
+                               <div>
+                                
+                              </div>
+                            )
+                      } 
+                    
 
                     </div>
                     </article>
