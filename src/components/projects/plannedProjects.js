@@ -52,8 +52,9 @@ const paginate = (e) => {
 
 
 return(
+  <React.Fragment>
 <section>
-<Header name={t('Planned Projects')} coverImage = '../images/OngoingCover.jpg'/>
+<Header name={t('Planned Projects')} coverImage = {'projects-bg-img'}/>
 
   <div className="container">
 
@@ -129,13 +130,13 @@ return(
     <h4 className="text-uppercase">{project.name}</h4>
     <p className="mt-20 project-discription">{parse(project.description)}</p>
 
-    <Link to={'/projects/'+project.id} 
+    {/* <Link to={'/projects/'+project.id} 
       className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
       style = {{display:`
       ${project.donationProgress >= 100?'none':''}`
     }}
     >
-      {t('Donate')}</Link>
+      {t('Donate')}</Link> */}
   </div>
   
 </div>
@@ -173,6 +174,7 @@ return(
       
             
 </section>
+</React.Fragment>
 
 )
 

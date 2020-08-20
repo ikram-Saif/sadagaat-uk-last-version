@@ -40,6 +40,7 @@ function Event() {
   }
 
   return (
+    <React.Fragment>
     <section>
       <div className="container">
         <div className="section-content">
@@ -141,6 +142,7 @@ function Event() {
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 }
 export default Event;

@@ -14,8 +14,8 @@ function About() {
   const pullStyle = i18n.dir() === 'rtl'? 'pull-right':'pull-left'
   const marginStyle = i18n.dir() === 'rtl'? 'mr-120':'ml-120'
   return (
-    <div>
-      <Header name={t("About Sadagaat")} coverImage = '../images/AboutCover.jpg' />
+    <React.Fragment>
+      <Header name={t("About Sadagaat")} coverImage ={'about-bg-img'} />
       <About_ />
       <div>
         <section
@@ -39,115 +39,9 @@ function About() {
             </div>
           </div>
         </section>
-        {/* <section>
-          <div className="container">
-            <div className="section-content">
-              <div className="row">
-                <div className="col-md-9">
-                  <h3 className="text-uppercase font-28 letter-space-3">
-                    {t("Our")}{" "}
-                    <span className="text-theme-colored">
-                      {t("Objectives")}
-                    </span>
-                  </h3>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <p>{t("objective_message_1")}</p>
-                      <p>{t("objective_message_2")}</p>
-                      <p>{t("objective_message_3")}</p>
-                      <p>{t("objective_message_4")}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-3">
-                  <div className="thumb">
-                    <img
-                      src={donate}
-                      className="img-fullwidth img-responsive"
-                      alt="objectives"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="facts bg-silver-light">
-          <div className="container pt-0 pb-0">
-            <div className="section-title text-center">
-              <div className="row">
-                <div className="col-md-10 col-md-offset-1">
-                  <h2 className="text-uppercase line-bottom-center mt-0">
-                    {t("Facts")}{" "}
-                    <span className="text-theme-colored font-weight-600">
-                      {t("and")}{" "}
-                    </span>
-                    {t("Figuers")}
-                  </h2>
-             
-                </div>
-              </div>
-            </div>
-            <div className="row mt-40">
-              <div className="col-md-3">
-                <div className="icon-box p-0">
-                  <span className= {`icon icon-circled mb-0 mr-0 ${pullStyle} icon-lg`} style = {{width:0 , hieght: 0}}>
-                    <i className="flaticon-charity-responsible-use-of-water  text-theme-colored font-54" />
-                  </span>
-                  <div className={marginStyle}>
-                    <h5 className="icon-box-title mt-15 mb-10 text-uppercase">
-                      {t("Water")}
-                    </h5>
-                    <p className="text-gray">2000.000.000 SDG</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="icon-box p-0">
-                  <span className={`icon icon-circled mb-0 mr-0 ${pullStyle} icon-lg`}  style = {{width:0 , hieght: 0}}>
-                    <i className="flaticon-charity-food-donation text-theme-colored font-54" />
-                  </span>
-                  <div className={marginStyle}>
-                    <h5 className="icon-box-title mt-15 mb-10 text-uppercase">
-                      {t("Feeding")}
-                    </h5>
-                    <p className="text-gray">2000.000.000 SDG</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="icon-box p-0">
-                  <span className={`icon icon-circled mb-0 mr-0 ${pullStyle} icon-lg`}  style = {{width:0 , hieght: 0}}>
-                    <i className="flaticon-charity-person-inside-a-heart text-theme-colored font-54" />
-                  </span>
-                  <div className={marginStyle}>
-                    <h5 className="icon-box-title mt-15 mb-10 text-uppercase">
-                      {t("Health")}
-                    </h5>
-                    <p className="text-gray">2000.000.000 SDG</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3">
-                <div className="icon-box p-0">
-                  <span className={`icon icon-circled mb-0 mr-0 ${pullStyle} icon-lg`}  style = {{width:0 , hieght: 0}}> 
-                    <i className="flaticon-charity-shelter text-theme-colored font-54" />
-                  </span>
-                  <div className={marginStyle}>
-                    <h5 className="icon-box-title mt-15 mb-10 text-uppercase">
-                      {t("Education")}
-                    </h5>
-                    <p className="text-gray">2000.000.000 SDG</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
       </div>
-
       <Parteners />
-    </div>
+    </React.Fragment>
   );
 }
 export default About;

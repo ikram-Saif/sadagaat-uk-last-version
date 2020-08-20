@@ -11,6 +11,7 @@ function Photo() {
   const { t } = useTranslation();
 
   return (
+    <React.Fragment>
     <section>
       <div className="container">
         <div className="section-title text-center">
@@ -22,14 +23,7 @@ function Photo() {
                   {t("Gallery")}
                 </span>
               </h2>
-              {/* <div class="title-icon">
-            <i class="flaticon-charity-hand-holding-a-heart"></i>
-          </div> */}
-              {/* <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem
-                autem voluptatem obcaecati! <br />
-                ipsum dolor sit Rem autem voluptatem obcaecati
-              </p> */}
+      
             </div>
           </div>
         </div>
@@ -39,19 +33,17 @@ function Photo() {
               id="grid"
               className="gallery-isotope grid-3 masonry gutter-10 clearfix"
             >
-              {/* {data.map((photo) => ( */}
               <div className="gallery-item breakfast" style={{ float: "left" }}>
                 <div className="thumb">
                   <img
                     width="370px"
                     height="270px"
                     className="img-fullwidth"
-                    src={blood}
+                    src={require('../images/blood.jpg')}
                     alt="project"
                   />
                   <div className="overlay-shade" />
                   <div className="portfolio-upper-part">
-                    {/* <h4 className="font-22 mb-0">{photo.title}</h4> */}
                   </div>
                   <div className="portfolio-view">
                     <a
@@ -70,7 +62,7 @@ function Photo() {
                     width="370px"
                     height="270px"
                     className="img-fullwidth"
-                    src={work}
+                    src={require('../images/work.jpg')}
                     alt="project"
                   />
                   <div className="overlay-shade" />
@@ -94,7 +86,7 @@ function Photo() {
                     width="370px"
                     height="270px"
                     className="img-fullwidth"
-                    src={dates}
+                    src={require('../images/dates.jpg')}
                     alt="project"
                   />
                   <div className="overlay-shade" />
@@ -118,6 +110,7 @@ function Photo() {
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 }
 

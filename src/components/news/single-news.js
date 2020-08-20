@@ -135,7 +135,7 @@ fillMediaArray =()=>{
     const translationNews = this.state.translationNews
     return (
       <div>
-        <Header name={t("News")}  coverImage = 'news-bg-img'/>
+        <Header name={t("News")}  coverImage = {'news-bg-img'}/>
 
         <section>
           <div className="container mt-30 mb-30 pt-30 pb-30">

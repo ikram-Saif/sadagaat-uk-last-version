@@ -37,8 +37,9 @@ function Volunteers(){
 
 
 return(
+  <React.Fragment>
 <section>
-<Header name={t('Volunteers')} coverImage = '../images/volunteerCover.jpg'/>
+<Header name={t('Volunteers')} coverImage = {'volunteer-bg-img'}/>
 
     <div className="container">  
     {loading && 
@@ -56,6 +57,7 @@ return(
       }
     </div>     
 </section>
+</React.Fragment>
 
 )
 

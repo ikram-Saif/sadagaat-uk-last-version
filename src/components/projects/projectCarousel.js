@@ -223,7 +223,7 @@ class ProjectSlider extends Component {
                           {parse(project.description)}</p>
 
                         
-                        <Link
+                        {/* <Link
                           to={"/projects/" + project.id}
                           className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
                           style = {{display:`
@@ -231,7 +231,7 @@ class ProjectSlider extends Component {
                           }}
                         >
                           {t("Donate")}
-                        </Link>
+                        </Link> */}
                       </div>
                       </Link>
                     </div>

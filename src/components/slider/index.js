@@ -32,12 +32,13 @@ const properties = {
 };
   const Slideshow = ()=>{
   return (
+    <React.Fragment>
     <div className="slide-container">
       <Slide {...properties}>
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[0]})`}}> */}
           <div>
             <Link to = '/single-projects/1911'>
-          <img   className = 'img-responsive' src = {slideImages[0]} style ={{ height:'100%' , width:'100%'}} />
+          <img  src = {require('../images/slide 1.jpg')} />
           </Link>
           </div>
           {/* </div> */}
@@ -47,32 +48,33 @@ const properties = {
         </div> */}
         <div>
           <Link to = '/single-projects/2374'>
-          <img  className = 'img-responsive' src = {slideImages[1]} 
-          style ={{ height:'100%' , width:'100%'}} />
+          <img  src = {require('../images/slide 5.jpg')} 
+         />
           </Link>
           </div>
     
            {/* <div style={{ backgroundImage: `url(${slideImages[2]})`}} ></div> */}
         <div>
           <Link to = '/single-projects/2710'>
-          <img   className = 'img-responsive' src = {slideImages[2]} style ={{ height:'100%' , width:'100%'}} />
+          <img  src = {require('../images/slide 2.jpg')} />
           </Link>
           </div>
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
           <div>
             <Link to = '/single-projects/2054'>
-          <img   className = 'img-responsive' src = {slideImages[3]} style ={{ height:'100%' , width:'100%'}} />
+          <img  src = {require('../images/slide 3.jpg')} />
           </Link>
           </div>
         
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
           <div>
             <Link to = '/single-projects/2042'>
-              <img   className = 'img-responsive' src = {slideImages[4]} style ={{ height:'100%' , width:'100%'}} />
+              <img  src = {require('../images/slide 4.jpg')} />
             </Link>
           </div>
       </Slide>
     </div>
+    </React.Fragment>
   );
 };
 export default Slideshow;

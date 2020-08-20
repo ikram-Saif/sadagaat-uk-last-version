@@ -104,8 +104,8 @@ render()
 
 
     return (
-
-      <section >
+<React.Fragment>
+      <section>
         <div className="container">
       <div className="row multi-row-clearfix">
       <div>
@@ -153,8 +153,8 @@ render()
                                       </li>
                                     </ul>
                                   </div>
-                                  <Link to= {'/sub_hubs/'+subhub.id}
-                                   class="btn btn-theme-colored btn-sm">{t('Donate Now')}</Link>
+                                  {/* <Link to= {'/sub_hubs/'+subhub.id}
+                                   class="btn btn-theme-colored btn-sm">{t('Donate Now')}</Link> */}
                                 </div>
              
                           </div>
@@ -255,7 +255,7 @@ render()
                 <h4 className="text-uppercase">{project.name}</h4>
                 <p className="mt-20 project-discription">{parse(project.description)}</p>
 
-                <Link 
+                {/* <Link 
                     to={'/projects/'+project.id} 
                     className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
                     style = {{
@@ -263,7 +263,7 @@ render()
                         }}
                     >
                   {t('Donate')}
-                </Link>
+                </Link> */}
               </div>
               
             </div>
@@ -292,9 +292,9 @@ render()
              
              </div> 
              </div>
-             
-
+    
              </section>
+             </React.Fragment>
 
          )
 }

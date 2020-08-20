@@ -67,11 +67,11 @@ function App() {
   },i18n.language);
 
   return (
+    <React.Fragment>
     <Switch>
       <div className="main-content">
         <TopBar />
         <MenuBar />
-
         <Route exact path="/film">
           <Film />
         </Route>
@@ -147,6 +147,7 @@ function App() {
         <Footer />
       </div>
     </Switch>
+    </React.Fragment>
   );
 }
 

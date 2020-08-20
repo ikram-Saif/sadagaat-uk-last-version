@@ -28,8 +28,9 @@ function Health (props){
      },[i18n.language])
 
 return(
+  <React.Fragment>
 <section>
-<Header name={t('Health')} coverImage = '../images/healthCover.jpg'/>
+<Header name={t('Health')} coverImage = {'health-bg-img'}/>
 
       <div className="container">
     <div className="row multi-row-clearfix">
@@ -75,7 +76,7 @@ return(
                                     </li>
                                   </ul>
                                 </div>
-                                <Link to = {'/hub/'+health.id} class="btn btn-theme-colored btn-sm">{t('Donate Now')}</Link>
+                                {/* <Link to = {'/hub/'+health.id} class="btn btn-theme-colored btn-sm">{t('Donate Now')}</Link> */}
                               </div>
            
                         </div>
@@ -99,6 +100,7 @@ return(
                                             
       </div>
       </section>
+      </React.Fragment>
 
 );
 

@@ -5,12 +5,13 @@ import { useTranslation } from "react-i18next";
 
 function Header(props) {
   const { t } = useTranslation();
-  const coverImage = props.coverImage !== undefined ? props.coverImage :'../images/bg-inside_1.jpg'
-  console.log(coverImage)
+  const coverImage = props.coverImage !== undefined ? props.coverImage :'bg-img'
 
   return (
-    <section className={`inner-header divider parallax layer-overlay overlay-dark-6`}
-    style = {{backgroundImage:`url(${coverImage})`}}
+    <React.Fragment>
+    <section className={`${coverImage} inner-header divider parallax layer-overlay overlay-dark-6`}
+    // style = {{backgroundImage:`url(${coverImage})`}}
+    // data-src = {coverImage}
     >
       <div className="container pt-60 pb-60">
         <div className="section-content">
@@ -22,6 +23,7 @@ function Header(props) {
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 }
 

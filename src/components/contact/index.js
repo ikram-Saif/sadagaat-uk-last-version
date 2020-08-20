@@ -117,8 +117,9 @@ class Contact extends Component{
       :
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.308792782386!2d32.542087414371004!3d15.57514198918783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x168e91da784579c7%3A0x5c0c21eeb61695d5!2z2YXZhti42YXYqSDYtdiv2YLYp9iqINin2YTYrtmK2LHZitip!5e0!3m2!1sen!2s!4v1590012628658!5m2!1sen!2s"
     return (
-      <div>
-      <Header name={t("Contact Us")} coverImage = '../images/ContactCover.jpg'/>
+      <React.Fragment>
+        <div>
+      <Header name={t("Contact Us")} coverImage = {'contact-bg-img'}/>
 
       <section className="divider">
         <div className="container">
@@ -169,7 +170,7 @@ class Contact extends Component{
                   </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Website')}</h5>
-                      <p>www.sadagaat.com </p>
+                      <p>http://sadagaat-uk.org</p>
                     </div>
                   </div>
                 </div>
@@ -195,7 +196,7 @@ class Contact extends Component{
                   <div className="col-sm-6">
                     <div className="form-group required">
 
-                      <label className = "control-label" className = "control-label">{t('name')}</label>
+                      <label>{t('name')}</label>
 
                       <input 
                           name="name" 
@@ -205,7 +206,6 @@ class Contact extends Component{
                           onChange = {this.handleChange}
                           pattern = '^([A-Za-z\u0621-\u064A]+)([A-Za-z\u0621-\u064A\s]+)?$'
                           title = {t('Please enter your fullName')}
-                          required = "required"
                           onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Please enter your fullName'))}
                           onInput={function(e) {
                               e.target.setCustomValidity(t(''))}}
@@ -255,7 +255,7 @@ class Contact extends Component{
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group required">
-                      <label className = "control-label">{t('Phone')}:
+                      <label>{t('Phone')}:
                       </label>
                       <small className = "font-12 text-gray">  </small>
 
@@ -267,7 +267,6 @@ class Contact extends Component{
                         onChange = {this.handleChange}
                         pattern="^(0[0-9]{9})|(00[0-9]{12})$"
                         title = {t('Enter a valid phone number with 10 number or 14')}
-                        required = "required"
                         onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Enter a valid phone number with 10 number or 14'))}
                         onInput={function(e) {
                               e.target.setCustomValidity(t(''))}}
@@ -323,8 +322,9 @@ class Contact extends Component{
           </div>
         </div>
       </section>
+      </div>
 
-      </div>  
+      </React.Fragment> 
   );
   }
 }

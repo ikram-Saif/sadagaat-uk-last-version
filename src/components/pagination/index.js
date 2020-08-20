@@ -9,6 +9,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   }
   var Active = paginate === 1? ' active':''
   return (
+    <React.Fragment>
     <nav aria-label="Page navigation" style = {{position:"absolute",bottom:'0%'}}> 
       <ul className="pagination">
         {pageNumbers.map(number => (
@@ -25,6 +26,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
         ))}
       </ul>
     </nav>
+    </React.Fragment>
   );
 };
 

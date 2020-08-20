@@ -5,9 +5,10 @@ import { useTranslation } from "react-i18next";
   const { t } = useTranslation();
 
   return (
+    <React.Fragment>
     <section
-      className="bg-img divider parallax layer-overlay overlay-dark-9"
-      data-bg-img="images/slide-1.jpg"
+      className="divider parallax layer-overlay overlay-dark-9"
+      data-bg-img ={require("../images/x.jpg")}
       data-parallax-ratio="0.7"
     >
       <div className="display-table">
@@ -22,16 +23,11 @@ import { useTranslation } from "react-i18next";
                 >
                   <i className="fa fa-play-circle text-theme-colored font-72" />
                 </a>
-                <h2 className="text-white text-uppercase font-48 font-weight-700 mb-0">
-                  {t("Let's have a")}{" "}
-                  <span className="text-theme-colored">{t("video")}</span>{" "}
-                  {t("Tour")}
-                </h2>
-                <p className="font-16 text-white">
+                <p className="font-20 text-white">
                   {t(
-                    "We provides always our best industrial solution for our clientsand always try to"
+                    "video text"
                   )}
-                  <br /> {t("achieve our client  trust and satisfaction")}.{" "}
+                  <br />{" "}
                 </p>
               </div>
             </div>
@@ -39,6 +35,7 @@ import { useTranslation } from "react-i18next";
         </div>
       </div>
     </section>
+    </React.Fragment>
   );
 }
 

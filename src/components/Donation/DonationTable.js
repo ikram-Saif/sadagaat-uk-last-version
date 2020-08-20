@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
      return(
          
-        <div class="col-xs-12 col-sm-12 col-md-7">
+        <div>
         <h3 class="mt-0 line-bottom">{t('Donate Through Banks')}</h3>
         <div class="table-responsive">
           <table class="table table-bordered">

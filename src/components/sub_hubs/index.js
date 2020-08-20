@@ -105,10 +105,10 @@ const paginate = (e) => {
                       </a>
                     </h4>
                     
-                  <Link to={'/sub_hubs/'+sub_hub.id}
+                  {/* <Link to={'/sub_hubs/'+sub_hub.id}
                    className="btn btn-default btn-theme-colored btn-xs font-16 mt-10">
                      {t('Donate')}
-                  </Link>
+                  </Link> */}
                 </div>
                 </Link>
               </div>

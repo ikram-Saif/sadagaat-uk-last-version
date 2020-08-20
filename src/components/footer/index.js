@@ -7,6 +7,7 @@ function Footer() {
   const { t } = useTranslation();
 
   return (
+    <React.Fragment>
     <div>
       <footer
         id="footer"
@@ -100,9 +101,9 @@ function Footer() {
                   <li>
                     <Link to="/projects">{t("Projects")}</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="/donate">{t("Donate")}</Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to="/volunteerForm">{t("Become a Volunteer")}</Link>
                   </li>
@@ -125,7 +126,7 @@ function Footer() {
                   <li>
                     {" "}
                     <i className="fa fa-globe text-theme-colored" />{" "}
-                    www.sadagaat.com 
+                    http://.sadagaat-uk.org 
                   </li>
                 </ul>
               </div>
@@ -150,6 +151,7 @@ function Footer() {
         <i className="fa fa-angle-up" />
       </Link>
     </div>
+    </React.Fragment>
   );
 }
 

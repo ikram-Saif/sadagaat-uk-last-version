@@ -14,7 +14,7 @@ function MenuBar() {
           <div className="container">
             <nav id="menuzord-right" className="menuzord default no-bg">
               <a className="menuzord-brand pull-left flip" href = '/'>
-                <img src={logo} alt="" />
+                <img src={require('../images/logo.png')} alt="" />
               </a>
               <ul className="menuzord-menu">
                 <li>

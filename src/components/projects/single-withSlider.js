@@ -74,6 +74,8 @@ class SinglProject2 extends Component {
 
 
       renderContainer = 
+      <React.Fragment>
+
       <div className="container">
         <div className="row">
           <div className = 'section-content'>
@@ -238,13 +240,13 @@ class SinglProject2 extends Component {
 
                               
 
-                                <Link to= {'/projects/'+project.id} 
+                                {/* <Link to= {'/projects/'+project.id} 
                                 class="btn btn-theme-colored btn-sm"
                                 style = {{display:`
                                 ${project.donationProgress >= 100 ?'none':''}`
                               }}>
                                   {t('Donate Now')}
-                                </Link>
+                                </Link> */}
                               </div>
            
                         </div>
@@ -262,10 +264,12 @@ class SinglProject2 extends Component {
         
         </div>
       </div>
+      </React.Fragment>
                  
                   }
                    return (
-      renderContainer 
+
+                  renderContainer 
     )
   }
 }

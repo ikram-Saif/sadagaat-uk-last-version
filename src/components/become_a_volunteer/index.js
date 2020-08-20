@@ -11,6 +11,7 @@ function Become(props){
   const show = props.history.location.pathname === '/volunteerForm' ? 'none' : ''
 
     return(
+      <React.Fragment>
   <section className="bg-theme-colored-darker4">
   <div className="container pt-0 pb-0">
     <div className="row">
@@ -34,6 +35,7 @@ function Become(props){
     </div>
   </div>
 </section>
+</React.Fragment>
 
 
     );

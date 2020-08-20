@@ -153,10 +153,10 @@ class VolunteerForm extends Component{
         const {t}= this.props
      
 return(
-    <div>
+    <React.Fragment>
         <div className="main-content">
 
-        <Header name={t('Volunteer Registration')} coverImage = '../images/volunteerCover.jpg'/>
+        <Header name={t('Volunteer Registration')} coverImage = {'volunteer-bg-img'}/>
 
 
             <section>
@@ -748,7 +748,7 @@ return(
                 </div>
             </section>
         </div>
-        </div>
+        </React.Fragment>
 
         )
     }
