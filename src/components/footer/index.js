@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
+import i18n from  'i18next'
 
 function Footer() {
   const { t } = useTranslation();
@@ -25,8 +26,7 @@ function Footer() {
                 {/* <span className="text-white">{t("Community of Charity")}</span>
                 <p>{t("Nonprofit Organization Located in Sudan.")}</p> */}
                 <h4 
-                className="text-white text-decoration-inline" 
-                style  = {{textDecoration:'underline'}}>
+                className="text-white text-decoration-inline">
                   
                   {t('hashtag')}
               
@@ -120,7 +120,7 @@ function Footer() {
                   </li> */}
                   <li>
                     {" "}
-                    <i className="fa fa-phone text-theme-colored" />0910010077
+                    <i className="fa fa-phone text-theme-colored" />{i18n.dir()=== 'rtl'?'249910010077+':'+249910010077'}
                   </li>
                   <li>
                     {" "}

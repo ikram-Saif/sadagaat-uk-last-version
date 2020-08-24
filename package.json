@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "axois": "0.0.1-security",
+    "better-docs": "^2.3.0",
     "bootstrapvalidator": "^0.5.4",
     "browser-history": "^1.0.1",
     "history": "^4.10.1",
@@ -43,6 +44,7 @@
     "react-html-parser": "^2.0.2",
     "react-i18next": "^11.3.4",
     "react-icons": "^3.9.0",
+    "react-lazyload": "^3.0.0",
     "react-notification-system": "^0.4.0",
     "react-notifications": "^1.6.0",
     "react-notifications-component": "^2.4.0",
@@ -67,7 +69,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docs": "jsdoc -c jsdoc.conf.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -87,6 +90,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.9.4",
     "css-loader": "^3.5.1",
-    "html-webpack-plugin": "^4.2.1"
+    "html-webpack-plugin": "^4.2.1",
+    "jsdoc": "^3.6.5"
   }
 }

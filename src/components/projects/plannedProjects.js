@@ -24,19 +24,19 @@ function PlannedProjects(){
   const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
 
 
-  
+  async function fetchData() {
+    const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
+    const response = await fetcher.json()
+   const Projects = response.filter(project => project.projectProgress === 0)
+   console.log("Planned Projects",Projects)
+    setData(Projects)
+    setLoading(false)
+
+    
+  }
   useEffect(() => {
     
-         async function fetchData() {
-           const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
-           const response = await fetcher.json()
-          const Projects = response.filter(project => project.projectProgress === 0)
-          console.log("Planned Projects",Projects)
-           setData(Projects)
-           setLoading(false)
-
-           
-         }
+       
          fetchData()
         }, [i18n.language])
 

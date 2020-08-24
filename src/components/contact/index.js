@@ -147,7 +147,7 @@ class Contact extends Component{
                      </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Contact Number')}</h5>
-                      <p>0910010077</p>
+                      <p>{i18n.dir()=== 'rtl'?'249910010077+':'+249910010077'}</p>
                     </div>
                   </div>
                 </div>
@@ -196,7 +196,7 @@ class Contact extends Component{
                   <div className="col-sm-6">
                     <div className="form-group required">
 
-                      <label className = "control-label" className = "control-label">{t('name')}</label>
+                      <label>{t('name')}</label>
 
                       <input 
                           name="name" 
@@ -206,7 +206,6 @@ class Contact extends Component{
                           onChange = {this.handleChange}
                           pattern = '^([A-Za-z\u0621-\u064A]+)([A-Za-z\u0621-\u064A\s]+)?$'
                           title = {t('Please enter your fullName')}
-                          required = "required"
                           onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Please enter your fullName'))}
                           onInput={function(e) {
                               e.target.setCustomValidity(t(''))}}
@@ -256,7 +255,7 @@ class Contact extends Component{
                   </div>
                   <div className="col-sm-6">
                     <div className="form-group required">
-                      <label className = "control-label">{t('Phone')}:
+                      <label>{t('Phone')}:
                       </label>
                       <small className = "font-12 text-gray">  </small>
 
@@ -268,7 +267,6 @@ class Contact extends Component{
                         onChange = {this.handleChange}
                         pattern="^(0[0-9]{9})|(00[0-9]{12})$"
                         title = {t('Enter a valid phone number with 10 number or 14')}
-                        required = "required"
                         onInvalid = {(e)=>this.handleFormErrorMessage(e,t('Enter a valid phone number with 10 number or 14'))}
                         onInput={function(e) {
                               e.target.setCustomValidity(t(''))}}

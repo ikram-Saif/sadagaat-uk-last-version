@@ -156,8 +156,8 @@
   "Events1": "القادمة",
   "Events": "الفعاليات",
   "Latest": "اخر",
-  "Photo": "الصور",
-  "Gallery": "معرض",
+  "Photo": "معرض",
+  "Gallery": "الصور",
   "Raised": "التبرعات:",
   "Goal": "الهدف:",
   "Goals": "المبلغ المستهدف:",
@@ -165,7 +165,7 @@
   "Let's have a": "",
   "video": "",
   "Tour": "",
-  "All Rights Reserved © Sadagaat Community of Charity - 2020": "جميع الحقوق محفوظة © جمعية صدقات الخيرية - 2020",
+  "All Rights Reserved © Sadagaat Community of Charity - 2020": "جميع الحقوق محفوظة © منظمة صدقات الخيرية - 2020",
   "join us now as a volunteer": "يمكنك الانضمام إلينا الآن كمتطوع",
   "username or Password not correct": "اسم المستخدم او كلمة المرور غير صحيح",
   "This Email Already Exist": "هذاالايميل موجود مسبقا",
@@ -264,6 +264,8 @@
   "Registration":"انشاء حساب",
   "Sorry":"عذراً...",
   "Retry donation":"إعادة التبرع",
-  "hashtag":"#مجتمع فكرة",
-  "Project Progress":"تنفيذ المشروع"
+  "hashtag":"#مجتمع_فكرة",
+  "Project Progress":"تنفيذ المشروع",
+  "video text":"نقدم افضل الحلول للمجتمع ونحاول دائما تحقيق ثقة مجتمعاتنا ورضاهم."
+
 }

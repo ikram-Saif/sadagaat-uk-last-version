@@ -23,16 +23,10 @@ import { useTranslation } from "react-i18next";
                 >
                   <i className="fa fa-play-circle text-theme-colored font-72" />
                 </a>
-                <h2 className="text-white text-uppercase font-48 font-weight-700 mb-0">
-                  {t("Let's have a")}{" "}
-                  <span className="text-theme-colored">{t("video")}</span>{" "}
-                  {t("Tour")}
-                </h2>
-                <p className="font-16 text-white">
-                  {t(
-                    "We provides always our best industrial solution for our clientsand always try to"
-                  )}
-                  <br /> {t("achieve our client  trust and satisfaction")}.{" "}
+              
+                <p className="font-20 text-white ">
+                  {t("video text" )}
+                  
                 </p>
               </div>
             </div>

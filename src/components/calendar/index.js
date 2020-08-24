@@ -2,7 +2,6 @@ import React, { useState, useEffect , useRef } from 'react';
 
 import Header from '../sub_page_header';
 import address from './../utils/address';
-import Pagination from './../pagination';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import {Link} from 'react-router-dom'

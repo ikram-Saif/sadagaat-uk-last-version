@@ -23,20 +23,20 @@ function Projects_(){
   // const style = { position: "relative", top: "50%", left: "50%"}
   const projectProgressAlign = i18n.dir()==='rtl'?'right':'left'
 
-  
-  useEffect(() => {
     
-         async function fetchData() {
-           const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
-           const response = await fetcher.json()
-           console.log(response)
-           const Projects = response.filter(project => project.projectProgress > 0 && project.projectProgress < 100)
-           setData(Projects)
-           setLoading(false)
-          
+  async function fetchData() {
+    const fetcher = await window.fetch(`${address()}projects`,{headers: {'accept-language': `${i18n.language}`}})
+    const response = await fetcher.json()
+    console.log(response)
+    const Projects = response.filter(project => project.projectProgress > 0 && project.projectProgress < 100)
+    setData(Projects)
+    setLoading(false)
+   
 
-           
-         }
+    
+  }
+  useEffect(() => {
+  
          fetchData()
          
         }, [i18n.language])
@@ -198,4 +198,4 @@ return(
 
 }
 
-export default Projects_;
+export default React.memo(Projects_);

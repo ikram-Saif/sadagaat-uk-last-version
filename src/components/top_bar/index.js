@@ -59,7 +59,7 @@ function TopBar() {
                 <li className="m-0 pl-10 pr-10">
                   <i className="fa fa-phone text-white">
                   <span className="text-white" style = {{padding:'7px'}} >
-                 0910010077
+                 +249910010077
                   </span>
                   </i>
                 </li>

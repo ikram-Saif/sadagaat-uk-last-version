@@ -139,7 +139,6 @@ const propsvideos = props.videos
                             )
                       } 
                     
-
                     </div>
                     </article>
                     </div>

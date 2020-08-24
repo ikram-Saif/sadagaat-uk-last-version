@@ -2,16 +2,20 @@ import React from "react";
 import Header from "../sub_page_header";
 import Parteners from "../parteners";
 import About_ from "../about/";
-// import donate from "../images/donate.jpg";
 import i18n from 'i18next'
-
-
 /*** translation backage */
 import { useTranslation } from "react-i18next";
-
+/**
+ * about function return about sadagaat page includes ( About Sadagaat section  ,vision , mission value , parteners)  when you visit url /abut  
+ * @see http://sadagaat-uk.org/about
+ */
 function About() {
   const { t } = useTranslation();
+
+  // const pull  = 'pull-right'  class name after check direction of page 
   const pullStyle = i18n.dir() === 'rtl'? 'pull-right':'pull-left'
+
+  //  marginStyel ='mr-120' or ml-120  class name after check direction
   const marginStyle = i18n.dir() === 'rtl'? 'mr-120':'ml-120'
   return (
     <React.Fragment>
@@ -19,9 +23,7 @@ function About() {
       <About_ />
       <div>
         <section
-          className="about-bg-img divider parallax layer-overlay overlay-theme-colored-8"
-          // data-bg-img="images/slide-2.jpg"
-        >
+          className="about-bg-img divider parallax layer-overlay overlay-theme-colored-8" >
           <div className="container">
             <div className="row text-center">
               <div className="col-md-4">

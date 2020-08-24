@@ -19,6 +19,7 @@ import AllMedia from './AllMedia'
 const Volunteers =()=>{
   const [volunteers, setVolunteers] = useState([])
   const [volunteerMedia , setVolunteerMedia] = useState([])
+  const [length , setLength]= useState(false)
   const {t} = useTranslation()
   const [loading , setLoading] = useState(true)
 
@@ -32,6 +33,9 @@ const Volunteers =()=>{
            setVolunteers(response)
            console.log(response)
            setLoading(false)
+           let length = response.images.length > 0 || response.video.length > 0 ? true : false
+           setLength(length)
+
 
            
          }
@@ -58,7 +62,7 @@ return(
                 videos = {volunteers.video}/>
                 }
                 </div>
-                    <div class={`${(volunteers.images !== undefined & volunteers.video !== undefined)?'col-md-6':'col-md-12'}`}>
+                    <div class={`${(volunteers.images !== undefined & volunteers.video !== undefined & length)?'col-md-6':'col-md-12'}`}>
 
                     <div class="entry-content">
                       <div class="entry-meta media no-bg no-border mt-15">

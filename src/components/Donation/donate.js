@@ -103,7 +103,6 @@ class Donate extends Component {
                 setTimeout(() => {
                   this.setState({ loading: false });
                 }, 2000)
-
             } else if(response.data.responseCode === 2)
             {
               this.setState({

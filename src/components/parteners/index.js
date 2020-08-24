@@ -13,6 +13,7 @@ import partener9 from "../images/partener9.png";
 import partener10 from "../images/partener10.png";
 import partener11 from "../images/partener11.png";
 import partener12 from "../images/partener12.png";
+import LazyLoad from 'react-lazyload';
  function Parteners() {
   const { t } = useTranslation();
   return (
@@ -65,47 +66,68 @@ import partener12 from "../images/partener12.png";
               }}
             >
               <div className="item">
+              <LazyLoad once={true}>
                   <img
                     src={require("../images/partener1.png")}
                     height="100vh" width = '150px'
                     alt="Sudanese American Medical Association"
                   />
+                  </LazyLoad>
    
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                 <img
                   src={require("../images/partener2.png")}
                   alt="Soba Uneviersity Hospital"
                   height="100vh" width = '150px'
                 />
+                </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener3.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener4.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener5.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener6.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require('../images/partener7.png')} alt="" height="100vh" width = '150px' />
+             </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener9.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
-                
+                </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener10.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener11.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener12.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
             </Carousel>
           </div>

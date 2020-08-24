@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import work from "../images/work.jpg";
 import dates from "../images/dates.jpg";
 import blood from "../images/blood.jpg";
+import LazyLoad from 'react-lazyload';
 
 function Photo() {
   const { t } = useTranslation();
@@ -35,6 +36,7 @@ function Photo() {
             >
               <div className="gallery-item breakfast" style={{ float: "left" }}>
                 <div className="thumb">
+                <LazyLoad once={true}>
                   <img
                     width="370px"
                     height="270px"
@@ -42,6 +44,7 @@ function Photo() {
                     src={require('../images/blood.jpg')}
                     alt="project"
                   />
+                  </LazyLoad>
                   <div className="overlay-shade" />
                   <div className="portfolio-upper-part">
                   </div>
@@ -58,6 +61,7 @@ function Photo() {
               </div>
               <div className="gallery-item breakfast" style={{ float: "left" }}>
                 <div className="thumb">
+                <LazyLoad once={true}>
                   <img
                     width="370px"
                     height="270px"
@@ -65,6 +69,7 @@ function Photo() {
                     src={require('../images/work.jpg')}
                     alt="project"
                   />
+                  </LazyLoad>
                   <div className="overlay-shade" />
                   <div className="portfolio-upper-part">
                     {/* <h4 className="font-22 mb-0">{photo.title}</h4> */}
@@ -82,6 +87,7 @@ function Photo() {
               </div>
               <div className="gallery-item breakfast" style={{ float: "left" }}>
                 <div className="thumb">
+                <LazyLoad once={true}>
                   <img
                     width="370px"
                     height="270px"
@@ -89,6 +95,7 @@ function Photo() {
                     src={require('../images/dates.jpg')}
                     alt="project"
                   />
+                  </LazyLoad>
                   <div className="overlay-shade" />
                   <div className="portfolio-upper-part">
                     {/* <h4 className="font-22 mb-0">{photo.title}</h4> */}
