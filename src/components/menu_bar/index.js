@@ -99,8 +99,9 @@ function MenuBar() {
                 </li>
                 <li>
                   <NavLink
-                    className="nav-link btn btn-colored btn-flat btn-theme-green bg-theme-colored-darker4"
+                    className="nav-link btn btn-colored  btn-bg btn-flat btn-theme-green bg-theme-colored-darker4"
                     to="/donate"
+                    style = {{width: '110px', fontSize: '15px'}}
                   >
                     {t("Donate")}
                   </NavLink>

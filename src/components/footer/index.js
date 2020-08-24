@@ -26,8 +26,7 @@ function Footer() {
                 {/* <span className="text-white">{t("Community of Charity")}</span>
                 <p>{t("Nonprofit Organization Located in Sudan.")}</p> */}
                 <h4 
-                className="text-white text-decoration-inline" 
-                style  = {{textDecoration:'underline'}}>
+                className="text-white text-decoration-inline">
                   
                   {t('hashtag')}
               
