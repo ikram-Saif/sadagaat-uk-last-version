@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import address from "../utils/address";
 import axios from "axios";
 import i18n from "i18next";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { withTranslation } from "react-i18next";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
@@ -10,6 +9,11 @@ import {Link} from 'react-router-dom'
 import {getNumberWithComma , Precision} from '../events/getMonthName'
 import parse  from 'html-react-parser';
 
+/**
+ * This Component display project information like (carousal of images , name , discription ...)
+ * @component
+ * @see http://sadagaat-uk.org/single-projects/1944
+ */
 
 class SinglProject2 extends Component {
 
@@ -20,9 +24,11 @@ class SinglProject2 extends Component {
       render: false,
     };
   }
-
+/**
+ * return project from API
+ */
   async componentDidMount (){
-    
+    // get projct id from url 
      let id = this.props.match.params.project_id;
 
 
@@ -38,7 +44,9 @@ class SinglProject2 extends Component {
         this.setState({render: true}) }.bind(this), 10)
   }
 
-
+/**
+ * returned project when recive prpos like language 'ar' , 'en'
+ */
   async componentWillReceiveProps(){
     let id = this.props.match.params.project_id;
 
@@ -60,7 +68,9 @@ class SinglProject2 extends Component {
         if(this.state.render) {
                 const { t } = this.props;
                 const { project } = this.state;
+
                 const project_images = project.images
+                //push default project image to array of images 
                 if (project.imageUrl !== null){
                   project_images.push({
                     id : project.id,
@@ -90,6 +100,7 @@ class SinglProject2 extends Component {
                       <div className="causes">
                         <div className="row-fluid">
                           <div className="col-md-6">
+                            {/* check if peoject image array has more than defualte image */}
                           {project_images.length > 1? ( <Carousel 
                     
                     slidesPerScroll={1}
@@ -157,39 +168,6 @@ class SinglProject2 extends Component {
                     </div>
                     )}
                      
-               {/* <div
-                        style={{
-                          width: "12%",
-                          left: "10%",
-                          right:'10%',
-                          top: "3%",
-                          position: "absolute",
-                          rotation: 1 / 2 + 1 / 8,
-                          overflow:'hidden',
-                          marginButtom:'100px'
-                        }}
-                      >
-                        <CircularProgressbar
-                          value={project.projectProgress}
-                          text={`${project.projectProgress}%`}
-                          background
-                          backgroundPadding={4}
-                          styles={buildStyles({
-                            // strokeLinecap: "butt",
-
-                            rotation: 1,
-                            textSize: "20",
-                            pathTransitionDuration: 0.3,
-                            backgroundColor: "#066993",
-                            textColor: "#fff",
-                            pathColor: "#fff",
-                            trailColor: "transparent"
-                           
-                          })}
-                        />
-                      </div>  */}
-                            
-
                           </div>
                           <div class="causes-details col-md-6">
                                 
@@ -240,13 +218,13 @@ class SinglProject2 extends Component {
 
                               
 
-                                {/* <Link to= {'/projects/'+project.id} 
+                                <Link to= {'/projects/'+project.id} 
                                 class="btn btn-theme-colored btn-sm"
                                 style = {{display:`
                                 ${project.donationProgress >= 100 ?'none':''}`
                               }}>
                                   {t('Donate Now')}
-                                </Link> */}
+                                </Link>
                               </div>
            
                         </div>

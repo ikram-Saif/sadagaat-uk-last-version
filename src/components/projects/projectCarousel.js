@@ -3,14 +3,17 @@ import axios from "axios";
 import i18n from "i18next";
 import { address } from "../utils/address";
 import Carousel from "@brainhubeu/react-carousel";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import {getNumberWithComma, getNumber,Precision} from '../events/getMonthName'
+import {getNumber,Precision} from '../events/getMonthName'
 import parse from 'html-react-parser';
 
 
-
+/**
+ * This component display carousal of Four Projects in the home page 
+ * @component 
+ *  @see http://sadagaat-uk.org/ 
+ */
 class ProjectSlider extends Component {
   constructor() {
     super();
@@ -20,27 +23,31 @@ class ProjectSlider extends Component {
 
     };
   }
-
+/**
+ * return All project from API
+ */
   async componentDidMount() {
     try {
       const { data: projects } = await axios.get(`${address()}projects`, {
         headers: { "accept-language": `${i18n.language}` },
       });
       this.setState({ projects });
-      this.filterdProject(projects)
+      this.filterdProject()
     } catch (error) {
       console.log("can not load project for the home page slider");
     }
   }
-
-  async componentWillReceiveProps(propos) {
+/**
+ * Get Projects from API when switch languages 'ar' or 'en' 
+ */
+  async componentWillReceiveProps() {
     try {
       axios
         .get(`${address()}projects`, {
           headers: { "accept-language": `${i18n.language}` },
         })
         .then((response) => {this.setState({ projects: response.data })
-        this.filterdProject(response.data)
+        this.filterdProject()
     }
         )
         .catch((res) =>
@@ -50,12 +57,13 @@ class ProjectSlider extends Component {
       console.log("Something went wrong");
     }
   }
-  filterdProject(projects){
+/**
+ * This function fill filterdProject array with filterd projects
+ */
+  filterdProject(){
 
     const filterdProject = this.state.projects.filter((project) =>
-     project.id === 2694 | project.id === 2722 | project.id === 2387 |project.id === 2733 
-     )
-     console.log(filterdProject)
+     project.id === 2694 | project.id === 2722 | project.id === 2387 |project.id === 2733 )
      this.setState({filterdProject})
 
 
@@ -145,37 +153,6 @@ class ProjectSlider extends Component {
                             />
                         
                       </div>
-                
-                      {/* <div
-                        style={{
-                          width: "15%",
-                          left: "25px",
-                          right: "25px",
-                          top: "8px",
-                          position: "absolute",
-                          rotation: 1 / 2 + 1 / 8,
-                        }}
-                      >
-                        <CircularProgressbar
-                          value={project.projectProgress}
-                          text={`${project.projectProgress}%`}
-                          background
-                          backgroundPadding={6}
-                          styles={buildStyles({
-                            rotation: 0.25,
-                            strokeLinecap: "butt",
-                            textSize: "26",
-                            pathTransitionDuration: 0.5,
-                            //textColor: "white",
-                            backgroundColor: "#066993",
-                            textColor: "#fff",
-                            pathColor: "#fff",
-                            trailColor: "transparent"
-                            //trailColor: "",
-                            //backgroundColor: '',
-                          })}
-                        />
-                      </div> */}
 
                       <div className="causes-details clearfix p-15 pt-15 pb-15">
                         <ul className="list-inline font-16 font-weight-600 clearfix mb-5">
@@ -223,7 +200,7 @@ class ProjectSlider extends Component {
                           {parse(project.description)}</p>
 
                         
-                        {/* <Link
+                        <Link
                           to={"/projects/" + project.id}
                           className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
                           style = {{display:`
@@ -231,7 +208,7 @@ class ProjectSlider extends Component {
                           }}
                         >
                           {t("Donate")}
-                        </Link> */}
+                        </Link>
                       </div>
                       </Link>
                     </div>

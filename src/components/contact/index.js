@@ -136,7 +136,7 @@ class Contact extends Component{
                   </span>
                     <div className="media-body">
                       <h5 className="mt-0">{t('Our Office Location')}</h5>
-                      <p>{t('Ammarat 27 st , Khartoum Sudan')}</p>
+                      <p>{t('Address 33-39, Bowling Green Lane,London')}</p>
                     </div>
                   </div>
                 </div>
@@ -307,18 +307,6 @@ class Contact extends Component{
               </form>
               {/* Contact Form Validation*/}
             </div>
-          </div>
-        </div>
-      </section><section>
-        <div className="container-fluid pt-0 pb-0">
-          <div className="row">
-            <div className="mapouter"><div className="gmap_canvas">
-              <iframe width={600} height={500} id="gmap_canvas"
-                src={mapUrl}
-                frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} ></iframe>
-               </div>
-               </div>
-         
           </div>
         </div>
       </section>
