@@ -8,12 +8,22 @@ import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import Hub_Subhubs from './hub_subHubs'
 
+/**
+ * This component of display health Hub Information such as Image , name , discription ,donation Button for feeding hub 
+ * @component
+ * @see http://sadagaat-uk.org/health
+ */
 
-function Health (props){
+function Health (){
 
   const [health, setHealth ] = useState([])
   const {t} = useTranslation()
 
+
+  /**
+     * This function return health hub information returned by the API 
+     * @return {object} health hub returned by the API
+     */
 
   async function healthHub() {
     const fetcher = await window.fetch(`${address()}hubs/1695`,{headers: {'accept-language': `${i18n.language}`}})
@@ -21,6 +31,10 @@ function Health (props){
     console.log(response)
     setHealth(response)
   }
+
+  /**  useEffect call healthHub() function when component mounted or  when swiches Language through props i18n.language  
+ * i18n .language = en  Or ar 
+*/
 
   useEffect(() => {
 
@@ -68,9 +82,6 @@ return(
                                   
                                   <div class="mt-10 mb-20">
                                   <ul class="list-inline clearfix mt-10">
-                                    {/* <li class="text-theme-colored pull-left flip pr-0 font-weight-700 font-14">
-                                       {t("Total Donation")}:  <span> {health.total_donation} SDG</span>
-                                    </li> */}
                                     <li class="text-theme-colored pull-right flip pr-0">
                                       
                                     </li>
@@ -96,6 +107,7 @@ return(
      
   </div>
    <br />
+ {/** this component display all subhubs related to Health hub */}
     <Hub_Subhubs  hubId = {health.id} name = {t('Health Sub Sectors')}/>
                                             
       </div>

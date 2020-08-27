@@ -7,7 +7,11 @@ import i18n from 'i18next'
 import  {withTranslation}  from 'react-i18next'
 import DonationTable from './DonationTable'
 
-
+/**
+ * This component display donation page  when you click button on the home page 
+ * @see http://sadagaat-uk.org/donate
+ * @component
+ */
 class Donate extends Component {
 
   constructor(props) {
@@ -26,9 +30,10 @@ class Donate extends Component {
 
     }
 }
-
+/**
+ * Get hub list from API
+ */
    async componentDidMount () {
-     console.log(this.props.location)
 
      await axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
         .then(response => {
@@ -45,6 +50,9 @@ class Donate extends Component {
           this.setState({render: true}) }.bind(this), 10)
 
   }
+  /** 
+   * Get hub when language cahangeed
+   */
   async componentWillReceiveProps(){
 
     axios.get(`${address()}hubs`, {headers: {'accept-language': `${i18n.language}`}})
@@ -59,7 +67,11 @@ class Donate extends Component {
         })
   }
 
-
+/**
+ * 
+ * @param {object} e event of input field
+ * @param {String} message  message custom validation message 
+ */
   handleFormErrorMessage =(e,message = '')=>{
     const {t} = this.props
   
@@ -77,7 +89,7 @@ class Donate extends Component {
         [e.target.name]:e.target.value,
       })
   }
-      
+
        handleSubmite =(e)=>{
             e.preventDefault()
             const id = this.state.id
@@ -87,7 +99,6 @@ class Donate extends Component {
               amount:this.state.amount,
               currency:this.state.currency
             }
-            console.log(data)
             this.setState({loading:true})
           axios.post(`${address()}donate`,data)
 

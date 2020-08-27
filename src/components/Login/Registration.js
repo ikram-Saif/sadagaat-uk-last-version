@@ -37,7 +37,11 @@ class Registration extends Component{
       dob: moment()
     };
   }
-
+/**
+ * 
+ * @param {object} e input field
+ * @param {string} message  custom message
+ */
  handleFormErrorMessage =(e,message = '')=>{
   const {t} = this.props
 
@@ -107,12 +111,6 @@ class Registration extends Component{
               }
             })
             this.clearState()
-            //window.location = '/login'
-            // <Redirect 
-            // to = {{
-            //   pathname: "/login",
-            //   state:{success_register: "register successfully" }
-            //     }}  />
             
           }
           )
@@ -185,7 +183,6 @@ class Registration extends Component{
                                   name="reg-form" 
                                   id = 'reg-form1'
                                   className="register-form" 
-                                  //data-toggle="validator"
                                   role="form"
                                   onSubmit={this.handleSubmit}
                                   
@@ -201,16 +198,6 @@ class Registration extends Component{
                                 {this.state.response.success === 1 ?
 
                                   (
-                                  // <div className = {this.state.response.styleClass}>
-                                  //     <i className = {this.state.response.iconClass} 
-                                  //     style = {{margin:'5px'}} />
-
-                                  //     {t(this.state.response.message)}
-                                
-                                      
-                                    //  <a href = '/login'>{t(this.state.response.loginLink)}</a> 
-                                       
-                                    //   </div>
                                       <Redirect 
                                       to = {{
                                           pathname: "/login",

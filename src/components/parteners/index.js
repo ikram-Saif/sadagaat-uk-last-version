@@ -2,18 +2,13 @@ import React from "react";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { useTranslation } from "react-i18next";
-import partener1 from "../images/partener1.png";
-import partener2 from "../images/partener2.png";
-import partener3 from "../images/partener3.png";
-import partener4 from "../images/partener4.png";
-import partener5 from "../images/partener5.png";
-import partener6 from "../images/partener6.png";
-import partener7 from "../images/partener7.png";
-import partener9 from "../images/partener9.png";
-import partener10 from "../images/partener10.png";
-import partener11 from "../images/partener11.png";
-import partener12 from "../images/partener12.png";
+// package to optomize image 
 import LazyLoad from 'react-lazyload';
+
+/**
+ * This component display parteners logos in home page
+ * @component
+ */
  function Parteners() {
   const { t } = useTranslation();
   return (
@@ -29,9 +24,6 @@ import LazyLoad from 'react-lazyload';
                   {t("Parteners")}
                 </span>
               </h2>
-              {/* <div class="title-icon">
-                <i class="flaticon-charity-hand-holding-a-heart"></i>
-              </div> */}
             </div>
           </div>
         </div>

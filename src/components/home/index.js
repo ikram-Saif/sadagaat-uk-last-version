@@ -11,7 +11,11 @@ import Parteners from "../parteners";
 import LazyLoad from 'react-lazyload';
 
 
-
+/**
+ * This component display  home page 
+ * @see http://sadagaat-uk.org
+ * @component
+ */
 
 function Home() {
   return (

@@ -27,13 +27,13 @@ class ResetPassword extends Component{
 }
    
 async componentDidMount (){
+  // get token from url
    let token = this.props.match.params.token
 
   this.setState({token})
-  console.log(token)
 
 }
-
+// change custom message that return from browser 
 handleFormErrorMessage =(e,message = '')=>{
   const {t} = this.props
 
@@ -91,12 +91,6 @@ handleFormErrorMessage =(e,message = '')=>{
           setTimeout(() => {
             this.setState({ loading: false });
           }, 2000)
-
-          // <Redirect 
-          //   to = {{
-          //     pathname: "/login",
-          //     state:{ssuccess_reset: "password reset successfully" }
-          //       }}  />
      
 
     }
@@ -178,7 +172,6 @@ handleFormErrorMessage =(e,message = '')=>{
                                           pathname: "/login",
                                           state:{referrer: 'password reset successfully'}
                                           }} />
-                                    // <Link to = '/login'>{t(this.state.loginLink)}</Link>
                                     }
                                     </div>
 

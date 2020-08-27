@@ -5,7 +5,10 @@ import { initReactI18next } from "react-i18next";
 
 import translationEN from './locales/en/translation.json'
 import translationAR from './locales/ar/translation.json'
-
+/*
+ * configuration file of translation 
+ * @see https://medium.com/@ricklee_10931/react-multi-lingual-with-react-i18next-57879f986168
+ */
 const availableLanguages = ["en", "ar"];
 
 //the translations

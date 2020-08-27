@@ -2,19 +2,17 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,HashRouter,
-  Route,
-  Link,NavLink
+  Link
 } from 'react-router-dom'
 
-import { logout, get_volunteer_profile } from '../../repository';
+import { logout} from '../../repository';
 import i18n from "i18next";
 import { useTranslation } from 'react-i18next'
 
 
-
+// menue displayed to authenticate user
 function Auth_user_menu()
-{
+{ // user email to display  in top of page after login
   const userName = localStorage.getItem('user_email')
   const {t} = useTranslation()
   const menuStyle = i18n.dir() === 'rtl'?'pull-left':'pull-right'
@@ -24,19 +22,7 @@ function Auth_user_menu()
       logout();
      
   }
-  // const handleProfile =(e)=>{
-  //   e.preventDefault()
-  //   get_volunteer_profile()
-  //   .then(token => window.location = '/volunteerForm')
-  //   //.then(token =>console.log(token))
-    
-  //   //.catch(err =>alert(err));
-  //   // window.location='/volunteerForm'
-    
-    
-  
-  // }
-  
+
     return(
         <div className="col-md-4">
               <div className="widget no-border m-0">

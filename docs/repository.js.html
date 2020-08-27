@@ -30,14 +30,15 @@
 import axios from 'axios';
 import i18n from 'i18next'
 import { Redirect } from "react-router-dom";
-//import jwtDecode from "jwt-decode";
 import {address} from './components/utils/address'
 
-
-//const BASE_URL =  'https://reqres.in/api/login'
 const tokenKey = 'x-access-token';
 const user_email ='user_email';
-
+/**
+ * This function post ceddential data to API  and set token and  in the local storage 
+ * @param {object} data  user credential data username and password
+ * @return {object} response form API 
+ */
 export function login(data) 
 
 {
@@ -47,6 +48,7 @@ export function login(data)
 
           })
     .then(response => {
+    // set token and email in to local storage
             localStorage.setItem(tokenKey, response.data.token);
             localStorage.setItem(user_email,response.data.email)
             localStorage.setItem('tokenExpired', Date.now() + 1 * 60 * 60 * 1000);
@@ -59,11 +61,13 @@ export function login(data)
 }
     
     
-   
-    /*registration new user*/
+   /**
+         * registration new user
+         * @param {object} data new user data
+         * @return {object} response form API 
+         */
     export function register(data) {
 
-        console.log(data)
         return axios.post(`${address()}users/member/signUp`,
         data
         )
@@ -74,26 +78,11 @@ export function login(data)
         })
             .catch(err =>Promise.reject(err));
         }
-        /**verfication code for  first registration  */
 
-        export function email_verify(data) 
-
-        {
-
-             return axios.post(`${address()}user/verifyUser`, {
-                 //userName: email,
-                 code: data.code 
-        
-                  })
-            .then( response =>{ return response.data
-                
-            
-                        })
-            
-            .catch(err => Promise.reject(err));
-        }
-        /** forget password  step (1) send user email  and save it in local storage*/
-
+        /** forget password   This function call when user forget password  
+         *@param {email} data  user email
+        */
+    
         export function forgotPassword(data) 
         {
 
@@ -106,8 +95,10 @@ export function login(data)
             
             .catch(err => Promise.reject(err));
         }
-        /** verify code step (2) from forgot password  */
-        /**step (3) entering new password and confirm it */
+        /**
+         * This function post new passwor to API
+         * @param {object} data  new password  and token
+         */
 
         export function resetPassword(data) 
 
@@ -130,32 +121,31 @@ export function login(data)
         }     
 
 
-   
+   /**
+    * check if user authorize or not if there is token in to local storage
+    * @return {boolean} return true if found token  , false if token not found
+    */
    export function isAuthenticated()
    {
         return localStorage.getItem(tokenKey) 
        
        
     }
+    /**
+     * This function call when user Logged out its remove Token from Local storage and redirect user to home page
+     */
     export function logout() {
         localStorage.removeItem(tokenKey);
         window.location='/login'
       }
-
-      export function get_volunteer_profile()
-       {
-
-        return axios.get(`${address()}members/`)
-        .then(response => response.data)
-
-            .catch(err => Promise.reject(err));
- 
-
-        }
+   
+/**
+ * this function post volunteer form data to API
+ * @param {object} data  volunteer form data 
+ */
         export function submit_volunteer_data(data) 
         {
             let token = localStorage.getItem(tokenKey)
-            console.log(token)
             return axios.post(`${address()}members`, data,{ 
                 headers:{ 
                             "Authorization":`Bearer ${token}`
@@ -185,13 +175,13 @@ export function login(data)
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Education.html">Education</a></li></ul><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#About_">About_</a></li><li><a href="global.html#email_verify">email_verify</a></li><li><a href="global.html#forgotPassword">forgotPassword</a></li><li><a href="global.html#resetPassword">resetPassword</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="About_.html">About_</a></li><li><a href="AllMedia.html">AllMedia</a></li><li><a href="Become.html">Become</a></li><li><a href="Calendar.html">Calendar</a></li><li><a href="Contact.html">Contact</a></li><li><a href="Donate.html">Donate</a></li><li><a href="Education.html">Education</a></li><li><a href="Event.html">Event</a></li><li><a href="Feeding.html">Feeding</a></li><li><a href="Health.html">Health</a></li><li><a href="Home.html">Home</a></li><li><a href="Hub_Subhubs.html">Hub_Subhubs</a></li><li><a href="Hubs.html">Hubs</a></li><li><a href="LanguageSelector.html">LanguageSelector</a></li><li><a href="Login.html">Login</a></li><li><a href="News.html">News</a></li><li><a href="Numbers.html">Numbers</a></li><li><a href="Parteners.html">Parteners</a></li><li><a href="Photo.html">Photo</a></li><li><a href="Projects.html">Projects</a></li><li><a href="ProjectSlider.html">ProjectSlider</a></li><li><a href="SingleSubhub.html">SingleSubhub</a></li><li><a href="SinglEvent.html">SinglEvent</a></li><li><a href="SinglProject2.html">SinglProject2</a></li><li><a href="VolunteerForm.html">VolunteerForm</a></li><li><a href="Volunteers.html">Volunteers</a></li><li><a href="Water.html">Water</a></li></ul><h3>Global</h3><ul><li><a href="global.html#address">address</a></li><li><a href="global.html#forgotPassword">forgotPassword</a></li><li><a href="global.html#getMonthName">getMonthName</a></li><li><a href="global.html#getNumber">getNumber</a></li><li><a href="global.html#getNumberWithComma">getNumberWithComma</a></li><li><a href="global.html#isAuthenticated">isAuthenticated</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#Precision">Precision</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#PubliceRoute">PubliceRoute</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#resetPassword">resetPassword</a></li><li><a href="global.html#submit_volunteer_data">submit_volunteer_data</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sun Aug 23 2020 12:37:38 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Thu Aug 27 2020 05:40:37 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -1,10 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import i18n from  'i18next'
 
 function Footer() {
   const { t } = useTranslation();
+  /**
+   * this component display footer section appear in each page 
+   * @component
+   */
 
   return (
     <React.Fragment>
@@ -19,12 +23,7 @@ function Footer() {
           <div className="row border-bottom-black">
             <div className="col-sm-6 col-md-3">
               <div className="widget dark">
-                {/* <div class = "thumbs">
-                <img class="" alt="" src={logo} />
-                </div> */}
                 <h2 className="text-white pb-0">{t("SADAGAAT")}</h2>
-                {/* <span className="text-white">{t("Community of Charity")}</span>
-                <p>{t("Nonprofit Organization Located in Sudan.")}</p> */}
                 <h4 
                 className="text-white text-decoration-inline">
                   
@@ -42,11 +41,6 @@ function Footer() {
                       <i className="fa fa-facebook" />
                     </a>
                   </li>
-                  {/* <li>
-                    <Link to="#">
-                      <i className="fa fa-twitter" />
-                    </Link>
-                  </li> */}
                   <li>
                     <a
                       href="http://twitter.com/sadagaat "
@@ -55,11 +49,6 @@ function Footer() {
                       <i className="fa fa-twitter" />
                     </a>
                   </li>
-                  {/* <li>
-                    <Link to="#">
-                      <i className="fa fa-instagram" />
-                    </Link>
-                  </li> */}
                   <li>
                     <a
                       href="http://www.linkedin.com/pub/sadagaat-sudan/54/431/5b7"
@@ -113,11 +102,6 @@ function Footer() {
               <div className="widget dark">
                 <h5 className="widget-title line-bottom">{t("Contact Us")}</h5>
                 <ul className="list angle-double-right list-border">
-                  {/* <li>
-                    {" "}
-                    <i className="fa fa-phone text-theme-colored" />
-                    123-456-789
-                  </li> */}
                   <li>
                     {" "}
                     <i className="fa fa-phone text-theme-colored" />{i18n.dir()=== 'rtl'?'249910010077+':'+249910010077'}

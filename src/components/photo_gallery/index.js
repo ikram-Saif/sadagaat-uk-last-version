@@ -8,6 +8,11 @@ import dates from "../images/dates.jpg";
 import blood from "../images/blood.jpg";
 import LazyLoad from 'react-lazyload';
 
+
+/**
+ * This component display Photo Gallery in home page
+ * @component
+ */
 function Photo() {
   const { t } = useTranslation();
 

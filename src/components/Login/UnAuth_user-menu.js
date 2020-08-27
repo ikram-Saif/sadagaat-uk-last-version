@@ -8,15 +8,10 @@ import {
 import { useTranslation } from 'react-i18next'
 
 
-
+// what menue diaplay for un Authorize user login/register button
 function UnAuth_user_menu(){
   const {t} = useTranslation()
 
-    // const handleClick =(e)=>{
-    //   e.preventDefault();
-    //     window.location = '/login'
-
-    //   }
   
     return(
 
@@ -28,7 +23,6 @@ function UnAuth_user_menu(){
                   <Link to ='/login'>
                 <button 
                   className="btn btn-default btn-flat btn-xs bg-light p-5 font-11 pl-10 pr-10 no-border" 
-                  // onClick ={handleClick}
                 >
                   
                   {t('Login/Register')}</button>

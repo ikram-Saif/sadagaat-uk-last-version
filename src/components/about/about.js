@@ -6,7 +6,8 @@ import i18n from 'i18next'
 /*** translation backage */
 import { useTranslation } from "react-i18next";
 /**
- * about function return about sadagaat page includes ( About Sadagaat section  ,vision , mission value , parteners)  when you visit url /abut  
+ * about function showing about sadagaat page includes ( About Sadagaat section  ,vision , mission value , parteners) 
+ * @component 
  * @see http://sadagaat-uk.org/about
  */
 function About() {

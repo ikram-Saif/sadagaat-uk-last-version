@@ -4,14 +4,17 @@ import address from '../utils/address';
 import axios from 'axios';
 import i18n from 'i18next'
 import  {withTranslation}  from 'react-i18next'
-import { CircularProgressbar , buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {Link } from 'react-router-dom'
-import {getNumberWithComma  , Precision, getNumber} from '../events/getMonthName'
+import {Precision, getNumber} from '../events/getMonthName'
 import ReactPaginate from 'react-paginate'
 import parse from 'html-react-parser';
 
-
+/**
+ * This comoponent display subHub information  and Project related to this subhub
+ * @component 
+ * @see http://sadagaat-uk.org/single-subhub/1849
+ */
 
 class SingleSubhub extends Component {
 
@@ -26,9 +29,13 @@ class SingleSubhub extends Component {
       postsPerPage:6
       }
 }
+/**
+ * Get shub information from APIs
+ * Get Projects that related to specific subhub
+ */
 
 async componentDidMount(){
-
+    //  Get id of subhub from url
     let id = this.props.match.params.subhub_id
 
     await axios.get(`${address()}subHubs/${id}`,{headers: {'accept-language': `${i18n.language}`}})
@@ -55,7 +62,9 @@ async componentDidMount(){
     })
   
 }
-
+/**
+ * Function call when change props Like  switch language 
+ */
   async componentWillReceiveProps(){
 
   let id = this.props.match.params.subhub_id
@@ -145,9 +154,6 @@ render()
                                     
                                     <div class="mt-10 mb-20">
                                     <ul class="list-inline clearfix mt-10">
-                                      {/* <li class="text-theme-colored pull-left flip pr-0 font-weight-700 font-14"> 
-                                      {t("Total Donation")}: 
-                                       <span> {subhub.total_donation}</span></li> */}
                                       <li class="text-theme-colored pull-right flip pr-0">
                                         
                                       </li>
@@ -175,7 +181,7 @@ render()
     </div>
      <br />
               
-                
+                {/* Projects related to subhub */}
               
      <div className="row multi-row-clearfix">
           <div className="blog-posts">
@@ -197,28 +203,6 @@ render()
                       width = '390'
                       height = '260'  />
                   </div>
-              
-              {/* <div style={{maxWidth: "15%", left:"25px", top:"8px", position: "absolute", rotation: 1 / 2 + 1 / 8}}>
-
-              <CircularProgressbar
-                value={project.projectProgress}
-                text={`${project.projectProgress}%`}
-                background
-                backgroundPadding={6}
-                    styles={buildStyles({
-                      rotation: 0.25,
-                      strokeLinecap: "butt",
-                      textSize: "26",
-                      pathTransitionDuration: 0.5,
-                      backgroundColor: "#066993",
-                      textColor: "#fff",
-                      pathColor: "#fff",
-                      trailColor: "transparent"
-
-                    })}
-              />  
-              
-            </div> */}
             <div className="causes-details clearfix p-10 pt-15 pb-15">
                 <ul className="list-inline font-14 font-weight-600 clearfix mb-5">
                   <li className="pull-left font-weight-400 text-black-333 pr-0">

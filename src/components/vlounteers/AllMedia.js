@@ -4,7 +4,11 @@ import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import ReactPlayer from 'react-player'
 
-
+/**
+ * This Component put voulenteers Videos and images in one array and display carousal of both images and vedios
+ * @param {props} props array of voulenteer s images and videos
+ * @component
+ */
 const AllMedia =(props)=>{
 const [allMedia , setAllMedia] = useState([])
 const propsImages = props.images
@@ -15,8 +19,8 @@ const propsvideos = props.videos
     fillMediaArray(propsImages , propsvideos )
  
       } , [props])
-/**this function call after componentDidMount to join two videos and images in one array, and add new attribute type 'image'/'video'   */
-   /**
+/**
+ * This function join videos array and images  array in one array, and add new attribute type 'image'/'video'  
     * 
     */
  const fillMediaArray =(propsImages, propsvideos)=>{
@@ -24,7 +28,7 @@ const propsvideos = props.videos
         let videos = propsvideos
         let allMedia = []
 
-//     /**fill array with default Image if its not null */
+// fill allMedia array with  Image if its not empty
 
 
     if(images.length > 0 )
@@ -39,7 +43,8 @@ const propsvideos = props.videos
       
       })
     }
-    
+    // fill allMedia array with  videos if its not empty
+
     if(videos.length > 0)
     {
         videos.map((video) =>{
@@ -53,14 +58,13 @@ const propsvideos = props.videos
     })
   }
   setAllMedia(allMedia)
-  console.log(allMedia)
  }
    
     return (
                  <div class="blog-posts single-post">
                   <article class="post clearfix mb-0">
                     <div class="entry-header">
-                       {/**check if  all media has image other than default image */}
+                       {/**check if  all media length */}
                      {allMedia.length > 0? 
                      (<Carousel  
                           slidesPerScroll={1}

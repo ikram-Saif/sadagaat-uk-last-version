@@ -7,11 +7,12 @@ import { useTranslation } from 'react-i18next';
 import Hub_Subhubs from './hub_subHubs'
 
 /**
- * This function display Education Hub Information (with arabic and english) such as Image , name , discription , 
- * buton for donate to education hub and subHubs or (sub sectors) related to this hub
+ * This component of display Education Hub Information such as Image , name , discription , 
  * @component
+ * @see http://sadagaat-uk.org/education
  */
 const Education =()=>{
+
   const [education, seteducation ] = useState([])
   /**function for translation */
   const {t} = useTranslation()
@@ -28,10 +29,10 @@ const Education =()=>{
 
 
     /**
-     * This function get education hub information from server  
-     * http header 
-     * accept Language: ar Or en 
+     * This function return education hub information returned by the API 
+     * @return {object} education hub returned by the API
      */
+  
   async function eduHub() {
 
     const fetcher = await window.fetch(`${address()}hubs/1738`,{headers: {'accept-language': `${i18n.language}`}})

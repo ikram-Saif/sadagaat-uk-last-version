@@ -3,8 +3,9 @@ import { useTranslation } from "react-i18next";
 import { Link , withRouter } from "react-router-dom";
 
 /**
- *  return about Sadagaat  Section in the home page 
- * @param {props} props  get location of page from props
+ *  this component shwing about Sadagaat  Section in the home page 
+ * @param {object} props   location of page from props
+ * @component
  */
 function About_(props){
   const {t ,i18n} = useTranslation()

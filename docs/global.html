@@ -104,7 +104,7 @@
     
 
     
-    <h4 class="name" id="About"><span class="type-signature"></span>About<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="address"><span class="type-signature"></span>address<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
     
 
     
@@ -112,7 +112,7 @@
 
 
 <div class="description">
-    <p>about function return about sadagaat page includes ( About Sadagaat section  ,vision , mission value , parteners)  when you visit url /abut</p>
+    <p>This function return  address of Server</p>
 </div>
 
 
@@ -156,19 +156,12 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_about_about.js.html">components/about/about.js</a>, <a href="components_about_about.js.html#line12">line 12</a>
+        <a href="components_utils_address.js.html">components/utils/address.js</a>, <a href="components_utils_address.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
     
 
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="http://sadagaat-uk.org/about">http://sadagaat-uk.org/about</a></li>
-        </ul>
-    </dd>
     
 
     
@@ -188,8 +181,35 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>ip of server</p>
+</div>
 
 
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>"http://142.4.15.252:9090/api/v1/"</code></pre>
 
 
 
@@ -199,7 +219,7 @@
     
 
     
-    <h4 class="name" id="About_"><span class="type-signature"></span>About_<span class="signature">(props)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="forgotPassword"><span class="type-signature"></span>forgotPassword<span class="signature">(data)</span><span class="type-signature"></span></h4>
     
 
     
@@ -207,7 +227,7 @@
 
 
 <div class="description">
-    <p>return about Sadagaat  Section in the home page</p>
+    <p>forget password   This function call when user forget password</p>
 </div>
 
 
@@ -243,13 +263,13 @@
 
         <tr>
             
-                <td class="name"><code>props</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">props</span>
+<span class="param-type">email</span>
 
 
             
@@ -259,7 +279,7 @@
 
             
 
-            <td class="description last"><p>get location of page from props</p></td>
+            <td class="description last"><p>user email</p></td>
         </tr>
 
     
@@ -300,7 +320,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_about_index.js.html">components/about/index.js</a>, <a href="components_about_index.js.html#line9">line 9</a>
+        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -336,7 +356,7 @@
     
 
     
-    <h4 class="name" id="email_verify"><span class="type-signature"></span>email_verify<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="getMonthName"><span class="type-signature"></span>getMonthName<span class="signature">(d)</span><span class="type-signature"></span></h4>
     
 
     
@@ -344,7 +364,498 @@
 
 
 <div class="description">
-    <p>verfication code for  first registration</p>
+    <p>This function convert event month from number to month name</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>d</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">date</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>event date</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_events_getMonthName.js.html">components/events/getMonthName.js</a>, <a href="components_events_getMonthName.js.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://www.w3schools.com/JSREF/jsref_tolocalestring.asp">https://www.w3schools.com/JSREF/jsref_tolocalestring.asp</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>name of month</p>
+</div>
+
+
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>month = Aug</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getNumber"><span class="type-signature"></span>getNumber<span class="signature">(num)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>This function add comma to long number</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>num</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>long number 123456789</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_events_getMonthName.js.html">components/events/getMonthName.js</a>, <a href="components_events_getMonthName.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://www.w3schools.com/JSREF/jsref_tolocalestring.asp">https://www.w3schools.com/JSREF/jsref_tolocalestring.asp</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>123,456,789</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getNumberWithComma"><span class="type-signature"></span>getNumberWithComma<span class="signature">(num)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>This function add comma to long number  and add Curency to number</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>num</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>long number 123456789</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_events_getMonthName.js.html">components/events/getMonthName.js</a>, <a href="components_events_getMonthName.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://www.w3schools.com/JSREF/jsref_tolocalestring.asp">https://www.w3schools.com/JSREF/jsref_tolocalestring.asp</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>123,456,789  SDG</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isAuthenticated"><span class="type-signature"></span>isAuthenticated<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>check if user authorize or not if there is token in to local storage</p>
 </div>
 
 
@@ -388,7 +899,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line51">line 51</a>
+        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line100">line 100</a>
     </li></ul></dd>
     
 
@@ -413,6 +924,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>return true if found token  , false if token not found</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -424,7 +957,7 @@
     
 
     
-    <h4 class="name" id="forgotPassword"><span class="type-signature"></span>forgotPassword<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">(data)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
 
     
@@ -432,7 +965,166 @@
 
 
 <div class="description">
-    <p>forget password  step (1) send user email  and save it in local storage</p>
+    <p>This function post ceddential data to API  and set token and  in the local storage</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>user credential data username and password</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>response form API</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="logout"><span class="type-signature"></span>logout<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>This function call when user Logged out its remove Token from Local storage and redirect user to home page</p>
 </div>
 
 
@@ -476,7 +1168,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line69">line 69</a>
+        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line109">line 109</a>
     </li></ul></dd>
     
 
@@ -512,7 +1204,7 @@
     
 
     
-    <h4 class="name" id="resetPassword"><span class="type-signature"></span>resetPassword<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Precision"><span class="type-signature"></span>Precision<span class="signature">(percentage)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -520,8 +1212,170 @@
 
 
 <div class="description">
-    <p>step (3) entering new password and confirm it</p>
+    <p>This functio get three number ofter comma 12,123456777777</p>
 </div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>percentage</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>long number</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_events_getMonthName.js.html">components/events/getMonthName.js</a>, <a href="components_events_getMonthName.js.html#line51">line 51</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>12,123</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="PrivateRoute"><span class="type-signature"></span>PrivateRoute<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
 
 
 
@@ -564,7 +1418,538 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line84">line 84</a>
+        <a href="components_menu_bar_privateRoute.jsx.html">components/menu_bar/privateRoute.jsx</a>, <a href="components_menu_bar_privateRoute.jsx.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://stackoverflow.com/questions/43484302/what-does-it-mean-rest-in-react-jsx">https://stackoverflow.com/questions/43484302/what-does-it-mean-rest-in-react-jsx</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="PubliceRoute"><span class="type-signature"></span>PubliceRoute<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_menu_bar_PublicRoute.js.html">components/menu_bar/PublicRoute.js</a>, <a href="components_menu_bar_PublicRoute.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://stackoverflow.com/questions/43484302/what-does-it-mean-rest-in-react-jsx">https://stackoverflow.com/questions/43484302/what-does-it-mean-rest-in-react-jsx</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="register"><span class="type-signature"></span>register<span class="signature">(data)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>registration new user</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>new user data</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>response form API</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="resetPassword"><span class="type-signature"></span>resetPassword<span class="signature">(data)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>This function post new passwor to API</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>new password  and token</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line75">line 75</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="submit_volunteer_data"><span class="type-signature"></span>submit_volunteer_data<span class="signature">(data)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>this function post volunteer form data to API</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>volunteer form data</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="repository.js.html">repository.js</a>, <a href="repository.js.html#line118">line 118</a>
     </li></ul></dd>
     
 
@@ -610,13 +1995,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Education.html">Education</a></li></ul><h3>Global</h3><ul><li><a href="global.html#About">About</a></li><li><a href="global.html#About_">About_</a></li><li><a href="global.html#email_verify">email_verify</a></li><li><a href="global.html#forgotPassword">forgotPassword</a></li><li><a href="global.html#resetPassword">resetPassword</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="About_.html">About_</a></li><li><a href="AllMedia.html">AllMedia</a></li><li><a href="Become.html">Become</a></li><li><a href="Calendar.html">Calendar</a></li><li><a href="Contact.html">Contact</a></li><li><a href="Donate.html">Donate</a></li><li><a href="Education.html">Education</a></li><li><a href="Event.html">Event</a></li><li><a href="Feeding.html">Feeding</a></li><li><a href="Health.html">Health</a></li><li><a href="Home.html">Home</a></li><li><a href="Hub_Subhubs.html">Hub_Subhubs</a></li><li><a href="Hubs.html">Hubs</a></li><li><a href="LanguageSelector.html">LanguageSelector</a></li><li><a href="Login.html">Login</a></li><li><a href="News.html">News</a></li><li><a href="Numbers.html">Numbers</a></li><li><a href="Parteners.html">Parteners</a></li><li><a href="Photo.html">Photo</a></li><li><a href="Projects.html">Projects</a></li><li><a href="ProjectSlider.html">ProjectSlider</a></li><li><a href="SingleSubhub.html">SingleSubhub</a></li><li><a href="SinglEvent.html">SinglEvent</a></li><li><a href="SinglProject2.html">SinglProject2</a></li><li><a href="VolunteerForm.html">VolunteerForm</a></li><li><a href="Volunteers.html">Volunteers</a></li><li><a href="Water.html">Water</a></li></ul><h3>Global</h3><ul><li><a href="global.html#address">address</a></li><li><a href="global.html#forgotPassword">forgotPassword</a></li><li><a href="global.html#getMonthName">getMonthName</a></li><li><a href="global.html#getNumber">getNumber</a></li><li><a href="global.html#getNumberWithComma">getNumberWithComma</a></li><li><a href="global.html#isAuthenticated">isAuthenticated</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#logout">logout</a></li><li><a href="global.html#Precision">Precision</a></li><li><a href="global.html#PrivateRoute">PrivateRoute</a></li><li><a href="global.html#PubliceRoute">PubliceRoute</a></li><li><a href="global.html#register">register</a></li><li><a href="global.html#resetPassword">resetPassword</a></li><li><a href="global.html#submit_volunteer_data">submit_volunteer_data</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Sun Aug 23 2020 12:37:38 GMT+0200 (Eastern European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.5</a> on Thu Aug 27 2020 05:40:38 GMT+0200 (Eastern European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

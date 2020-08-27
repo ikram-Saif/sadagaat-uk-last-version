@@ -7,6 +7,11 @@ import i18n from "i18next";
 import { useTranslation } from "react-i18next";
 import {getMonthName} from './getMonthName'
 
+/**
+ * This function showing last 3 events and lase 3 news n the home Page 
+ * @component
+ * @see http://sadagaat-uk.org/
+ */
 function Event() {
   const [news, setNews] = useState([]);
   const [events, setEvent] = useState([]);
@@ -16,12 +21,18 @@ function Event() {
   
  
   const { t } = useTranslation();
+  /**  useEffect call fetchNews() , fetchNews() functions to get all news and events  when component mounted or  when recived props 
+*/
 
   useEffect(() => {
       fetchNews();
-      fetcEvents();
+      fetchNews();
   }
  , [i18n.language]);
+ /**
+  * This function get News from APIs and set the last three News 
+  * @return {Array} array of News returned by APIs
+  */
 
   async function fetchNews() {
     const fetcher = await window.fetch(`${address()}news`, {
@@ -30,6 +41,10 @@ function Event() {
     const response = await fetcher.json();
     setNews(response.slice(-3));
   }
+ /**
+  * This function get Events from APIs and set the last three News 
+  * @return {Array} array of events returned by APIs
+  */
 
   async function fetcEvents() {
     const fetcher = await window.fetch(`${address()}events`, {
@@ -114,7 +129,6 @@ function Event() {
                               src={`${address()}news/${news_.id}/image`}
                               alt="News"
                               height="250px"
-                              // width="250px"
                             />
                           </div>
                           <div className="col-md-7">
@@ -125,8 +139,7 @@ function Event() {
                             <p className = "project-discription">{news_.description}</p>
                             <Link
                               className="btn btn-theme-colored btn-sm"
-                              to={'/news/'+news_.id}
-                            >
+                              to={'/news/'+news_.id}>
                               {t("Read More")}
                             </Link>
                           </div>

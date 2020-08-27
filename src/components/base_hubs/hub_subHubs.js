@@ -1,24 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react';
-
-import Header from '../sub_page_header';
 import address from './../utils/address';
-import Pagination from './../pagination';
 import{Link} from 'react-router-dom'
 import 'react-circular-progressbar/dist/styles.css';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import ReactPaginate from 'react-paginate'
 
+/**
+ * This component showing all Sub Hubs related to specific hub
+ * @component
+ * @param {object} props  props recived from specific hub 
+ *  @example @see http://sadagaat-uk.org/water
+ */
 
 const Hub_Subhubs = (props)=>{
 
   const [subhub, setSubhubs] = useState([])
   const [offset ,setOffset]= useState(0)
   const [currentPage, setCurrentPage] = useState(1);
+  // how meny subhubs dispaly per page 
   const [postsPerPage] = useState(6);
   const hubId = props.hubId
   const {t} = useTranslation()
 
+ /**  useEffect call SubHubs() function when component mounted or  when recived props 
+*/
   useEffect(() => {
     
     SubHubs()
@@ -26,18 +32,26 @@ const Hub_Subhubs = (props)=>{
       } , [props])
 
 
+      
+/**
+     * This function return All SubHubs returned by the API 
+     * @return {Array} array  of subhubs returned by the API
+*/
        async function SubHubs() {
          const fetcher = await window.fetch(`${address()}subHubs`,{headers: {'accept-language': `${i18n.language}`}})
          const response = await fetcher.json()
+         /**
+          * const filteredSubhubs = array  of  all sub hubs with specific hub
+          * its filter the subhubs returned from an APIS when subhub.hubId === hubId
+          */
          const filteredSubhubs = response.filter((subhub) => subhub.hubId === hubId)
          setSubhubs(filteredSubhubs)
-         console.log(filteredSubhubs)
        }
 
-  // Get current posts
+  // Get current subhubs  for pagination module
 const currentPosts = subhub.slice(offset , offset + postsPerPage);
 
-// Change page
+// Change page paginate change current page of pagenation  and change the value of offset
 const paginate = (e) => {
   setCurrentPage(e.selected)
   setOffset(e.selected * postsPerPage)
@@ -89,6 +103,7 @@ return(
      
      
 </div>
+{/* // pagination doesnt appear untile the subhubs length being more than 6  postPerPage */}
 {subhub.length > postsPerPage &&(
       <div style = {{position:'absolute',bottom:'0%'}}>
 

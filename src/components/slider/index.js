@@ -3,7 +3,6 @@ import { Slide } from "react-slideshow-image";
 import slide1 from "../images/slide 1.jpg";
 import slide2 from "../images/slide 2.jpg";
 import slide3 from "../images/slide 3.jpg";
-//import work from "../images/work.jpg";
 import slide4 from "../images/slide 4.jpg"
 import slide5 from "../images/slide 5.jpg"
 import {Link } from 'react-router-dom'

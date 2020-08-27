@@ -1,5 +1,5 @@
 import React, { useEffect , Suspense } from "react";
-import { Switch, Route , BrowserRouter } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Preload from "./components/preload";
 import { useTranslation } from "react-i18next";
 
@@ -11,8 +11,7 @@ import Home  from  "./components/home";
 const Contact  = React.lazy(() => import( "./components/contact"));
 const About  = React.lazy(() => import( "./components/about/about.js"));
 const Projects_  = React.lazy(() => import( "./components/projects/projects"));
-const Sub_hubs  = React.lazy(() => import( "./components/sub_hubs"));
-const Calendar  = React.lazy(() => import( "./components/calendar"));
+const Calendar  = React.lazy(() => import( "./components/events/eventsCalender"));
 const Feeding  = React.lazy(() => import( "./components/base_hubs/Feeding"));
 const Education  = React.lazy(() => import( "./components/base_hubs/education"));
 const Health  = React.lazy(() => import( "./components/base_hubs/health"));
@@ -21,7 +20,6 @@ const News  = React.lazy(() => import( "./components/news/index"));
 const Login  = React.lazy(() => import( "./components/Login/Login"));
 const ForgotPassword  = React.lazy(() => import( "./components/Login/Forgot_Password"));
 const RestPassword  = React.lazy(() => import( "./components/Login/Reset_password"));
-const Email_verification  = React.lazy(() => import( "./components/Login/email_verfication"));
 const VolunteerForm  = React.lazy(() => import( "./components/vlounteers/VolunteerForm"));
 const Donate  = React.lazy(() => import( "./components/Donation/donate"));
 const DonateToProject  = React.lazy(() => import( "./components/Donation/DonateToProject"));
@@ -113,7 +111,6 @@ function App (){
         />
 
         
-        <Route exact path="/sub_hubs" component={Sub_hubs} />
         <Route exact path="/projects/:project_id" component={DonateToProject} />
         <Route exact path="/sub_hubs/:subhub_id" component={DonateToSubhub} />
         <Route exact path="/hub/:hubId" component={DonateToHub} />
@@ -124,7 +121,6 @@ function App (){
         <Route exact path="/registration" component={Registration} />
         <Route exact path="/forgot_password" component={ForgotPassword} />
         <Route exact path="/reset-password/:token" component={RestPassword} />
-        <Route exact path="/verify" component={Email_verification} />
        
         <Route
           exact

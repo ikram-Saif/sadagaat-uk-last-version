@@ -7,12 +7,19 @@ import {animateScroll as scroll } from "react-scroll";
 import i18n from 'i18next'
 import  {withTranslation}  from 'react-i18next'
 
+/**
+ * This component showing contact page with contact form request , also imbedded map of sadagaat location
+ * @component
+ * @see http://sadagaat-uk.org/contact
+ */
+
+
 class Contact extends Component{
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { 
-
+// contact form 
         form:{
               name:'',
               email:'',
@@ -20,9 +27,7 @@ class Contact extends Component{
               subject: '',
               message:'',
         },
-        contactInfo:{
-
-        },
+      // response message that return after post form of check validation of text Area
         response:{
           EmptyMessageError:'',
           responseMessage:'',
@@ -31,8 +36,16 @@ class Contact extends Component{
         }
     }
 
-    const {t} = this.props
   }
+
+  /**
+ * This function validate from and return custom message fill this field
+ * @param {object} e event of input 
+ * @param {string} message that return from handleFormErrorMessage 
+ * @returns {'fill this field'} custom message
+ * @see http://sadagaat-uk.org/contact
+ * @see  https://stackoverflow.com/questions/51675169/html5-input-validation-with-custom-message
+ */
 
   handleFormErrorMessage =(e,message = '')=>{
     const {t} = this.props
@@ -44,6 +57,11 @@ class Contact extends Component{
     e.target.setCustomValidity(message)
       
     }
+    /**
+     * this function set the value of input form in the state
+     * @param {object} e  event from input field
+     * @example name:'ahmed'
+     */
 
    handleChange = (e)=> 
    {
@@ -56,14 +74,19 @@ class Contact extends Component{
       
       })
   }
+  /**
+   * this fuction handle submit button in contact form its post form content to API 
+   * and validate textArea input if its empty or not using  matc function 
+   * @param {object} e event of submit button 
+   * @returns void fill the response state message 
+   */
    
    handleSubmit = (e) => 
-   {    
+   {  
+     // prevent defalut behaviour of submmit button (reload page )  
      e.preventDefault();
         var myTxtArea = document.getElementById('message').value;
-        // var patt = /[^[^\s].+[^\s]$]/
-        // var result = patt.test(myTxtArea);
-        //var result = (myTxtArea.match(/\S+/) | myTxtArea.match(/\n+/))
+// validate textArea if its not empty post form to API
         if(myTxtArea.match(/\S+/)){
           axios.post(`${address()}feedBacks`,
 
@@ -96,6 +119,7 @@ class Contact extends Component{
 
     });
         }
+        // if textAre form empty fill state response with  error message 
         else {
           this.setState({
             response:{
@@ -112,6 +136,7 @@ class Contact extends Component{
    
    render(){
       const {t} = this.props
+      //  imbedded map check page direction
       const mapUrl = i18n.dir() ==='rtl'?
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1921.6539280914353!2d32.54498805807791!3d15.575192081993727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x168e91da784579c7%3A0x5c0c21eeb61695d5!2z2YXZhti42YXYqSDYtdiv2YLYp9iqINin2YTYrtmK2LHZitip!5e0!3m2!1sar!2s!4v1589980879108!5m2!1sar!2s"
       :
@@ -194,6 +219,7 @@ class Contact extends Component{
 
                 <div className="row">
                   <div className="col-sm-6">
+                    {/* { start contact form } */}
                     <div className="form-group required">
 
                       <label>{t('name')}</label>
@@ -237,7 +263,6 @@ class Contact extends Component{
                   <div className="col-sm-6">
                     <div className="form-group">
                       <label>{t('Subject')}</label>
-
                       <input 
                           name="subject" 
                           className="form-control " 
@@ -305,11 +330,13 @@ class Contact extends Component{
                  </button>
                 </div>
               </form>
-              {/* Contact Form Validation*/}
+              {/*  End Contact Form */}
             </div>
           </div>
         </div>
-      </section><section>
+      </section>
+      {/* {map section} */}
+      <section>
         <div className="container-fluid pt-0 pb-0">
           <div className="row">
             <div className="mapouter"><div className="gmap_canvas">

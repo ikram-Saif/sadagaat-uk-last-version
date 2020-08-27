@@ -1,8 +1,13 @@
 import React from 'react';
 import {Link , withRouter} from 'react-router-dom'
-import  i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 
+/**
+ * This component showing becom a volunteer section this section hide from volunteerForm page
+ * @component
+ * @param {object} props  PathName  of the page 
+ * @see http://sadagaat-uk.org
+ */
 
 
 function Become(props){
