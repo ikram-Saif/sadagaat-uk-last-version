@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Hub_Subhubs</title>
+    <title>JSDoc: Class: SinglNews</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Hub_Subhubs</h1>
+    <h1 class="page-title">Class: SinglNews</h1>
 
     
 
@@ -28,7 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Hub_Subhubs<span class="signature">(props)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>SinglNews<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>This component return Single News page with carousal of media</p></div>
         
     
 </header>
@@ -39,74 +41,23 @@
         
 
     
-
-    
-    <h4 class="name" id="Hub_Subhubs"><span class="type-signature"></span>new Hub_Subhubs<span class="signature">(props)</span><span class="type-signature"></span></h4>
+    <h2>Constructor</h2>
     
 
     
-
-
-
-<div class="description">
-    <p>This component showing all Sub Hubs related to specific hub</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
+    <h4 class="name" id="SinglNews"><span class="type-signature"></span>new SinglNews<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
-        <tr>
-            
-                <td class="name"><code>props</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
 
 
-            
-            </td>
 
-            
 
-            
 
-            <td class="description last"><p>props recived from specific hub</p></td>
-        </tr>
 
-    
-    </tbody>
-</table>
+
+
 
 
 
@@ -142,12 +93,19 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_base_hubs_hub_subHubs.js.html">components/base_hubs/hub_subHubs.js</a>, <a href="components_base_hubs_hub_subHubs.js.html#line16">line 16</a>
+        <a href="components_news_single-news.js.html">components/news/single-news.js</a>, <a href="components_news_single-news.js.html#line19">line 19</a>
     </li></ul></dd>
     
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://sadagaat-uk.org/news/2728">http://sadagaat-uk.org/news/2728</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -169,11 +127,6 @@
 
 
 
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>@see http://sadagaat-uk.org/water</code></pre>
 
 
 
@@ -193,6 +146,135 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="fillMediaArray"><span class="type-signature"></span>fillMediaArray<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>this function  join two video and image arrays in one array, and add new attribute type 'image'/'video'</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_news_single-news.js.html">components/news/single-news.js</a>, <a href="components_news_single-news.js.html#line68">line 68</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="setTranslationData"><span class="type-signature"></span>setTranslationData<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>this function looping through translation array and return news when local attribute equals selected language en | ar
+you can get user selected language call  i18n.language props</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_news_single-news.js.html">components/news/single-news.js</a>, <a href="components_news_single-news.js.html#line116">line 116</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -203,7 +285,7 @@
     
 
     
-    <h4 class="name" id="~SubHubs"><span class="type-signature">(async, inner) </span>SubHubs<span class="signature">()</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="componentDidMount"><span class="type-signature">(async) </span>componentDidMount<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -211,7 +293,7 @@
 
 
 <div class="description">
-    <p>This function return All SubHubs returned by the API</p>
+    <p>get the news from ApIs</p>
 </div>
 
 
@@ -255,7 +337,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_base_hubs_hub_subHubs.js.html">components/base_hubs/hub_subHubs.js</a>, <a href="components_base_hubs_hub_subHubs.js.html#line40">line 40</a>
+        <a href="components_news_single-news.js.html">components/news/single-news.js</a>, <a href="components_news_single-news.js.html#line34">line 34</a>
     </li></ul></dd>
     
 
@@ -280,28 +362,94 @@
 
 
 
-<h5>Returns:</h5>
+
+
+
+
 
         
-<div class="param-desc">
-    <p>array  of subhubs returned by the API</p>
+            
+
+    
+
+    
+    <h4 class="name" id="componentWillReceiveProps"><span class="type-signature">(async) </span>componentWillReceiveProps<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>When component recive props Like Language props its re call setTranslation function</p>
 </div>
 
 
 
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Array</span>
 
 
-    </dd>
-</dl>
+
+
+
+
+
+
+
+
+<dl class="details">
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_news_single-news.js.html">components/news/single-news.js</a>, <a href="components_news_single-news.js.html#line59">line 59</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
