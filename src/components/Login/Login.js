@@ -6,12 +6,13 @@ import { Link  } from 'react-router-dom';
 import  {withTranslation}  from 'react-i18next'
 import i18n from 'i18next'
 import 'react-notifications/lib/notifications.css';
-import {NotificationManager,NotificationContainer} from 'react-notifications';
-import ReactNotification from 'react-notifications-component'
-import 'react-notifications-component/dist/theme.css'
-import { store } from 'react-notifications-component';
 import NotificationSystem from 'react-notification-system';
-import $ from "jquery";
+
+/**
+ * This Component display Login page 
+ * @component
+ * @see http://sadagaat-uk.org/login
+ */
 class Login extends Component{
   notificationSystem = React.createRef();
 
@@ -28,23 +29,10 @@ class Login extends Component{
 
             componentDidMount(){
               const {t , history} = this.props
-
+                // To show notiication with state in the props that state returd after successful reset passwoed
               if (this.props.location.state !== undefined) {
               let successPassworddReset  =  this.props.location.state.referrer 
-             // NotificationManager.success(successPassworddReset);
-              // alert(successPassworddReset)
-              // store.addNotification({
-              //   title:'',
-              //    message: t(successPassworddReset),
-              //   type: "success",
-              //   insert: "center",
-              //   container: "top-center",
-              //   animationIn: ["animated", "fadeIn"],
-              //   animationOut: ["animated", "fadeOut"],
-              //   dismiss: false,
-              //   // width:700,
-              //   className:"success-msg"
-              // });
+             
               const notification = this.notificationSystem.current;
                   notification.addNotification({
                     title: t('Reset Password'),
@@ -59,38 +47,30 @@ class Login extends Component{
             }
           
              }
-             componentDidUpdate(){
-              const {t , history} = this.props
-              if (this.props.location.state !== undefined ) {
-                let successPassworddReset  =  this.props.location.state.referrer 
-              // store.addNotification({
-              //   title:'',
-              //   message: t(successPassworddReset),
-              //   type: "success",
-              //   insert: "center",
-              //   container: "top-center",
-              //   animationIn: ["animated", "fadeIn"],
-              //   animationOut: ["animated", "fadeOut"],
-              //   dismiss: false,
-              //   // width:700,
-              //   className:"success-msg"
-              // });
-              const notification = this.notificationSystem.current;
-                  notification.addNotification({
-                    title:t('Registration'),
-                    message: t(successPassworddReset),
-                    level: 'success',
-                    //dismissible:'none',
-                    autoDismiss:8,
-                    position:'tc',
+             // to show notification after successful registration
+             componentDidUpdate()
+             {
+                const {t , history} = this.props
+                if (this.props.location.state !== undefined ) 
+                {
+                  let successPassworddReset  =  this.props.location.state.referrer 
+              
+                  const notification = this.notificationSystem.current;
+                      notification.addNotification({
+                        title:t('Registration'),
+                        message: t(successPassworddReset),
+                        level: 'success',
+                        //dismissible:'none',
+                        autoDismiss:8,
+                        position:'tc',
 
-                  });
+                      });
+                  history.replace("/login")
+                // replace the tab after registration to login tab
+                  window.$('.nav-tabs a[href="#login-tab"]').tab('show');
 
-              history.replace("/login")
-              window.$('.nav-tabs a[href="#login-tab"]').tab('show');
-
-            }
-                  }
+              }
+          }
 
                   
   
@@ -115,6 +95,7 @@ class Login extends Component{
     const {history} = this.props
 
     e.preventDefault();
+    // send credential to login
      login(this.state)
       .then(data =>{ 
 
@@ -153,7 +134,7 @@ class Login extends Component{
       }
       );
     }
-   
+   // to remove notification when click in registration tab
     clearHistory=()=>{
       const notification = this.notificationSystem.current;
       notification.clearNotifications()
@@ -195,12 +176,10 @@ class Login extends Component{
         <div id="wrapper" className="clearfix">
 
           <Header name={t('Login/Register')}/>
-          {/* <NotificationContainer/> */}
-          {/* <ReactNotification /> */}
-         
 
               <div className="main-content">
                 <section>
+                  {/* notification after successfull password reseted and registration */}
                 <NotificationSystem ref={this.notificationSystem} style={style}/>
                   <div className="container">
                     <div className="row">

@@ -6,27 +6,31 @@ import i18n from "i18next";
 import { withTranslation } from "react-i18next";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
-import SocialMedia from "../social media/social-media";
 import ReactPlayer from 'react-player'
 
-
+/**
+ * This component showing single event returned from APIs and set the event (images , vedios) in carousal
+ * @component
+ * @see http://sadagaat-uk.org/event/2865 
+ */
 
 class SinglEvent extends Component {
   constructor() {
     super();
     this.state = {
       event: [],
-      // eventImages: [],
-      // eventVideos: [
-      // ],
       allMedia: [],
     };
   }
 
+  /**
+   * This function call when component mounted return specific event  
+   * @example event with id = 2865
+   * @returns void set the event details in the state
+   */
   async componentDidMount() {
+    // get event id from props.match.params
     let id = this.props.match.params.event_id;
-    console.log(this.props.match.params.event_id);
-
     await axios
       .get(`${address()}events/${id}`, {
         headers: { "accept-language": `${i18n.language}` },
@@ -34,9 +38,8 @@ class SinglEvent extends Component {
 
       .then((response) => {
         const event = response.data;
-        console.log(event);
         this.setState({ event });
-        console.log(this.state.event.images);
+        // call function to fill event media(images and videos)
         this.fillMediaArray();
       })
       .catch((error) => {
@@ -44,7 +47,11 @@ class SinglEvent extends Component {
       });
    
   }
-
+/**
+   * This function call when component receive props  like language 
+   * @example change language from 'ar' to 'en'
+   * @returns void set the event details in the state
+   */
   async componentWillReceiveProps() {
     let id = this.state.event.id;
 
@@ -56,30 +63,26 @@ class SinglEvent extends Component {
       .then((response) => {
         const event = response.data;
         this.setState({ event });
+    // call function to fill event media(images and videos)
         this.fillMediaArray();
       })
       .catch((error) => {
         console.log(error.message);
       });
   }
+  /**
+   * This function joine event videos  and images arrays in one array AllMedia
+   * @returns void fill the state 
+   */
 
   fillMediaArray = () => {
     const event_images = this.state.event.images;
     const event_videos = this.state.event.video;
     const allMedia = [];
-    /**fill array with default Image  if event has image*/
-
-  //   if (this.state.event.imageUrl !== null)
-  //   {
-  //     allMedia.push({
-  //       type: "image",
-  //       id: this.state.event.id,
-  //       name: this.state.event.id,
-  //     });
-  // }
-
+//check if event has images
     if (event_images.length > 0) {
       event_images.map((image) => {
+        // push images in all media array add new propartity type to object
         allMedia.push({
           type: "image",
           id: image.id,
@@ -87,9 +90,10 @@ class SinglEvent extends Component {
         });
       });
     }
-
+// check if event has videos
     if (event_videos.length > 0) {
       event_videos.map((video) => {
+// push videos in all media array add new propartity type to object
         allMedia.push({
           type: "video",
           id: video.id,
@@ -97,8 +101,8 @@ class SinglEvent extends Component {
         });
       });
     }
+    //fill state with all media array
     this.setState({ allMedia });
-    console.log(allMedia);
   };
 
   render() {
@@ -115,6 +119,7 @@ class SinglEvent extends Component {
               <div class="col-md-7">
                 <h2 class="text-theme-colored ">{event.name}</h2>
                 <div class="entry-header">
+                  {/* {check if all media has images or video if there is one image its will not display the default image insted of carousal} */}
                   {allMedia.length > 0 ? (
                     <Carousel
                       slidesPerScroll={1}
@@ -155,6 +160,7 @@ class SinglEvent extends Component {
                         },
                       }}
                     >
+                      {/* {looping throuh all media  and check the type if its image or video} */}
                       {allMedia.map((media) =>
                         media.type === "image" ? (
                           <div
@@ -170,12 +176,11 @@ class SinglEvent extends Component {
                           </div>
                         ) : (
                           <div>
+                            {/* {to display video} */}
                             <ReactPlayer 
                                       controls = {true}
                                       playIcon
                                       className="img-fullwidth img-responsive"
-                                      //height='400px'
-                                      //width = '500px'
                                       url = {`${address()}events/${media.name}/video`}
                                        />
                         </div>
@@ -222,7 +227,6 @@ class SinglEvent extends Component {
 
                   <li>
                     <h5></h5>
-                    {/* < SocialMedia /> */}
                   </li>
                 </ul>
               </div>

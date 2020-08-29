@@ -3,12 +3,10 @@ import { Slide } from "react-slideshow-image";
 import slide1 from "../images/slide 1.jpg";
 import slide2 from "../images/slide 2.jpg";
 import slide3 from "../images/slide 3.jpg";
-//import work from "../images/work.jpg";
 import slide4 from "../images/slide 4.jpg"
 import slide5 from "../images/slide 5.jpg"
 import {Link } from 'react-router-dom'
-
-
+import LazyLoad from 'react-lazyload';
 
 const slideImages = [
   slide1, 
@@ -36,42 +34,52 @@ const properties = {
     <div className="slide-container">
       <Slide {...properties}>
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[0]})`}}> */}
+          <LazyLoad once= {true}>
           <div>
             <Link to = '/single-projects/1911'>
           <img  src = {require('../images/slide 1.jpg')} />
           </Link>
           </div>
+          </LazyLoad>
           {/* </div> */}
 
      
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[1]})`, backgroundSize: 'auto'}}></div>
         </div> */}
+        <LazyLoad once= {true}>
         <div>
           <Link to = '/single-projects/2374'>
           <img  src = {require('../images/slide 5.jpg')} 
          />
           </Link>
           </div>
+          </LazyLoad>
     
            {/* <div style={{ backgroundImage: `url(${slideImages[2]})`}} ></div> */}
+           <LazyLoad once= {true}>
         <div>
           <Link to = '/single-projects/2710'>
           <img  src = {require('../images/slide 2.jpg')} />
           </Link>
           </div>
+          </LazyLoad>
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
+          <LazyLoad once= {true}>
           <div>
             <Link to = '/single-projects/2054'>
           <img  src = {require('../images/slide 3.jpg')} />
           </Link>
           </div>
+          </LazyLoad>
         
           {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
+          <LazyLoad once= {true}>
           <div>
             <Link to = '/single-projects/2042'>
               <img  src = {require('../images/slide 4.jpg')} />
             </Link>
           </div>
+          </LazyLoad>
       </Slide>
     </div>
     </React.Fragment>

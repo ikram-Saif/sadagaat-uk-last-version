@@ -2,17 +2,23 @@ import React, {Component} from 'react';
 import Header from '../sub_page_header'
 import axios from 'axios'
 import address from '../utils/address'
-import {Link} from 'react-router-dom'
 import {animateScroll as scroll } from "react-scroll";
 import i18n from 'i18next'
 import  {withTranslation}  from 'react-i18next'
 
+/**
+ * This component showing contact page with contact form request , also imbedded map of sadagaat location
+ * @component
+ * @see http://sadagaat-uk.org/contact
+ */
+
+
 class Contact extends Component{
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { 
-
+// contact form 
         form:{
               name:'',
               email:'',
@@ -20,9 +26,7 @@ class Contact extends Component{
               subject: '',
               message:'',
         },
-        contactInfo:{
-
-        },
+      // response message that return after post form of check validation of text Area
         response:{
           EmptyMessageError:'',
           responseMessage:'',
@@ -31,8 +35,16 @@ class Contact extends Component{
         }
     }
 
-    const {t} = this.props
   }
+
+  /**
+ * This function validate from and return custom message fill this field
+ * @param {object} e event of input 
+ * @param {string} message that return from handleFormErrorMessage 
+ * @returns {'fill this field'} custom message
+ * @see http://sadagaat-uk.org/contact
+ * @see  https://stackoverflow.com/questions/51675169/html5-input-validation-with-custom-message
+ */
 
   handleFormErrorMessage =(e,message = '')=>{
     const {t} = this.props
@@ -44,6 +56,11 @@ class Contact extends Component{
     e.target.setCustomValidity(message)
       
     }
+    /**
+     * this function set the value of input form in the state
+     * @param {object} e  event from input field
+     * @example name:'ahmed'
+     */
 
    handleChange = (e)=> 
    {
@@ -56,14 +73,19 @@ class Contact extends Component{
       
       })
   }
+  /**
+   * this fuction handle submit button in contact form its post form content to API 
+   * and validate textArea input if its empty or not using  matc function 
+   * @param {object} e event of submit button 
+   * @returns void fill the response state message 
+   */
    
    handleSubmit = (e) => 
-   {    
+   {  
+     // prevent defalut behaviour of submmit button (reload page )  
      e.preventDefault();
         var myTxtArea = document.getElementById('message').value;
-        // var patt = /[^[^\s].+[^\s]$]/
-        // var result = patt.test(myTxtArea);
-        //var result = (myTxtArea.match(/\S+/) | myTxtArea.match(/\n+/))
+// validate textArea if its not empty post form to API
         if(myTxtArea.match(/\S+/)){
           axios.post(`${address()}feedBacks`,
 
@@ -96,6 +118,7 @@ class Contact extends Component{
 
     });
         }
+        // if textAre form empty fill state response with  error message 
         else {
           this.setState({
             response:{
@@ -190,6 +213,7 @@ class Contact extends Component{
 
                 <div className="row">
                   <div className="col-sm-6">
+                    {/* { start contact form } */}
                     <div className="form-group required">
 
                       <label>{t('name')}</label>
@@ -233,7 +257,6 @@ class Contact extends Component{
                   <div className="col-sm-6">
                     <div className="form-group">
                       <label>{t('Subject')}</label>
-
                       <input 
                           name="subject" 
                           className="form-control " 
@@ -301,13 +324,12 @@ class Contact extends Component{
                  </button>
                 </div>
               </form>
-              {/* Contact Form Validation*/}
+              {/*  End Contact Form */}
             </div>
           </div>
         </div>
       </section>
       </div>
-
       </React.Fragment> 
   );
   }

@@ -9,30 +9,40 @@ import "@brainhubeu/react-carousel/lib/style.css";
 import ReactPlayer from 'react-player'
 
 
+/**
+ * This component return Single News page with carousal of media
+ * @see http://sadagaat-uk.org/news/2728
+ * @component
+ */
+
 class SinglNews extends Component {
   constructor() {
     super();
     this.state = {
+      // all news 
       news: [],
-      // newsImages : [],
-      // newsVideos: [],
+      // videos and Images
       allMedia:[],
+      // translation 
       translationNews:{}
     };
   }
 
-
+/**
+ * get the news from ApIs
+ */
   async componentDidMount() {
+    // get id of news from url
     let id = this.props.match.params.news_id;
 
     try {
-      const { data: news } = await axios.get(`${address()}news/${id}`, {
-        headers: { "accept-language": `${i18n.language}` },
-      });
+      const { data: news } = await axios.get(`${address()}news/${id}`);
       this.setState({ 
               news 
             });
+            // join videos and images in one array
             this.fillMediaArray();
+            // call translation new 
             this.setTranslationData()
 
     } 
@@ -42,29 +52,18 @@ class SinglNews extends Component {
   //  console.log(this.state.news)
   }
 
+
+  /**
+   * When component recive props Like Language props its re call setTranslation function 
+   */
   async componentWillReceiveProps() {
-    let id = this.props.match.params.news_id;
 
-    try {
-      const { data: news } = await axios.get(`${address()}news/${id}`, {
-        headers: { "accept-language": `${i18n.language}` },
-      });
-      this.setState({ 
-                  news
-                  });
-                  this.fillMediaArray()
-                  this.setTranslationData()
+    this.setTranslationData()
 
-    } 
-    catch (error) {
-      console.log("can not load news for the home page slider");
-    }
   }
 
-  
-/**this function call after componentDidMount to join two videos and images in one array, and add new attribute type 'image'/'video'   */
-   /**
-    * 
+     /**
+    * this function  join two video and image arrays in one array, and add new attribute type 'image'/'video'
     */
 fillMediaArray =()=>{
     const news_images = this.state.news.images
@@ -109,19 +108,26 @@ fillMediaArray =()=>{
     this.setState({allMedia})
 
    }
-
+/**
+ * this function looping through translation array and return news when local attribute equals selected language en | ar
+ * you can get user selected language call  i18n.language props
+ * @return vois set translation news in the state
+ */
    setTranslationData=()=>{
+     // get newstranslation  array 
      const newsData = this.state.news.newsTranslations
-
+      // loping through array
      for(let i = 0 ;i < newsData.length; i++){
+       // check user language with lacale
        if(i18n.language === newsData[i].locale){
+         // fill the state with one translation news , news name and descriptions
          this.setState({
           translationNews:{
               name:newsData[i].name,
               description:newsData[i].description
             }
          })
-         console.log('translationsDataname',this.state.translationNews)
+        // console.log('translationsDataname',this.state.translationNews)
 
        }
      }
@@ -251,10 +257,7 @@ fillMediaArray =()=>{
                         <div class="media-body pl-15">
                           <div class="event-content pull-left flip">
                             <h2 class="line-bottom mt-0">{translationNews.name}</h2>
-{/* 
-                            <h4 className="mt-0 mb-0 text-theme-colored">
-                              {news.startDate}
-                            </h4> */}
+
                           </div>
                         </div>
                       </div>

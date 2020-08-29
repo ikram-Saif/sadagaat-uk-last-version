@@ -2,17 +2,13 @@ import React from "react";
 import Carousel from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { useTranslation } from "react-i18next";
-import partener1 from "../images/partener1.png";
-import partener2 from "../images/partener2.png";
-import partener3 from "../images/partener3.png";
-import partener4 from "../images/partener4.png";
-import partener5 from "../images/partener5.png";
-import partener6 from "../images/partener6.png";
-import partener7 from "../images/partener7.png";
-import partener9 from "../images/partener9.png";
-import partener10 from "../images/partener10.png";
-import partener11 from "../images/partener11.png";
-import partener12 from "../images/partener12.png";
+// package to optomize image 
+import LazyLoad from 'react-lazyload';
+
+/**
+ * This component display parteners logos in home page
+ * @component
+ */
  function Parteners() {
   const { t } = useTranslation();
   return (
@@ -28,9 +24,6 @@ import partener12 from "../images/partener12.png";
                   {t("Parteners")}
                 </span>
               </h2>
-              {/* <div class="title-icon">
-                <i class="flaticon-charity-hand-holding-a-heart"></i>
-              </div> */}
             </div>
           </div>
         </div>
@@ -65,47 +58,68 @@ import partener12 from "../images/partener12.png";
               }}
             >
               <div className="item">
+              <LazyLoad once={true}>
                   <img
                     src={require("../images/partener1.png")}
                     height="100vh" width = '150px'
                     alt="Sudanese American Medical Association"
                   />
+                  </LazyLoad>
    
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                 <img
                   src={require("../images/partener2.png")}
                   alt="Soba Uneviersity Hospital"
                   height="100vh" width = '150px'
                 />
+                </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener3.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener4.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener5.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener6.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require('../images/partener7.png')} alt="" height="100vh" width = '150px' />
+             </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener9.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
-                
+                </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener10.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener11.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
               <div className="item">
+              <LazyLoad once={true}>
                   <img src={require("../images/partener12.png")} alt="Sadagaat USA" height="100vh" width = '150px' />
+              </LazyLoad>
               </div>
             </Carousel>
           </div>

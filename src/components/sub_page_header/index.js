@@ -9,10 +9,7 @@ function Header(props) {
 
   return (
     <React.Fragment>
-    <section className={`${coverImage} inner-header divider parallax layer-overlay overlay-dark-6`}
-    // style = {{backgroundImage:`url(${coverImage})`}}
-    // data-src = {coverImage}
-    >
+    <section className={`${coverImage} inner-header divider parallax layer-overlay overlay-dark-6`}>
       <div className="container pt-60 pb-60">
         <div className="section-content">
           <div className="row">

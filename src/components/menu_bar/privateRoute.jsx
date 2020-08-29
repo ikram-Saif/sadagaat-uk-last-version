@@ -1,9 +1,10 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-//import { getCurrentUser } from "../../services/authService";
 import {isAuthenticated} from '../../repository'
 
-
+/**
+ * @see https://stackoverflow.com/questions/43484302/what-does-it-mean-rest-in-react-jsx
+ */
 const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route

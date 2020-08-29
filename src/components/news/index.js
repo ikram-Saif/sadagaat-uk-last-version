@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import Header from "../sub_page_header";
 import address from "./../utils/address";
-import Pagination from "./../pagination";
 import i18n from "i18next";
 import { useTranslation } from "react-i18next";
-import SocialMedia from "../social media/social-media";
 import { Link } from "react-router-dom";
 import ReactPaginate from 'react-paginate'
 import Preload from '../preload'
 
 
-
+/**
+ * This component display  all news in news page
+ * @component
+ * @see http://sadagaat-uk.org/news 
+ */
 function News() {
   const [data, setData] = useState([]);
   const [offset ,setOffset]= useState(0)
@@ -25,6 +27,10 @@ function News() {
     fetchData();
   }, [i18n.language]);
 
+  /**
+   * this function get news from APIs
+   * @returns {Array} array of news object
+   */
   async function fetchData() {
     const fetcher = await window.fetch(`${address()}news`, {
       headers: { "accept-language": `${i18n.language}` },
@@ -32,7 +38,6 @@ function News() {
     const response = await fetcher.json();
     setData(response);
     setLoading(false)
-    console.log(response)
   }
  
 // Get current posts

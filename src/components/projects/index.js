@@ -13,7 +13,7 @@ import Preload from '../preload'
  * this componnet display projects  and filter projects acourding to recived props
  * @param {string} props type of project 'completed , ongoing' , planed
  * @component
- * @see http://sadagaat-uk.org/ongoing
+ * @see http://sadagaat-uk.org/projects
  */
 const Projects =(props)=>{
   const [data, setData ] = useState([])

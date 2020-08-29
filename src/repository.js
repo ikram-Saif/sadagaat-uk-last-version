@@ -2,14 +2,15 @@ import React from 'react'
 import axios from 'axios';
 import i18n from 'i18next'
 import { Redirect } from "react-router-dom";
-//import jwtDecode from "jwt-decode";
 import {address} from './components/utils/address'
 
-
-//const BASE_URL =  'https://reqres.in/api/login'
 const tokenKey = 'x-access-token';
 const user_email ='user_email';
-
+/**
+ * This function post ceddential data to API  and set token and  in the local storage 
+ * @param {object} data  user credential data username and password
+ * @return {object} response form API 
+ */
 export function login(data) 
 
 {
@@ -19,6 +20,7 @@ export function login(data)
 
           })
     .then(response => {
+    // set token and email in to local storage
             localStorage.setItem(tokenKey, response.data.token);
             localStorage.setItem(user_email,response.data.email)
             localStorage.setItem('tokenExpired', Date.now() + 1 * 60 * 60 * 1000);
@@ -31,11 +33,13 @@ export function login(data)
 }
     
     
-   
-    /*registration new user*/
+   /**
+         * registration new user
+         * @param {object} data new user data
+         * @return {object} response form API 
+         */
     export function register(data) {
 
-        console.log(data)
         return axios.post(`${address()}users/member/signUp`,
         data
         )
@@ -46,26 +50,11 @@ export function login(data)
         })
             .catch(err =>Promise.reject(err));
         }
-        /**verfication code for  first registration  */
 
-        export function email_verify(data) 
-
-        {
-
-             return axios.post(`${address()}user/verifyUser`, {
-                 //userName: email,
-                 code: data.code 
-        
-                  })
-            .then( response =>{ return response.data
-                
-            
-                        })
-            
-            .catch(err => Promise.reject(err));
-        }
-        /** forget password  step (1) send user email  and save it in local storage*/
-
+        /** forget password   This function call when user forget password  
+         *@param {email} data  user email
+        */
+    
         export function forgotPassword(data) 
         {
 
@@ -78,8 +67,10 @@ export function login(data)
             
             .catch(err => Promise.reject(err));
         }
-        /** verify code step (2) from forgot password  */
-        /**step (3) entering new password and confirm it */
+        /**
+         * This function post new passwor to API
+         * @param {object} data  new password  and token
+         */
 
         export function resetPassword(data) 
 
@@ -102,32 +93,31 @@ export function login(data)
         }     
 
 
-   
+   /**
+    * check if user authorize or not if there is token in to local storage
+    * @return {boolean} return true if found token  , false if token not found
+    */
    export function isAuthenticated()
    {
         return localStorage.getItem(tokenKey) 
        
        
     }
+    /**
+     * This function call when user Logged out its remove Token from Local storage and redirect user to home page
+     */
     export function logout() {
         localStorage.removeItem(tokenKey);
         window.location='/login'
       }
-
-      export function get_volunteer_profile()
-       {
-
-        return axios.get(`${address()}members/`)
-        .then(response => response.data)
-
-            .catch(err => Promise.reject(err));
- 
-
-        }
+   
+/**
+ * this function post volunteer form data to API
+ * @param {object} data  volunteer form data 
+ */
         export function submit_volunteer_data(data) 
         {
             let token = localStorage.getItem(tokenKey)
-            console.log(token)
             return axios.post(`${address()}members`, data,{ 
                 headers:{ 
                             "Authorization":`Bearer ${token}`

@@ -1,28 +1,34 @@
-import React, { useState, useEffect , useRef} from 'react';
-
+import React, { useState, useEffect} from 'react';
 import Header from '../sub_page_header';
 import address from './../utils/address';
-import{Link} from 'react-router-dom'
-import 'react-circular-progressbar/dist/styles.css';
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next';
 import Hub_Subhubs from './hub_subHubs'
-// import waterCover from '../images/waterCover.jpg'
 
+/**
+ * This component of display Water Hub Information such as Image , name , discription ,donation Button for feeding hub 
+ * @component
+ * @see http://sadagaat-uk.org/water
+ */
 
-function Water (props){
+function Water (){
 
   const [water, setwater ] = useState([])
   const {t} = useTranslation()
 
-
-
+/**
+     * This function return Water hub information returned by the API 
+     * @return {object} Water hub returned by the API
+*/
   async function waterHub() {
     const fetcher = await window.fetch(`${address()}hubs/1102`,{headers: {'accept-language': `${i18n.language}`}})
     const response = await fetcher.json()
     setwater(response)
   }
 
+  /**  useEffect  waterHub call helth Hub function when component mounted or  when swiches Language through props i18n.language  
+ * i18n .language = en  Or ar 
+*/
   useEffect(() => {
       waterHub()
         } , [i18n.language])
@@ -69,11 +75,7 @@ return(
                                   
                                   <div class="mt-10 mb-20">
                                   <ul class="list-inline clearfix mt-10">
-                                    {/* <li class="text-theme-colored pull-left flip pr-0 font-weight-700 font-14">
-                                       {t("Total Donation")}:  <span> {water.total_donation} SDG</span>
-                                    </li> */}
                                     <li class="text-theme-colored pull-right flip pr-0">
-                                      
                                     </li>
                                   </ul>
                                 </div>
@@ -97,6 +99,8 @@ return(
      
   </div>
    <br />
+{/** this component display all subhubs related to Water hub */}
+
           <Hub_Subhubs  hubId = {water.id} name = {t('Water Sub Sectors')}/>
       </div>
     </section>

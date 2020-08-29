@@ -8,9 +8,12 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
-
+/**
+ * This Component diplay volunteer form 
+ * @component
+ * @see http://sadagaat-uk.org/volunteerForm
+ */
 class VolunteerForm extends Component{ 
-
 
     constructor() {
         super();
@@ -83,6 +86,13 @@ class VolunteerForm extends Component{
 
         } 
 
+/**
+ * This function validate from and return custom message fill this field
+ * @param {object} e event of input 
+ * @param {string} message that return from handleFormErrorMessage 
+ * @returns {'fill this field'} custom message
+ * */
+ 
     handleFormErrorMessage =(e,message = '')=>{
         const {t} = this.props
         
@@ -94,6 +104,11 @@ class VolunteerForm extends Component{
             
         }
 
+        /**
+     * this function set the value of input form in the state
+     * @param {object} e  event from input field
+     * @example name:'ahmed'
+     */
        handleChange = (e)=> {
         this.setState({
             form: {
@@ -103,12 +118,15 @@ class VolunteerForm extends Component{
            
             })
         }
-        
+       
+        /**
+         * This function pass form data  to api through submit_volunteer_data  function and recive mresponse (message) 
+         * @param {object} e  submit button
+         * 
+         */
        
         handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.form)
-
         submit_volunteer_data(this.state.form)
 
         .then(response => {
@@ -124,6 +142,7 @@ class VolunteerForm extends Component{
         })
       
         .catch(err => {
+           // check message returned from API
             const message = ''
             if (err.message === 'Request failed with status code 401')
             {
