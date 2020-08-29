@@ -41,7 +41,7 @@ const Volunteers =()=>{
   useEffect(() => {
     
          async function fetchData() {
-           const fetcher = await window.fetch(`${address()}voulenter-page`,{headers: {'accept-language': `${i18n.language}`}})
+           const fetcher = await window.fetch(`${address()}voulenter-page`)
            const response = await fetcher.json()
            setVolunteers(response)
            console.log(response)
@@ -53,7 +53,7 @@ const Volunteers =()=>{
            
          }
          fetchData()
-        }, [i18n.language])
+        }, [])
 
 
 return(
