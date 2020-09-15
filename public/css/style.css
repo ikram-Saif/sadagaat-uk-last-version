@@ -9,21 +9,26 @@ theme. But don't modify style-main.css file.
 
 /* Your custom css codes start here: */
 
+@import "./modal-video.min.css";
 
 .progress-item .progress-bar {
-  background: rgb(6,105,147);
-  background: linear-gradient(90deg, rgba(6,105,147,1) 0%, rgba(0,159,78,1) 50%) !important;
+  background: rgb(6, 105, 147);
+  background: linear-gradient(
+    90deg,
+    rgba(6, 105, 147, 1) 0%,
+    rgba(0, 159, 78, 1) 50%
+  ) !important;
 }
 
 .btn-theme-green {
   border-radius: 0 !important;
-  background-color: rgba(0,159,78,1);
-  color: #FFF !important;
+  background-color: rgba(0, 159, 78, 1);
+  color: #fff !important;
 }
 
 .btn-theme-green:hover {
-  background-color: rgb(0,120,78,1) !important;
-  color: #FFF !important;
+  background-color: rgb(0, 120, 78, 1) !important;
+  color: #fff !important;
 }
 
 .facts {
@@ -35,51 +40,53 @@ theme. But don't modify style-main.css file.
   margin-right: 20px;
 }
 
+.bg-img {
+  background-image: url("../images/bg-inside_1.jpg");
+}
 
-
-.bg-img{
-  background-image: url('../images/bg-inside_1.jpg');
+.bg-img-2 {
+  background-image: url("../images/bg-inside_2.jpg");
 }
-.water-bg-img{
-  background-image: url('../images/waterCover.jpg');
+.water-bg-img {
+  background-image: url("../images/waterCover.jpg");
 }
-.education-bg-img{
-  background-image: url('../images/EduCover.jpg');
+.education-bg-img {
+  background-image: url("../images/EduCover.jpg");
 }
-.feeding-bg-img{
-  background-image: url('../images/feedingCover.jpg');
+.feeding-bg-img {
+  background-image: url("../images/feedingCover.jpg");
 }
-.health-bg-img{
-  background-image: url('../images/healthCover.jpg');
+.health-bg-img {
+  background-image: url("../images/healthCover.jpg");
 }
-.volunteer-bg-img{
-  background-image: url('../images/volunteerCover.jpg');
+.volunteer-bg-img {
+  background-image: url("../images/volunteerCover.jpg");
 }
-.about-bg-img{
-  background-image: url('../images/AboutCover.jpg');
+.about-bg-img {
+  background-image: url("../images/AboutCover.jpg");
 }
-.events-bg-img{
-  background-image: url('../images/EventsCover.jpg');
+.events-bg-img {
+  background-image: url("../images/EventsCover.jpg");
 }
-.news-bg-img{
-  background-image: url('../images/newsCover.jpg');
+.news-bg-img {
+  background-image: url("../images/newsCover.jpg");
 }
-.contact-bg-img{
-  background-image: url('../images/ContactCover.jpg');
+.contact-bg-img {
+  background-image: url("../images/ContactCover.jpg");
 }
-.projects-bg-img{
-  background-image: url('../images/OngoingCover.jpg');
+.projects-bg-img {
+  background-image: url("../images/OngoingCover.jpg");
 }
 
 .slide-container {
   direction: ltr;
   width: 100%;
-  margin-bottom:-140px;
+  margin-bottom: -140px;
 }
 
 .react-slideshow-container .nav {
-background-color: rgba(0, 0, 0, 0.35) !important;
-/* width: 50px !important; */
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  /* width: 50px !important; */
 }
 
 /* .react-slideshow-container .nav:last-of-type {
@@ -91,7 +98,7 @@ margin-left: -50px !important;
 } */
 
 .react-slideshow-container .nav span {
-border-color: #FFF !important;
+  border-color: #fff !important;
 }
 
 /* h3 {
@@ -103,8 +110,6 @@ border-color: #FFF !important;
   justify-content: center;
   background-size: cover;
   height: 600px;
-
-  
 }
 
 .each-slide h3 {
@@ -146,29 +151,29 @@ border-color: #FFF !important;
   background: #adceed;
 }
 
-.number-animates{
+.number-animates {
   font-style: italic;
-font-weight: 900;
-font-size: 99px;
+  font-weight: 900;
+  font-size: 99px;
 }
 .form-check {
-display: inline !important;
-margin-right: 20px;
+  display: inline !important;
+  margin-right: 20px;
 }
 
 .dropdown-menu {
-left: 50%;
-border-radius: 0;
+  left: 50%;
+  border-radius: 0;
 }
 
-.dropdown-menu>li>a {
-text-transform: capitalize !important;
-font-weight: 500;
+.dropdown-menu > li > a {
+  text-transform: capitalize !important;
+  font-weight: 500;
 }
 
-.dropdown-menu>li>a:hover {
-background-color: #FFF;
-color: #243f60;
+.dropdown-menu > li > a:hover {
+  background-color: #fff;
+  color: #243f60;
 }
 
 /*
@@ -182,61 +187,63 @@ theme. But don't modify style-main.css file.
 
 /* Your custom css codes start here: */
 
-
 .rev_slider_wrapper {
-direction: ltr !important;
-float: left;
+  direction: ltr !important;
+  float: left;
 }
 
 .progress-item .progress-bar {
-background: rgb(6,105,147);
-background: linear-gradient(90deg, rgba(6,105,147,1) 0%, rgba(0,159,78,1) 50%) !important;
+  background: rgb(6, 105, 147);
+  background: linear-gradient(
+    90deg,
+    rgba(6, 105, 147, 1) 0%,
+    rgba(0, 159, 78, 1) 50%
+  ) !important;
 }
 
 .btn-theme-green {
-border-radius: 0 !important;
-background-color: #243f60 ;
-color: #FFF !important;
+  border-radius: 0 !important;
+  background-color: #243f60;
+  color: #fff !important;
 }
 
 .btn-theme-green:hover {
-background-color: #243f60  !important;
-color: #FFF !important;
+  background-color: #243f60 !important;
+  color: #fff !important;
 }
 
-
 .facts {
-padding: 60px 0;
+  padding: 60px 0;
 }
 
 .form-check {
-display: inline !important;
-margin-right: 20px;
+  display: inline !important;
+  margin-right: 20px;
 }
 
 .dropdown-menu {
-left: 50%;
-border-radius: 0;
+  left: 50%;
+  border-radius: 0;
 }
 
-.dropdown-menu>li>a {
-text-transform: capitalize !important;
-font-weight: 500;
+.dropdown-menu > li > a {
+  text-transform: capitalize !important;
+  font-weight: 500;
 }
 
-.dropdown-menu>li>a:hover {
-background-color: #FFF;
-/* color: #00a74f; */
+.dropdown-menu > li > a:hover {
+  background-color: #fff;
+  /* color: #00a74f; */
 }
 
 .menuzord-menu > li > a {
-font-family: 'sadagaat';
+  font-family: "sadagaat";
 }
-.lang-switch{
-  border:none;
+.lang-switch {
+  border: none;
   background-color: transparent;
 }
-.d-none{
+.d-none {
   display: none;
 }
 
@@ -266,70 +273,101 @@ font-family: 'sadagaat';
 }
 .info-msg {
   color: #059;
-  background-color: #BEF;
+  background-color: #bef;
 }
 .success-msg {
   color: #270;
-  background-color: #DFF2BF;
+  background-color: #dff2bf;
 }
 .warning-msg {
-  color: #9F6000;
-  background-color: #FEEFB3;
+  color: #9f6000;
+  background-color: #feefb3;
 }
 .error-msg {
   color: darkred;
   /* background-color: #FFBABA; */
 }
-.news{
+.news {
   position: relative;
   overflow: hidden;
 }
-.news-img{
+.news-img {
   position: absolute;
-  width:50px;
-  height:50px;
-  
+  width: 50px;
+  height: 50px;
 }
-.slider-img{
+.slider-img {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.project-discription{
+.project-discription {
   white-space: wrap;
-  height:3em;
+  height: 3em;
   overflow: hidden;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
 }
-.event-discription{
+.event-discription {
   white-space: wrap;
-  height:1.5em;
+  height: 1.5em;
   overflow: hidden;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
 }
 .form-group.required .control-label:after {
-  color:red;
-  font-family: 'FontAwesome';
-  content:"   *";
-
+  color: red;
+  font-family: "FontAwesome";
+  content: "   *";
 }
 table {
   width: 100%;
-max-width: 100%;
-margin-bottom: 1rem;
-background-color: transparent;
-border-collapse: collapse;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
 }
 table th {
-  padding: .75rem;
+  padding: 0.75rem;
   vertical-align: bottom;
   border-bottom: 2px solid #dee2e6;
 }
 
 table td {
-  padding: .75rem;
+  padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
-tbody tr:nth-of-type(2n+1) {
-  background-color: rgba(0,0,0,.05)
-};
+tbody tr:nth-of-type(2n + 1) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.modal-video-div button {
+  background-color: transparent !important;
+  outline-color: transparent;
+  border: none;
+}
+
+.modal-video {
+  z-index: 99999 !important;
+}
+
+button.modal-video-close-btn {
+  position: absolute;
+  right: 10px !important;
+  top: 10px !important;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  padding: 3px !important;
+}
+
+.modal-video-close-btn:before,
+.modal-video-close-btn:after {
+  background: #000 !important;
+  margin-top: 0 !important;
+  width: 96% !important;
+}
+
+.modal-video-body body {
+  z-index: 999;
+}

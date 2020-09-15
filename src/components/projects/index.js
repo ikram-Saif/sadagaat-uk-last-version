@@ -30,9 +30,16 @@ const Projects = (props) => {
    * git all project from API
    */
   async function fetchData() {
-    const fetcher = await window.fetch(`${address()}projects`, {
-      headers: { "accept-language": `${i18n.language}` },
-    });
+    const fetcher = await window.fetch(
+      `${address()}projects`,
+      {
+        headers: { "accept-language": `${i18n.language}` },
+      },
+      {
+        items: (page) => page.results,
+        params: true,
+      }
+    );
     const response = await fetcher.json();
     const project = filterProjects(projectType, response);
     setLoading(false);
