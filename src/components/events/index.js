@@ -36,6 +36,7 @@ function Event() {
       headers: { "accept-language": `${i18n.language}` },
     });
     const response = await fetcher.json();
+    console.log(response);
     setNews(response.slice(-3));
   }
   /**

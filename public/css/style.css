@@ -371,3 +371,7 @@ button.modal-video-close-btn {
 .modal-video-body body {
   z-index: 999;
 }
+
+.fig-col {
+  width: calc(100% / 5);
+}
