@@ -33,7 +33,6 @@ const Slideshow = () => {
               </Link>
             </div>
           </LazyLoad>
-          {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[0]})`}}> */}
           <LazyLoad once={true}>
             <div>
               <Link to="/single-projects/1911">
@@ -41,10 +40,6 @@ const Slideshow = () => {
               </Link>
             </div>
           </LazyLoad>
-          {/* </div> */}
-
-          {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[1]})`, backgroundSize: 'auto'}}></div>
-        </div> */}
 
           <LazyLoad once={true}>
             <div>
@@ -54,7 +49,6 @@ const Slideshow = () => {
             </div>
           </LazyLoad>
 
-          {/* <div style={{ backgroundImage: `url(${slideImages[2]})`}} ></div> */}
           <LazyLoad once={true}>
             <div>
               <Link to="/single-projects/2710">
@@ -62,7 +56,6 @@ const Slideshow = () => {
               </Link>
             </div>
           </LazyLoad>
-          {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
           <LazyLoad once={true}>
             <div>
               <Link to="/single-projects/2054">
@@ -71,7 +64,6 @@ const Slideshow = () => {
             </div>
           </LazyLoad>
 
-          {/* <div  className = "img-responsive" style={{ backgroundImage: `url(${slideImages[3]})` }}></div> */}
           <LazyLoad once={true}>
             <div>
               <Link to="/single-projects/2042">
