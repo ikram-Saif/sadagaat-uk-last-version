@@ -28,6 +28,16 @@ const Slideshow = () => {
         <Slide {...properties}>
           <LazyLoad once={true}>
             <div>
+              <img src={require("../images/slide7.jpeg")} />
+            </div>
+          </LazyLoad>
+          <LazyLoad once={true}>
+            <div>
+              <img src={require("../images/slide8.jpeg")} />
+            </div>
+          </LazyLoad>
+          <LazyLoad once={true}>
+            <div>
               <Link to="/single-projects/3057">
                 <img src={require("../images/slide 6.jpg")} />
               </Link>
