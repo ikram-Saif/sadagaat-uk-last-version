@@ -25,9 +25,7 @@ function About_(props) {
             <div className="row">
               <div className="col-md-6 mt-20">
                 <div className="row">
-                  <div
-                    className={`col-md-6 col-sm-6 col-xs-12 pl-xs-15 ${classParameter}`}
-                  >
+                  <div className="col-md-6 col-sm-6 col-xs-12">
                     <div className="img-hover-border">
                       <img
                         className="img-responsive"

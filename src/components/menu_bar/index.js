@@ -14,7 +14,7 @@ function MenuBar() {
             <nav id="menuzord-right" className="menuzord default no-bg">
               <a className="menuzord-brand pull-left flip" href="/">
                 <img
-                  src={require("../images/Logo.png")}
+                  src={require("../images/logo.png")}
                   className="menuzord-logo"
                   alt="Sadagaat Logo"
                 />
