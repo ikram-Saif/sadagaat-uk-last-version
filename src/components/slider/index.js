@@ -28,14 +28,14 @@ const Slideshow = () => {
         <Slide {...properties}>
           <LazyLoad once={true}>
             <div>
-              <Link to="/single-projects/3057">
+              <Link to="/single-projects/3145">
                 <img src={require("../images/slide7.jpeg")} />
               </Link>
             </div>
           </LazyLoad>
           <LazyLoad once={true}>
             <div>
-              <Link to="/single-projects/3057">
+              <Link to="/single-projects/3145">
                 <img src={require("../images/slide8.jpeg")} />
               </Link>
             </div>
