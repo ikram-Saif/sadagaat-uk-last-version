@@ -176,7 +176,7 @@ const Projects = (props) => {
                           {parse(project.description)}
                         </p>
 
-                        <Link
+                        {/* <Link
                           to={"/projects/" + project.id}
                           className="btn btn-default btn-theme-colored btn-xs font-16 mt-10"
                           style={{
@@ -186,7 +186,7 @@ const Projects = (props) => {
                           }}
                         >
                           {t("Donate")}
-                        </Link>
+                        </Link> */}
                       </div>
                     </div>
                   </Link>
