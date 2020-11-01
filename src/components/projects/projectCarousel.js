@@ -147,7 +147,7 @@ class ProjectSlider extends Component {
                     <div
                       className="causes bg-white mb-30"
                       key={project.id}
-                      style={{ height: "635px" }}
+                      style={{ height: "600px" }}
                     >
                       <Link to={"/single-projects/" + project.id}>
                         <div

@@ -4,7 +4,8 @@
  * @example "http://142.4.15.252:9090/api/v1/"
  */
 export function address() {
-  return "https://sadagaat.com:9090/api/v1/";
+  // return "https://sadagaat.com:9090/api/v1/";
+  return "https://sadagaat.com:4959/api/v1/";
 }
 
 export default address;
